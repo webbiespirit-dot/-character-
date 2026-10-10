@@ -7,8 +7,8 @@ window.WS_MEDIA = {
     poster: 'https://d2ol7oe51mr4n9.cloudfront.net/user_3K86NwsNGq5zx5cfnxLYPijNIQP/e3324317-6bc7-44ea-9cbc-334a6655ad88.webp',
   },
   el: {
-    v720: 'https://d2ol7oe51mr4n9.cloudfront.net/user_3K86NwsNGq5zx5cfnxLYPijNIQP/add43feb-2f9e-41d7-b45a-2b92e9cb16d6.mp4',
-    poster: 'https://d2ol7oe51mr4n9.cloudfront.net/user_3K86NwsNGq5zx5cfnxLYPijNIQP/9a127835-55b0-4691-9414-78b0193e4ecd.webp',
+    v720: 'https://d2ol7oe51mr4n9.cloudfront.net/user_3K86NwsNGq5zx5cfnxLYPijNIQP/69dbb52e-0a88-449b-b0a0-d4666dff1bef.mp4',
+    poster: 'https://d2ol7oe51mr4n9.cloudfront.net/user_3K86NwsNGq5zx5cfnxLYPijNIQP/7e22a398-e9d8-46e7-b7e2-4a1a3c6faef6.webp',
   },
   olive: {
     loop: 'https://d2ol7oe51mr4n9.cloudfront.net/user_3K86NwsNGq5zx5cfnxLYPijNIQP/d5cfc050-e6cf-4ecb-a9f2-904e4eab6eba.mp4',

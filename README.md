@@ -53,8 +53,8 @@ She presents the studio. She never poses as a client, and the page shows no revi
 | Presenter photograph | Higgsfield Soul 2.0, text-to-image, 9:16, job `080ec7f0-2d78-47a9-be8f-89c0b0302f81` |
 | English voice | Seed Audio 1.0, preset voice "Sienna" (`41023a48-71ab-478a-bea7-c7b5a78f6b36`). Pauses tightened and sped up 1.08× with pitch preserved. |
 | English video | Seedance 2.5 omni-reference: the photo as first frame plus the English voice as audio reference. Drafted at 480p (job `9715dc90-…`), finalized at 1080p (job `d9c70251-…`), then encoded to 720p/1080p H.264. |
-| Greek voice | ElevenLabs engine via Higgsfield Text-to-Speech V2, same "Sienna" preset, script reviewed by a Greek copy editor. Pauses tightened and sped up 1.08× with pitch preserved. |
-| Greek video | Sync Lipsync 3 on the 720p English performance, with the exact Greek voice track. Lips are re-timed to the Greek words. |
+| Greek voice | ElevenLabs engine via Higgsfield Text-to-Speech V2, same "Sienna" preset, script reviewed by a Greek copy editor. Pauses re-paced by punctuation (sentence, comma, other) and sped up 1.05× with pitch preserved. Checked word by word with Whisper. |
+| Greek video | A real-time intro made with Kling 3.0 (job `c36c5e86-…`), from the photograph to the English performance's first frame, joined to that performance at 1080p. Sync Lipsync 3 (job `fc94ee06-12da-47a2-ab03-89096ac2ab24`) then re-timed her lips to the exact Greek voice track. Served at 720p H.264. |
 | Sun-print of the presenter | Derived from the photograph: Prussian-blue cyanotype toning plus a hand-coated brush-edge alpha (Pillow/NumPy). |
 | Olive photogram | GPT Image 2.5, job `48a1d821-31c6-4ef5-9641-c338d1f5092d` |
 | Olive loop | Seedance 2.5, the photogram as both first and last frame (seamless loop), job `845f1ad7-56c1-48aa-bc13-15294f372906` |
