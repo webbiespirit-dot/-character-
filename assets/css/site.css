@@ -199,7 +199,7 @@ button { font: inherit; color: inherit; border: 0; background: none; padding: 0;
 
 .print {
   position: relative;
-  width: min(100%, calc((100svh - var(--bar-h) - 262px) * 9 / 16));
+  width: min(100%, calc((100svh - var(--bar-h) - 300px) * 9 / 16));
   min-width: min(100%, 240px);
   margin: 0 auto;
   aspect-ratio: 9 / 16;

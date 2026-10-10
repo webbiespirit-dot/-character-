@@ -131,6 +131,7 @@
   let captionsOn = store.get('ws-cc') !== 'off';
   let userPaused = false;
   let inView = true;
+  let videoLoaded = false;
 
   const useIcon = (btn, id) => { const u = $('use', btn); if (u) u.setAttribute('href', id); };
 
@@ -192,16 +193,16 @@
     if (p && p.catch) p.catch(() => syncButtons());
   };
 
-  const loadVideo = (l, keepTime) => {
+  const loadVideo = (l) => {
     const src = MEDIA[l] || MEDIA.en;
     if (!src) return;
     const wasPlaying = !video.paused && !video.ended;
-    const t = keepTime ? 0 : 0; // a new language always starts from the greeting
     video.poster = src.poster;
+    video.preload = saveData ? 'none' : 'metadata';
     video.src = src[pickSize()] || src.v720;
     setTrack(l);
     capLine.textContent = '';
-    video.currentTime = t;
+    // A new language always starts from the greeting.
     if (wasPlaying || (!reduceMotion && !saveData && !userPaused && inView)) tryPlay();
     syncButtons();
   };
@@ -260,7 +261,8 @@
     const changed = l !== lang;
     lang = l;
     applyWords(l);
-    if (video && (changed || !video.currentSrc)) loadVideo(l, false);
+    // Always run the loader once: it picks 720p or 1080p and installs the hidden caption track.
+    if (video && (changed || !videoLoaded)) { videoLoaded = true; loadVideo(l); }
     if (user) {
       store.set('ws-lang', l);
       const u = new URL(location.href);
@@ -327,7 +329,7 @@
   /* ---------- phone dock: shown while neither in-page action is on screen ---------- */
   const dock = $('#dock');
   const dockLink = dock && $('a', dock);
-  const watch = [$('#heroActions'), $('#helloActions')].filter(Boolean);
+  const watch = [$('#heroActions .btn--sun'), $('#helloActions .btn--sun')].filter(Boolean);
   if (dock && 'IntersectionObserver' in window && watch.length) {
     const seen = new Map();
     const update = () => {
