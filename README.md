@@ -38,7 +38,9 @@ bash scripts/fetch-media.sh
 
 ## Deploying
 
-Upload `index.html` and the `assets/` folder to the web host. Everything else here (this README, `PRODUCT.md`, `.impeccable/`, `scripts/`) is for development and does not belong on the live site.
+This is a standalone campaign page, not the studio's homepage. webbiespirit.com already runs the studio's main site, so never upload this page over the root of that domain.
+
+To publish it, give it its own address (for example a folder such as `webbiespirit.com/test-the-water/`) and upload `index.html` with the `assets/` folder into that folder. Then add a `<link rel="canonical">` and an `og:url` with that address to the page head. Everything else here (this README, `PRODUCT.md`, `.impeccable/`, `scripts/`) is for development and does not belong on the live site.
 
 ## The presenter
 

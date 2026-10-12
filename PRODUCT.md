@@ -24,7 +24,7 @@ webbiespirit designs a free concept preview of a business's new website first, s
 
 ## Operating Context
 
-The studio is based in Cyprus and also works remotely with businesses anywhere. Contact happens by email at webbiespirit@gmail.com. The user approved showing this address publicly. The studio's website is webbiespirit.com and its Instagram account is @webbiespirit (https://www.instagram.com/webbiespirit/).
+The studio is based in Cyprus and also works remotely with businesses anywhere. Contact happens by email at webbiespirit@gmail.com. The user approved showing this address publicly. The studio's main website is live at webbiespirit.com, and its Instagram account is @webbiespirit (https://www.instagram.com/webbiespirit/). The main site is a separate site. This page is a campaign page beside it and never replaces it.
 
 ## Capabilities and Constraints
 
