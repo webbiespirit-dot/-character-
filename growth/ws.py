@@ -8,12 +8,14 @@
     python3 growth/ws.py msg 3            print the next message for one lead
     python3 growth/ws.py list [--status new]
     python3 growth/ws.py stats
+    python3 growth/ws.py emails           today's emails as JSON, for turning into Gmail drafts
 
 Standard library only. Leads live in growth/leads.csv, which opens in any spreadsheet app.
 """
 import argparse
 import csv
 import datetime as dt
+import json
 import re
 import sys
 from pathlib import Path
@@ -304,6 +306,31 @@ def cmd_list(args):
         print(f'[{r["id"]:>3}] {r["status"]:<9} {r["channel"]:<9} {r["business"]:<30} next {r["next_touch"] or "-"}')
 
 
+def is_email(contact):
+    return bool(re.fullmatch(r'[^@\s]+@[^@\s]+\.[^@\s]+', contact.strip()))
+
+
+def cmd_emails(args):
+    """Today's emails (follow-ups due, then new email leads up to the quota) as JSON."""
+    day = today_date(args)
+    rows = load()
+    tpl = templates()
+    follow = sorted((r for r in rows if r['status'] == 'contacted' and due(r, day)), key=lambda r: r['next_touch'])
+    fresh = [r for r in rows if r['status'] == 'new' and r['channel'] == 'email'][:QUOTA[day.weekday()].get('email', 0)]
+    out = []
+    for r in follow + fresh:
+        if not is_email(r['contact']) or template_key(r) == 'script':
+            continue
+        text = render(r, tpl)
+        first, _, body = text.partition('\n')
+        subject = re.sub(r'^(Subject|Θέμα):\s*', '', first) if re.match(r'^(Subject|Θέμα):', first) else ''
+        out.append({'id': r['id'], 'business': r['business'], 'to': r['contact'].strip(),
+                    'touch': int(r['touches'] or 0) + 1, 'subject': subject,
+                    'body': body.strip('\n') if subject else text,
+                    'follow_up': int(r['touches'] or 0) > 0})
+    print(json.dumps(out, ensure_ascii=False, indent=2))
+
+
 def cmd_stats(args):
     rows = load()
     day = today_date(args)
@@ -365,10 +392,11 @@ def main():
     l.add_argument('--status', choices=STATUSES)
 
     sub.add_parser('stats', help='funnel and reply rates')
+    sub.add_parser('emails', help="today's emails as JSON, for Gmail drafts")
 
     args = p.parse_args()
     {'today': cmd_today, 'add': cmd_add, 'done': cmd_done, 'set': cmd_set,
-     'msg': cmd_msg, 'list': cmd_list, 'stats': cmd_stats}[args.cmd](args)
+     'msg': cmd_msg, 'list': cmd_list, 'stats': cmd_stats, 'emails': cmd_emails}[args.cmd](args)
 
 
 if __name__ == '__main__':

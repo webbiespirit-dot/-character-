@@ -185,6 +185,8 @@ Send the same day, by email or WhatsApp, to whoever you spoke with.
 
 ### visit-followup.en
 ```
+Subject: Following up from today
+
 {hi}
 
 Thanks for your time today. As promised, here's webbiespirit: {link}
@@ -196,6 +198,8 @@ To recap: we design a free concept preview of your new website for {business} fi
 
 ### visit-followup.el
 ```
+Θέμα: Μετά τη σημερινή μας συζήτηση
+
 {hi}
 
 Σας ευχαριστώ για τον χρόνο σας σήμερα. Όπως σας είπα, αυτό είναι το webbiespirit: {link}

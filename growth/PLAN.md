@@ -17,6 +17,10 @@ python3 growth/ws.py today
 
 It prints today's time blocks, everyone who needs a follow-up, and the next new leads per channel, each with its message already written. Send them, then log them with `ws.py done ID`. The follow-up dates are set for you. Full command list: `python3 growth/ws.py -h`.
 
+### Gmail drafts (emails done for you, sent by you)
+
+Ask Claude: **"make today's email drafts"**. Claude runs `ws.py emails`, puts each email into your Gmail Drafts, already addressed and filled in, and puts follow-ups into the same thread as the first email. Open Drafts, check each one, press Send, then log them with `ws.py done ID`. Claude only creates drafts and never sends anything.
+
 | Day | Focus | First contacts | Also |
 | --- | --- | --- | --- |
 | Mon | Build the list | 15 emails, 20 DMs | Find 25 new businesses |
