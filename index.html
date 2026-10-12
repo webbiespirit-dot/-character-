@@ -111,7 +111,8 @@
                 <feComponentTransfer in="laid" result="shape"><feFuncA type="linear" slope="12"/></feComponentTransfer>
                 <feMorphology in="shape" operator="dilate" radius="2" result="spill"/>
                 <feGaussianBlur in="spill" stdDeviation="7" result="spread"/>
-                <feComposite in="spread" in2="shape" operator="out" result="glow"/>
+                <feGaussianBlur in="shape" stdDeviation="1.1" result="edge"/>
+                <feComposite in="spread" in2="edge" operator="out" result="glow"/>
                 <feComponentTransfer in="glow" result="halation"><feFuncA type="linear" slope=".62"/></feComponentTransfer>
                 <feGaussianBlur in="laid" stdDeviation="1.1" result="contact"/>
                 <feMerge><feMergeNode in="halation"/><feMergeNode in="contact"/></feMerge>

@@ -476,9 +476,11 @@ button { font: inherit; color: inherit; border: 0; border-radius: 0; background:
   }
   .print { width: min(calc(min(84svh, 860px) * 9 / 16), 40vw); min-width: 0; margin: 0; }
   /* the copy column's width depends on the print, which scales with the window height, so
-     the headline sizes to its own column: the longer Greek line still fits in two lines */
+     the headline never runs larger than its column holds in two lines. Each language has its
+     own factor (the Greek line is a third longer), and neither grows past the 7.2vw size. */
   .hero__copy { padding: 0; container-type: inline-size; }
-  .hero__title { font-size: clamp(60px, 7.2vw, 96px); font-size: clamp(44px, 15.4cqi, 96px); }
+  .hero__title { font-size: clamp(60px, 7.2vw, 96px); font-size: clamp(44px, min(7.2vw, 21cqi), 96px); }
+  .hero__title:lang(el) { font-size: clamp(60px, 7.2vw, 96px); font-size: clamp(44px, min(7.2vw, 15.4cqi), 96px); }
   .hero__actions { margin-top: 30px; }
   .hero__actions .btn--sun { flex: 0 0 auto; padding: 0 30px; }
 
