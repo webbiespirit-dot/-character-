@@ -56,11 +56,13 @@ STATUS_TASK = {
 }
 
 # New first contacts per channel, by weekday (Mon=0). Matches growth/PLAN.md.
+# Email stays at 5 a day: on 12 Oct Gmail blocked the account (5.7.1 'Message rejected')
+# after about 19 near-identical cold emails in 90 minutes. Raise it slowly, only while nothing is blocked.
 QUOTA = {
-    0: {'research': 25, 'email': 15, 'instagram': 20},
-    1: {'research': 10, 'call': 15, 'instagram': 20, 'email': 10},
-    2: {'research': 10, 'email': 15, 'instagram': 20, 'walkin': 5},
-    3: {'research': 10, 'call': 15, 'instagram': 20, 'email': 10},
+    0: {'research': 25, 'email': 5, 'instagram': 20},
+    1: {'research': 10, 'call': 15, 'instagram': 20, 'email': 5},
+    2: {'research': 10, 'email': 5, 'instagram': 20, 'walkin': 5},
+    3: {'research': 10, 'call': 15, 'instagram': 20, 'email': 5},
     4: {'research': 10, 'instagram': 20, 'walkin': 5},
     5: {'instagram': 10},
     6: {},
