@@ -41,7 +41,12 @@ Based in Cyprus. Working with businesses anywhere.
 
 ## Posting
 
+Post both Reels from **@webbiespirit**, and set the profile's website link to https://webbiespirit.com.
+
+
 1. Upload the Reel file as it is. Do not trim it or add Instagram's own captions, because the captions are already in the picture.
 2. Under **Edit cover**, choose **Add from camera roll** and pick the matching cover. The cover keeps its title inside the 3:4 crop that the profile grid shows.
 3. Paste the post caption for that language.
-4. Put https://webbiespirit.com in the profile's website link, since links in Reel captions are not clickable.
+4. Links in Reel captions are not clickable, which is why the profile link matters.
+
+To have Claude schedule them instead: connect a Metricool account to @webbiespirit, then enable the Metricool connector in claude.ai's connector settings.
