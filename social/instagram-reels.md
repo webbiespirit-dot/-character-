@@ -1,6 +1,6 @@
 # Instagram Reels
 
-Two Reels, one per language, cut from the same presenter video as the site. Each ends on a two-second card with the email address.
+Two Reels, one per language, cut from the same presenter video as the site. A small webbiespirit.com tag sits in the top-left corner throughout, and each Reel ends on a two-second card with webbiespirit.com and the email address.
 
 | | English | Greek |
 | --- | --- | --- |
@@ -18,7 +18,8 @@ Test the water first. 🌊
 Thinking about a new website? We design a free concept preview of your new site first, so you can see it before you decide anything.
 
 Based in Cyprus. Working with businesses anywhere.
-Say hello: webbiespirit@gmail.com
+🌐 webbiespirit.com (link in bio)
+✉️ webbiespirit@gmail.com
 
 #webdesign #websitedesign #newwebsite #smallbusiness #webdesigner #cyprus #cyprusbusiness #κύπρος
 ```
@@ -31,7 +32,8 @@ Say hello: webbiespirit@gmail.com
 Σκέφτεσαι να φτιάξεις καινούργια ιστοσελίδα; Σου σχεδιάζουμε δωρεάν μια μακέτα της νέας σου ιστοσελίδας, για να τη δεις πριν αποφασίσεις οτιδήποτε.
 
 Με έδρα την Κύπρο. Δουλεύουμε με επιχειρήσεις όπου κι αν βρίσκονται.
-Πες μας γεια: webbiespirit@gmail.com
+🌐 webbiespirit.com (σύνδεσμος στο προφίλ)
+✉️ webbiespirit@gmail.com
 
 #ιστοσελίδες #κατασκευήιστοσελίδων #σχεδιασμόςιστοσελίδων #webdesign #μικρέςεπιχειρήσεις #κύπρος #cyprus
 ```
@@ -41,3 +43,4 @@ Say hello: webbiespirit@gmail.com
 1. Upload the Reel file as it is. Do not trim it or add Instagram's own captions, because the captions are already in the picture.
 2. Under **Edit cover**, choose **Add from camera roll** and pick the matching cover. The cover keeps its title inside the 3:4 crop that the profile grid shows.
 3. Paste the post caption for that language.
+4. Put https://webbiespirit.com in the profile's website link, since links in Reel captions are not clickable.
