@@ -1,6 +1,6 @@
 # Outreach templates
 
-Every message here makes only claims the studio has confirmed (see `PRODUCT.md`): a free concept preview of the new website, based in Cyprus, working with businesses anywhere. Never add prices, turnaround times, guarantees, client names or results until they are real.
+Every message here makes only claims the studio has confirmed: a free concept preview of the new website, you pay only if you love it, based in Larnaca, Cyprus, working with businesses anywhere. Prices are exactly the ones on webbiespirit.com/packages/ (Start 350 EUR, Pro 499 EUR, Ultra 947 EUR); if they change there, change them here. Never add turnaround times, guarantees, client names or results until they are real.
 
 `ws.py` reads the blocks under each `###` heading and fills in:
 
@@ -10,7 +10,10 @@ Every message here makes only claims the studio has confirmed (see `PRODUCT.md`)
 | `{business}` | The business name |
 | `{hook}` | The one specific thing you noticed, e.g. "on Instagram, through your new autumn menu". Falls back to "online". |
 | `{link}` | webbiespirit.com with a tag for the channel, so the enquiry email shows where it came from |
-| `{signature}` | Your name and the studio's details, set at the top of `ws.py` |
+| `{owner}` | Apollo for English, Palios for Greek, set at the top of `ws.py` |
+| `{signature}` | That name and the studio's details |
+
+For tattoo studios, barbers and beauty, and restaurants and cafés, `{link}` opens the live site's page for that industry, as long as the lead's `--category` says so.
 
 Personalise the hook every time. One honest, specific line beats any template.
 
@@ -26,7 +29,7 @@ Subject: A free website preview for {business}
 
 I came across {business} {hook}.
 
-I run webbiespirit, a small web design studio in Cyprus. We work the other way round: we design a free concept preview of your new website first, so you see it before you decide anything.
+I'm {owner}, co-founder of webbiespirit, a small web design studio in Larnaca. We work the other way round: we design a free concept preview of your new website first, so you see it before you decide anything, and you only pay if you love it.
 
 Would you like me to make one for {business}? A one-line reply is enough.
 
@@ -61,7 +64,7 @@ In case it helps, this is all it takes:
 2. We design a preview of your new site, free.
 3. You see it, then you decide.
 
-There's a short welcome video here: {link}
+You can see how it works here: {link}
 
 {signature}
 ```
@@ -86,7 +89,7 @@ All the best,
 
 Βρήκα την επιχείρησή σας {hook}.
 
-Είμαι από το webbiespirit, ένα μικρό στούντιο σχεδιασμού ιστοσελίδων στην Κύπρο. Δουλεύουμε ανάποδα: σας σχεδιάζουμε πρώτα δωρεάν μια μακέτα της νέας σας ιστοσελίδας, για να τη δείτε πριν αποφασίσετε οτιδήποτε.
+Λέγομαι {owner} και είμαι από το webbiespirit, ένα μικρό στούντιο σχεδιασμού ιστοσελίδων στη Λάρνακα. Δουλεύουμε ανάποδα: σας σχεδιάζουμε πρώτα δωρεάν μια μακέτα της νέας σας ιστοσελίδας, για να τη δείτε πριν αποφασίσετε οτιδήποτε, και πληρώνετε μόνο αν σας ενθουσιάσει.
 
 Θα θέλατε να σας φτιάξουμε μία; Αρκεί μια απάντηση μίας γραμμής.
 
@@ -121,7 +124,7 @@ All the best,
 2. Σχεδιάζουμε δωρεάν μια μακέτα της νέας σας ιστοσελίδας.
 3. Τη βλέπετε και μετά αποφασίζετε.
 
-Ένα σύντομο βίντεο καλωσορίσματος θα βρείτε εδώ: {link}
+Δείτε πώς λειτουργεί εδώ: {link}
 
 {signature}
 ```
@@ -146,12 +149,12 @@ Send these by hand, from the studio's own account, and only after you've looked 
 
 ### dm-1.en
 ```
-Hi! I came across {business} {hook} 👋 I'm with webbiespirit, a web design studio here in Cyprus. We design a free concept preview of your new website first, so you see it before deciding anything. Would you like one for {business}?
+Hi! I came across {business} {hook} 👋 I'm {owner} from webbiespirit, a web design studio in Larnaca. We design a free concept preview of your new website first, so you see it before deciding anything. Would you like one for {business}?
 ```
 
 ### dm-2.en
 ```
-Hi again! Just checking you saw my message. Happy to put together the free preview for {business} whenever suits you. Our short intro is here: {link}
+Hi again! Just checking you saw my message. Happy to put together the free preview for {business} whenever suits you. Have a look at what we do: {link}
 ```
 
 ### dm-3.en
@@ -161,12 +164,12 @@ Last nudge from me 🙂 If a new website isn't a priority right now, no problem 
 
 ### dm-1.el
 ```
-Καλησπέρα! Βρήκαμε την επιχείρησή σας {hook} 👋 Είμαστε το webbiespirit, ένα στούντιο σχεδιασμού ιστοσελίδων εδώ στην Κύπρο. Σας σχεδιάζουμε πρώτα δωρεάν μια μακέτα της νέας σας ιστοσελίδας, για να τη δείτε πριν αποφασίσετε οτιδήποτε. Θα θέλατε να σας φτιάξουμε μία;
+Καλησπέρα! Βρήκαμε την επιχείρησή σας {hook} 👋 Είμαστε το webbiespirit, ένα στούντιο σχεδιασμού ιστοσελίδων στη Λάρνακα. Σας σχεδιάζουμε πρώτα δωρεάν μια μακέτα της νέας σας ιστοσελίδας, για να τη δείτε πριν αποφασίσετε οτιδήποτε. Θα θέλατε να σας φτιάξουμε μία;
 ```
 
 ### dm-2.el
 ```
-Καλησπέρα ξανά! Ήθελα μόνο να βεβαιωθώ ότι είδατε το μήνυμά μου. Με χαρά να ετοιμάσουμε τη δωρεάν μακέτα σας όποτε σας βολεύει. Μια σύντομη γνωριμία μαζί μας εδώ: {link}
+Καλησπέρα ξανά! Ήθελα μόνο να βεβαιωθώ ότι είδατε το μήνυμά μου. Με χαρά να ετοιμάσουμε τη δωρεάν μακέτα σας όποτε σας βολεύει. Ρίξτε μια ματιά στη δουλειά μας: {link}
 ```
 
 ### dm-3.el
@@ -186,7 +189,7 @@ Send the same day, by email or WhatsApp, to whoever you spoke with.
 
 Thanks for your time today. As promised, here's webbiespirit: {link}
 
-To recap: we design a free concept preview of your new website for {business} first, and you decide after you've seen it. Just reply with a few lines about the business and we'll get started.
+To recap: we design a free concept preview of your new website for {business} first, and you only pay if you love it. Just reply with a few lines about the business and we'll get started.
 
 {signature}
 ```
@@ -197,7 +200,7 @@ To recap: we design a free concept preview of your new website for {business} fi
 
 Σας ευχαριστώ για τον χρόνο σας σήμερα. Όπως σας είπα, αυτό είναι το webbiespirit: {link}
 
-Με λίγα λόγια: σας σχεδιάζουμε πρώτα δωρεάν μια μακέτα της νέας σας ιστοσελίδας, και αποφασίζετε αφού τη δείτε. Απαντήστε μας με δυο λόγια για την επιχείρησή σας και ξεκινάμε.
+Με λίγα λόγια: σας σχεδιάζουμε πρώτα δωρεάν μια μακέτα της νέας σας ιστοσελίδας, και πληρώνετε μόνο αν σας ενθουσιάσει. Απαντήστε μας με δυο λόγια για την επιχείρησή σας και ξεκινάμε.
 
 {signature}
 ```
@@ -208,19 +211,19 @@ To recap: we design a free concept preview of your new website for {business} fi
 
 Aim for a yes to the free preview, not a sale. Two minutes at most.
 
-1. **Opener.** "Hi, is this {business}? My name is ___, I'm calling from webbiespirit, a web design studio here in Cyprus. Have you got thirty seconds?"
+1. **Opener.** "Hi, is this {business}? My name is Apollo, I'm calling from webbiespirit, a web design studio in Larnaca. Have you got thirty seconds?"
 2. **Reason.** "I was looking at {business} {hook}, and I'd like to offer you something free: we design a concept preview of a new website for you, so you can see it before deciding anything."
 3. **Ask.** "Could I send you the details by email or WhatsApp?" Get the address or number, and the name of whoever decides.
 4. **Close.** "Great. You'll get a message from me today." Then run `ws.py done ID` and send `visit-followup`.
 
-Greek opener: «Καλησπέρα, είμαι η/ο ___ από το webbiespirit, ένα στούντιο σχεδιασμού ιστοσελίδων στην Κύπρο. Έχετε μισό λεπτό;» Then: «Θα θέλαμε να σας σχεδιάσουμε δωρεάν μια μακέτα της νέας σας ιστοσελίδας, για να τη δείτε πριν αποφασίσετε οτιδήποτε. Να σας στείλω τις λεπτομέρειες με email ή Viber/WhatsApp;»
+Greek opener: «Καλησπέρα, λέγομαι Palios και είμαι από το webbiespirit, ένα στούντιο σχεδιασμού ιστοσελίδων στη Λάρνακα. Έχετε μισό λεπτό;» Then: «Θα θέλαμε να σας σχεδιάσουμε δωρεάν μια μακέτα της νέας σας ιστοσελίδας, για να τη δείτε πριν αποφασίσετε οτιδήποτε. Να σας στείλω τις λεπτομέρειες με email ή Viber/WhatsApp;»
 
 ## Walk-in script (going in person)
 
 Go between 10:00 and 11:30 or 15:00 and 17:00, never at a rush. Bring a phone with webbiespirit.com open and, if you can, a few printed cards with the QR code to `https://webbiespirit.com/?ref=visit`.
 
 1. Ask for the owner or manager by name if you know it. If they're busy, ask when is a good time and leave a card.
-2. "Hi, I'm ___ from webbiespirit, a web design studio here in Cyprus. I'll be quick: we design a free preview of a new website for local businesses, so you see it before deciding anything. Would you like one for {business}?"
+2. "Hi, I'm Apollo from webbiespirit, a web design studio in Larnaca. I'll be quick: we design a free preview of a new website for local businesses, so you see it before deciding anything. Would you like one for {business}?"
 3. Show the site on your phone for ten seconds. Let the presenter video do the talking.
 4. Get an email or WhatsApp number, send `visit-followup` the same day, and log it.
 
@@ -229,7 +232,7 @@ Go between 10:00 and 11:30 or 15:00 and 17:00, never at a rush. Bring a phone wi
 | They say | You say |
 | --- | --- |
 | "We already have a website." | "Great. The preview shows what a fresh version could look like. Free, and no need to change anything unless you love it." |
-| "How much does it cost?" | "The preview is free. If you like it, we'll talk about the next step and you'll see the cost before you commit to anything." |
+| "How much does it cost?" | "The preview is free, and you only pay if you love it. Our packages start at 350 euros, and they're all on webbiespirit.com/packages/." |
 | "We just use Instagram / Facebook." | "That's where people find you today. A site is where Google sends them. The preview shows you what that could look like." |
 | "Not now." | "No problem. Can I check back in a couple of months?" Set a reminder with `ws.py set ID contacted --next YYYY-MM-DD`. |
 | "Send me something." | Get the email, send `visit-followup` today. |

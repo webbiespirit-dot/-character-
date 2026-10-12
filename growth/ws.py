@@ -19,7 +19,8 @@ import sys
 from pathlib import Path
 
 # ---- your details: edit these two lines ----
-OWNER_NAME = ''          # e.g. 'Maria'. Shown in the signature.
+# Who signs each language's messages. Change the Greek spelling if you prefer, e.g. 'Παλιός'.
+OWNER = {'en': 'Apollo', 'el': 'Palios'}
 PHONE = ''               # optional, e.g. '+357 99 000000'
 
 HERE = Path(__file__).resolve().parent
@@ -34,8 +35,14 @@ STATUSES = ('new', 'contacted', 'replied', 'preview', 'sent', 'won', 'lost', 'op
 # Days to wait after touch 1, 2, 3 ... before the next one. When the list runs out, the lead goes cold.
 # Calls and visits: the recap message is due the same day (0), then two email nudges.
 CADENCE = {'email': [3, 4, 7], 'instagram': [3, 4], 'call': [0, 4, 7], 'walkin': [0, 4, 7]}
-# Tag added to the site link, so the enquiry email's subject shows the channel (see assets/js/site.js).
+# Tag added to the site link, so cookie-free analytics can show which channel brought each visit.
 REF = {'email': 'email', 'instagram': 'dm', 'call': 'call', 'walkin': 'visit'}
+# A lead whose --category matches one of these words gets the live site's page for their industry.
+INDUSTRY_PAGES = {
+    'tattoo-studios/': ('tattoo',),
+    'barbers-beauty/': ('barber', 'beauty', 'salon', 'hair', 'nail', 'spa', 'κομμωτ', 'κουρ'),
+    'restaurants-cafes/': ('restaurant', 'cafe', 'café', 'coffee', 'bar', 'bakery', 'taverna', 'καφ', 'εστιατ', 'ταβέρν'),
+}
 # What each status asks of you, and how many days you have.
 STATUS_TASK = {
     'replied': (0, 'They replied: get a few lines about the business and start the preview.'),
@@ -65,7 +72,7 @@ BLOCKS = {
     4: ['09:00 Follow-ups due', '09:30 Instagram DMs', '10:30 Walk-ins', '15:00 Work on free previews',
         '16:30 Weekly review: python3 growth/ws.py stats', '17:00 Add {research} new leads'],
     5: ['10:00 Content batch: film or edit 1 Reel and 3 Stories for next week', '11:30 A few Instagram DMs',
-        '12:00 Schedule next week\'s posts in Meta Business Suite'],
+        '12:00 Schedule next week\'s posts in Metricool'],
     6: ['Rest. Reply to anyone who wrote back.'],
 }
 DAILY = [
@@ -107,12 +114,14 @@ def templates():
 
 
 def link(lead):
-    q = f'?ref={REF.get(lead["channel"], "outreach")}'
-    return SITE + q + ('&lang=el' if lead['lang'] == 'el' else '')
+    cat = lead['category'].lower()
+    page = next((p for p, words in INDUSTRY_PAGES.items() if any(w in cat for w in words)), '')
+    base = SITE + ('el/' if lead['lang'] == 'el' else '') + page
+    return base + f'?ref={REF.get(lead["channel"], "outreach")}'
 
 
 def signature(lang):
-    who = f'{OWNER_NAME}, webbiespirit' if OWNER_NAME else 'webbiespirit'
+    who = f'{OWNER[lang]}, webbiespirit' if OWNER.get(lang) else 'webbiespirit'
     lines = [who, 'webbiespirit.com · ' + EMAIL]
     if PHONE:
         lines.append(PHONE)
@@ -148,7 +157,7 @@ def render(lead, tpl=None):
         hook = lead['hook'].strip() or 'online'
     return body.format_map({
         'hi': hi, 'business': lead['business'], 'hook': hook, 'name': name or '',
-        'city': lead['city'], 'link': link(lead), 'signature': signature(lang),
+        'city': lead['city'], 'link': link(lead), 'signature': signature(lang), 'owner': OWNER.get(lang, ''),
     })
 
 

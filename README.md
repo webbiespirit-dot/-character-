@@ -27,6 +27,7 @@ python3 -m http.server 8080
 | `assets/img/` | Brushed emulsion edge mask, the emulsion mottle inside every coat (strong and soft), paper grain, favicon and touch icon. |
 | `scripts/make-textures.py` | Regenerates the emulsion edge mask, emulsion mottle, paper grain and touch icon (deterministic). |
 | `scripts/fetch-media.sh` | Downloads all media into `assets/media/` and points the page at the local copies. |
+| `growth/` | Finding clients: the plan (`PLAN.md`), outreach templates in EN/EL and `ws.py`, which prints each day's plan with the messages filled in. For the studio's own use; never upload it. |
 
 ## Hosting the media yourself
 
