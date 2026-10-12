@@ -52,9 +52,9 @@ Post both Reels from **@webbiespirit**, and set the profile's website link to ht
 
 Both Reels are scheduled in Metricool (brand 7379023, linked to @webbiespirit) to publish automatically, with the matching cover and Instagram's "AI info" toggle on. Nothing about it is written in the videos or the captions. Times are Cyprus time (the brand's Europe/Bucharest clock matches Asia/Nicosia), at the best-rated hours in Metricool's best-time data.
 
-| Reel | Publishes | Metricool |
+| Reel | Publishes | Status |
 | --- | --- | --- |
-| Greek | Mon 12 Oct 2026, 18:00 | [planner](https://app.metricool.com/planner/calendar?blogId=7379023&openWithPostUuid=-7541835620742117686) |
-| English | Tue 13 Oct 2026, 10:00 | [planner](https://app.metricool.com/planner/calendar?blogId=7379023&openWithPostUuid=1182515876842326111) |
+| Greek | Mon 12 Oct 2026, 18:00 | Published: [instagram.com/reel/DeZhBQzDmlH](https://www.instagram.com/reel/DeZhBQzDmlH/) |
+| English | Tue 13 Oct 2026, 10:00 | Scheduled: [Metricool planner](https://app.metricool.com/planner/calendar?blogId=7379023&openWithPostUuid=1182515876842326111) |
 
 To change a time or a caption, edit the post in the Metricool planner before it goes out.
