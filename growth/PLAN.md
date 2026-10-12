@@ -63,7 +63,7 @@ python3 growth/ws.py add "Name of business" --channel instagram --contact @handl
 
 This is the part that runs on its own once set up.
 
-1. **Bio link:** `https://webbiespirit.com/?utm_source=instagram`. The site remembers where the visitor came from and adds it to the subject of their enquiry email ("Free concept preview · instagram"). Visitors who open the site inside Instagram's own browser are tagged too, even without the link. Outreach messages from `ws.py` carry their own tags (`dm`, `email`, `call`, `visit`), so every enquiry in the inbox shows which channel brought it.
+1. **Bio link** on [@webbiespirit](https://www.instagram.com/webbiespirit/): `https://webbiespirit.com/?utm_source=instagram`. The site remembers where the visitor came from and adds it to the subject of their enquiry email ("Free concept preview · instagram"). Visitors who open the site inside Instagram's own browser are tagged too, even without the link. Outreach messages from `ws.py` carry their own tags (`dm`, `email`, `call`, `visit`), so every enquiry in the inbox shows which channel brought it.
 2. **Professional account:** switch to a Business or Creator account, category "Web designer", add the email contact button and the location (Cyprus).
 3. **Scheduling posts:** connect Instagram to Meta Business Suite (free) and schedule a week of Reels and posts every Saturday. That is Instagram's own automation, and it is safe.
 4. **Auto-replies to incoming DMs:** in Instagram's professional settings, set up **Saved replies** with the `dm-` texts from `templates.md`, and **FAQ** questions such as "How does the free preview work?" and "Where are you based?".
@@ -95,7 +95,7 @@ Your list, one 15-minute task a day until it's done:
 2. **Google Search Console**: add webbiespirit.com, verify it, submit `sitemap.xml`, request indexing for `/` and `/?lang=el`.
 3. **Google Business Profile**: create it as a service-area business covering Cyprus, category "Website designer", with the site and email. This is the biggest single win for local searches like "web design Limassol".
 4. **Bing Webmaster Tools**: import from Search Console in one click.
-5. Instagram, Facebook page and LinkedIn: all link to the site with the same name and description.
+5. Instagram (@webbiespirit, already linked from the site's footer and its structured data), Facebook page and LinkedIn: all link to the site with the same name and description.
 6. List the studio in Cyprus business directories and chamber listings, using exactly the same name, email and site everywhere.
 7. Once you have real work: add each finished site as a short project page or a section on the home page. Real work is the content that ranks and convinces.
 8. Ask every happy client for a Google review.
