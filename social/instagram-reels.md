@@ -39,14 +39,22 @@ Based in Cyprus. Working with businesses anywhere.
 #ιστοσελίδες #κατασκευήιστοσελίδων #σχεδιασμόςιστοσελίδων #webdesign #μικρέςεπιχειρήσεις #κύπρος #cyprus
 ```
 
-## Posting
+## Posting by hand
 
 Post both Reels from **@webbiespirit**, and set the profile's website link to https://webbiespirit.com.
-
 
 1. Upload the Reel file as it is. Do not trim it or add Instagram's own captions, because the captions are already in the picture.
 2. Under **Edit cover**, choose **Add from camera roll** and pick the matching cover. The cover keeps its title inside the 3:4 crop that the profile grid shows.
 3. Paste the post caption for that language.
 4. Links in Reel captions are not clickable, which is why the profile link matters.
 
-To have Claude schedule them instead: connect a Metricool account to @webbiespirit, then enable the Metricool connector in claude.ai's connector settings.
+## Scheduled
+
+Both Reels are scheduled in Metricool (brand 7379023, linked to @webbiespirit) to publish automatically, with the matching cover and Instagram's "AI info" toggle on. Nothing about it is written in the videos or the captions. Times are Cyprus time (the brand's Europe/Bucharest clock matches Asia/Nicosia), at the best-rated hours in Metricool's best-time data.
+
+| Reel | Publishes | Metricool |
+| --- | --- | --- |
+| Greek | Mon 12 Oct 2026, 18:00 | [planner](https://app.metricool.com/planner/calendar?blogId=7379023&openWithPostUuid=-7541835620742117686) |
+| English | Tue 13 Oct 2026, 10:00 | [planner](https://app.metricool.com/planner/calendar?blogId=7379023&openWithPostUuid=1182515876842326111) |
+
+To change a time or a caption, edit the post in the Metricool planner before it goes out.
