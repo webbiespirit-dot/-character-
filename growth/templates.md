@@ -10,8 +10,8 @@ Every message here makes only claims the studio has confirmed: a free concept pr
 | `{business}` | The business name |
 | `{hook}` | The one specific thing you noticed, e.g. "on Instagram, through your new autumn menu". Falls back to "online". |
 | `{link}` | webbiespirit.com with a tag for the channel, so the enquiry email shows where it came from |
-| `{owner}` | Apollo for English, Palios for Greek, set at the top of `ws.py` |
-| `{signature}` | That name and the studio's details |
+| `{owner}` | Apollonas Bisaku for English, Γιώργος Παλιογιάννης for Greek, set at the top of `ws.py` |
+| `{signature}` | Απολλώνας Μπισάκου (English) or Γιώργος Παλιογιάννης (Greek), with the studio's details |
 
 For tattoo studios, barbers and beauty, and restaurants and cafés, `{link}` opens the live site's page for that industry, as long as the lead's `--category` says so.
 
@@ -89,7 +89,7 @@ All the best,
 
 Βρήκα την επιχείρησή σας {hook}.
 
-Λέγομαι {owner} και είμαι από το webbiespirit, ένα μικρό στούντιο σχεδιασμού ιστοσελίδων στη Λάρνακα. Δουλεύουμε ανάποδα: σας σχεδιάζουμε πρώτα δωρεάν μια μακέτα της νέας σας ιστοσελίδας, για να τη δείτε πριν αποφασίσετε οτιδήποτε, και πληρώνετε μόνο αν σας ενθουσιάσει.
+Λέγομαι {owner} και είμαι συνιδρυτής του webbiespirit, ενός μικρού στούντιο σχεδιασμού ιστοσελίδων στη Λάρνακα. Δουλεύουμε ανάποδα: σας σχεδιάζουμε πρώτα δωρεάν μια μακέτα της νέας σας ιστοσελίδας, για να τη δείτε πριν αποφασίσετε οτιδήποτε, και πληρώνετε μόνο αν σας ενθουσιάσει.
 
 Θα θέλατε να σας φτιάξουμε μία; Αρκεί μια απάντηση μίας γραμμής.
 
@@ -215,19 +215,19 @@ To recap: we design a free concept preview of your new website for {business} fi
 
 Aim for a yes to the free preview, not a sale. Two minutes at most.
 
-1. **Opener.** "Hi, is this {business}? My name is Apollo, I'm calling from webbiespirit, a web design studio in Larnaca. Have you got thirty seconds?"
+1. **Opener.** "Hi, is this {business}? My name is Apollonas, I'm calling from webbiespirit, a web design studio in Larnaca. Have you got thirty seconds?"
 2. **Reason.** "I was looking at {business} {hook}, and I'd like to offer you something free: we design a concept preview of a new website for you, so you can see it before deciding anything."
 3. **Ask.** "Could I send you the details by email or WhatsApp?" Get the address or number, and the name of whoever decides.
 4. **Close.** "Great. You'll get a message from me today." Then run `ws.py done ID` and send `visit-followup`.
 
-Greek opener: «Καλησπέρα, λέγομαι Palios και είμαι από το webbiespirit, ένα στούντιο σχεδιασμού ιστοσελίδων στη Λάρνακα. Έχετε μισό λεπτό;» Then: «Θα θέλαμε να σας σχεδιάσουμε δωρεάν μια μακέτα της νέας σας ιστοσελίδας, για να τη δείτε πριν αποφασίσετε οτιδήποτε. Να σας στείλω τις λεπτομέρειες με email ή Viber/WhatsApp;»
+Greek opener: «Καλησπέρα, λέγομαι Γιώργος Παλιογιάννης και είμαι από το webbiespirit, ένα στούντιο σχεδιασμού ιστοσελίδων στη Λάρνακα. Έχετε μισό λεπτό;» Then: «Θα θέλαμε να σας σχεδιάσουμε δωρεάν μια μακέτα της νέας σας ιστοσελίδας, για να τη δείτε πριν αποφασίσετε οτιδήποτε. Να σας στείλω τις λεπτομέρειες με email ή Viber/WhatsApp;»
 
 ## Walk-in script (going in person)
 
 Go between 10:00 and 11:30 or 15:00 and 17:00, never at a rush. Bring a phone with webbiespirit.com open and, if you can, a few printed cards with the QR code to `https://webbiespirit.com/?ref=visit`.
 
 1. Ask for the owner or manager by name if you know it. If they're busy, ask when is a good time and leave a card.
-2. "Hi, I'm Apollo from webbiespirit, a web design studio in Larnaca. I'll be quick: we design a free preview of a new website for local businesses, so you see it before deciding anything. Would you like one for {business}?"
+2. "Hi, I'm Apollonas from webbiespirit, a web design studio in Larnaca. I'll be quick: we design a free preview of a new website for local businesses, so you see it before deciding anything. Would you like one for {business}?"
 3. Show the site on your phone for ten seconds. Let the presenter video do the talking.
 4. Get an email or WhatsApp number, send `visit-followup` the same day, and log it.
 

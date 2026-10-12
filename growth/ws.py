@@ -22,8 +22,9 @@ import sys
 from pathlib import Path
 
 # ---- your details: edit these two lines ----
-# Who signs each language's messages. Change the Greek spelling if you prefer, e.g. 'Παλιός'.
-OWNER = {'en': 'Apollo', 'el': 'Palios'}
+# Who introduces themselves in each language, and how they sign (in Greek letters, as the founders asked).
+OWNER = {'en': 'Apollonas Bisaku', 'el': 'Γιώργος Παλιογιάννης'}
+SIGN = {'en': 'Απολλώνας Μπισάκου', 'el': 'Γιώργος Παλιογιάννης'}
 PHONE = ''               # optional, e.g. '+357 99 000000'
 
 HERE = Path(__file__).resolve().parent
@@ -125,7 +126,7 @@ def link(lead):
 
 
 def signature(lang):
-    who = f'{OWNER[lang]}, webbiespirit' if OWNER.get(lang) else 'webbiespirit'
+    who = f'{SIGN[lang]}, webbiespirit' if SIGN.get(lang) else 'webbiespirit'
     lines = [who, 'webbiespirit.com · ' + EMAIL]
     if PHONE:
         lines.append(PHONE)
@@ -170,7 +171,7 @@ FIRST = {
     'el': {
         'label': 'Ελληνικά', 'hi': 'Καλησπέρα {name},', 'hi_anon': 'Καλησπέρα σας,',
         'found': 'Βρήκα την επιχείρησή σας {hook}.',
-        'intro': 'Λέγομαι {owner} και είμαι από το webbiespirit, ένα στούντιο σχεδιασμού ιστοσελίδων στη Λάρνακα. '
+        'intro': 'Λέγομαι {owner} και είμαι συνιδρυτής του webbiespirit, ενός στούντιο σχεδιασμού ιστοσελίδων στη Λάρνακα. '
                  'Δουλεύουμε ανάποδα: σας σχεδιάζουμε πρώτα δωρεάν μια μακέτα της νέας σας ιστοσελίδας, '
                  'για να τη δείτε πριν αποφασίσετε οτιδήποτε, και πληρώνετε μόνο αν σας ενθουσιάσει.',
         'steps': ['Μας λέτε δυο λόγια για την επιχείρησή σας.', 'Σχεδιάζουμε δωρεάν τη μακέτα της νέας σας ιστοσελίδας.',
@@ -217,13 +218,13 @@ def first_email(lead):
     for lang in order:
         c = FIRST[lang]
         hook = (lead['hook_el'] if lang == 'el' else lead['hook']).strip() or ('στο διαδίκτυο' if lang == 'el' else 'online')
-        v = {'name': name, 'business': lead['business'], 'hook': hook, 'owner': OWNER.get(lang, '')}
+        v = {'name': name, 'business': lead['business'], 'hook': hook, 'owner': OWNER.get(lang, ''), 'sign': SIGN.get(lang, '')}
         hi = (c['hi'] if name else c['hi_anon']).format(**v)
         found, intro, ask = c['found'].format(**v), c['intro'].format(**v), c['ask'].format(**v)
         work, packages = site_links(lead, lang)
         steps_txt = '\n'.join(f'{i}. {s}' for i, s in enumerate(c['steps'], 1))
         texts.append(f'{hi}\n\n{found}\n\n{intro}\n\n{steps_txt}\n\n{c["cta"]}: {work}\n{c["packages"]}: {packages}'
-                     f'\n\n{ask} {c["ask_more"]}\n\n{v["owner"]}, webbiespirit')
+                     f'\n\n{ask} {c["ask_more"]}\n\n{v["sign"]}, webbiespirit')
         e = lambda s: html.escape(s, quote=True)
         p = 'margin:0 0 16px;'
         steps_html = ''.join(
@@ -240,7 +241,7 @@ def first_email(lead):
             f'<td style="background:#E0E46A;"><a href="{e(work)}" style="display:inline-block;padding:13px 22px;font-size:15px;font-weight:bold;color:#0B2559;text-decoration:none;">{e(c["cta"])} &rarr;</a></td>'
             f'</tr></table><p style="margin:0 0 18px;font-size:15px;"><a href="{e(packages)}" style="color:#163F94;">{e(c["packages"])}</a></p>'
             f'<p style="{p}"><b>{e(ask)}</b> {e(c["ask_more"])}</p>'
-            f'<p style="{p}">{e(v["owner"])}<br><span style="color:#3A5486;">webbiespirit</span></p></td></tr>')
+            f'<p style="{p}">{e(v["sign"])}<br><span style="color:#3A5486;">webbiespirit</span></p></td></tr>')
     subject = SUBJECT[primary].format(business=lead['business'])
     text = f'{texts[0]}\n\n— {FIRST[primary]["other_lang"]} —\n\n{texts[1]}\n\nwebbiespirit · Larnaca, Cyprus\nwebbiespirit.com · webbiespirit@gmail.com · Instagram @webbiespirit\n{OPTOUT}'
     doc = FIRST_EMAIL.read_text(encoding='utf-8')
