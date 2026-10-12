@@ -4,11 +4,11 @@ Two Reels, one per language, cut from the same presenter video as the site. Each
 
 | | English | Greek |
 | --- | --- | --- |
-| Reel | REEL_EN | REEL_EL |
-| Cover | COVER_EN | COVER_EL |
+| Reel (clean, no captions yet) | [reel-en.mp4](https://d2ol7oe51mr4n9.cloudfront.net/user_3K86NwsNGq5zx5cfnxLYPijNIQP/ca13adb2-949f-4f4f-bdb4-345f8abbb9af.mp4) | [reel-el.mp4](https://d2ol7oe51mr4n9.cloudfront.net/user_3K86NwsNGq5zx5cfnxLYPijNIQP/bcfec4ec-524a-4de8-a60e-909c305b335c.mp4) |
+| Cover | [cover-en.jpg](https://d2ol7oe51mr4n9.cloudfront.net/user_3K86NwsNGq5zx5cfnxLYPijNIQP/affe3b33-60a0-4ed9-896b-a4d5ef3e759a.jpg) | [cover-el.jpg](https://d2ol7oe51mr4n9.cloudfront.net/user_3K86NwsNGq5zx5cfnxLYPijNIQP/2738ec20-d0cf-4605-925f-bb4b825b9b5c.jpg) |
 | Size | 1080×1920, 23 s | 720×1280, 29 s |
 | Sound | −14 LUFS, voice only | −14 LUFS, voice only |
-| Captions | Burned in, sentence case, kept clear of her face and hands and of Instagram's buttons | Same |
+| Captions | Not yet burned in. Timed and placed just under her chin, clear of her face, the swimsuit, her hands and Instagram's buttons | Same |
 
 ## Post caption, English
 
