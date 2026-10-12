@@ -474,9 +474,11 @@ button { font: inherit; color: inherit; border: 0; border-radius: 0; background:
     padding: 34px clamp(28px, 4vw, 64px) 40px 34px;
     max-width: 1320px; margin: 0 auto;
   }
-  .print { width: calc(min(84svh, 860px) * 9 / 16); min-width: 0; margin: 0; }
-  .hero__copy { padding: 0; }
-  .hero__title { font-size: clamp(60px, 7.2vw, 96px); }
+  .print { width: min(calc(min(84svh, 860px) * 9 / 16), 40vw); min-width: 0; margin: 0; }
+  /* the copy column's width depends on the print, which scales with the window height, so
+     the headline sizes to its own column: the longer Greek line still fits in two lines */
+  .hero__copy { padding: 0; container-type: inline-size; }
+  .hero__title { font-size: clamp(60px, 7.2vw, 96px); font-size: clamp(44px, 15.4cqi, 96px); }
   .hero__actions { margin-top: 30px; }
   .hero__actions .btn--sun { flex: 0 0 auto; padding: 0 30px; }
 
@@ -499,23 +501,26 @@ button { font: inherit; color: inherit; border: 0; border-radius: 0; background:
    for it without pushing the headline onto a third line */
 @media (min-width: 1200px) {
   .hero__field {
+    --wedge-w: clamp(92px, 7.2vw, 132px);
     column-gap: clamp(36px, 4.2vw, 72px);
-    padding-right: calc(var(--edge) + 6px + clamp(46px, 3.8vw, 64px) + clamp(22px, 2vw, 32px));
+    padding-right: calc(var(--edge) + var(--wedge-w) + clamp(4px, 1vw, 18px));
   }
+  /* its own coat mask, drawn at the wedge's proportions, so the brushed sides stay visible;
+     the transparent margins of the mask overlap the field's own edge */
   .wedge {
-    position: absolute; top: 34px; bottom: 40px;
-    right: calc(var(--edge) + 6px);
-    width: clamp(46px, 3.8vw, 64px);
+    position: absolute; top: 26px; bottom: 30px;
+    right: calc(var(--edge) - 10px);
+    width: var(--wedge-w);
     display: grid; grid-template-rows: repeat(4, 1fr);
-    -webkit-mask-box-image: url(../img/emulsion-edge.png) 64 fill / 18px stretch;
-    mask-border: url(../img/emulsion-edge.png) 64 fill / 18px stretch;
+    -webkit-mask: url(../img/wedge-coat.png) center / 100% 100% no-repeat;
+    mask: url(../img/wedge-coat.png) center / 100% 100% no-repeat;
   }
   .wedge__band {
     background-image: url(../img/emulsion-mottle-soft.png);
     background-size: 384px 384px;
     transition: background-color var(--develop) var(--ease-out);
   }
-  .wedge__band--paper { background-color: var(--paper); }
+  .wedge__band--paper { background-color: var(--paper); background-image: none; }
   .wedge__band--light { background-color: var(--light); }
   .wedge__band--mid { background-color: var(--mid); }
   .wedge__band--deep { background-color: var(--deep); }

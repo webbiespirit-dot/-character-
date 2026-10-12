@@ -1,5 +1,5 @@
-"""Generate the brushed-emulsion edge mask, the emulsion mottle, the paper grain tile
-and the home-screen icon.
+"""Generate the brushed-emulsion edge mask, the step-wedge coat, the emulsion mottle,
+the paper grain tile and the home-screen icon.
 
 Both are deterministic (fixed seeds), so re-running this script reproduces
 the committed PNGs byte for byte on the same Pillow/NumPy versions.
@@ -105,6 +105,62 @@ def emulsion_mask(size=480, seed=11):
          "alpha mask of a cyanotype coat with brushed edges, used as the CSS mask-border of every coat.")
 
 
+def wedge_coat(w=160, h=1200, seed=31):
+    """Alpha mask for the desktop step wedge: one narrow coat brushed across the strip.
+
+    Drawn at the wedge's own proportions and shown with mask-size 100% 100%, so the
+    ragged sides keep their size on screen instead of shrinking into a mask-border slice.
+    """
+    rng = np.random.default_rng(seed)
+    yy, xx = np.mgrid[0:h, 0:w].astype(np.float32)
+
+    def side_reach():
+        # Stroke ends: a slow wander, plus bristle ends a few px apart that differ in length.
+        return 13 + 13 * row_noise(h, 150, rng) + 9 * row_noise(h, 4, rng, 1.7) + 4 * row_noise(h, 19, rng)
+
+    def cap_reach():
+        return 12 + 10 * row_noise(w, 45, rng) + 4 * row_noise(w, 9, rng)
+
+    left, right = side_reach(), side_reach()
+    top, bottom = cap_reach(), cap_reach()
+    d = np.minimum.reduce([
+        xx - left[:, None],
+        (w - 1 - xx) - right[:, None],
+        yy - top[None, :],
+        (h - 1 - yy) - bottom[None, :],
+    ])
+    alpha = np.clip(d / 1.8 + 0.5, 0, 1)
+
+    # Dry-brush gaps running across the strip, strongest near the stroke ends.
+    streak = np.asarray(
+        Image.fromarray((rng.random((h // 3, 6)) * 255).astype(np.uint8)).resize((w, h), Image.BICUBIC),
+        dtype=np.float32,
+    ) / 255.0
+    near = np.clip(1 - np.maximum(d, 0) / 14.0, 0, 1)
+    alpha = alpha * (1 - near * np.clip((0.55 - streak) * 1.8, 0, 0.9))
+
+    # Stray bristle hairs that overshoot both sides.
+    for side in (0, 1):
+        for _ in range(70):
+            y = int(rng.integers(20, h - 20))
+            length = float(rng.uniform(5, 16))
+            reach = (left if side == 0 else right)[y]
+            x0, x1 = reach - length, reach + 2
+            xs = np.arange(max(0, int(x0)), int(x1))
+            fade = np.clip((xs - x0) / length, 0, 1) * rng.uniform(0.4, 0.85)
+            col = xs if side == 0 else (w - 1 - xs)
+            alpha[y, col] = np.maximum(alpha[y, col], fade)
+    alpha = np.asarray(
+        Image.fromarray((alpha * 255).astype(np.uint8)).filter(ImageFilter.GaussianBlur(0.5)),
+        dtype=np.float32,
+    ) / 255.0
+    la = np.zeros((h, w, 2), np.uint8)
+    la[..., 0] = 255
+    la[..., 1] = (alpha.clip(0, 1) * 255).astype(np.uint8)
+    save(Image.fromarray(la, "LA"), "wedge-coat.png",
+         "alpha mask of the desktop step wedge, a narrow cyanotype coat brushed across the strip.")
+
+
 def paper_grain(size=160, seed=5):
     rng = np.random.default_rng(seed)
     g = rng.normal(0, 1, (size, size)).astype(np.float32)
@@ -183,9 +239,10 @@ def touch_icon(size=180):
 
 if __name__ == "__main__":
     emulsion_mask()
+    wedge_coat()
     paper_grain()
     emulsion_mottle("emulsion-mottle.png", light_max=45, dark_max=84)
     emulsion_mottle("emulsion-mottle-soft.png", light_max=24, dark_max=54)
     touch_icon()
-    print("wrote", OUT / "emulsion-edge.png", OUT / "paper-grain.png", OUT / "emulsion-mottle.png",
+    print("wrote", OUT / "emulsion-edge.png", OUT / "wedge-coat.png", OUT / "paper-grain.png", OUT / "emulsion-mottle.png",
           OUT / "emulsion-mottle-soft.png", OUT / "apple-touch-icon.png")

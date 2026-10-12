@@ -253,7 +253,7 @@ The palette is a cold monochrome of Prussian blues on blue-white paper. It has o
 
 **The Hard Step Rule.** Tone moves between exposure steps in hard bands, never in blends. Bands meet edge to edge, with no gap and no gradient between them.
 
-**The Worst Pixel Rule.** Each surface gets the mottle strength that keeps its text at WCAG AA on the tile's most extreme pixel, not just on the flat colour. The strong tile, which lightens by up to 43/255 white and darkens by up to 84/255 deep as shipped, sits under the hero field (white text no lower than 6.20:1, soft lead no lower than 4.62:1) and the deep band. The soft tile (23/255 and 54/255) sits under the pale and mid bands and the step wedge. The mid band carries white text on the soft tile (no lower than 4.70:1), because the strong tile would drop it to 4.04:1.
+**The Worst Pixel Rule.** Each surface gets the mottle strength that keeps its text at WCAG AA on the tile's most extreme pixel, not just on the flat colour. The strong tile, which lightens by up to 43/255 white and darkens by up to 84/255 deep as shipped, sits under the hero field (white text no lower than 6.20:1, soft lead no lower than 4.62:1) and the deep band. The soft tile (23/255 and 54/255) sits under the pale and mid bands and the step wedge's pale, mid and deep steps; the wedge's paper step is bare paper. The mid band carries white text on the soft tile (no lower than 4.70:1), because the strong tile would drop it to 4.04:1.
 
 ## Typography
 
@@ -263,7 +263,7 @@ The palette is a cold monochrome of Prussian blues on blue-white paper. It has o
 **Character:** A crisp, slightly inky book serif carries everything the page states: the headline, the steps, the numerals and the address. A narrow, upright sans carries reading text and every control. Both fonts carry Greek, so the English and Greek pages set the same way.
 
 ### Hierarchy
-- **Display** (560, clamp(36px, 10.4vw, 96px), from 900px clamp(60px, 7.2vw, 96px), line height 0.98, tracking -0.022em, word spacing .08em, balanced wrap): the hero headline only, white on the field.
+- **Display** (560, clamp(36px, 10.4vw, 96px), from 900px sized to its own column at clamp(44px, 15.4cqi, 96px) (clamp(60px, 7.2vw, 96px) without container queries), so the longer Greek line always holds two lines, line height 0.98, tracking -0.022em, word spacing .08em, balanced wrap): the hero headline only, white on the field.
 - **Headline** (520, clamp(30px, 7.6vw, 64px), line height 1.02, tracking -0.018em, word spacing .08em, balanced wrap): section heads, in ink on paper. From 900px the "where" headline grows to clamp(44px, 4.8vw, 70px), within 16ch.
 - **Numeral** (300, clamp(56px, 15vw, 96px), line height 0.8, lining figures, opacity .9): the test-strip step numbers.
 - **Title** (460, clamp(22px, 5.6vw, 32px), line height 1.15, word spacing .07em, max 22ch, balanced wrap): test-strip step text.
@@ -292,9 +292,9 @@ The page is built for the phone first and runs in one column. The top bar is 56p
 
 **Test strip on a phone.** Three bands stack, each with its numeral and text side by side (auto and 1fr, 16px apart) and a minimum height of 150px. The photogram spans the full band beneath them.
 
-**From 900px, the landscape sheet.** The hero coat becomes a two-column grid (auto, then minmax(0, 1fr)) with a column gap of clamp(36px, 5vw, 88px), padding 34px clamp(28px, 4vw, 64px) 40px 34px, and a maximum width of 1320px. The print sits off-centre at the left, width min(84svh, 860px) × 9/16. Sun buttons stop stretching and take 0 30px padding. All sections cap at 1320px. The strip becomes three columns: each band is at least 300px tall, padded 34px, 32px and 38px, stacked inside with a 24px gap, and the photogram is pushed to the bottom. "Where" and "hello" split 5fr to 6fr. The olive print moves right, up to 420px wide, and the presenter's sun-print grows to 440px.
+**From 900px, the landscape sheet.** The hero coat becomes a two-column grid (auto, then minmax(0, 1fr)) with a column gap of clamp(36px, 5vw, 88px), padding 34px clamp(28px, 4vw, 64px) 40px 34px, and a maximum width of 1320px. The print sits off-centre at the left, width min(84svh, 860px) × 9/16, capped at 40vw so a narrow, tall window still leaves the copy room. Sun buttons stop stretching and take 0 30px padding. All sections cap at 1320px. The strip becomes three columns: each band is at least 300px tall, padded 34px, 32px and 38px, stacked inside with a 24px gap, and the photogram is pushed to the bottom. "Where" and "hello" split 5fr to 6fr. The olive print moves right, up to 420px wide, and the presenter's sun-print grows to 440px.
 
-**From 1200px, the step wedge.** Four bands, from paper through pale and mid to deep, stand inside the coat's right edge: 34px from the top, 40px from the bottom, the edge width plus 6px from the right, and clamp(46px, 3.8vw, 64px) wide. The coat's right padding grows to clear the wedge, and its column gap tightens to clamp(36px, 4.2vw, 72px).
+**From 1200px, the step wedge.** Four bands, from paper through pale and mid to deep, stand at the coat's right edge: 26px from the top, 30px from the bottom, the edge width less 10px from the right, and clamp(92px, 7.2vw, 132px) wide (--wedge-w), of which the brushed coat shows about 70%. The coat's right padding is the edge width plus the wedge plus clamp(4px, 1vw, 18px), and its column gap tightens to clamp(36px, 4.2vw, 72px).
 
 **Thumb reach.** Below 900px the phone dock is fixed to the bottom and holds a full-width sun button. The footer adds 104px plus the safe-area inset at its foot, so the dock never covers it. Touch targets are at least 44px (mark and language switch), 46px for video controls and 54px for actions. The bar, dock, footer and skip link respect the safe-area insets.
 
@@ -313,7 +313,7 @@ The system is flat. Nothing on the page casts a drop shadow. Depth comes from th
 
 **Square corners.** Every control, coat, band, print and caption has 0 radius. The only circle in the interface is the mark's 16px sun disc: paper at the centre out to 32%, then the field from 33%. Drawn subjects inside a photogram may have their own curves, such as the phone silhouette in step two.
 
-**Brushed edges.** Coats get their edge from a generated 480px alpha mask (emulsion-edge.png), applied as a mask border with a 64px slice, filled and stretched. The edge width is 16px on phones and 34px from 900px on the hero coat and the strip. The olive print uses a fixed 22px edge and the step wedge 18px. The strip is masked as one object, so its three bands share one ragged outline. Browsers without mask-border show clean rectangles, which still read as fields. The presenter's sun-print is a finished image and is shown without a CSS edge.
+**Brushed edges.** Coats get their edge from a generated 480px alpha mask (emulsion-edge.png), applied as a mask border with a 64px slice, filled and stretched. The edge width is 16px on phones and 34px from 900px on the hero coat and the strip. The olive print uses a fixed 22px edge. The step wedge has its own mask (wedge-coat.png, 160 × 1200), drawn at the wedge's proportions and stretched to it with mask-size 100% 100%, so its brushed sides keep their size on screen instead of shrinking into a mask-border slice. Because mask-image is fetched with CORS, the page must be served over http(s) for it to show; opened from file:// the wedge is masked out. The strip is masked as one object, so its three bands share one ragged outline. Browsers without mask-border show clean rectangles, which still read as fields. The presenter's sun-print is a finished image and is shown without a CSS edge.
 
 **Icons.** One stroke family: 22px, drawn on a 24-unit grid, stroke 1.75, square caps and miter joins. Their rectangles are square-cornered, and only the play triangle is filled.
 
@@ -351,13 +351,13 @@ The three steps of the free preview are three exposures on one strip: pale, mid 
 - **Develop:** when script and motion are allowed, each band starts latent (sensitizer with deep text). Once 35% of a band is in view (the bottom of the viewport is pulled up 8%), it develops after 180ms plus 260ms per earlier sibling. Background and text colour change over 1400ms on the exponential ease-out. Without script, or with reduced motion, the bands show their exposure from the start.
 
 ### Photogram
-The step-two drawing is a filled SVG exposure, 84px wide, in white (deep at .45 while its band is latent), and has no strokes. It is a phone silhouette filled with a currentColor glass gradient (.56 to .38 to .26 opacity), holding solid and .9/.8/.7-opacity blocks. A contact filter merges a 4.5 blur at half alpha (halation) under a 0.9 blur, which gives the softness of a contact print. A 13px white "Illustration" caption labels it. Where CSS scroll timelines exist and motion is allowed, the drawing exposes with scroll position as its band enters: it goes from .3 opacity and a 2px blur to full, on a linear timeline.
+The step-two drawing is a filled SVG exposure, 84px wide, in white (deep at .45 while its band is latent), and has no strokes. It is a phone silhouette filled with a currentColor glass gradient (.56 to .38 to .26 opacity), holding solid and .9/.8/.7-opacity blocks. A contact filter roughens the shapes with fractal noise (a 2.6 displacement) and softens them with a 1.1 blur, like a contact print. Under that it lays halation outside the outline only: the solid silhouette, dilated by 2 and blurred by 7, cut out by the silhouette itself and set at .62 alpha, so light spreads past the edge without washing out the glass inside. A 13px white "Illustration" caption labels it. Where CSS scroll timelines exist and motion is allowed, the drawing exposes with scroll position as its band enters: it goes from .3 opacity and a 2px blur to full, on a linear timeline.
 
 ### Olive print
 A 3:4 print on a deep backing with a 22px brushed edge. Its looping video is scaled to 1.14 from 40% 32%, which crops past the sheet's cream margin. It develops from the warm latent filter to clean. Where scroll timelines exist, that change follows scroll position as the print enters the viewport. Elsewhere it is a 1400ms transition triggered when the print comes into view.
 
 ### Step wedge
-From 1200px, four soft-mottled bands (paper, pale, mid and deep) sit beside the print with an 18px brushed edge. They develop from sensitizer in turn when the hero loads.
+From 1200px, four bands (bare paper, then pale, mid and deep on the soft mottle) stand at the coat's right edge as one narrow brushed coat with its own mask. They develop from sensitizer in turn when the hero loads.
 
 ### Email address
 Set in the address voice in field blue, with a 2px underline in mid at .45. On hover (fine pointers) the underline turns solid mid.

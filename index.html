@@ -105,10 +105,15 @@
                 <stop offset=".55" stop-color="currentColor" stop-opacity=".38"/>
                 <stop offset="1" stop-color="currentColor" stop-opacity=".26"/>
               </linearGradient>
-              <filter id="gram-contact" x="-25%" y="-15%" width="150%" height="130%">
-                <feGaussianBlur in="SourceGraphic" stdDeviation="4.5" result="spread"/>
-                <feComponentTransfer in="spread" result="halation"><feFuncA type="linear" slope=".5"/></feComponentTransfer>
-                <feGaussianBlur in="SourceGraphic" stdDeviation=".9" result="contact"/>
+              <filter id="gram-contact" x="-45%" y="-25%" width="190%" height="150%" color-interpolation-filters="sRGB">
+                <feTurbulence type="fractalNoise" baseFrequency=".8" numOctaves="2" seed="7" result="tooth"/>
+                <feDisplacementMap in="SourceGraphic" in2="tooth" scale="2.6" xChannelSelector="R" yChannelSelector="G" result="laid"/>
+                <feComponentTransfer in="laid" result="shape"><feFuncA type="linear" slope="12"/></feComponentTransfer>
+                <feMorphology in="shape" operator="dilate" radius="2" result="spill"/>
+                <feGaussianBlur in="spill" stdDeviation="7" result="spread"/>
+                <feComposite in="spread" in2="shape" operator="out" result="glow"/>
+                <feComponentTransfer in="glow" result="halation"><feFuncA type="linear" slope=".62"/></feComponentTransfer>
+                <feGaussianBlur in="laid" stdDeviation="1.1" result="contact"/>
                 <feMerge><feMergeNode in="halation"/><feMergeNode in="contact"/></feMerge>
               </filter>
             </defs>
