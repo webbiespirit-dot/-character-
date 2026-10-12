@@ -17,8 +17,8 @@
   /* ---------- words ---------- */
   const T = {
     en: {
-      title: 'webbiespirit · Test the water first',
-      description: 'webbiespirit designs a free concept preview of your new website, so you see it before you decide anything. Based in Cyprus, working with businesses anywhere.',
+      title: 'Web design in Cyprus · Free website preview | webbiespirit',
+      description: 'webbiespirit is a web design studio in Cyprus. We design a free concept preview of your new website first, so you see it before you decide anything.',
       skip: 'Skip to content',
       videoLabel: 'Welcome video: our presenter introduces webbiespirit.',
       soundOn: 'Sound on',
@@ -48,8 +48,8 @@
       mailBody: 'Hi webbiespirit,\n\nMy business: \nWebsite (if any): \n',
     },
     el: {
-      title: 'webbiespirit · Δοκίμασε πρώτα τα νερά',
-      description: 'Στο webbiespirit σου σχεδιάζουμε δωρεάν μια μακέτα της νέας σου ιστοσελίδας, για να τη δεις πριν αποφασίσεις οτιδήποτε. Με έδρα την Κύπρο, δουλεύουμε με επιχειρήσεις όπου κι αν βρίσκονται.',
+      title: 'Κατασκευή ιστοσελίδων στην Κύπρο · Δωρεάν μακέτα | webbiespirit',
+      description: 'Στο webbiespirit σχεδιάζουμε ιστοσελίδες με έδρα την Κύπρο. Σου φτιάχνουμε πρώτα δωρεάν μια μακέτα της νέας σου ιστοσελίδας, για να τη δεις πριν αποφασίσεις οτιδήποτε.',
       skip: 'Μετάβαση στο περιεχόμενο',
       videoLabel: 'Βίντεο καλωσορίσματος: η παρουσιάστριά μας σου συστήνει το webbiespirit.',
       soundOn: 'Άνοιξε τον ήχο',
@@ -89,7 +89,24 @@
   };
   let lang = pickLang();
 
-  const mailto = (l) => `mailto:${EMAIL}?subject=${encodeURIComponent(T[l].mailSubject)}&body=${encodeURIComponent(T[l].mailBody)}`;
+  // Where the visitor came from (?utm_source=instagram, ?ref=dm, or Instagram's in-app browser),
+  // kept for the visit and added to the email subject so each enquiry shows its channel.
+  const source = (() => {
+    const p = new URLSearchParams(location.search);
+    const clean = (v) => (v || '').toLowerCase().replace(/[^a-z0-9_-]/g, '').slice(0, 24);
+    let s = clean(p.get('utm_source') || p.get('ref'));
+    try {
+      if (s) sessionStorage.setItem('ws-src', s);
+      else s = sessionStorage.getItem('ws-src') || '';
+    } catch (e) { /* private mode */ }
+    if (!s && /Instagram/i.test(navigator.userAgent)) s = 'instagram';
+    return s;
+  })();
+
+  const mailto = (l) => {
+    const subject = T[l].mailSubject + (source ? ` · ${source}` : '');
+    return `mailto:${EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(T[l].mailBody)}`;
+  };
 
   const applyWords = (l) => {
     const t = T[l];
@@ -97,6 +114,8 @@
     d.title = t.title;
     const desc = $('meta[name="description"]');
     if (desc) desc.setAttribute('content', t.description);
+    const canon = $('link[rel="canonical"]');
+    if (canon) canon.href = l === 'el' ? 'https://webbiespirit.com/?lang=el' : 'https://webbiespirit.com/';
     $$('[data-i18n]').forEach((el) => {
       const v = t[el.dataset.i18n];
       if (v != null) el.textContent = v;
