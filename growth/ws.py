@@ -15,6 +15,7 @@ Standard library only. Leads live in growth/leads.csv, which opens in any spread
 import argparse
 import csv
 import datetime as dt
+import html
 import json
 import re
 import sys
@@ -28,10 +29,11 @@ PHONE = ''               # optional, e.g. '+357 99 000000'
 HERE = Path(__file__).resolve().parent
 LEADS = HERE / 'leads.csv'
 TEMPLATES = HERE / 'templates.md'
+FIRST_EMAIL = HERE / 'email' / 'first-email.html'
 SITE = 'https://webbiespirit.com/'
 EMAIL = 'webbiespirit@gmail.com'
-FIELDS = ['id', 'business', 'name', 'channel', 'contact', 'city', 'category', 'lang', 'hook',
-          'status', 'touches', 'last_touch', 'next_touch', 'added', 'notes']
+FIELDS = ['id', 'business', 'name', 'channel', 'contact', 'city', 'category', 'lang', 'hook', 'hook_el',
+          'instagram', 'status', 'touches', 'last_touch', 'next_touch', 'added', 'notes']
 CHANNELS = ('email', 'instagram', 'call', 'walkin')
 STATUSES = ('new', 'contacted', 'replied', 'preview', 'sent', 'won', 'lost', 'optout', 'cold')
 # Days to wait after touch 1, 2, 3 ... before the next one. When the list runs out, the lead goes cold.
@@ -153,7 +155,7 @@ def render(lead, tpl=None):
     name = lead['name'].strip()
     if lang == 'el':
         hi = f'Καλησπέρα {name},' if name else 'Καλησπέρα σας,'
-        hook = lead['hook'].strip() or 'στο διαδίκτυο'
+        hook = lead['hook_el'].strip() or lead['hook'].strip() or 'στο διαδίκτυο'
     else:
         hi = f'Hi {name},' if name else 'Hello,'
         hook = lead['hook'].strip() or 'online'
@@ -161,6 +163,93 @@ def render(lead, tpl=None):
         'hi': hi, 'business': lead['business'], 'hook': hook, 'name': name or '',
         'city': lead['city'], 'link': link(lead), 'signature': signature(lang), 'owner': OWNER.get(lang, ''),
     })
+
+
+# The first email goes out in both languages, the lead's own language first.
+FIRST = {
+    'el': {
+        'label': 'Ελληνικά', 'hi': 'Καλησπέρα {name},', 'hi_anon': 'Καλησπέρα σας,',
+        'found': 'Βρήκα την επιχείρησή σας {hook}.',
+        'intro': 'Λέγομαι {owner} και είμαι από το webbiespirit, ένα στούντιο σχεδιασμού ιστοσελίδων στη Λάρνακα. '
+                 'Δουλεύουμε ανάποδα: σας σχεδιάζουμε πρώτα δωρεάν μια μακέτα της νέας σας ιστοσελίδας, '
+                 'για να τη δείτε πριν αποφασίσετε οτιδήποτε, και πληρώνετε μόνο αν σας ενθουσιάσει.',
+        'steps': ['Μας λέτε δυο λόγια για την επιχείρησή σας.', 'Σχεδιάζουμε δωρεάν τη μακέτα της νέας σας ιστοσελίδας.',
+                  'Τη βλέπετε και μετά αποφασίζετε.'],
+        'cta': 'Δείτε τη δουλειά μας', 'packages': 'Πακέτα και τιμές',
+        'ask': 'Θα θέλατε να σας φτιάξουμε μία;', 'ask_more': 'Αρκεί μια απάντηση μίας γραμμής.',
+        'other_lang': 'English below',
+    },
+    'en': {
+        'label': 'English', 'hi': 'Hi {name},', 'hi_anon': 'Hello,',
+        'found': 'I came across {business} {hook}.',
+        'intro': "I'm {owner}, co-founder of webbiespirit, a web design studio in Larnaca. "
+                 'We work the other way round: we design a free concept preview of your new website first, '
+                 'so you see it before you decide anything, and you only pay if you love it.',
+        'steps': ['You tell us a few lines about your business.', 'We design a preview of your new website, free.',
+                  'You see it, then you decide.'],
+        'cta': 'See our work', 'packages': 'Packages and prices',
+        'ask': 'Would you like one for {business}?', 'ask_more': 'A one-line reply is enough.',
+        'other_lang': 'Ελληνικά παρακάτω',
+    },
+}
+SUBJECT = {
+    'el': '{business}: δωρεάν μακέτα ιστοσελίδας · A free website preview',
+    'en': 'A free website preview for {business} · Δωρεάν μακέτα ιστοσελίδας',
+}
+OPTOUT = ('Αν δεν θέλετε να σας ξαναγράψουμε, απαντήστε «όχι, ευχαριστώ». '
+          'If you would rather not hear from us, reply "no thanks".')
+
+
+def site_links(lead, lang):
+    cat = lead['category'].lower()
+    page = next((p for p, words in INDUSTRY_PAGES.items() if any(w in cat for w in words)), '')
+    root = SITE + ('el/' if lang == 'el' else '')
+    ref = f'?ref={REF.get(lead["channel"], "outreach")}'
+    return root + page + ref, root + 'packages/' + ref
+
+
+def first_email(lead):
+    """The bilingual first email: subject, plain text and branded HTML."""
+    primary = 'el' if lead['lang'] == 'el' else 'en'
+    order = [primary, 'en' if primary == 'el' else 'el']
+    name = lead['name'].strip()
+    texts, blocks = [], []
+    for lang in order:
+        c = FIRST[lang]
+        hook = (lead['hook_el'] if lang == 'el' else lead['hook']).strip() or ('στο διαδίκτυο' if lang == 'el' else 'online')
+        v = {'name': name, 'business': lead['business'], 'hook': hook, 'owner': OWNER.get(lang, '')}
+        hi = (c['hi'] if name else c['hi_anon']).format(**v)
+        found, intro, ask = c['found'].format(**v), c['intro'].format(**v), c['ask'].format(**v)
+        work, packages = site_links(lead, lang)
+        steps_txt = '\n'.join(f'{i}. {s}' for i, s in enumerate(c['steps'], 1))
+        texts.append(f'{hi}\n\n{found}\n\n{intro}\n\n{steps_txt}\n\n{c["cta"]}: {work}\n{c["packages"]}: {packages}'
+                     f'\n\n{ask} {c["ask_more"]}\n\n{v["owner"]}, webbiespirit')
+        e = lambda s: html.escape(s, quote=True)
+        p = 'margin:0 0 16px;'
+        steps_html = ''.join(
+            f'<tr><td width="34" valign="top" style="padding:0 0 10px;"><span style="display:inline-block;width:24px;height:24px;'
+            f'line-height:24px;text-align:center;border-radius:12px;background:#163F94;color:#FFFFFF;font-size:13px;font-weight:bold;">{i}</span></td>'
+            f'<td valign="top" style="padding:2px 0 10px;font-size:15px;line-height:22px;color:#0B2559;">{e(s)}</td></tr>'
+            for i, s in enumerate(c['steps'], 1))
+        blocks.append(
+            f'<tr><td lang="{lang}" style="padding:28px 24px 12px;font-family:Helvetica,Arial,sans-serif;font-size:16px;line-height:25px;color:#0B2559;">'
+            f'<div style="font-size:12px;letter-spacing:1.2px;text-transform:uppercase;color:#3A5486;padding-bottom:12px;">{e(c["label"])}</div>'
+            f'<p style="{p}">{e(hi)}</p><p style="{p}">{e(found)}</p><p style="{p}">{e(intro)}</p>'
+            f'<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:4px 0 14px;">{steps_html}</table>'
+            f'<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:0 0 12px;"><tr>'
+            f'<td style="background:#E0E46A;"><a href="{e(work)}" style="display:inline-block;padding:13px 22px;font-size:15px;font-weight:bold;color:#0B2559;text-decoration:none;">{e(c["cta"])} &rarr;</a></td>'
+            f'</tr></table><p style="margin:0 0 18px;font-size:15px;"><a href="{e(packages)}" style="color:#163F94;">{e(c["packages"])}</a></p>'
+            f'<p style="{p}"><b>{e(ask)}</b> {e(c["ask_more"])}</p>'
+            f'<p style="{p}">{e(v["owner"])}<br><span style="color:#3A5486;">webbiespirit</span></p></td></tr>')
+    subject = SUBJECT[primary].format(business=lead['business'])
+    text = f'{texts[0]}\n\n— {FIRST[primary]["other_lang"]} —\n\n{texts[1]}\n\nwebbiespirit · Larnaca, Cyprus\nwebbiespirit.com · webbiespirit@gmail.com · Instagram @webbiespirit\n{OPTOUT}'
+    doc = FIRST_EMAIL.read_text(encoding='utf-8')
+    for k, val in {'lang': primary, 'subject': html.escape(subject), 'block_1': blocks[0], 'block_2': blocks[1],
+                   'preheader': html.escape(FIRST[primary]['intro'].format(owner=OWNER.get(primary, ''))[:110]),
+                   'tagline': 'Πρώτα δωρεάν μακέτα · Free website preview first', 'site': SITE,
+                   'optout': html.escape(OPTOUT)}.items():
+        doc = doc.replace('{{' + k + '}}', val)
+    return subject, text, doc
 
 
 def due(lead, day):
@@ -236,7 +325,8 @@ def cmd_add(args):
     rows.append({
         'id': str(next_id), 'business': args.business, 'name': args.name or '', 'channel': args.channel,
         'contact': args.contact, 'city': args.city or '', 'category': args.category or '',
-        'lang': args.lang, 'hook': args.hook or '', 'status': 'new', 'touches': '0',
+        'lang': args.lang, 'hook': args.hook or '', 'hook_el': args.hook_el or '',
+        'instagram': args.instagram or '', 'status': 'new', 'touches': '0',
         'last_touch': '', 'next_touch': '', 'added': today_date(args).isoformat(), 'notes': args.notes or '',
     })
     save(rows)
@@ -321,6 +411,11 @@ def cmd_emails(args):
     for r in follow + fresh:
         if not is_email(r['contact']) or template_key(r) == 'script':
             continue
+        if r['channel'] == 'email' and int(r['touches'] or 0) == 0:
+            subject, text, page = first_email(r)
+            out.append({'id': r['id'], 'business': r['business'], 'to': r['contact'].strip(), 'touch': 1,
+                        'subject': subject, 'body': text, 'html': page, 'follow_up': False})
+            continue
         text = render(r, tpl)
         first, _, body = text.partition('\n')
         subject = re.sub(r'^(Subject|Θέμα):\s*', '', first) if re.match(r'^(Subject|Θέμα):', first) else ''
@@ -372,7 +467,9 @@ def main():
     a.add_argument('--city')
     a.add_argument('--category', help='e.g. cafe, salon, dentist')
     a.add_argument('--lang', choices=('en', 'el'), default='en')
-    a.add_argument('--hook', help='what you noticed, e.g. "on Instagram, through your new menu"')
+    a.add_argument('--hook', help='what you noticed, in English, e.g. "on Instagram, through your new menu"')
+    a.add_argument('--hook-el', help='the same in Greek, for Greek messages and the bilingual first email')
+    a.add_argument('--instagram', help='their @handle, if they have one')
     a.add_argument('--notes')
 
     d = sub.add_parser('done', help='log a sent message / call / visit')

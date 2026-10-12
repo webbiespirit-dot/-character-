@@ -19,6 +19,8 @@ It prints today's time blocks, everyone who needs a follow-up, and the next new 
 
 ### Gmail drafts (emails done for you, sent by you)
 
+The first email to each business goes out in Greek and English in one branded email (`growth/email/first-email.html`, in the studio's cobalt), with the lead's own language first, signed by Palios in Greek and Apollo in English, and a button to the page for their industry. Follow-ups are short, plain replies in the same thread.
+
 Ask Claude: **"make today's email drafts"**. Claude runs `ws.py emails`, puts each email into your Gmail Drafts, already addressed and filled in, and puts follow-ups into the same thread as the first email. Open Drafts, check each one, press Send, then log them with `ws.py done ID`. Claude only creates drafts and never sends anything.
 
 | Day | Focus | First contacts | Also |
