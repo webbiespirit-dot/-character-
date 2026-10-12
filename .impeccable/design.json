@@ -1,0 +1,483 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-12T10:36:32Z",
+  "title": "Design System: webbiespirit",
+  "extensions": {
+    "colorMeta": {
+      "deep": {
+        "role": "primary",
+        "displayName": "Deep Prussian",
+        "canonical": "oklch(28.1% 0.099 262.2)",
+        "tonalRamp": [
+          "#000729",
+          "#061F53",
+          "#244077",
+          "#415F98",
+          "#6283BF",
+          "#83A5E3",
+          "#AFCBFE",
+          "#E6EFFF"
+        ]
+      },
+      "field": {
+        "role": "primary",
+        "displayName": "Cobalt Field",
+        "canonical": "oklch(39.5% 0.148 262.5)",
+        "tonalRamp": [
+          "#00062A",
+          "#001B5F",
+          "#123A8F",
+          "#305BB3",
+          "#5180DB",
+          "#73A3FE",
+          "#B0CBFE",
+          "#E6EFFF"
+        ]
+      },
+      "mid": {
+        "role": "primary",
+        "displayName": "Mid Exposure",
+        "canonical": "oklch(52.1% 0.166 261.8)",
+        "tonalRamp": [
+          "#000729",
+          "#001C5C",
+          "#043898",
+          "#2659BD",
+          "#487FE5",
+          "#71A3FE",
+          "#AFCBFE",
+          "#E7EFFE"
+        ]
+      },
+      "light": {
+        "role": "primary",
+        "displayName": "Pale Exposure",
+        "canonical": "oklch(75.3% 0.086 260.1)",
+        "tonalRamp": [
+          "#000825",
+          "#07214D",
+          "#264270",
+          "#436091",
+          "#6584B7",
+          "#85A6DB",
+          "#ADCCFE",
+          "#E6EFFE"
+        ]
+      },
+      "sun": {
+        "role": "secondary",
+        "displayName": "Sunlight",
+        "canonical": "oklch(89.2% 0.145 110.7)",
+        "tonalRamp": [
+          "#0C0C00",
+          "#262600",
+          "#454601",
+          "#646501",
+          "#888A03",
+          "#A9AC29",
+          "#CFD358",
+          "#F3F87E"
+        ]
+      },
+      "sun-press": {
+        "role": "secondary",
+        "displayName": "Sunlight Pressed",
+        "canonical": "oklch(82.5% 0.155 111.8)",
+        "tonalRamp": [
+          "#0C0C00",
+          "#252601",
+          "#444602",
+          "#636604",
+          "#868A01",
+          "#A8AD15",
+          "#CED44E",
+          "#F2F975"
+        ]
+      },
+      "sun-lift": {
+        "role": "secondary",
+        "displayName": "Sunlight Lifted",
+        "canonical": "oklch(92.0% 0.125 109.6)",
+        "tonalRamp": [
+          "#0C0C00",
+          "#262601",
+          "#464502",
+          "#656504",
+          "#898919",
+          "#AAAB44",
+          "#D0D26C",
+          "#F4F690"
+        ]
+      },
+      "sensitizer": {
+        "role": "tertiary",
+        "displayName": "Unwashed Sensitizer",
+        "canonical": "oklch(86.5% 0.076 104.5)",
+        "tonalRamp": [
+          "#0D0C00",
+          "#282501",
+          "#494408",
+          "#67632C",
+          "#8A864F",
+          "#ACA86F",
+          "#D2CE94",
+          "#F6F2B7"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Cotton Paper",
+        "canonical": "oklch(97.2% 0.005 247.9)",
+        "tonalRamp": [
+          "#090B0D",
+          "#222426",
+          "#404345",
+          "#5E6163",
+          "#818386",
+          "#A2A5A8",
+          "#C8CBCE",
+          "#ECEFF2"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "oklch(28.1% 0.099 262.2)",
+        "tonalRamp": [
+          "#000729",
+          "#061F53",
+          "#244077",
+          "#415F98",
+          "#6283BF",
+          "#83A5E3",
+          "#AFCBFE",
+          "#E6EFFF"
+        ]
+      },
+      "ink-soft": {
+        "role": "neutral",
+        "displayName": "Faded Ink",
+        "canonical": "oklch(44.9% 0.088 262.5)",
+        "tonalRamp": [
+          "#00062A",
+          "#0B214E",
+          "#284171",
+          "#456093",
+          "#6683B9",
+          "#87A5DD",
+          "#AFCBFE",
+          "#E7EFFE"
+        ]
+      },
+      "on-field": {
+        "role": "neutral",
+        "displayName": "White Exposure",
+        "canonical": "oklch(100% 0 0)",
+        "tonalRamp": [
+          "#0B0B0B",
+          "#242424",
+          "#424242",
+          "#606060",
+          "#838383",
+          "#A4A4A4",
+          "#CACACA",
+          "#EEEEEE"
+        ]
+      },
+      "on-field-soft": {
+        "role": "neutral",
+        "displayName": "Soft Exposure",
+        "canonical": "oklch(90.1% 0.033 262.7)",
+        "tonalRamp": [
+          "#050B19",
+          "#1B2434",
+          "#394354",
+          "#576174",
+          "#798497",
+          "#9AA5BA",
+          "#BFCBE1",
+          "#E6EFFE"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero headline only, white on the field. From 900px: clamp(60px, 7.2vw, 96px). Word spacing .08em, balanced wrap."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section heads in ink on paper. Word spacing .08em, balanced wrap; the 'where' head grows to clamp(44px, 4.8vw, 70px) from 900px."
+      },
+      "numeral": {
+        "displayName": "Numeral",
+        "purpose": "Test-strip step numbers, lining figures at opacity .9."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Test-strip step text, max 22ch, word spacing .07em."
+      },
+      "address": {
+        "displayName": "Address",
+        "purpose": "The email address in field blue with a 2px underline; breaks anywhere."
+      },
+      "wordmark": {
+        "displayName": "Wordmark",
+        "purpose": "Lowercase 'webbiespirit' in the bar; 'spirit' at weight 360 in mid. 26px from 900px."
+      },
+      "lead": {
+        "displayName": "Lead",
+        "purpose": "Hero support line in soft exposure, max 36ch."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Base reading text."
+      },
+      "button": {
+        "displayName": "Button",
+        "purpose": "Every action label."
+      },
+      "control": {
+        "displayName": "Control",
+        "purpose": "The sound control's label."
+      },
+      "caption": {
+        "displayName": "Caption",
+        "purpose": "Page-drawn captions over the presenter video, centred, max 40ch."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Language switch; the photogram's 'Illustration' caption uses it at 13px."
+      },
+      "note": {
+        "displayName": "Note",
+        "purpose": "Sun-print caption in faded ink; the footer runs 14.5px."
+      }
+    },
+    "shadows": [
+      {
+        "name": "line-ring",
+        "value": "inset 0 0 0 1.5px currentColor",
+        "purpose": "Outline of the line button; takes the text colour, so white on coats and field blue on paper."
+      },
+      {
+        "name": "pressed-ring",
+        "value": "inset 0 0 0 2px var(--field)",
+        "purpose": "The sound control while sound is on."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(.16, 1, .3, 1)",
+        "purpose": "Development (bands, wedge, photogram colour, olive print) and the phone dock's slide."
+      },
+      {
+        "name": "ease-press",
+        "value": "cubic-bezier(.2, .8, .2, 1)",
+        "purpose": "Press and hover feedback on buttons, video controls and the language switch."
+      },
+      {
+        "name": "develop",
+        "value": "1400ms",
+        "purpose": "Duration of every latent-to-exposed change."
+      },
+      {
+        "name": "press",
+        "value": "transform 120ms; scale(.97) buttons, scale(.95) video controls",
+        "purpose": "Immediate answer on press."
+      },
+      {
+        "name": "state",
+        "value": "160ms",
+        "purpose": "Colour, background, border and ring changes on hover, press and selection."
+      },
+      {
+        "name": "dock",
+        "value": "transform 320ms; translateY(110%) to none",
+        "purpose": "Phone dock entering and leaving below 900px."
+      },
+      {
+        "name": "develop-stagger",
+        "value": "180ms + 260ms per earlier sibling, after 35% in view (root margin 0 0 -8% 0)",
+        "purpose": "Bands of the strip and wedge develop one after another."
+      },
+      {
+        "name": "gram-expose",
+        "value": "opacity .3 + blur(2px) to opacity 1 + none; view-timeline of the second band, range entry 0% to entry 100%, linear",
+        "purpose": "The step-2 photogram exposes with scroll position where CSS scroll timelines exist."
+      },
+      {
+        "name": "print-expose",
+        "value": "sepia(.6) saturate(.5) brightness(1.28) to none; animation-timeline view(), range entry 0% to entry 100%, linear",
+        "purpose": "The olive print develops with scroll position where CSS scroll timelines exist; otherwise a 1400ms triggered transition."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "no latent state, transitions none, scroll-behavior auto, no autoplay",
+        "purpose": "Everything shows developed and still when reduced motion is requested."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "hover-fine",
+        "value": "(hover: hover) and (pointer: fine)"
+      },
+      {
+        "name": "sheet",
+        "value": "900px"
+      },
+      {
+        "name": "wedge",
+        "value": "1200px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button (Say hello)",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The one sunlit element: the primary action in the hero, the closing section and the phone dock.",
+      "html": "<a class=\"ds-btn-sun\" href=\"#\"><svg class=\"ds-btn-sun__ico\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><rect x=\"3\" y=\"5.5\" width=\"18\" height=\"13\"/><path d=\"M3.5 6.5l8.5 6.5 8.5-6.5\"/></svg><span>Say hello</span></a>",
+      "css": ".ds-btn-sun { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 54px; padding: 0 22px; font-family: var(--f-text, \"Sofia Sans\", system-ui, -apple-system, \"Segoe UI\", sans-serif); font-size: 17px; font-weight: 720; letter-spacing: .01em; white-space: nowrap; text-decoration: none; border: 0; border-radius: 0; cursor: pointer; user-select: none; -webkit-user-select: none; transition: transform 120ms var(--ease-press, cubic-bezier(.2, .8, .2, 1)), background-color 160ms var(--ease-press, cubic-bezier(.2, .8, .2, 1)), color 160ms var(--ease-press, cubic-bezier(.2, .8, .2, 1)), box-shadow 160ms var(--ease-press, cubic-bezier(.2, .8, .2, 1)); color: var(--deep, #0B2559); background: var(--sun, #E0E46A); } .ds-btn-sun__ico { width: 22px; height: 22px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: square; stroke-linejoin: miter; } @media (hover: hover) and (pointer: fine) { .ds-btn-sun:hover { background: var(--sun-lift, #EAEC86); } } .ds-btn-sun:active { background: var(--sun-press, #C9CF48); transform: scale(.97); } .ds-btn-sun:focus-visible { outline: 2px solid var(--mid, #2F63C7); outline-offset: 3px; }"
+    },
+    {
+      "name": "Line Button on a Coat",
+      "kind": "button",
+      "refersTo": "button-line",
+      "description": "Secondary action inside the hero coat: transparent with a 1.5px inset ring in the text colour; focus ring turns sunlight on the coat.",
+      "html": "<div class=\"ds-line-coat\"><a class=\"ds-btn-line\" href=\"#\">How it works</a></div>",
+      "css": ".ds-line-coat { display: inline-block; padding: 22px; background-color: var(--field, #163F94); background-image: url(\"assets/img/emulsion-mottle.png\"); background-size: 384px 384px; color: var(--on-field, #FFFFFF); } .ds-btn-line { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 54px; padding: 0 22px; font-family: var(--f-text, \"Sofia Sans\", system-ui, -apple-system, \"Segoe UI\", sans-serif); font-size: 17px; font-weight: 720; letter-spacing: .01em; white-space: nowrap; text-decoration: none; border: 0; border-radius: 0; cursor: pointer; user-select: none; -webkit-user-select: none; transition: transform 120ms var(--ease-press, cubic-bezier(.2, .8, .2, 1)), background-color 160ms var(--ease-press, cubic-bezier(.2, .8, .2, 1)), color 160ms var(--ease-press, cubic-bezier(.2, .8, .2, 1)), box-shadow 160ms var(--ease-press, cubic-bezier(.2, .8, .2, 1)); color: inherit; background: transparent; box-shadow: inset 0 0 0 1.5px currentColor; } @media (hover: hover) and (pointer: fine) { .ds-btn-line:hover { background: rgba(143, 176, 230, .16); } } .ds-btn-line:active { transform: scale(.97); } .ds-btn-line:focus-visible { outline: 2px solid var(--sun, #E0E46A); outline-offset: 3px; }"
+    },
+    {
+      "name": "Line Button on Paper (Copy email)",
+      "kind": "button",
+      "refersTo": "button-line-paper",
+      "description": "Secondary action on paper, in field blue with the copy icon; the label briefly reads 'Copied' after use.",
+      "html": "<button type=\"button\" class=\"ds-btn-copy\"><svg class=\"ds-btn-copy__ico\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><rect x=\"8.5\" y=\"8.5\" width=\"11\" height=\"11\"/><path d=\"M15.5 8.5V4.5h-11v11h4\"/></svg><span>Copy email</span></button>",
+      "css": ".ds-btn-copy { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 54px; padding: 0 22px; font-family: var(--f-text, \"Sofia Sans\", system-ui, -apple-system, \"Segoe UI\", sans-serif); font-size: 17px; font-weight: 720; letter-spacing: .01em; white-space: nowrap; text-decoration: none; border: 0; border-radius: 0; cursor: pointer; user-select: none; -webkit-user-select: none; transition: transform 120ms var(--ease-press, cubic-bezier(.2, .8, .2, 1)), background-color 160ms var(--ease-press, cubic-bezier(.2, .8, .2, 1)), color 160ms var(--ease-press, cubic-bezier(.2, .8, .2, 1)), box-shadow 160ms var(--ease-press, cubic-bezier(.2, .8, .2, 1)); color: var(--field, #163F94); background: transparent; box-shadow: inset 0 0 0 1.5px currentColor; } .ds-btn-copy__ico { width: 22px; height: 22px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: square; stroke-linejoin: miter; } @media (hover: hover) and (pointer: fine) { .ds-btn-copy:hover { background: rgba(143, 176, 230, .16); } } .ds-btn-copy:active { transform: scale(.97); } .ds-btn-copy:focus-visible { outline: 2px solid var(--mid, #2F63C7); outline-offset: 3px; }"
+    },
+    {
+      "name": "Print Control Row",
+      "kind": "custom",
+      "refersTo": "sound-control",
+      "description": "The presenter print's controls: a paper sound control bottom-left, then pause and captions as deep-veiled 46px squares.",
+      "html": "<div class=\"ds-ctrl\"><button type=\"button\" class=\"ds-ctrl__sound\" aria-pressed=\"false\"><svg class=\"ds-ctrl__ico\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M4 9.5h3.2L12 5.5v13l-4.8-4H4z\"/><path d=\"M16 9.5l5 5m0-5l-5 5\"/></svg><span>Sound on</span></button><button type=\"button\" class=\"ds-ctrl__icon\" aria-label=\"Pause\"><svg class=\"ds-ctrl__ico\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M8.5 5.5v13M15.5 5.5v13\"/></svg></button><button type=\"button\" class=\"ds-ctrl__icon\" aria-pressed=\"false\" aria-label=\"Captions\"><svg class=\"ds-ctrl__ico\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><rect x=\"3\" y=\"5.5\" width=\"18\" height=\"13\"/><path d=\"M10.6 10.2a2.3 2.3 0 1 0 0 3.6M17 10.2a2.3 2.3 0 1 0 0 3.6\"/></svg></button></div>",
+      "css": ".ds-ctrl { display: flex; align-items: center; gap: 8px; width: 320px; padding: 10px; background: var(--deep, #0B2559); font-family: var(--f-text, \"Sofia Sans\", system-ui, -apple-system, \"Segoe UI\", sans-serif); } .ds-ctrl__ico { width: 22px; height: 22px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: square; stroke-linejoin: miter; } .ds-ctrl__sound, .ds-ctrl__icon { border: 0; border-radius: 0; cursor: pointer; font: inherit; } .ds-ctrl__sound { display: inline-flex; align-items: center; gap: 8px; min-height: 46px; padding: 0 14px 0 11px; margin-right: auto; font-size: 15.5px; font-weight: 700; white-space: nowrap; color: var(--deep, #0B2559); background: rgba(243, 246, 249, .94); transition: transform 120ms var(--ease-press, cubic-bezier(.2, .8, .2, 1)), background-color 160ms var(--ease-press, cubic-bezier(.2, .8, .2, 1)), box-shadow 160ms var(--ease-press, cubic-bezier(.2, .8, .2, 1)); } .ds-ctrl__sound[aria-pressed=\"true\"] { box-shadow: inset 0 0 0 2px var(--field, #163F94); } .ds-ctrl__icon { display: inline-grid; place-items: center; width: 46px; height: 46px; color: #fff; background: rgba(11, 37, 89, .72); transition: transform 120ms var(--ease-press, cubic-bezier(.2, .8, .2, 1)), background-color 160ms var(--ease-press, cubic-bezier(.2, .8, .2, 1)); } .ds-ctrl__icon[aria-pressed=\"false\"] { color: var(--on-field-soft, #D3DFF5); background: rgba(11, 37, 89, .45); } @media (hover: hover) and (pointer: fine) { .ds-ctrl__sound:hover { background: #fff; } .ds-ctrl__icon:hover { background: rgba(11, 37, 89, .9); } } .ds-ctrl__sound:active, .ds-ctrl__icon:active { transform: scale(.95); } .ds-ctrl__sound:focus-visible, .ds-ctrl__icon:focus-visible { outline: 2px solid var(--sun, #E0E46A); outline-offset: 3px; }"
+    },
+    {
+      "name": "Caption Line",
+      "kind": "custom",
+      "refersTo": "caption-line",
+      "description": "Captions drawn by the page over the video: white on a deep veil at .82, repeated on each wrapped line, clear of the controls.",
+      "html": "<div class=\"ds-cap\"><span class=\"ds-cap__line\">Okay, here’s the fun part:\ntest the water first.</span></div>",
+      "css": ".ds-cap { display: flex; justify-content: center; width: 320px; padding: 24px 10px; background: var(--deep, #0B2559); } .ds-cap__line { max-width: 40ch; padding: 6px 10px 7px; font-family: var(--f-text, \"Sofia Sans\", system-ui, -apple-system, \"Segoe UI\", sans-serif); font-size: clamp(15px, 4.1vw, 18px); line-height: 1.35; font-weight: 560; text-align: center; color: #fff; background: rgba(11, 37, 89, .82); -webkit-box-decoration-break: clone; box-decoration-break: clone; white-space: pre-line; }"
+    },
+    {
+      "name": "Top Bar with Language Switch",
+      "kind": "nav",
+      "refersTo": "top-bar",
+      "description": "A thin paper bar: the sun-disc mark and lowercase wordmark at left, EN | ΕΛ at right with a field-blue underline on the selected language.",
+      "html": "<header class=\"ds-bar\"><a class=\"ds-mark\" href=\"#\"><span class=\"ds-mark__sun\" aria-hidden=\"true\"></span><span class=\"ds-mark__word\">webbie<b>spirit</b></span></a><div class=\"ds-lang\" role=\"group\" aria-label=\"Language\"><button type=\"button\" class=\"ds-lang__btn\" aria-pressed=\"true\">EN</button><button type=\"button\" class=\"ds-lang__btn\" lang=\"el\" aria-pressed=\"false\">ΕΛ</button></div></header>",
+      "css": ".ds-bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 56px; padding: 0 18px; background: var(--paper, #F3F6F9); } .ds-mark { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; text-decoration: none; color: var(--ink, #0B2559); } .ds-mark:focus-visible { outline: 2px solid var(--mid, #2F63C7); outline-offset: 3px; } .ds-mark__sun { width: 16px; height: 16px; border-radius: 50%; background: radial-gradient(circle at 50% 50%, var(--paper, #F3F6F9) 0 32%, var(--field, #163F94) 33% 100%); } .ds-mark__word { font-family: var(--f-display, \"Piazzolla\", \"Iowan Old Style\", Georgia, serif); font-size: 22px; line-height: 1; font-weight: 520; letter-spacing: -.01em; font-variation-settings: \"opsz\" 24; } .ds-mark__word b { font-weight: 360; color: var(--mid, #2F63C7); } .ds-lang { display: flex; align-items: center; } .ds-lang__btn { min-width: 44px; min-height: 44px; padding: 0 8px; border: 0; border-bottom: 2px solid transparent; border-radius: 0; background: none; cursor: pointer; font-family: var(--f-text, \"Sofia Sans\", system-ui, -apple-system, \"Segoe UI\", sans-serif); font-size: 15px; font-weight: 600; letter-spacing: .04em; color: var(--ink-soft, #3A5486); transition: color 160ms var(--ease-press, cubic-bezier(.2, .8, .2, 1)), border-color 160ms var(--ease-press, cubic-bezier(.2, .8, .2, 1)); } .ds-lang__btn[aria-pressed=\"true\"] { color: var(--ink, #0B2559); border-bottom-color: var(--field, #163F94); } @media (hover: hover) and (pointer: fine) { .ds-lang__btn:hover { color: var(--ink, #0B2559); } } .ds-lang__btn:active { color: var(--field, #163F94); } .ds-lang__btn:focus-visible { outline: 2px solid var(--mid, #2F63C7); outline-offset: 3px; }"
+    },
+    {
+      "name": "Emulsion Coat",
+      "kind": "card",
+      "refersTo": "coat",
+      "description": "The world's base surface: field fill, the strong mottle tile at 384px, and a brushed mask-border edge. White display type, soft-exposure lead.",
+      "html": "<div class=\"ds-coat\"><h2 class=\"ds-coat__title\">Test the water first.</h2><p class=\"ds-coat__lead\">We design a free concept preview of your new website, so you see it before you decide anything.</p></div>",
+      "css": ".ds-coat { max-width: 520px; padding: 22px 22px 30px; background-color: var(--field, #163F94); background-image: url(\"assets/img/emulsion-mottle.png\"); background-size: 384px 384px; color: var(--on-field, #FFFFFF); -webkit-mask-box-image: url(\"assets/img/emulsion-edge.png\") 64 fill / var(--edge, 16px) stretch; mask-border: url(\"assets/img/emulsion-edge.png\") 64 fill / var(--edge, 16px) stretch; } .ds-coat__title { margin: 0; font-family: var(--f-display, \"Piazzolla\", \"Iowan Old Style\", Georgia, serif); font-weight: 560; font-size: clamp(36px, 10.4vw, 64px); line-height: .98; letter-spacing: -.022em; word-spacing: .08em; text-wrap: balance; } .ds-coat__lead { margin: 14px 0 0; max-width: 36ch; font-family: var(--f-text, \"Sofia Sans\", system-ui, -apple-system, \"Segoe UI\", sans-serif); font-size: clamp(17px, 4.4vw, 21px); line-height: 1.45; color: var(--on-field-soft, #D3DFF5); text-wrap: pretty; }"
+    },
+    {
+      "name": "Test Strip",
+      "kind": "custom",
+      "refersTo": "strip-band-2",
+      "description": "Three exposures on one masked strip, pale to deep, with no gaps. Bands start in sensitizer and develop over 1400ms; the step-2 photogram is a filled SVG exposure with halation.",
+      "html": "<ol class=\"ds-strip\"><li class=\"ds-strip__band ds-strip__band--1\"><span class=\"ds-strip__n\" aria-hidden=\"true\">1</span><p class=\"ds-strip__text\">Tell us about your business.</p></li><li class=\"ds-strip__band ds-strip__band--2\"><span class=\"ds-strip__n\" aria-hidden=\"true\">2</span><p class=\"ds-strip__text\">We design a preview of your new site, free.</p><figure class=\"ds-gram\" aria-hidden=\"true\"><svg class=\"ds-gram__svg\" viewBox=\"0 0 120 220\"><defs><linearGradient id=\"ds-gram-glass\" x1=\"0\" y1=\"0\" x2=\"0.35\" y2=\"1\"><stop offset=\"0\" stop-color=\"currentColor\" stop-opacity=\".56\"/><stop offset=\".55\" stop-color=\"currentColor\" stop-opacity=\".38\"/><stop offset=\"1\" stop-color=\"currentColor\" stop-opacity=\".26\"/></linearGradient><filter id=\"ds-gram-contact\" x=\"-25%\" y=\"-15%\" width=\"150%\" height=\"130%\"><feGaussianBlur in=\"SourceGraphic\" stdDeviation=\"4.5\" result=\"spread\"/><feComponentTransfer in=\"spread\" result=\"halation\"><feFuncA type=\"linear\" slope=\".5\"/></feComponentTransfer><feGaussianBlur in=\"SourceGraphic\" stdDeviation=\".9\" result=\"contact\"/><feMerge><feMergeNode in=\"halation\"/><feMergeNode in=\"contact\"/></feMerge></filter></defs><g filter=\"url(#ds-gram-contact)\"><rect x=\"6\" y=\"4\" width=\"108\" height=\"212\" rx=\"16\" fill=\"url(#ds-gram-glass)\"/><rect x=\"16\" y=\"28\" width=\"88\" height=\"12\" fill-opacity=\".9\"/><rect x=\"16\" y=\"48\" width=\"88\" height=\"62\"/><rect x=\"16\" y=\"120\" width=\"70\" height=\"4\" fill-opacity=\".8\"/><rect x=\"16\" y=\"130\" width=\"82\" height=\"4\" fill-opacity=\".8\"/><rect x=\"16\" y=\"140\" width=\"58\" height=\"4\" fill-opacity=\".8\"/><rect x=\"16\" y=\"156\" width=\"46\" height=\"14\"/><rect x=\"16\" y=\"182\" width=\"88\" height=\"4\" fill-opacity=\".7\"/><rect x=\"16\" y=\"192\" width=\"64\" height=\"4\" fill-opacity=\".7\"/></g></svg><figcaption class=\"ds-gram__cap\">Illustration</figcaption></figure></li><li class=\"ds-strip__band ds-strip__band--3\"><span class=\"ds-strip__n\" aria-hidden=\"true\">3</span><p class=\"ds-strip__text\">You see it, then you decide.</p></li></ol>",
+      "css": ".ds-strip { list-style: none; margin: 0; padding: 0; max-width: 520px; display: grid; -webkit-mask-box-image: url(\"assets/img/emulsion-edge.png\") 64 fill / var(--edge, 16px) stretch; mask-border: url(\"assets/img/emulsion-edge.png\") 64 fill / var(--edge, 16px) stretch; } .ds-strip__band { display: grid; grid-template-columns: auto 1fr; align-items: start; column-gap: 16px; min-height: 150px; padding: 26px 26px 30px; background-image: url(\"assets/img/emulsion-mottle-soft.png\"); background-size: 384px 384px; transition: background-color var(--develop, 1400ms) var(--ease-out, cubic-bezier(.16, 1, .3, 1)), color var(--develop, 1400ms) var(--ease-out, cubic-bezier(.16, 1, .3, 1)); } .ds-strip__band--1 { background-color: var(--light, #8FB0E6); color: var(--deep, #0B2559); } .ds-strip__band--2 { background-color: var(--mid, #2F63C7); color: var(--on-field, #FFFFFF); } .ds-strip__band--3 { background-color: var(--deep, #0B2559); background-image: url(\"assets/img/emulsion-mottle.png\"); color: var(--on-field, #FFFFFF); } .ds-strip__band.is-latent { background-color: var(--sensitizer, #DAD69C); color: var(--deep, #0B2559); } .ds-strip__n { font-family: var(--f-display, \"Piazzolla\", \"Iowan Old Style\", Georgia, serif); font-size: clamp(56px, 15vw, 96px); line-height: .8; font-weight: 300; font-variant-numeric: lining-nums; opacity: .9; } .ds-strip__text { margin: 0; align-self: center; max-width: 22ch; font-family: var(--f-display, \"Piazzolla\", \"Iowan Old Style\", Georgia, serif); word-spacing: .07em; font-size: clamp(22px, 5.6vw, 32px); line-height: 1.15; font-weight: 460; text-wrap: balance; } .ds-gram { grid-column: 1 / -1; display: flex; align-items: flex-end; gap: 12px; margin: 18px 0 0; } .ds-gram__svg { width: 84px; height: auto; flex: none; color: var(--on-field, #FFFFFF); fill: currentColor; stroke: none; overflow: visible; } .ds-gram__cap { font-family: var(--f-text, \"Sofia Sans\", system-ui, -apple-system, \"Segoe UI\", sans-serif); font-size: 13px; font-weight: 600; letter-spacing: .04em; color: #fff; }"
+    },
+    {
+      "name": "Email Address",
+      "kind": "custom",
+      "refersTo": "email-address",
+      "description": "The contact address set as a statement in Piazzolla, field blue with a 2px mid underline at .45 that turns solid on hover.",
+      "html": "<a class=\"ds-email\" href=\"mailto:webbiespirit@gmail.com\">webbiespirit@gmail.com</a>",
+      "css": ".ds-email { font-family: var(--f-display, \"Piazzolla\", \"Iowan Old Style\", Georgia, serif); font-size: clamp(22px, 6.4vw, 40px); line-height: 1.1; font-weight: 480; color: var(--field, #163F94); text-decoration-color: rgba(47, 99, 199, .45); text-decoration-thickness: 2px; text-underline-offset: .18em; overflow-wrap: anywhere; } @media (hover: hover) and (pointer: fine) { .ds-email:hover { text-decoration-color: var(--mid, #2F63C7); } } .ds-email:focus-visible { outline: 2px solid var(--mid, #2F63C7); outline-offset: 3px; }"
+    },
+    {
+      "name": "Phone Dock",
+      "kind": "custom",
+      "refersTo": "button-primary",
+      "description": "Below 900px, a full-width sun button fixed to the bottom over a paper fade, shown only while neither in-page 'Say hello' is fully on screen. Shown here in place rather than fixed.",
+      "html": "<div class=\"ds-dock\"><a class=\"ds-dock__btn\" href=\"#\"><svg class=\"ds-dock__ico\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><rect x=\"3\" y=\"5.5\" width=\"18\" height=\"13\"/><path d=\"M3.5 6.5l8.5 6.5 8.5-6.5\"/></svg><span>Say hello</span></a></div>",
+      "css": ".ds-dock { width: 360px; padding: 28px 12px 10px; background: linear-gradient(to top, rgba(243, 246, 249, .97) 62%, rgba(243, 246, 249, 0)); transition: transform 320ms var(--ease-out, cubic-bezier(.16, 1, .3, 1)); } .ds-dock__btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 54px; padding: 0 22px; font-family: var(--f-text, \"Sofia Sans\", system-ui, -apple-system, \"Segoe UI\", sans-serif); font-size: 17px; font-weight: 720; letter-spacing: .01em; white-space: nowrap; text-decoration: none; border: 0; border-radius: 0; cursor: pointer; user-select: none; -webkit-user-select: none; transition: transform 120ms var(--ease-press, cubic-bezier(.2, .8, .2, 1)), background-color 160ms var(--ease-press, cubic-bezier(.2, .8, .2, 1)), color 160ms var(--ease-press, cubic-bezier(.2, .8, .2, 1)), box-shadow 160ms var(--ease-press, cubic-bezier(.2, .8, .2, 1)); width: 100%; color: var(--deep, #0B2559); background: var(--sun, #E0E46A); } .ds-dock__ico { width: 22px; height: 22px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: square; stroke-linejoin: miter; } @media (hover: hover) and (pointer: fine) { .ds-dock__btn:hover { background: var(--sun-lift, #EAEC86); } } .ds-dock__btn:active { background: var(--sun-press, #C9CF48); transform: scale(.97); } .ds-dock__btn:focus-visible { outline: 2px solid var(--mid, #2F63C7); outline-offset: 3px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Daylight Sun-Print",
+    "overview": "The page is a cyanotype made in sunlight. Every blue surface is a coat of Prussian emulsion brushed onto cool cotton paper. A coat has three layers: a flat colour from a four-step exposure scale, a tiled mottle of brush streaks inside it, and a ragged hand-coated edge cut by an alpha mask. Type and drawings read as what the light left behind: white exposures on the coats and Prussian ink on the paper.\n\nDensity is low and the page is built for the phone first. It has one column, one coat that fills the first screen, large serif statements and one action within reach of the thumb. Tone changes in hard steps and never blends. The test strip, the step wedge and the exposure scale are all banded like a printer's test exposure. Motion is development: surfaces start latent, in unwashed sensitizer, and develop to their exposure on one slow exponential ease-out. Where the browser supports scroll timelines, the photograms expose with scroll position.\n\nThere is one warm colour, a yellow-green sunlight, and it falls only on the primary action. The page is light-only (no dark scheme). It refuses the category default of a dark studio hero with a gradient blob over a grid of laptop mockups. So it has no gradient fields, no shadows and no card grid.",
+    "keyCharacteristics": [
+      "A four-step Prussian exposure scale on cool cotton paper, where tone changes in hard steps.",
+      "Every coat has three layers: flat exposure colour, a 384px emulsion mottle tile, and a brushed mask-border edge.",
+      "Type is a white exposure on the coats and Prussian ink on the paper.",
+      "One warm accent, sunlight, used only on the primary action.",
+      "Square corners and no shadows. Depth comes from exposure, edge and grain.",
+      "Development motion: latent sensitizer develops to its exposure over 1400ms on an exponential ease-out.",
+      "Phone first: 54px actions, 46px video controls, and a thumb dock below 900px."
+    ],
+    "rules": [
+      {
+        "name": "The Sunlight Rule",
+        "body": "Sunlight fills one thing: the primary action, \"Say hello\", in the hero, in the closing section and in the phone dock. Its only other use is the 2px keyboard focus ring inside dark coats, where a mid-blue ring would sit at 1.72:1 against the field. Controls, links, headings, the mark and the sound control never take it. The sound control is paper.",
+        "section": "colors"
+      },
+      {
+        "name": "The Hard Step Rule",
+        "body": "Tone moves between exposure steps in hard bands, never in blends. Bands meet edge to edge, with no gap and no gradient between them.",
+        "section": "colors"
+      },
+      {
+        "name": "The Worst Pixel Rule",
+        "body": "Each surface gets the mottle strength that keeps its text at WCAG AA on the tile's most extreme pixel, not just on the flat colour. The strong tile, which lightens by up to 43/255 white and darkens by up to 84/255 deep as shipped, sits under the hero field (white text no lower than 6.20:1, soft lead no lower than 4.62:1) and the deep band. The soft tile (23/255 and 54/255) sits under the pale and mid bands and the step wedge. The mid band carries white text on the soft tile (no lower than 4.70:1), because the strong tile would drop it to 4.04:1.",
+        "section": "colors"
+      },
+      {
+        "name": "The Two Voices Rule",
+        "body": "Piazzolla states and Sofia Sans instructs. Headlines, step text, numerals, the address and the wordmark are serif. Reading text, captions and every control label are sans.",
+        "section": "typography"
+      },
+      {
+        "name": "The Optical Ceiling Rule",
+        "body": "The shipped Piazzolla subsets end their optical-size axis at 30, so every display role renders at optical size 30. Only the wordmark (24) sits inside the axis. A larger optical size changes nothing unless a font that carries it is shipped.",
+        "section": "typography"
+      },
+      {
+        "name": "The Contact Print Rule",
+        "body": "Nothing floats. A coat lies on the paper as emulsion does, and an element changes state through rings, washes and tone, never a lift. Glow exists only as halation inside a photogram exposure.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do keep Sunlight (#E0E46A) as the fill of the primary action only: \"Say hello\" in the hero, in the closing section and in the phone dock.",
+      "Do lay every cobalt surface as a coat: an exposure-step fill, the 384px mottle tile, and the brushed mask-border at the edge width (16px, or 34px from 900px).",
+      "Do choose the mottle tile by worst-pixel contrast: strong under the field and the deep band, soft under the pale and mid bands.",
+      "Do step tone in hard bands through paper, pale, mid, field and deep.",
+      "Do set statements in Piazzolla (300–560, negative tracking on display and headline) and reading text and every control in Sofia Sans.",
+      "Do give actions at least 54px of height, video controls 46px and every other target 44px.",
+      "Do develop surfaces from sensitizer over 1400ms on cubic-bezier(.16, 1, .3, 1), and answer presses with a 120ms scale (.97 for buttons, .95 for controls).",
+      "Do remove the latent state, the transitions and the autoplay when reduced motion is requested."
+    ],
+    "donts": [
+      "Don't give sunlight to controls, links, headings, the mark or decoration. The sound control is paper (#F3F6F9 at .94) with deep text.",
+      "Don't round interface corners. The only circle is the mark's sun disc.",
+      "Don't add drop shadows or glows to the interface. Halation belongs to photogram exposures only.",
+      "Don't blend between exposure steps or add colours outside the tokens.",
+      "Don't put white text on the strong mottle over the mid band; it falls to 4.04:1.",
+      "Don't break the test strip into separate cards. Its bands share one masked outline with no gaps.",
+      "Don't put a label or badge about how the presenter was made on the print or anywhere else on the page (the owner's decision, 2026-10-12, recorded in PRODUCT.md).",
+      "Don't tune Piazzolla's optical size above 30. The shipped font stops there."
+    ]
+  }
+}

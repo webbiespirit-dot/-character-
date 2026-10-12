@@ -1,14 +1,15 @@
 # Instagram Reels
 
-Two Reels, one per language, cut from the same presenter video as the site. A small webbiespirit.com tag sits in the top-left corner throughout, and each Reel ends on a two-second card with webbiespirit.com and the email address.
+Two Reels, one per language, cut from the same presenter video as the site. A webbiespirit.com button sits in the top-left corner throughout, and each Reel ends on a two-second card with webbiespirit.com and the email address.
 
 | | English | Greek |
 | --- | --- | --- |
-| Reel (clean, no captions yet) | [reel-en.mp4](https://d2ol7oe51mr4n9.cloudfront.net/user_3K86NwsNGq5zx5cfnxLYPijNIQP/ca13adb2-949f-4f4f-bdb4-345f8abbb9af.mp4) | [reel-el.mp4](https://d2ol7oe51mr4n9.cloudfront.net/user_3K86NwsNGq5zx5cfnxLYPijNIQP/bcfec4ec-524a-4de8-a60e-909c305b335c.mp4) |
-| Cover | [cover-en.jpg](https://d2ol7oe51mr4n9.cloudfront.net/user_3K86NwsNGq5zx5cfnxLYPijNIQP/affe3b33-60a0-4ed9-896b-a4d5ef3e759a.jpg) | [cover-el.jpg](https://d2ol7oe51mr4n9.cloudfront.net/user_3K86NwsNGq5zx5cfnxLYPijNIQP/2738ec20-d0cf-4605-925f-bb4b825b9b5c.jpg) |
+| Reel | [reel-en.mp4](https://d2ol7oe51mr4n9.cloudfront.net/user_3K86NwsNGq5zx5cfnxLYPijNIQP/21a203ba-4857-4a2e-b463-f80f45c30907.mp4) | [reel-el.mp4](https://d2ol7oe51mr4n9.cloudfront.net/user_3K86NwsNGq5zx5cfnxLYPijNIQP/5ea14f4e-bf08-4383-aae6-6645139244c2.mp4) |
+| Cover | [cover-en.jpg](https://d2ol7oe51mr4n9.cloudfront.net/user_3K86NwsNGq5zx5cfnxLYPijNIQP/53a509b6-1556-4884-87b0-ad3bbd6ff0f6.jpg) | [cover-el.jpg](https://d2ol7oe51mr4n9.cloudfront.net/user_3K86NwsNGq5zx5cfnxLYPijNIQP/113377b4-36a6-443f-b885-599cb5cef2db.jpg) |
 | Size | 1080×1920, 23 s | 720×1280, 29 s |
 | Sound | −14 LUFS, voice only | −14 LUFS, voice only |
-| Captions | Not yet burned in. Timed and placed just under her chin, clear of her face, the swimsuit, her hands and Instagram's buttons | Same |
+| Captions | Burned in, one line under her chin, clear of her face, the swimsuit, her hands and Instagram's buttons | Same, in Greek |
+| Website | A webbiespirit.com button top-left the whole time, tapped by a finger every 3.5 s; the end card's webbiespirit.com plate is tapped too | Same |
 
 ## Post caption, English
 
