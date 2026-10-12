@@ -24,7 +24,7 @@ from pathlib import Path
 # ---- your details: edit these two lines ----
 # Who introduces themselves in each language, and how they sign (in Greek letters, as the founders asked).
 OWNER = {'en': 'Apollonas Bisaku', 'el': 'Γιώργος Παλιογιάννης'}
-SIGN = {'en': 'Απολλώνας Μπισάκου', 'el': 'Γιώργος Παλιογιάννης'}
+SIGN = {'en': 'Απόλλωνας Μπισάκου', 'el': 'Γιώργος Παλιογιάννης'}
 PHONE = ''               # optional, e.g. '+357 99 000000'
 
 HERE = Path(__file__).resolve().parent

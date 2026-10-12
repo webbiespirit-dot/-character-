@@ -11,7 +11,7 @@ Every message here makes only claims the studio has confirmed: a free concept pr
 | `{hook}` | The one specific thing you noticed, e.g. "on Instagram, through your new autumn menu". Falls back to "online". |
 | `{link}` | webbiespirit.com with a tag for the channel, so the enquiry email shows where it came from |
 | `{owner}` | Apollonas Bisaku for English, Γιώργος Παλιογιάννης for Greek, set at the top of `ws.py` |
-| `{signature}` | Απολλώνας Μπισάκου (English) or Γιώργος Παλιογιάννης (Greek), with the studio's details |
+| `{signature}` | Απόλλωνας Μπισάκου (English) or Γιώργος Παλιογιάννης (Greek), with the studio's details |
 
 For tattoo studios, barbers and beauty, and restaurants and cafés, `{link}` opens the live site's page for that industry, as long as the lead's `--category` says so.
 
