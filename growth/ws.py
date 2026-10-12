@@ -210,7 +210,11 @@ def site_links(lead, lang):
 
 
 def first_email(lead):
-    """The bilingual first email: subject, plain text and branded HTML."""
+    """The bilingual first email: subject, plain text and branded HTML.
+
+    Gmail's sending API strips CSS backgrounds, so the HTML carries the brand with text colour,
+    borders and outlines only and never puts light text on a coloured fill.
+    """
     primary = 'el' if lead['lang'] == 'el' else 'en'
     order = [primary, 'en' if primary == 'el' else 'el']
     name = lead['name'].strip()
@@ -228,8 +232,8 @@ def first_email(lead):
         e = lambda s: html.escape(s, quote=True)
         p = 'margin:0 0 16px;'
         steps_html = ''.join(
-            f'<tr><td width="34" valign="top" style="padding:0 0 10px;"><span style="display:inline-block;width:24px;height:24px;'
-            f'line-height:24px;text-align:center;border-radius:12px;background:#163F94;color:#FFFFFF;font-size:13px;font-weight:bold;">{i}</span></td>'
+            f'<tr><td width="34" valign="top" style="padding:0 0 10px;"><span style="display:inline-block;width:22px;height:22px;'
+            f'line-height:22px;text-align:center;border-radius:12px;border:1px solid #163F94;color:#163F94;font-size:13px;font-weight:bold;">{i}</span></td>'
             f'<td valign="top" style="padding:2px 0 10px;font-size:15px;line-height:22px;color:#0B2559;">{e(s)}</td></tr>'
             for i, s in enumerate(c['steps'], 1))
         blocks.append(
@@ -238,7 +242,7 @@ def first_email(lead):
             f'<p style="{p}">{e(hi)}</p><p style="{p}">{e(found)}</p><p style="{p}">{e(intro)}</p>'
             f'<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:4px 0 14px;">{steps_html}</table>'
             f'<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:0 0 12px;"><tr>'
-            f'<td style="background:#E0E46A;"><a href="{e(work)}" style="display:inline-block;padding:13px 22px;font-size:15px;font-weight:bold;color:#0B2559;text-decoration:none;">{e(c["cta"])} &rarr;</a></td>'
+            f'<td style="border:2px solid #163F94;"><a href="{e(work)}" style="display:inline-block;padding:12px 22px;font-size:15px;font-weight:bold;color:#163F94;text-decoration:none;">{e(c["cta"])} &rarr;</a></td>'
             f'</tr></table><p style="margin:0 0 18px;font-size:15px;"><a href="{e(packages)}" style="color:#163F94;">{e(c["packages"])}</a></p>'
             f'<p style="{p}"><b>{e(ask)}</b> {e(c["ask_more"])}</p>'
             f'<p style="{p}">{e(v["sign"])}<br><span style="color:#3A5486;">webbiespirit</span></p></td></tr>')
