@@ -13,15 +13,6 @@ python3 -m http.server 8080
 
 - To force a language, add `?lang=en` or `?lang=el` to the URL. The visitor's choice is remembered.
 - Without that parameter, phones set to Greek get Greek automatically.
-- `?utm_source=instagram` or `?ref=dm` (any short tag) is remembered for the visit and added to the subject of the enquiry email, so each enquiry shows which channel brought it. Visitors in Instagram's in-app browser are tagged `instagram` automatically.
-
-## Daily outreach
-
-```sh
-python3 growth/ws.py today
-```
-
-See `growth/PLAN.md`.
 
 ## What's here
 
@@ -36,8 +27,6 @@ See `growth/PLAN.md`.
 | `assets/img/` | Brushed emulsion edge mask, the emulsion mottle inside every coat (strong and soft), paper grain, favicon and touch icon. |
 | `scripts/make-textures.py` | Regenerates the emulsion edge mask, emulsion mottle, paper grain and touch icon (deterministic). |
 | `scripts/fetch-media.sh` | Downloads all media into `assets/media/` and points the page at the local copies. |
-| `robots.txt`, `sitemap.xml` | For search engines, with the English and Greek versions linked to each other. |
-| `growth/` | Finding clients: the plan (`PLAN.md`), outreach templates in EN/EL, the lead tracker and `ws.py`, which prints each day's plan with the messages filled in. |
 
 ## Hosting the media yourself
 
@@ -49,7 +38,7 @@ bash scripts/fetch-media.sh
 
 ## Deploying
 
-Upload `index.html`, `robots.txt`, `sitemap.xml` and the `assets/` folder to the web host. Everything else here (this README, `PRODUCT.md`, `.impeccable/`, `scripts/`, `growth/`) is for the studio's own use and does not belong on the live site.
+Upload `index.html` and the `assets/` folder to the web host. Everything else here (this README, `PRODUCT.md`, `.impeccable/`, `scripts/`) is for development and does not belong on the live site.
 
 ## The presenter
 
