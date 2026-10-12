@@ -42,7 +42,7 @@ FIRST VIEWPORT (390x844):
 - The lower third holds the headline in Piazzolla, about 44px white, one line of support, and a full-width sun-yellow "Say hello" button inside thumb reach.
 - Desktop: the print sits off-centre on a landscape sheet, and a test strip runs beside it.
 - Adaptation, recorded at the finish review: the sound control sits bottom-left in the print's control row (sound, pause, captions), inside thumb reach (PRODUCT principle 3). The control is paper, not sun: sunlight stays on the primary action only.
-- Adaptation: the desktop test strip appears from 1100px, where it fits beside the copy without pushing the headline onto a third line.
+- Adaptation: the desktop test strip appears from 1200px, where it fits beside the copy without pushing the headline onto a third line in either language.
 
 SIGNATURE: Exposure. The step-wedge test strip develops band by band, from pale sensitizer to deep Prussian, as it scrolls in. The example photogram exposes with scroll position. This is one authored motion grammar, with slow exponential ease-out.
 

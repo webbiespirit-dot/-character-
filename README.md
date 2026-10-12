@@ -24,7 +24,7 @@ python3 -m http.server 8080
 | `assets/js/media.js` | URLs of every video and photo, per language. |
 | `assets/captions/{en,el}.vtt` | Captions, timed to each video's speech. |
 | `assets/fonts/` | Piazzolla (display) and Sofia Sans (text), self-hosted Latin + Greek subsets, SIL OFL 1.1. |
-| `assets/img/` | Brushed emulsion edge mask, the emulsion mottle inside every coat, paper grain, favicon and touch icon. |
+| `assets/img/` | Brushed emulsion edge mask, the emulsion mottle inside every coat (strong and soft), paper grain, favicon and touch icon. |
 | `scripts/make-textures.py` | Regenerates the emulsion edge mask, emulsion mottle, paper grain and touch icon (deterministic). |
 | `scripts/fetch-media.sh` | Downloads all media into `assets/media/` and points the page at the local copies. |
 

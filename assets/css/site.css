@@ -331,7 +331,7 @@ button { font: inherit; color: inherit; border: 0; background: none; padding: 0;
 }
 .strip__band {
   position: relative;
-  background-image: url(../img/emulsion-mottle.png);
+  background-image: url(../img/emulsion-mottle-soft.png);
   background-size: 384px 384px;
   display: grid; grid-template-columns: auto 1fr; align-items: start; column-gap: 16px;
   min-height: 150px;
@@ -340,7 +340,7 @@ button { font: inherit; color: inherit; border: 0; background: none; padding: 0;
 }
 .strip__band--1 { background-color: var(--light); color: var(--deep); }
 .strip__band--2 { background-color: var(--mid); color: var(--on-field); }
-.strip__band--3 { background-color: var(--deep); color: var(--on-field); }
+.strip__band--3 { background-color: var(--deep); background-image: url(../img/emulsion-mottle.png); color: var(--on-field); }
 .strip__n {
   font-family: var(--f-display);
   font-size: clamp(56px, 15vw, 96px); line-height: .8; font-weight: 300;
@@ -352,6 +352,7 @@ button { font: inherit; color: inherit; border: 0; background: none; padding: 0;
   align-self: center;
   max-width: 22ch;
   font-family: var(--f-display);
+  word-spacing: .07em;
   font-size: clamp(22px, 5.6vw, 32px); line-height: 1.15; font-weight: 460;
   font-variation-settings: "opsz" 36;
   text-wrap: balance;
@@ -359,17 +360,16 @@ button { font: inherit; color: inherit; border: 0; background: none; padding: 0;
 .gram { grid-column: 1 / -1; display: flex; align-items: flex-end; gap: 12px; margin-top: 18px; }
 .gram__svg {
   width: 84px; height: auto; flex: none;
-  fill: var(--on-field); stroke: none;
+  color: var(--on-field); fill: currentColor; stroke: none;
+  overflow: visible;
 }
-/* the phone body lets some light through; the page blocks print solid */
-.gram__glass { fill-opacity: .42; }
 .gram__cap { font-size: 13px; font-weight: 600; letter-spacing: .04em; color: #fff; }
 
 /* develop: only when script can run it, and only from a still-legible latent state */
 .strip__band.is-latent { background-color: var(--sensitizer); color: var(--deep); }
-.strip__band.is-latent .gram__svg { fill: rgba(11, 37, 89, .45); }
-.strip__band.is-latent .gram__cap { color: var(--ink-soft); }
-.gram__svg, .gram__cap { transition: fill var(--develop) var(--ease-out), color var(--develop) var(--ease-out); }
+.strip__band.is-latent .gram__svg { color: rgba(11, 37, 89, .45); }
+.strip__band.is-latent .gram__cap { color: var(--deep); }
+.gram__svg, .gram__cap { transition: color var(--develop) var(--ease-out); }
 
 /* ---------- where ---------- */
 .where {
@@ -471,7 +471,7 @@ button { font: inherit; color: inherit; border: 0; background: none; padding: 0;
   }
   .print { width: calc(min(84svh, 860px) * 9 / 16); min-width: 0; margin: 0; }
   .hero__copy { padding: 0; }
-  .hero__title { font-size: clamp(60px, 7.2vw, 100px); }
+  .hero__title { font-size: clamp(60px, 7.2vw, 96px); }
   .hero__actions { margin-top: 30px; }
   .hero__actions .btn--sun { flex: 0 0 auto; padding: 0 30px; }
 
@@ -492,21 +492,21 @@ button { font: inherit; color: inherit; border: 0; background: none; padding: 0;
 
 /* the landscape sheet carries its test strip beside the print, once there is room
    for it without pushing the headline onto a third line */
-@media (min-width: 1100px) {
+@media (min-width: 1200px) {
   .hero__field {
     column-gap: clamp(36px, 4.2vw, 72px);
-    padding-right: calc(var(--edge) + 8px + clamp(30px, 2.6vw, 40px) + clamp(22px, 2vw, 32px));
+    padding-right: calc(var(--edge) + 6px + clamp(46px, 3.8vw, 64px) + clamp(22px, 2vw, 32px));
   }
   .wedge {
     position: absolute; top: 34px; bottom: 40px;
-    right: calc(var(--edge) + 8px);
-    width: clamp(30px, 2.6vw, 40px);
+    right: calc(var(--edge) + 6px);
+    width: clamp(46px, 3.8vw, 64px);
     display: grid; grid-template-rows: repeat(4, 1fr);
-    -webkit-mask-box-image: url(../img/emulsion-edge.png) 64 fill / 10px stretch;
-    mask-border: url(../img/emulsion-edge.png) 64 fill / 10px stretch;
+    -webkit-mask-box-image: url(../img/emulsion-edge.png) 64 fill / 18px stretch;
+    mask-border: url(../img/emulsion-edge.png) 64 fill / 18px stretch;
   }
   .wedge__band {
-    background-image: url(../img/emulsion-mottle.png);
+    background-image: url(../img/emulsion-mottle-soft.png);
     background-size: 384px 384px;
     transition: background-color var(--develop) var(--ease-out);
   }

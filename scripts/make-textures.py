@@ -133,34 +133,38 @@ def band_noise(shape, sigma_y, sigma_x, rng):
     return n / np.abs(n).max()
 
 
-def emulsion_mottle(size=384, seed=23):
+def emulsion_mottle(name, light_max, dark_max, size=384, seed=23):
     """The inside of a coat: soft mottle plus horizontal brush streaks.
 
-    Lightens by at most ~8% and darkens by at most ~5%, so white text on the
-    mid band and the latent caption on sensitizer keep their contrast.
+    White lightens, Prussian deep darkens, each up to the given alpha (0-255).
+    The two strengths are set per surface so text on every coat keeps WCAG AA:
+    the strong tile sits under white text on the field and the deep band, the
+    soft one under the light and mid bands.
     """
     rng = np.random.default_rng(seed)
     mottle = band_noise((size, size), 30, 30, rng)
     streak = band_noise((size, size), 2.5, 70, rng)
     m = 0.55 * mottle + 0.45 * streak
     m = m / np.abs(m).max()
-    light = np.round(np.clip(m, 0, 1) * 20).astype(np.uint8)
-    dark = np.round(np.clip(-m, 0, 1) * 13).astype(np.uint8)
-        # Only 34 distinct pixels (white or deep, at a few alphas), so write an indexed PNG
-    # with per-entry transparency: a fraction of the size of the same tile in RGBA.
-    key = np.where(m > 0, light.astype(np.int16), 21 + dark.astype(np.int16) - 1)
-    key = np.where((m <= 0) & (dark == 0), 0, key).astype(np.uint8)
+    # Push values toward the ends so most of the coat shows the texture, not only its peaks.
+    m = np.tanh(1.8 * m) / np.tanh(1.8)
+    steps = 24
+    light = np.round(np.clip(m, 0, 1) * steps).astype(np.uint8)
+    dark = np.round(np.clip(-m, 0, 1) * steps).astype(np.uint8)
+    # An indexed PNG with per-entry transparency: white or deep at a few alphas.
+    key = np.where(m > 0, light, np.where(dark > 0, steps + dark, 0)).astype(np.uint8)
     pal, alpha = [], []
-    for i in range(21):
+    for i in range(steps + 1):
         pal += [255, 255, 255]
-        alpha.append(i)
-    for i in range(1, 14):
+        alpha.append(round(i / steps * light_max))
+    for i in range(1, steps + 1):
         pal += [11, 37, 89]
-        alpha.append(i)
+        alpha.append(round(i / steps * dark_max))
     im = Image.fromarray(key, "P")
     im.putpalette(pal)
-    save(im, "emulsion-mottle.png",
-         "tileable emulsion mottle and horizontal brush streaks laid inside every cobalt coat.",
+    save(im, name,
+         f"tileable emulsion mottle and horizontal brush streaks laid inside the cobalt coats "
+         f"(lightens up to {light_max}/255, darkens up to {dark_max}/255).",
          transparency=bytes(alpha))
 
 
@@ -180,7 +184,8 @@ def touch_icon(size=180):
 if __name__ == "__main__":
     emulsion_mask()
     paper_grain()
-    emulsion_mottle()
+    emulsion_mottle("emulsion-mottle.png", light_max=45, dark_max=84)
+    emulsion_mottle("emulsion-mottle-soft.png", light_max=24, dark_max=54)
     touch_icon()
-    print("wrote", OUT / "emulsion-edge.png", OUT / "paper-grain.png",
-          OUT / "emulsion-mottle.png", OUT / "apple-touch-icon.png")
+    print("wrote", OUT / "emulsion-edge.png", OUT / "paper-grain.png", OUT / "emulsion-mottle.png",
+          OUT / "emulsion-mottle-soft.png", OUT / "apple-touch-icon.png")
