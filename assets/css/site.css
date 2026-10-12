@@ -214,13 +214,6 @@ button { font: inherit; color: inherit; border: 0; background: none; padding: 0;
   object-fit: cover;
   background: var(--deep);
 }
-.print__tag {
-  position: absolute; left: 10px; top: 10px;
-  padding: 5px 9px;
-  font-size: 12.5px; line-height: 1.2; font-weight: 650; letter-spacing: .02em;
-  color: var(--deep); background: rgba(243, 246, 249, .9);
-  pointer-events: none;
-}
 
 /* captions drawn by the page so they keep the type and never sit on the controls */
 .cap {
@@ -449,8 +442,7 @@ button { font: inherit; color: inherit; border: 0; background: none; padding: 0;
   border-top: 1px solid rgba(11, 37, 89, .14);
   font-size: 14.5px; color: var(--ink-soft);
 }
-.foot__ai { max-width: 62ch; }
-.foot__line { margin-top: 8px; }
+.foot__line { margin: 0; }
 @media (max-width: 899px) { .foot { padding-bottom: calc(104px + env(safe-area-inset-bottom, 0px)); } }
 
 /* ---------- phone dock: the action stays under the thumb ---------- */

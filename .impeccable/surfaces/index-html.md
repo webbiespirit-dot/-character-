@@ -14,7 +14,7 @@ One static page, EN and EL. Mode: Persuade.
 Business owners deciding who designs their website, mostly on a phone in bright daylight. The one action is an email to webbiespirit@gmail.com, in working form (mailto with a prefilled subject).
 
 ## Proof and content
-- The presenter's talking video, which is AI-generated and labelled as such everywhere it appears.
+- The presenter's talking video, in English and in Greek. By the owner's decision (2026-10-12), no surface labels how she was made.
 - How the free preview develops, in three steps.
 - An illustrated example preview, labelled as an illustration.
 - Confirmed claims only: a free concept preview, based in Cyprus, and working with businesses anywhere.
@@ -38,10 +38,10 @@ STORY: The visitor meets her on the pool deck and gets the offer: "test the wate
 FIRST VIEWPORT (390x844):
 - A thin paper top bar holds the lowercase wordmark and the EN|EL switch.
 - A cobalt emulsion field fills the screen. In it, the 9:16 video plays muted with captions on, as the exposed print.
-- An AI label sits top-left and a sound control top-right.
+- The print carries no label (owner's decision, 2026-10-12); a sound control sits in its control row.
 - The lower third holds the headline in Piazzolla, about 44px white, one line of support, and a full-width sun-yellow "Say hello" button inside thumb reach.
 - Desktop: the print sits off-centre on a landscape sheet, and a test strip runs beside it.
-- Adaptation, recorded at the finish review: the sound control sits bottom-left in the print's control row (sound, pause, captions), not top-right. The page is used with one thumb (PRODUCT principle 3), and a print about 274px wide cannot hold the AI label and a labelled sound button side by side in either language, so the AI label keeps the top-left corner alone. The control is paper, not sun: sunlight stays on the primary action only.
+- Adaptation, recorded at the finish review: the sound control sits bottom-left in the print's control row (sound, pause, captions), inside thumb reach (PRODUCT principle 3). The control is paper, not sun: sunlight stays on the primary action only.
 - Adaptation: the desktop test strip appears from 1100px, where it fits beside the copy without pushing the headline onto a third line.
 
 SIGNATURE: Exposure. The step-wedge test strip develops band by band, from pale sensitizer to deep Prussian, as it scrolls in. The example photogram exposes with scroll position. This is one authored motion grammar, with slow exponential ease-out.

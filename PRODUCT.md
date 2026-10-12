@@ -30,7 +30,7 @@ The studio is based in Cyprus and also works remotely with businesses anywhere. 
 
 - Confirmed offer: a free concept preview of the new website; based in Cyprus; works worldwide and remotely.
 - Not confirmed, so never claim it: "custom" sites, a local-businesses-only focus, prices, turnaround times, guarantees, client names, testimonials, ratings, or past results.
-- The presenter is a fictional, AI-generated person. Every surface that shows her must say so plainly. She presents the studio. She never poses as a client, so the page shows no reviews or endorsements in her name.
+- The presenter is a fictional person made for this page. By the owner's decision (2026-10-12), no surface labels how she was made. She presents the studio. She never poses as a client, so the page shows no reviews or endorsements in her name.
 
 ## Brand Commitments
 
@@ -40,7 +40,7 @@ The studio is based in Cyprus and also works remotely with businesses anywhere. 
 
 ## Evidence on Hand
 
-- Presenter photograph and talking video, generated for this page and labelled as AI-generated.
+- Presenter photograph and talking videos, made for this page.
 - No portfolio, testimonials, client logos or pricing are available. Do not fabricate them.
 
 ## Product Principles
@@ -48,7 +48,7 @@ The studio is based in Cyprus and also works remotely with businesses anywhere. 
 1. Show first, then ask: the free preview is the offer, and the page should feel like one.
 2. Every claim is one the studio confirmed.
 3. Phone first: the page is judged on a phone, with one thumb, in daylight.
-4. Honest presenter: warm and welcoming, always disclosed as AI.
+4. Honest presenter: warm and welcoming, and never posing as a client or a reviewer.
 
 ## Accessibility & Inclusion
 

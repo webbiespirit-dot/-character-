@@ -1,6 +1,6 @@
 # webbiespirit · sponsor page
 
-A one-page, phone-first sponsor site for **webbiespirit**. An AI-generated presenter stands by a pool and welcomes visitors in English or Greek. She explains the studio's offer, a free concept preview of a new website, and asks visitors to say hello by email.
+A one-page, phone-first sponsor site for **webbiespirit**. A presenter stands by a pool and welcomes visitors in English or Greek. She explains the studio's offer, a free concept preview of a new website, and asks visitors to say hello by email.
 
 The page is static HTML, CSS and JavaScript, with no build step.
 
@@ -36,15 +36,13 @@ Videos and photos are currently served from the studio's Higgsfield media CDN. T
 bash scripts/fetch-media.sh
 ```
 
-## AI disclosure
+## Deploying
 
-The presenter is a fictional, AI-generated person, and so are her voice and the videos. Each surface says so:
+Upload `index.html` and the `assets/` folder to the web host. Everything else here (this README, `PRODUCT.md`, `.impeccable/`, `scripts/`) is for development and does not belong on the live site.
 
-- a label on the video;
-- the caption under her sun-print;
-- a sentence in the footer.
+## The presenter
 
-She presents the studio. She never poses as a client, and the page shows no reviews or endorsements in her name.
+She is a fictional character made for this page. She presents the studio. She never poses as a client, and the page shows no reviews or endorsements in her name.
 
 ## Provenance of the media
 
