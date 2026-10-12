@@ -8,7 +8,7 @@ web
 
 ## Stack
 
-Static HTML, CSS and JavaScript with no build step, in English and Greek (EN/EL switch). Spoken audio is English only; captions and page copy exist in both languages.
+Static HTML, CSS and JavaScript with no build step, in English and Greek (EN/EL switch). The presenter speaks in both languages too: an English video and a Greek video, each with captions in its own language.
 
 ## Users
 

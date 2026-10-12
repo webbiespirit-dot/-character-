@@ -65,8 +65,9 @@
   --on-field: #FFFFFF;
   --on-field-soft: #D3DFF5;
   /* the one warm thing on the page: sunlight on the action */
-  --sun: #F4D35E;
-  --sun-press: #E7C243;
+  --sun: #E0E46A;
+  --sun-press: #C9CF48;
+  --sun-lift: #EAEC86;
   /* unwashed sensitizer, only ever seen while a band develops */
   --sensitizer: #DAD69C;
 
@@ -153,7 +154,9 @@ button { font: inherit; color: inherit; border: 0; background: none; padding: 0;
    Browsers without mask-border keep a clean rectangle, which still reads as a field. */
 .field {
   position: relative;
-  background: var(--field);
+  background-color: var(--field);
+  background-image: url(../img/emulsion-mottle.png);
+  background-size: 384px 384px;
   color: var(--on-field);
   -webkit-mask-box-image: url(../img/emulsion-edge.png) 64 fill / var(--edge) stretch;
   mask-border: url(../img/emulsion-edge.png) 64 fill / var(--edge) stretch;
@@ -244,10 +247,10 @@ button { font: inherit; color: inherit; border: 0; background: none; padding: 0;
   display: inline-flex; align-items: center; gap: 8px;
   min-height: 46px; padding: 0 14px 0 11px; margin-right: auto;
   font-size: 15.5px; font-weight: 700; white-space: nowrap;
-  color: var(--deep); background: var(--sun);
-  transition: transform 120ms var(--ease-press), background-color 160ms var(--ease-press);
+  color: var(--deep); background: rgba(243, 246, 249, .94);
+  transition: transform 120ms var(--ease-press), background-color 160ms var(--ease-press), box-shadow 160ms var(--ease-press);
 }
-.ctrl__sound[aria-pressed="true"] { background: rgba(243, 246, 249, .94); }
+.ctrl__sound[aria-pressed="true"] { box-shadow: inset 0 0 0 2px var(--field); }
 .ctrl__icon {
   display: inline-grid; place-items: center;
   width: 46px; height: 46px;
@@ -264,6 +267,7 @@ button { font: inherit; color: inherit; border: 0; background: none; padding: 0;
   font-size: clamp(36px, 10.4vw, 96px);
   line-height: .98;
   letter-spacing: -.022em;
+  word-spacing: .08em;
   font-variation-settings: "opsz" 72;
   text-wrap: balance;
 }
@@ -274,6 +278,9 @@ button { font: inherit; color: inherit; border: 0; background: none; padding: 0;
   text-wrap: pretty;
 }
 .hero__actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+
+/* step wedge: only on the landscape sheet, where it runs beside the print */
+.wedge { display: none; }
 
 /* ---------- buttons ---------- */
 .btn {
@@ -293,10 +300,11 @@ button { font: inherit; color: inherit; border: 0; background: none; padding: 0;
 .hero__actions .btn--sun { flex: 1 1 200px; }
 
 @media (hover: hover) and (pointer: fine) {
-  .btn--sun:hover { background: #F7DD7C; }
+  .btn--sun:hover { background: var(--sun-lift); }
   .btn--line:hover { background: rgba(143, 176, 230, .16); }
   .lang__btn:hover { color: var(--ink); }
   .ctrl__icon:hover { background: rgba(11, 37, 89, .9); }
+  .ctrl__sound:hover { background: #fff; }
   .hello__email:hover { text-decoration-color: var(--mid); }
 }
 
@@ -307,6 +315,7 @@ button { font: inherit; color: inherit; border: 0; background: none; padding: 0;
   font-size: clamp(30px, 7.6vw, 64px);
   line-height: 1.02;
   letter-spacing: -.018em;
+  word-spacing: .08em;
   font-variation-settings: "opsz" 60;
   text-wrap: balance;
   color: var(--ink);
@@ -329,14 +338,16 @@ button { font: inherit; color: inherit; border: 0; background: none; padding: 0;
 }
 .strip__band {
   position: relative;
+  background-image: url(../img/emulsion-mottle.png);
+  background-size: 384px 384px;
   display: grid; grid-template-columns: auto 1fr; align-items: start; column-gap: 16px;
   min-height: 150px;
   padding: 26px 26px 30px;
   transition: background-color var(--develop) var(--ease-out), color var(--develop) var(--ease-out);
 }
-.strip__band--1 { background: var(--light); color: var(--deep); }
-.strip__band--2 { background: var(--mid); color: var(--on-field); }
-.strip__band--3 { background: var(--deep); color: var(--on-field); }
+.strip__band--1 { background-color: var(--light); color: var(--deep); }
+.strip__band--2 { background-color: var(--mid); color: var(--on-field); }
+.strip__band--3 { background-color: var(--deep); color: var(--on-field); }
 .strip__n {
   font-family: var(--f-display);
   font-size: clamp(56px, 15vw, 96px); line-height: .8; font-weight: 300;
@@ -355,17 +366,17 @@ button { font: inherit; color: inherit; border: 0; background: none; padding: 0;
 .gram { grid-column: 1 / -1; display: flex; align-items: flex-end; gap: 12px; margin-top: 18px; }
 .gram__svg {
   width: 84px; height: auto; flex: none;
-  fill: none; stroke: rgba(255, 255, 255, .92); stroke-width: 2;
+  fill: var(--on-field); stroke: none;
 }
-.gram__fill { fill: rgba(255, 255, 255, .22); }
+/* the phone body lets some light through; the page blocks print solid */
+.gram__glass { fill-opacity: .42; }
 .gram__cap { font-size: 13px; font-weight: 600; letter-spacing: .04em; color: #fff; }
 
 /* develop: only when script can run it, and only from a still-legible latent state */
-.strip__band.is-latent { background: var(--sensitizer); color: var(--deep); }
-.strip__band.is-latent .gram__svg { stroke: rgba(11, 37, 89, .55); }
-.strip__band.is-latent .gram__fill { fill: rgba(11, 37, 89, .12); }
+.strip__band.is-latent { background-color: var(--sensitizer); color: var(--deep); }
+.strip__band.is-latent .gram__svg { fill: rgba(11, 37, 89, .45); }
 .strip__band.is-latent .gram__cap { color: var(--ink-soft); }
-.gram__svg, .gram__fill, .gram__cap { transition: stroke var(--develop) var(--ease-out), fill var(--develop) var(--ease-out), color var(--develop) var(--ease-out); }
+.gram__svg, .gram__cap { transition: fill var(--develop) var(--ease-out), color var(--develop) var(--ease-out); }
 
 /* ---------- where ---------- */
 .where {
@@ -376,14 +387,37 @@ button { font: inherit; color: inherit; border: 0; background: none; padding: 0;
   width: min(78%, 360px);
   aspect-ratio: 3 / 4;
   margin: 0 auto;
+  overflow: hidden;
   background: var(--deep);
   -webkit-mask-box-image: url(../img/emulsion-edge.png) 64 fill / 22px stretch;
   mask-border: url(../img/emulsion-edge.png) 64 fill / 22px stretch;
   transition: filter var(--develop) var(--ease-out);
 }
 .where__print.is-latent { filter: sepia(.6) saturate(.5) brightness(1.28); }
-.where__video { width: 100%; height: 100%; object-fit: cover; }
+/* the photogram's own sheet has an unexposed cream margin; crop past it so only emulsion shows */
+.where__video { width: 100%; height: 100%; object-fit: cover; transform: scale(1.14); transform-origin: 40% 32%; }
 .where__title { max-width: 16ch; }
+
+/* Where scroll-driven animation exists, the photograms expose with scroll position instead
+   of on a timer. The strip bands keep their triggered develop. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .strip__band--2 { view-timeline: --gram block; }
+    .gram__svg {
+      animation: gram-expose linear both;
+      animation-timeline: --gram;
+      animation-range: entry 0% entry 100%;
+    }
+    .where__print {
+      transition: none;
+      animation: print-expose linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 100%;
+    }
+  }
+}
+@keyframes gram-expose { from { opacity: .3; filter: blur(2px); } to { opacity: 1; filter: none; } }
+@keyframes print-expose { from { filter: sepia(.6) saturate(.5) brightness(1.28); } to { filter: none; } }
 
 /* ---------- hello ---------- */
 .hello {
@@ -445,7 +479,7 @@ button { font: inherit; color: inherit; border: 0; background: none; padding: 0;
   }
   .print { width: calc(min(84svh, 860px) * 9 / 16); min-width: 0; margin: 0; }
   .hero__copy { padding: 0; }
-  .hero__title { font-size: clamp(64px, 7.4vw, 104px); }
+  .hero__title { font-size: clamp(60px, 7.2vw, 100px); }
   .hero__actions { margin-top: 30px; }
   .hero__actions .btn--sun { flex: 0 0 auto; padding: 0 30px; }
 
@@ -464,6 +498,33 @@ button { font: inherit; color: inherit; border: 0; background: none; padding: 0;
   .hello__actions .btn--sun { flex: 0 0 auto; padding: 0 30px; }
 }
 
+/* the landscape sheet carries its test strip beside the print, once there is room
+   for it without pushing the headline onto a third line */
+@media (min-width: 1100px) {
+  .hero__field {
+    column-gap: clamp(36px, 4.2vw, 72px);
+    padding-right: calc(var(--edge) + 8px + clamp(30px, 2.6vw, 40px) + clamp(22px, 2vw, 32px));
+  }
+  .wedge {
+    position: absolute; top: 34px; bottom: 40px;
+    right: calc(var(--edge) + 8px);
+    width: clamp(30px, 2.6vw, 40px);
+    display: grid; grid-template-rows: repeat(4, 1fr);
+    -webkit-mask-box-image: url(../img/emulsion-edge.png) 64 fill / 10px stretch;
+    mask-border: url(../img/emulsion-edge.png) 64 fill / 10px stretch;
+  }
+  .wedge__band {
+    background-image: url(../img/emulsion-mottle.png);
+    background-size: 384px 384px;
+    transition: background-color var(--develop) var(--ease-out);
+  }
+  .wedge__band--paper { background-color: var(--paper); }
+  .wedge__band--light { background-color: var(--light); }
+  .wedge__band--mid { background-color: var(--mid); }
+  .wedge__band--deep { background-color: var(--deep); }
+  .wedge__band.is-latent { background-color: var(--sensitizer); }
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .strip__band, .where__print, .gram__svg, .gram__fill, .gram__cap, .dock, .btn, .ctrl__sound, .ctrl__icon { transition: none; }
+  .strip__band, .wedge__band, .where__print, .gram__svg, .gram__cap, .dock, .btn, .ctrl__sound, .ctrl__icon { transition: none; }
 }

@@ -272,8 +272,10 @@
   };
   $$('.lang__btn').forEach((b) => b.addEventListener('click', () => setLang(b.dataset.lang, true)));
 
-  /* ---------- develop: bands expose as they come into view ---------- */
-  const latent = $$('[data-develop]');
+  /* ---------- develop: bands expose as they come into view ----------
+     Where CSS can tie the olive print's exposure to scroll position, it does, so leave it out here. */
+  const scrollExpose = !!(window.CSS && CSS.supports && CSS.supports('animation-timeline: view()'));
+  const latent = $$('[data-develop]').filter((el) => !(scrollExpose && el.classList.contains('where__print')));
   if (!reduceMotion && 'IntersectionObserver' in window) {
     latent.forEach((el) => el.classList.add('is-latent'));
     const io = new IntersectionObserver((entries) => {

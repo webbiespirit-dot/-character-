@@ -24,8 +24,8 @@ python3 -m http.server 8080
 | `assets/js/media.js` | URLs of every video and photo, per language. |
 | `assets/captions/{en,el}.vtt` | Captions, timed to each video's speech. |
 | `assets/fonts/` | Piazzolla (display) and Sofia Sans (text), self-hosted Latin + Greek subsets, SIL OFL 1.1. |
-| `assets/img/` | Brushed emulsion edge mask, paper grain, favicon and touch icon. |
-| `scripts/make-textures.py` | Regenerates the emulsion mask and paper grain (deterministic). |
+| `assets/img/` | Brushed emulsion edge mask, the emulsion mottle inside every coat, paper grain, favicon and touch icon. |
+| `scripts/make-textures.py` | Regenerates the emulsion edge mask, emulsion mottle, paper grain and touch icon (deterministic). |
 | `scripts/fetch-media.sh` | Downloads all media into `assets/media/` and points the page at the local copies. |
 
 ## Hosting the media yourself
@@ -58,4 +58,4 @@ She presents the studio. She never poses as a client, and the page shows no revi
 | Sun-print of the presenter | Derived from the photograph: Prussian-blue cyanotype toning plus a hand-coated brush-edge alpha (Pillow/NumPy). |
 | Olive photogram | GPT Image 2.5, job `48a1d821-31c6-4ef5-9641-c338d1f5092d` |
 | Olive loop | Seedance 2.5, the photogram as both first and last frame (seamless loop), job `845f1ad7-56c1-48aa-bc13-15294f372906` |
-| Emulsion edge, paper grain, icons | `scripts/make-textures.py` and hand-written SVG |
+| Emulsion edge and mottle, paper grain, icons | `scripts/make-textures.py` and hand-written SVG |

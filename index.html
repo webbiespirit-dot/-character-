@@ -82,6 +82,9 @@
           <a class="btn btn--line" href="#how" data-i18n="howLink">How it works</a>
         </div>
       </div>
+      <div class="wedge" aria-hidden="true">
+        <span class="wedge__band wedge__band--paper" data-develop></span><span class="wedge__band wedge__band--light" data-develop></span><span class="wedge__band wedge__band--mid" data-develop></span><span class="wedge__band wedge__band--deep" data-develop></span>
+      </div>
     </div>
   </section>
 
@@ -97,13 +100,15 @@
         <p class="strip__text" data-i18n="step2">We design a preview of your new site, free.</p>
         <figure class="gram" aria-hidden="true">
           <svg class="gram__svg" viewBox="0 0 120 220">
-            <rect x="6" y="4" width="108" height="212" rx="16"/>
-            <path d="M48 14h24"/>
-            <rect x="16" y="28" width="88" height="12"/>
-            <rect x="16" y="48" width="88" height="62" class="gram__fill"/>
-            <path d="M16 122h70M16 132h82M16 142h58"/>
-            <rect x="16" y="156" width="46" height="14" class="gram__fill"/>
-            <path d="M16 184h88M16 194h64"/>
+            <defs><filter id="gram-contact" x="-10%" y="-6%" width="120%" height="112%"><feGaussianBlur stdDeviation="1.3"/></filter></defs>
+            <g filter="url(#gram-contact)">
+              <rect class="gram__glass" x="6" y="4" width="108" height="212" rx="16"/>
+              <rect x="16" y="28" width="88" height="12"/>
+              <rect x="16" y="48" width="88" height="62"/>
+              <rect x="16" y="120" width="70" height="4"/><rect x="16" y="130" width="82" height="4"/><rect x="16" y="140" width="58" height="4"/>
+              <rect x="16" y="156" width="46" height="14"/>
+              <rect x="16" y="182" width="88" height="4"/><rect x="16" y="192" width="64" height="4"/>
+            </g>
           </svg>
           <figcaption class="gram__cap" data-i18n="illus">Illustration</figcaption>
         </figure>
