@@ -33,7 +33,7 @@ FIRST_EMAIL = HERE / 'email' / 'first-email.html'
 SITE = 'https://webbiespirit.com/'
 EMAIL = 'webbiespirit@gmail.com'
 FIELDS = ['id', 'business', 'name', 'channel', 'contact', 'city', 'category', 'lang', 'hook', 'hook_el',
-          'instagram', 'status', 'touches', 'last_touch', 'next_touch', 'added', 'notes']
+          'instagram', 'gmail_thread', 'status', 'touches', 'last_touch', 'next_touch', 'added', 'notes']
 CHANNELS = ('email', 'instagram', 'call', 'walkin')
 STATUSES = ('new', 'contacted', 'replied', 'preview', 'sent', 'won', 'lost', 'optout', 'cold')
 # Days to wait after touch 1, 2, 3 ... before the next one. When the list runs out, the lead goes cold.
@@ -378,6 +378,8 @@ def cmd_set(args):
         r['next_touch'] = (day + dt.timedelta(days=STATUS_TASK[args.status][0])).isoformat()
     elif args.status in ('won', 'lost', 'optout', 'cold'):
         r['next_touch'] = ''
+    if args.thread:
+        r['gmail_thread'] = args.thread
     if args.note:
         r['notes'] = (r['notes'] + ' | ' if r['notes'] else '') + f'{day}: {args.note}'
     save(rows)
@@ -420,7 +422,7 @@ def cmd_emails(args):
         first, _, body = text.partition('\n')
         subject = re.sub(r'^(Subject|Θέμα):\s*', '', first) if re.match(r'^(Subject|Θέμα):', first) else ''
         out.append({'id': r['id'], 'business': r['business'], 'to': r['contact'].strip(),
-                    'touch': int(r['touches'] or 0) + 1, 'subject': subject,
+                    'touch': int(r['touches'] or 0) + 1, 'subject': subject, 'gmail_thread': r['gmail_thread'],
                     'body': body.strip('\n') if subject else text,
                     'follow_up': int(r['touches'] or 0) > 0})
     print(json.dumps(out, ensure_ascii=False, indent=2))
@@ -481,6 +483,7 @@ def main():
     s.add_argument('status', choices=STATUSES)
     s.add_argument('--next', help='next date to act, YYYY-MM-DD')
     s.add_argument('--note')
+    s.add_argument('--thread', help='Gmail thread id of the first email, so follow-ups reply in it')
 
     m = sub.add_parser('msg', help='print the next message for a lead')
     m.add_argument('id')

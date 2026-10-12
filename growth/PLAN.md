@@ -60,6 +60,8 @@ Where to find them:
 - **Walking.** Shopping streets and new openings. A new business needs a site most.
 - **Outside Cyprus.** The same scripts work in English for remote clients. Start once the local routine is running.
 
+`growth/leads.csv` is kept out of git on purpose: this repository is public, and the list holds businesses' contacts and where each stands. Keep your own copy of it somewhere private (it opens in any spreadsheet app).
+
 Add each one as you find it:
 
 ```sh
