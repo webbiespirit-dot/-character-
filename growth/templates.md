@@ -222,6 +222,18 @@ Aim for a yes to the free preview, not a sale. Two minutes at most.
 
 Greek opener: «Καλησπέρα, λέγομαι Γιώργος Παλιογιάννης και είμαι από το webbiespirit, ένα στούντιο σχεδιασμού ιστοσελίδων στη Λάρνακα. Έχετε μισό λεπτό;» Then: «Θα θέλαμε να σας σχεδιάσουμε δωρεάν μια μακέτα της νέας σας ιστοσελίδας, για να τη δείτε πριν αποφασίσετε οτιδήποτε. Να σας στείλω τις λεπτομέρειες με email ή Viber/WhatsApp;»
 
+### Calling someone we already emailed
+
+Same aim, warmer start. Run `python3 growth/ws.py calls` for the list.
+
+1. "Hi, is this {business}? I'm Apollonas from webbiespirit, the web design studio in Larnaca. We sent you an email a few days ago about a free website preview. Did you get a chance to see it?"
+2. Whatever they answer: "In short, we design a preview of a new website for {business}, free, and you only pay if you love it. Shall I send it to you on WhatsApp or Viber?"
+3. Yes: get the number and the owner's name, then `ws.py set ID replied --note "..."`. Not now: `ws.py set ID contacted --next YYYY-MM-DD`. No: `ws.py set ID optout`.
+
+Greek: «Καλησπέρα, είναι το {business}; Είμαι ο Γιώργος από το webbiespirit, το στούντιο σχεδιασμού ιστοσελίδων στη Λάρνακα. Σας στείλαμε email πριν από λίγες μέρες για μια δωρεάν μακέτα ιστοσελίδας. Προλάβατε να το δείτε;» Then: «Με δυο λόγια: σας σχεδιάζουμε δωρεάν μια μακέτα της νέας σας ιστοσελίδας και πληρώνετε μόνο αν σας ενθουσιάσει. Να σας τη στείλω στο Viber ή στο WhatsApp;»
+
+Only call the number the business lists as its own (Google Maps, Facebook page, booking page). Never text or WhatsApp a number before the person has said yes on the call.
+
 ## Walk-in script (going in person)
 
 Go between 10:00 and 11:30 or 15:00 and 17:00, never at a rush. Bring a phone with webbiespirit.com open and, if you can, a few printed cards with the QR code to `https://webbiespirit.com/?ref=visit`.
