@@ -48,13 +48,13 @@ Post both Reels from **@webbiespirit**, and set the profile's website link to ht
 3. Paste the post caption for that language.
 4. Links in Reel captions are not clickable, which is why the profile link matters.
 
-## Scheduled
+## Published
 
-Both Reels are scheduled in Metricool (brand 7379023, linked to @webbiespirit) to publish automatically, with the matching cover and Instagram's "AI info" toggle on. Nothing about it is written in the videos or the captions. Times are Cyprus time (the brand's Europe/Bucharest clock matches Asia/Nicosia), at the best-rated hours in Metricool's best-time data.
+Both Reels were scheduled in Metricool (brand 7379023, linked to @webbiespirit) and published automatically, with the matching cover and Instagram's "AI info" toggle on. Nothing about it is written in the videos or the captions. Times are Cyprus time (the brand's Europe/Bucharest clock matches Asia/Nicosia), at the best-rated hours in Metricool's best-time data.
 
 | Reel | Publishes | Status |
 | --- | --- | --- |
 | Greek | Mon 12 Oct 2026, 18:00 | Published: [instagram.com/reel/DeZhBQzDmlH](https://www.instagram.com/reel/DeZhBQzDmlH/) |
-| English | Tue 13 Oct 2026, 10:00 | Scheduled: [Metricool planner](https://app.metricool.com/planner/calendar?blogId=7379023&openWithPostUuid=1182515876842326111) |
+| English | Tue 13 Oct 2026, 10:00 | Published: [instagram.com/reel/DebOgQmE6gN](https://www.instagram.com/reel/DebOgQmE6gN/) |
 
-To change a time or a caption, edit the post in the Metricool planner before it goes out.
+Both are live. A caption can still be edited in the Instagram app.
