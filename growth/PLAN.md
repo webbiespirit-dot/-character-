@@ -19,16 +19,16 @@ It prints today's time blocks, everyone who needs a follow-up, and the next new 
 
 ### Gmail drafts (emails done for you, sent by you)
 
-The first email to each business goes out in Greek and English in one branded email (`growth/email/first-email.html`, in the studio's cobalt), with the lead's own language first, with Γιώργος Παλιογιάννης introducing the studio in Greek and Apollonas Bisaku in English, both signing in Greek letters, and a button to the page for their industry. Follow-ups are short, plain replies in the same thread.
+The first email to each business goes out in Greek and English in one branded email (`growth/email/first-email.html`, built without background colours because Gmail strips them), with the lead's own language first, with Γιώργος Παλιογιάννης introducing the studio in Greek and Apollonas Bisaku in English, both signing in Greek letters, and a button to the page for their industry. Follow-ups are short, plain replies in the same thread.
 
 Ask Claude: **"make today's email drafts"**. Claude runs `ws.py emails`, puts each email into your Gmail Drafts, already addressed and filled in, and puts follow-ups into the same thread as the first email. Open Drafts, check each one, press Send, then log them with `ws.py done ID`. Claude only creates drafts and never sends anything.
 
 | Day | Focus | First contacts | Also |
 | --- | --- | --- | --- |
-| Mon | Build the list | 15 emails, 20 DMs | Find 25 new businesses |
-| Tue | Phone | 15 calls, 20 DMs, 10 emails | Find 10 |
-| Wed | Street | 5 walk-ins, 20 DMs, 15 emails | Find 10 |
-| Thu | Phone | 15 calls, 20 DMs, 10 emails | Find 10 |
+| Mon | Build the list | 5 emails, 20 DMs | Find 25 new businesses |
+| Tue | Phone | 15 calls, 20 DMs, 5 emails | Find 10 |
+| Wed | Street | 5 walk-ins, 20 DMs, 5 emails | Find 10 |
+| Thu | Phone | 15 calls, 20 DMs, 5 emails | Find 10 |
 | Fri | Street + review | 5 walk-ins, 20 DMs | `ws.py stats`, then shift effort to the best channel |
 | Sat | Content | 10 DMs | Film 1 Reel + 3 Stories, schedule the week |
 | Sun | Rest | | Reply to anyone who wrote |
@@ -41,7 +41,7 @@ These are starting targets, not promises. Adjust them from your own `ws.py stats
 
 | | Per week |
 | --- | --- |
-| First contacts | about 200 |
+| First contacts | about 150 (mostly DMs, calls and visits; email stays at 5 a day) |
 | Replies (expect a few percent at first) | 6 to 15 |
 | Previews delivered | 3 to 5 |
 | New clients | the first one is the goal of month one |
@@ -94,7 +94,7 @@ Do not post invented testimonials, results or client logos. Once a real client a
 
 The live site (built from `webbiespirit-source.zip`, not from this repo) already has `sitemap.xml`, `robots.txt`, Greek pages under `/el/`, and pages for three industries. Your list, one 15-minute task a day until it's done:
 
-1. **Google Search Console**: add webbiespirit.com, verify it, submit `https://webbiespirit.com/sitemap.xml`, and request indexing for the home page, `/el/` and each industry page.
+1. **Google Search Console** (already verified for webbiespirit.com, with @webbiespirit connected): submit `https://webbiespirit.com/sitemap.xml`, and request indexing for the home page, `/el/` and each industry page.
 2. **Google Business Profile**: create it for Larnaca (as a service-area business if you don't want your address shown), category "Website designer", with the site and email. This is the biggest single win for local searches like "web design Larnaca" and «κατασκευή ιστοσελίδων Λάρνακα».
 3. Check every page's title names the service and the place, e.g. "Websites for tattoo studios in Cyprus". That edit belongs in the live site's source.
 4. **Bing Webmaster Tools**: import from Search Console in one click.
