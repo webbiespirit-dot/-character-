@@ -5,7 +5,16 @@
 
 Writes out/en/2-the-11pm-test-<n>.png and out/el/2-the-11pm-test-<n>.png.
 """
+import glob
+import os
 from pathlib import Path
+
+# kit.render with the full Chrome binary screenshots a 1080x1263 viewport (the bottom 87px, with the
+# carousel dots and @webbiespirit, come out blank). The headless shell renders the true 1080x1350 viewport.
+if 'CHROME' not in os.environ:
+    _shell = sorted(glob.glob('/opt/pw-browsers/chromium_headless_shell-*/chrome-linux/headless_shell'))
+    if _shell:
+        os.environ['CHROME'] = _shell[-1]
 
 from kit import (E, GOLD, GOLD_2, GOLD_DEEP, INK, IVORY, ROSE, SKYBLUE, TEAL, VIOLET, Slide, render, sparkle)
 
