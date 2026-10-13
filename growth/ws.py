@@ -418,7 +418,7 @@ def cmd_calls(args):
         print(f'\n{title} ({len(group)})')
         for r in group:
             last = f', last touch {r["last_touch"]}' if r['last_touch'] else ''
-            print(f'  [{r["id"]:>3}] {r["phone"]:<15} {r["business"]:<34} {r["category"]:<10} {lang.get(r["lang"], "English")}{last}')
+            print(f'  [{r["id"]:>3}] {r["phone"]:<15} {r["business"][:34]:<34} {r["category"]:<10} {lang.get(r["lang"], "English")}{last}')
     print('\nAfter each call:')
     print('  Interested:            python3 growth/ws.py set ID replied --note "what they said"')
     print('  A clear no:            python3 growth/ws.py set ID optout   (never contact again)')
