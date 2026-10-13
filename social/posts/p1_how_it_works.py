@@ -3,10 +3,18 @@
 Run:  cd social/posts && python3 p1_how_it_works.py
 Out:  out/en/1-how-it-works-<n>.png and out/el/1-how-it-works-<n>.png
 """
+import os
 from pathlib import Path
 
-from kit import (Slide, render, logo, sparkle, E,
-                 GOLD, GOLD_2, GOLD_DEEP, VIOLET, ROSE, TEAL, SKYBLUE, CREAM, NIGHT)
+# The full Chromium in new-headless mode paints only a 1080x1263 viewport inside the 1350 screenshot
+# (the bottom 87px, with the carousel dots and @handle, come out blank). The headless shell honours
+# --window-size exactly, so prefer it when present. kit reads CHROME at import time.
+_SHELL = '/opt/pw-browsers/chromium_headless_shell-1194/chrome-linux/headless_shell'
+if 'CHROME' not in os.environ and os.path.exists(_SHELL):
+    os.environ['CHROME'] = _SHELL
+
+from kit import (Slide, render, logo, sparkle, E,  # noqa: E402
+                 GOLD, GOLD_2, VIOLET, ROSE, TEAL, SKYBLUE, CREAM, NIGHT)
 
 HERE = Path(__file__).resolve().parent
 N = 5
@@ -30,14 +38,16 @@ COPY = {
         's3_no_q': 'Not for you?',
         's3_no_a': 'You owe nothing.',
         'cta_h': 'Ready for launch?',
-        'cta_lead': 'Free preview first. You pay nothing until you love it.',
+        'cta_lead': ['Free preview first.', 'You pay nothing until you love it.'],
         'cta_btn': 'DM us PREVIEW',
         'cta_or': 'or visit',
     },
     'el': {
         'cover_kicker': 'Η δωρεάν μακέτα',
         'cover_h1': 'Η νέα σας ιστοσελίδα.',
-        'cover_h2': 'Πριν πληρώσετε οτιδήποτε.',
+        # "Πριν πληρώσετε" is too wide for one line in Syne Greek, which orphaned "Πριν"; this reads as
+        # naturally ("before you give a single euro") and sets as two balanced lines.
+        'cover_h2': 'Πριν δώσετε ούτε ένα ευρώ.',
         'cover_more': 'Πώς λειτουργεί',
         'step': 'Βήμα {n} από 3',
         's1_h': 'Στείλτε μας το Instagram σας.',
@@ -49,10 +59,11 @@ COPY = {
         's3_h': 'Τη βλέπετε στο κινητό σας.',
         's3_love_q': 'Σας αρέσει;',
         's3_love_a': 'Online μέσα σε μία εβδομάδα.',
-        's3_no_q': 'Δεν σας ταιριάζει;',
+        's3_no_q': 'Δεν σας κάνει;',
         's3_no_a': 'Δεν χρωστάτε τίποτα.',
-        'cta_h': 'Έτοιμοι για εκτόξευση;',
-        'cta_lead': 'Πρώτα η δωρεάν μακέτα. Πληρώνετε μόνο αν σας ενθουσιάσει.',
+        # "Έτοιμοι" would open on a capital with tonos, which Syne sets as a loose mark in the margin.
+        'cta_h': 'Πάμε για εκτόξευση;',
+        'cta_lead': ['Πρώτα η δωρεάν μακέτα.', 'Πληρώνετε μόνο αν σας ενθουσιάσει.'],
         'cta_btn': 'Στείλτε μας «PREVIEW»',
         'cta_or': 'ή στο',
     },
@@ -67,23 +78,45 @@ NEBULA = {
     5: [(-220, 760, 820, 660, ROSE, .52), (480, 560, 760, 640, VIOLET, .62), (520, -200, 640, 520, GOLD, .30), (-280, -120, 560, 460, TEAL, .34)],
 }
 
-EXTRA_CSS = f"""
-.abs {{ position: absolute; }}
-.kicker {{ font-family: Syne, sans-serif; font-weight: 700; font-size: 30px; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); }}
-.hl {{ font-family: Syne, sans-serif; font-weight: 800; letter-spacing: -.035em; line-height: 1.04; color: var(--cream); text-wrap: balance; }}
-.hl .g {{ color: var(--gold); }}
-.glow {{ text-shadow: 0 0 34px rgba(232,188,76,.45); }}
-.tint {{ border-radius: 30px; border: 2px solid var(--c); position: absolute; overflow: hidden;
+# The kit scatters seven sparkles at random, which land on text. Those are hidden (see EXTRA_CSS)
+# and each slide gets its own, placed by hand in open sky: (x, y, size, colour, opacity).
+W_ = '#ffffff'
+SPARKS = {
+    1: [(250, 250, 22, GOLD_2, .95), (850, 520, 16, GOLD_2, .9), (800, 210, 10, W_, .8), (210, 560, 12, W_, .75),
+        (965, 330, 12, GOLD_2, .85), (120, 420, 9, W_, .7), (985, 1170, 14, GOLD_2, .85), (1010, 700, 9, W_, .7)],
+    2: [(960, 165, 14, GOLD_2, .9), (640, 172, 9, W_, .75), (905, 716, 16, GOLD_2, .9), (1046, 980, 9, W_, .7), (36, 560, 10, W_, .7)],
+    3: [(975, 168, 14, GOLD_2, .9), (650, 168, 9, W_, .75), (1046, 600, 9, W_, .7)],
+    4: [(960, 165, 14, GOLD_2, .9), (640, 172, 9, W_, .75), (1046, 676, 10, GOLD_2, .8), (40, 640, 9, W_, .7)],
+    5: [(130, 190, 10, W_, .75), (420, 560, 13, GOLD_2, .9), (1010, 960, 14, GOLD_2, .85), (930, 1180, 10, W_, .7)],
+}
+
+
+def sparks(n):
+    return ('<svg class="abs" style="left:0;top:0;pointer-events:none" width="1080" height="1350" viewBox="0 0 1080 1350">'
+            + ''.join(sparkle(x, y, sz, col, op) for x, y, sz, col, op in SPARKS[n]) + '</svg>')
+
+
+EXTRA_CSS = """
+.sky svg.stars path { display: none; }
+.abs { position: absolute; }
+.kicker { font-family: Body, sans-serif; font-weight: 700; font-size: 30px; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); }
+.hl { font-family: Syne, sans-serif; font-weight: 800; letter-spacing: -.035em; line-height: 1.04; color: var(--cream); text-wrap: balance; }
+.hl .g { color: var(--gold); }
+.glow { text-shadow: 0 0 34px rgba(232,188,76,.45); }
+.num { font-family: Body, sans-serif; font-weight: 700; letter-spacing: -.04em; line-height: 1; font-variant-numeric: lining-nums; }
+.tint { border-radius: 30px; border: 2px solid var(--c); position: absolute; overflow: hidden;
   background: linear-gradient(135deg, color-mix(in srgb, var(--c) 30%, transparent), rgba(255,255,255,.04) 70%);
-  box-shadow: 0 24px 60px -30px color-mix(in srgb, var(--c) 80%, transparent); }}
-.ico {{ width: 96px; height: 96px; border-radius: 28px; flex: none; display: grid; place-items: center;
-  background: linear-gradient(145deg, var(--c), var(--c2)); box-shadow: 0 10px 30px -10px var(--c); }}
-.ico svg {{ width: 56px; height: 56px; }}
-.more {{ display: inline-flex; align-items: center; gap: 16px; font-weight: 700; font-size: 36px; color: var(--cream);
-  padding: 18px 34px; border-radius: 999px; border: 2px solid rgba(245,239,226,.35); background: rgba(13,11,26,.35); }}
-.more b {{ color: var(--gold); font-size: 40px; line-height: 1; }}
-.btn.big {{ font-size: 42px; padding: 30px 54px; }}
+  box-shadow: 0 24px 60px -30px color-mix(in srgb, var(--c) 80%, transparent); }
+.ico { width: 96px; height: 96px; border-radius: 28px; flex: none; display: grid; place-items: center;
+  background: linear-gradient(145deg, var(--c), var(--c2)); box-shadow: 0 10px 30px -10px var(--c); }
+.ico svg { width: 56px; height: 56px; }
+.more { display: inline-flex; align-items: center; gap: 16px; font-weight: 700; font-size: 36px; color: var(--cream);
+  padding: 18px 34px; border-radius: 999px; border: 2px solid rgba(245,239,226,.35); background: rgba(13,11,26,.35); }
+.more b { color: var(--gold); font-size: 40px; line-height: 1; }
+.btn.big { font-size: 42px; padding: 30px 54px; }
 """
+
+NUM_FONT = 'font-family="Body, sans-serif" font-weight="700"'
 
 
 # ---------- drawings ----------
@@ -118,7 +151,7 @@ def badge(n):
 <path d="M6 128 A116 34 -18 0 1 232 92" fill="none" stroke="rgba(245,239,226,.5)" stroke-width="2.5"/>
 <circle cx="120" cy="120" r="80" fill="url(#planet)"/>
 <path d="M120 40a80 80 0 0 0 0 160 80 80 0 0 1 0-160z" fill="{NIGHT}" opacity=".16"/>
-<text x="120" y="124" text-anchor="middle" dominant-baseline="central" font-family="Syne" font-weight="800" font-size="118" fill="#1b1430">{n}</text>
+<text x="120" y="122" text-anchor="middle" dominant-baseline="central" {NUM_FONT} font-size="112" letter-spacing="-3" fill="#1b1430">{n}</text>
 <path d="M232 92 A116 34 -18 0 1 6 128" fill="none" stroke="url(#goldStroke)" stroke-width="5" stroke-linecap="round"/>
 <circle cx="226" cy="98" r="7" fill="{GOLD_2}"/>
 {sparkle(34, 40, 14, GOLD_2, .9)}
@@ -130,11 +163,10 @@ def tracker(cur):
     xs = [36, 236, 436]
     end = 640
     y = 46
-    parts = []
-    # base dashed path all the way to launch
-    parts.append(f'<line x1="{xs[0]}" y1="{y}" x2="{end}" y2="{y}" stroke="rgba(245,239,226,.35)" stroke-width="4" stroke-dasharray="2 14" stroke-linecap="round"/>')
-    # travelled path (gold comet)
-    parts.append(f'<line x1="{xs[0]}" y1="{y}" x2="{xs[cur - 1]}" y2="{y}" stroke="url(#goldStroke)" stroke-width="7" stroke-linecap="round"/>')
+    parts = [
+        f'<line x1="{xs[0]}" y1="{y}" x2="{end}" y2="{y}" stroke="rgba(245,239,226,.35)" stroke-width="4" stroke-dasharray="2 14" stroke-linecap="round"/>',
+        f'<line x1="{xs[0]}" y1="{y}" x2="{xs[cur - 1]}" y2="{y}" stroke="url(#goldStroke)" stroke-width="7" stroke-linecap="round"/>',
+    ]
     for k, x in enumerate(xs, start=1):
         if k < cur:
             parts.append(f'<circle cx="{x}" cy="{y}" r="26" fill="{GOLD}"/>'
@@ -142,20 +174,20 @@ def tracker(cur):
         elif k == cur:
             parts.append(f'<circle cx="{x}" cy="{y}" r="44" fill="{GOLD}" opacity=".25"/>'
                          f'<circle cx="{x}" cy="{y}" r="32" fill="url(#planet)" stroke="{GOLD_2}" stroke-width="3"/>'
-                         f'<text x="{x}" y="{y + 2}" text-anchor="middle" dominant-baseline="central" font-family="Syne" font-weight="800" font-size="34" fill="#1b1430">{k}</text>')
+                         f'<text x="{x}" y="{y + 1}" text-anchor="middle" dominant-baseline="central" {NUM_FONT} font-size="36" fill="#1b1430">{k}</text>')
         else:
             parts.append(f'<circle cx="{x}" cy="{y}" r="26" fill="{NIGHT}" stroke="rgba(245,239,226,.5)" stroke-width="3"/>'
-                         f'<text x="{x}" y="{y + 2}" text-anchor="middle" dominant-baseline="central" font-family="Syne" font-weight="800" font-size="28" fill="rgba(245,239,226,.75)">{k}</text>')
+                         f'<text x="{x}" y="{y + 1}" text-anchor="middle" dominant-baseline="central" {NUM_FONT} font-size="28" fill="rgba(245,239,226,.8)">{k}</text>')
     svg = f'<svg viewBox="0 0 690 92" width="690" height="92" style="overflow:visible" aria-hidden="true">{"".join(parts)}</svg>'
-    # little rocket waiting at the launch point
-    rk = f'<div class="abs" style="left:{end - 6}px;top:-30px;transform:rotate(40deg);transform-origin:center">{rocket(54, "t")}</div>'
+    # the rocket waits at the launch point
+    rk = f'<div class="abs" style="left:{end - 6}px;top:-30px;transform:rotate(40deg)">{rocket(54, "t")}</div>'
     return f'<div class="abs" style="left:0;top:0;width:690px;height:92px">{svg}{rk}</div>'
 
 
 def step_header(c, n):
     return f"""
 <div class="abs" style="left:46px;top:166px">{badge(n)}</div>
-<div class="abs kicker" style="left:330px;top:206px">{E(c['step'].format(n=n))}</div>
+<div class="abs kicker" style="left:330px;top:208px">{E(c['step'].format(n=n))}</div>
 <div class="abs" style="left:318px;top:268px;width:690px;height:92px">{tracker(n)}</div>
 """
 
@@ -172,19 +204,15 @@ ICONS = {
 
 def slide1(c, lang):
     el = lang == 'el'
-    size = 84 if el else 96
     return f"""
 <div class="abs" style="left:190px;top:130px;width:700px;height:560px;border-radius:50%;
   background:radial-gradient(closest-side, rgba(248,223,142,.55), rgba(232,188,76,.22) 45%, rgba(132,82,210,0) 100%);filter:blur(10px)"></div>
 <div class="abs" style="left:325px;top:190px;filter:drop-shadow(0 0 26px rgba(232,188,76,.65))">{logo(430, 'night', orbit_angle=-6)}</div>
-<svg class="abs" style="left:0;top:0" width="1080" height="1350" viewBox="0 0 1080 1350">
-  {sparkle(250, 250, 22, GOLD_2, .95)}{sparkle(850, 520, 16, GOLD_2, .9)}{sparkle(800, 210, 10, '#ffffff', .8)}{sparkle(210, 560, 12, '#ffffff', .75)}
-</svg>
 <div class="abs kicker" style="left:72px;top:664px">{E(c['cover_kicker'])}</div>
-<div class="abs hl fit" data-fit style="left:72px;top:714px;width:936px;height:400px;font-size:{size}px">
+<div class="abs hl fit" data-fit style="left:36px;top:678px;width:1008px;height:calc(400px + 72px);padding:36px;font-size:{84 if el else 96}px">
   {E(c['cover_h1'])}<br><span class="g glow">{E(c['cover_h2'])}</span>
 </div>
-<div class="abs" style="left:72px;top:1130px"><span class="more">{E(c['cover_more'])} <b>&rarr;</b></span></div>
+<div class="abs" style="left:72px;top:1142px"><span class="more">{E(c['cover_more'])} <b>&rarr;</b></span></div>
 """
 
 
@@ -200,48 +228,49 @@ def slide2(c, lang):
   <div class="fit" data-fit style="width:270px;height:150px;display:flex;align-items:center;font-weight:700;font-size:{36 if el else 38}px;line-height:1.18;color:var(--cream)"><span>{E(item)}</span></div>
 </div>"""
     return f"""{step_header(c, 1)}
-<div class="abs hl fit" data-fit style="left:72px;top:420px;width:936px;height:240px;font-size:{84 if el else 100}px">{E(c['s1_h'])}</div>
+<div class="abs hl fit" data-fit style="left:36px;top:384px;width:1008px;height:calc(240px + 72px);padding:36px;font-size:{84 if el else 100}px">{E(c['s1_h'])}</div>
 <div class="abs" style="left:72px;top:690px;font-size:40px;font-weight:600;color:var(--cream);opacity:.85">{E(c['s1_lead'])}</div>
 {cards}
 """
 
 
-def browser_mock(stamp):
+def browser_mock(stamp, top):
     tiles = ''
-    for k, col in enumerate([TEAL, SKYBLUE, ROSE]):
-        tiles += f"""<div style="flex:1;border-radius:18px;background:linear-gradient(160deg, color-mix(in srgb, {col} 55%, transparent), color-mix(in srgb, {col} 18%, transparent));
-  border:1.5px solid color-mix(in srgb, {col} 70%, transparent);padding:18px;display:flex;flex-direction:column;gap:10px">
-  <div style="width:44px;height:44px;border-radius:50%;background:{col}"></div>
-  <div style="height:12px;width:80%;border-radius:6px;background:rgba(255,255,255,.75)"></div>
-  <div style="height:12px;width:55%;border-radius:6px;background:rgba(255,255,255,.45)"></div></div>"""
+    for col in (TEAL, SKYBLUE, ROSE):
+        tiles += f"""<div style="flex:1;min-height:0;border-radius:18px;background:linear-gradient(160deg, color-mix(in srgb, {col} 55%, transparent), color-mix(in srgb, {col} 18%, transparent));
+  border:1.5px solid color-mix(in srgb, {col} 70%, transparent);padding:0 18px;display:flex;align-items:center;gap:16px">
+  <div style="width:48px;height:48px;flex:none;border-radius:50%;background:{col}"></div>
+  <div style="flex:1;display:flex;flex-direction:column;gap:10px"><div style="height:12px;width:90%;border-radius:6px;background:rgba(255,255,255,.75)"></div>
+  <div style="height:12px;width:60%;border-radius:6px;background:rgba(255,255,255,.45)"></div></div></div>"""
+    h = 1212 - top
     return f"""
-<div class="abs" style="left:96px;top:820px;width:888px;height:390px;transform:rotate(-2deg);border-radius:30px;overflow:hidden;
+<div class="abs" style="left:96px;top:{top}px;width:888px;height:{h}px;transform:rotate(-2deg);border-radius:30px;overflow:hidden;
   background:#16122b;border:2px solid rgba(245,239,226,.22);box-shadow:0 40px 90px -30px rgba(132,82,210,.9)">
   <div style="height:56px;display:flex;align-items:center;gap:12px;padding:0 24px;background:rgba(255,255,255,.07)">
     <i style="width:16px;height:16px;border-radius:50%;background:{ROSE}"></i><i style="width:16px;height:16px;border-radius:50%;background:{GOLD}"></i><i style="width:16px;height:16px;border-radius:50%;background:{TEAL}"></i>
     <div style="margin-left:18px;height:28px;width:420px;border-radius:14px;background:rgba(255,255,255,.12)"></div>
   </div>
-  <div style="padding:22px 24px;display:flex;flex-direction:column;gap:20px">
-    <div style="height:150px;border-radius:20px;padding:26px 30px;background:linear-gradient(120deg, {VIOLET}, {ROSE} 70%, #ffb38a);display:flex;flex-direction:column;gap:14px">
+  <div style="padding:20px 24px 24px;display:flex;flex-direction:column;gap:18px;height:{h - 60}px">
+    <div style="flex:1.5;min-height:0;border-radius:20px;padding:26px 30px;background:linear-gradient(120deg, {VIOLET}, {ROSE} 70%, #ffb38a);display:flex;flex-direction:column;gap:14px">
       <div style="height:22px;width:58%;border-radius:11px;background:rgba(255,255,255,.95)"></div>
       <div style="height:16px;width:40%;border-radius:8px;background:rgba(255,255,255,.65)"></div>
       <div style="margin-top:6px;height:36px;width:160px;border-radius:18px;background:linear-gradient(180deg,{GOLD_2},{GOLD})"></div>
     </div>
-    <div style="display:flex;gap:18px;height:130px">{tiles}</div>
+    <div style="display:flex;gap:18px;flex:1;min-height:0">{tiles}</div>
   </div>
 </div>
-<div class="abs" style="left:770px;top:770px;transform:rotate(9deg)"><span class="btn" style="font-family:Syne,sans-serif;font-weight:800;font-size:34px;padding:16px 30px">{E(stamp)}</span></div>
-<svg class="abs" style="left:0;top:0" width="1080" height="1350" viewBox="0 0 1080 1350">{sparkle(90, 800, 20, GOLD_2, .95)}{sparkle(1000, 1180, 14, GOLD_2, .85)}{sparkle(130, 1215, 10, '#ffffff', .8)}</svg>
+<div class="abs" style="right:84px;top:{top - 44}px;transform:rotate(8deg)"><span class="btn" style="font-family:Syne,sans-serif;font-weight:800;font-size:34px;padding:16px 30px">&#10022; {E(stamp)}</span></div>
+<svg class="abs" style="left:0;top:0" width="1080" height="1350" viewBox="0 0 1080 1350">{sparkle(76, top - 30, 20, GOLD_2, .95)}{sparkle(1012, 1196, 14, GOLD_2, .85)}</svg>
 """
 
 
 def slide3(c, lang):
     el = lang == 'el'
     return f"""{step_header(c, 2)}
-<div class="abs hl fit" data-fit style="left:72px;top:420px;width:936px;height:350px;font-size:{80 if el else 96}px">
+<div class="abs hl fit" data-fit style="left:36px;top:384px;width:1008px;height:calc({360 if el else 320}px + 72px);padding:36px;font-size:{76 if el else 96}px">
   {E(c['s2_h'])}<br><span class="g glow" style="font-size:1.12em">{E(c['s2_gold'])}</span>
 </div>
-{browser_mock(c['s2_stamp'])}
+{browser_mock(c['s2_stamp'], 868 if el else 830)}
 """
 
 
@@ -257,7 +286,7 @@ def phone_mock():
       <div style="height:12px;width:70%;border-radius:6px;background:rgba(255,255,255,.6)"></div>
       <div style="margin-top:8px;height:38px;width:130px;border-radius:19px;background:linear-gradient(180deg,{GOLD_2},{GOLD})"></div>
     </div>
-    <div style="padding:18px 18px;display:grid;grid-template-columns:1fr 1fr;gap:14px">
+    <div style="padding:18px;display:grid;grid-template-columns:1fr 1fr;gap:14px">
       <div style="height:96px;border-radius:16px;background:color-mix(in srgb,{TEAL} 45%,transparent)"></div>
       <div style="height:96px;border-radius:16px;background:color-mix(in srgb,{ROSE} 45%,transparent)"></div>
       <div style="height:96px;border-radius:16px;background:color-mix(in srgb,{GOLD} 40%,transparent)"></div>
@@ -265,52 +294,54 @@ def phone_mock():
     </div>
   </div>
 </div>
-<svg class="abs" style="left:0;top:0" width="1080" height="1350" viewBox="0 0 1080 1350">{sparkle(400, 700, 18, GOLD_2, .95)}{sparkle(80, 1000, 12, '#ffffff', .8)}</svg>
+<svg class="abs" style="left:0;top:0" width="1080" height="1350" viewBox="0 0 1080 1350">{sparkle(410, 690, 18, GOLD_2, .95)}{sparkle(70, 1010, 12, '#ffffff', .8)}</svg>
 """
+
+
+def answer_card(q, a, colour, qcolour, top, lang, extra=''):
+    el = lang == 'el'
+    qs, as_ = (40, 44) if el else (44, 50)
+    return f"""<div class="tint" style="--c:{colour};left:450px;top:{top}px;width:558px;height:250px;padding:0 36px;display:flex;flex-direction:column;justify-content:center;gap:12px">
+  <div class="fit" data-fit style="width:400px;height:{int(qs * 1.25)}px;font-family:Syne,sans-serif;font-weight:800;font-size:{qs}px;line-height:1.2;color:{qcolour};letter-spacing:-.02em;white-space:nowrap">{E(q)}</div>
+  <div class="fit" data-fit style="width:486px;max-height:{int(as_ * 1.18 * 2) + 4}px;font-weight:700;font-size:{as_}px;line-height:1.18;color:var(--cream)">{E(a)}</div>
+  {extra}
+</div>"""
 
 
 def slide4(c, lang):
     el = lang == 'el'
-    q = 40 if el else 44
-    a = 44 if el else 50
+    rk = f'<div class="abs" style="right:30px;top:24px;transform:rotate(30deg)">{rocket(40, "c")}</div>'
     return f"""{step_header(c, 3)}
-<div class="abs hl fit" data-fit style="left:72px;top:420px;width:936px;height:240px;font-size:{84 if el else 100}px">{E(c['s3_h'])}</div>
+<div class="abs hl fit" data-fit style="left:36px;top:384px;width:1008px;height:calc(240px + 72px);padding:36px;font-size:{84 if el else 100}px">{E(c['s3_h'])}</div>
 {phone_mock()}
-<div class="tint" style="--c:{GOLD};left:450px;top:700px;width:558px;height:250px;padding:34px 36px">
-  <div style="font-family:Syne,sans-serif;font-weight:800;font-size:{q}px;color:var(--gold);letter-spacing:-.02em">{E(c['s3_love_q'])}</div>
-  <div class="fit" data-fit style="margin-top:14px;width:486px;height:130px;font-weight:700;font-size:{a}px;line-height:1.15;color:var(--cream)">{E(c['s3_love_a'])}</div>
-  <div class="abs" style="right:26px;top:22px;transform:rotate(30deg)">{rocket(40, 'c')}</div>
-</div>
-<div class="tint" style="--c:{TEAL};left:450px;top:974px;width:558px;height:250px;padding:34px 36px">
-  <div style="font-family:Syne,sans-serif;font-weight:800;font-size:{q}px;color:{TEAL};letter-spacing:-.02em">{E(c['s3_no_q'])}</div>
-  <div class="fit" data-fit style="margin-top:14px;width:486px;height:130px;font-weight:700;font-size:{a}px;line-height:1.15;color:var(--cream)">{E(c['s3_no_a'])}</div>
-</div>
+{answer_card(c['s3_love_q'], c['s3_love_a'], GOLD, GOLD, 700, lang, rk)}
+{answer_card(c['s3_no_q'], c['s3_no_a'], TEAL, TEAL, 974, lang)}
 """
 
 
 def slide5(c, lang):
     el = lang == 'el'
     count = f"""
-<div class="abs" style="left:72px;top:250px;display:flex;align-items:baseline;gap:34px;font-family:Syne,sans-serif;font-weight:800;line-height:1">
-  <span style="font-size:120px;color:var(--cream);opacity:.35">3</span>
-  <span style="font-size:170px;color:var(--cream);opacity:.65">2</span>
-  <span class="glow" style="font-size:240px;color:var(--gold)">1</span>
+<div class="abs num" style="left:72px;top:220px;display:flex;align-items:baseline;gap:40px">
+  <span style="font-size:130px;color:{TEAL}">3</span>
+  <span style="font-size:180px;color:{ROSE}">2</span>
+  <span class="glow" style="font-size:250px;color:var(--gold)">1</span>
 </div>"""
     smoke = ''.join(f'<circle cx="{x}" cy="{y}" r="{r}" fill="{col}" opacity="{o}"/>' for x, y, r, col, o in [
-        (640, 640, 70, ROSE, .55), (760, 660, 86, VIOLET, .6), (880, 630, 66, TEAL, .5), (560, 655, 46, GOLD, .45), (960, 660, 50, SKYBLUE, .5)])
+        (640, 610, 70, ROSE, .55), (760, 630, 86, VIOLET, .6), (880, 600, 66, TEAL, .5), (560, 625, 46, GOLD, .45), (960, 630, 50, SKYBLUE, .5)])
     trail = f"""<svg class="abs" style="left:0;top:0" width="1080" height="1350" viewBox="0 0 1080 1350">
   <defs><linearGradient id="trail" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="{ROSE}" stop-opacity="0"/><stop offset=".5" stop-color="{ROSE}" stop-opacity=".7"/><stop offset="1" stop-color="{GOLD_2}"/></linearGradient>
   <filter id="soft"><feGaussianBlur stdDeviation="14"/></filter></defs>
   <g filter="url(#soft)">{smoke}</g>
-  <path d="M760 640 C760 560 770 480 790 420" stroke="url(#trail)" stroke-width="40" stroke-linecap="round" fill="none" opacity=".85"/>
-  {sparkle(980, 250, 18, GOLD_2, .95)}{sparkle(560, 210, 12, '#ffffff', .8)}{sparkle(1010, 520, 10, GOLD_2, .8)}
+  <path d="M760 610 C760 530 770 450 790 390" stroke="url(#trail)" stroke-width="40" stroke-linecap="round" fill="none" opacity=".85"/>
+  {sparkle(980, 230, 18, GOLD_2, .95)}{sparkle(560, 190, 12, '#ffffff', .8)}{sparkle(1010, 490, 10, GOLD_2, .8)}
 </svg>"""
-    rk = f'<div class="abs" style="left:722px;top:150px;transform:rotate(12deg);filter:drop-shadow(0 0 30px rgba(232,188,76,.5))">{rocket(150, "big")}</div>'
+    rk = f'<div class="abs" style="left:722px;top:120px;transform:rotate(12deg);filter:drop-shadow(0 0 30px rgba(232,188,76,.5))">{rocket(150, "big")}</div>'
     return f"""{trail}{count}{rk}
-<div class="abs hl fit" data-fit style="left:72px;top:660px;width:936px;height:250px;font-size:{96 if el else 118}px">{E(c['cta_h'])}</div>
-<div class="abs fit" data-fit style="left:72px;top:915px;width:900px;height:110px;font-size:{36 if el else 38}px;line-height:1.35;color:var(--cream);opacity:.85">{E(c['cta_lead'])}</div>
+<div class="abs hl fit" data-fit style="left:36px;top:594px;width:1008px;height:calc(250px + 72px);padding:36px;font-size:{104 if el else 118}px">{E(c['cta_h'])}</div>
+<div class="abs fit" data-fit style="left:72px;top:896px;width:936px;height:112px;font-size:{36 if el else 38}px;font-weight:500;line-height:1.38;color:var(--cream);text-shadow:0 2px 14px rgba(13,11,26,.6)">{'<br>'.join(E(s) for s in c['cta_lead'])}</div>
 <div class="abs" style="left:72px;top:1040px"><span class="btn big">{E(c['cta_btn'])} <span style="font-size:1.05em">&rarr;</span></span></div>
-<div class="abs" style="left:76px;top:1170px;font-size:34px;font-weight:600;color:var(--cream)"><span style="opacity:.7">{E(c['cta_or'])}</span> <b style="color:var(--gold)">webbiespirit.com</b></div>
+<div class="abs" style="left:76px;top:1170px;font-size:34px;font-weight:600;color:var(--cream)"><span style="opacity:.75">{E(c['cta_or'])}</span> <b style="color:var(--gold)">webbiespirit.com</b></div>
 """
 
 
@@ -322,10 +353,8 @@ def build(lang):
     outs = []
     for i, fn in enumerate(SLIDES):
         n = i + 1
-        html_doc = Slide(lang=lang, sky='night', nebula=NEBULA[n], seed=100 + n, dots=(i, N), extra_css=EXTRA_CSS).page(fn(c, lang))
-        out = HERE / 'out' / lang / f'1-how-it-works-{n}.png'
-        render(html_doc, out)
-        outs.append(out)
+        page = Slide(lang=lang, sky='night', nebula=NEBULA[n], seed=100 + n, dots=(i, N), extra_css=EXTRA_CSS).page(fn(c, lang) + sparks(n))
+        outs.append(render(page, HERE / 'out' / lang / f'1-how-it-works-{n}.png'))
     return outs
 
 
