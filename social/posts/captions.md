@@ -6,16 +6,17 @@ Every claim is one webbiespirit.com makes itself: the free preview in two days, 
 
 ## When to post
 
-Post each language as its own carousel with its own caption. Greek first, since most of the businesses we want are Greek-speaking, then the English version two days later.
+Each post goes up as one carousel with the English slides first and the Greek after, and a caption in both languages (English, then Greek). This keeps the profile readable for everyone.
 
-| Week | Mon | Wed | Fri |
-| --- | --- | --- | --- |
-| 1 | **1. How it works** (EL). Pin it. | **2. The 11pm test** (EL) | **1. How it works** (EN). Pin it. |
-| 2 | **5. Meet the founders** (EL) | **2. The 11pm test** (EN) | **4. Three questions** (EL) |
-| 3 | **5. Meet the founders** (EN) | **3. Packages** (EL). Pin it. | **4. Three questions** (EN) |
-| 4 | **3. Packages** (EN) | | |
+| Date | Post | Status |
+| --- | --- | --- |
+| Tue 13 Oct, 10:35 | **1. How it works**. Pin it. | Scheduled in Metricool |
+| Tue 13 Oct, 12:30 | **5. Meet the founders** | Scheduled in Metricool |
+| Thu 15 Oct | **2. The 11pm test** | To do |
+| Mon 19 Oct | **4. Three questions** | To do |
+| Wed 21 Oct | **3. Packages**. Pin it. | To do |
 
-Evenings (18:00 to 21:00) are a good starting time; after two weeks, check Insights for when your followers are actually online. Pin three posts: How it works (EL and EN) and Packages (EL).
+Evenings (18:00 to 21:00) are a good starting time; after two weeks, check Insights for when your followers are actually online. Pin How it works and Packages.
 
 | Post | Files |
 | --- | --- |

@@ -405,8 +405,8 @@ def cmd_calls(args):
     """Everyone with a phone number we can still call: people we already wrote to first, then cold calls."""
     day = today_date(args)
     rows = [r for r in load() if r['phone'] and r['status'] not in ('won', 'lost', 'optout')]
-    warm = [r for r in rows if r['channel'] != 'call' and r['status'] in ('contacted', 'cold')]
-    cold = [r for r in rows if r['channel'] == 'call' and r['status'] == 'new']
+    warm = [r for r in rows if r['status'] in ('contacted', 'cold')]
+    cold = [r for r in rows if r['status'] == 'new']
     other = [r for r in rows if r not in warm and r not in cold]
     lang = {'el': 'Greek', 'en': 'English'}
     for title, group, opener in (
