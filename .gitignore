@@ -1,3 +1,4 @@
 # Lead list: business contacts and outreach status. Never commit it (this repo is public).
 growth/leads.csv
 __pycache__/
+growth/previews/
