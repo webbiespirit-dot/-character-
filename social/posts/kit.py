@@ -6,8 +6,9 @@ and the logo, a gold W tracing a comet path through orbit rings around a globe.
 
 Use:  from kit import Slide, render
       html = Slide(lang='en', sky='night', seed=3).page(body_html)
-      render(html, 'social/posts/en/name.png')
+      render(html, 'social/posts/out/en/name.png')
 """
+import glob
 import html as _html
 import os
 import random
@@ -17,7 +18,11 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 FONTS = HERE / 'fonts'
-CHROME = os.environ.get('CHROME', '/opt/pw-browsers/chromium-1194/chrome-linux/chrome')
+# The full Chromium in new-headless mode paints only a 1080x1263 viewport inside the 1350 screenshot
+# (the bottom 87px, with the carousel dots and @handle, come out blank). The headless shell honours
+# --window-size exactly, so prefer it when present.
+_SHELLS = sorted(glob.glob('/opt/pw-browsers/chromium_headless_shell-*/chrome-linux/headless_shell'))
+CHROME = os.environ.get('CHROME') or (_SHELLS[-1] if _SHELLS else '/opt/pw-browsers/chromium-1194/chrome-linux/chrome')
 W, H = 1080, 1350
 E = _html.escape
 

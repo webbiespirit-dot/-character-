@@ -1,26 +1,36 @@
 # Instagram posts
 
-Four posts in English (`en/`) and Greek (`el/`), 1080×1350 (Instagram's 4:5 portrait). They are printed in the site's own sun-print world (brushed emulsion coats, paper grain, photograms). Regenerate them with `python3 social/posts/photograms.py` then `python3 social/posts/make_posts.py`.
+Five posts, each in English (`out/en/`) and Greek (`out/el/`), 1080×1350 (Instagram's 4:5 portrait). They use the live site's cosmic brand: night and ivory skies, colourful nebulae, gold for the action. Re-render a post with `cd social/posts && python3 p1_how_it_works.py` (and `p2_…` to `p5_…`). The shared look lives in `kit.py`.
 
-Every claim here is one the studio makes on webbiespirit.com: a free preview first, pay only if you love it, the package prices, based in Larnaca. Nothing about clients, results or turnaround times.
+Every claim is one webbiespirit.com makes itself: the free preview in two days, pay nothing until you love it, live within a week, the package prices and features, the care plan, the two founders in Larnaca. Nothing about clients, results or reviews.
 
 ## When to post
 
-| Day | Post | Files |
-| --- | --- | --- |
-| 1 | **How it works** (carousel). Pin it to the top of the profile. | `1-how-it-works-1.png` … `-5.png` |
-| 3 | **Found on Google** | `3-found-on-google.png` |
-| 5 | **Made for Larnaca** | `4-made-for-larnaca.png` |
-| 7 | **Packages** | `2-packages.png` |
+Post each language as its own carousel with its own caption. Greek first, since most of the businesses we want are Greek-speaking, then the English version two days later.
 
-Post the English and Greek versions as one carousel (English slides then Greek) or as separate posts on alternate days. For the how-it-works post, keep each language as its own carousel.
+| Week | Mon | Wed | Fri |
+| --- | --- | --- | --- |
+| 1 | **1. How it works** (EL). Pin it. | **2. The 11pm test** (EL) | **1. How it works** (EN). Pin it. |
+| 2 | **5. Meet the founders** (EL) | **2. The 11pm test** (EN) | **4. Three questions** (EL) |
+| 3 | **5. Meet the founders** (EN) | **3. Packages** (EL). Pin it. | **4. Three questions** (EN) |
+| 4 | **3. Packages** (EN) | | |
+
+Evenings (18:00 to 21:00) are a good starting time; after two weeks, check Insights for when your followers are actually online. Pin three posts: How it works (EL and EN) and Packages (EL).
+
+| Post | Files |
+| --- | --- |
+| 1. How it works | `1-how-it-works-1.png` … `-5.png` |
+| 2. The 11pm test | `2-the-11pm-test-1.png` … `-6.png` |
+| 3. Packages | `3-packages-1.png` |
+| 4. Three questions | `4-questions-1.png` … `-4.png` |
+| 5. Meet the founders | `5-meet-the-founders-1.png`, `-2.png` |
 
 Every post asks people to DM "PREVIEW". Set up a saved reply in Instagram (Settings → Business tools → Saved replies) with the shortcut `preview`:
 
 ```
-Hi! 🙌 Thanks for your message. Tell us in a few lines about your business (what you do and who your customers are) and we'll design your free website preview. You only pay if you love it.
+Hi! 🙌 Thanks for your message. Send us your Instagram or Facebook page, your price list, your opening hours and your logo if you have one, and we'll build your free website preview in two days. You pay nothing until you love it.
 
-Καλησπέρα! 🙌 Ευχαριστούμε για το μήνυμα. Πες μας με δυο λόγια για την επιχείρησή σου (τι κάνεις και ποιοι είναι οι πελάτες σου) και θα σχεδιάσουμε δωρεάν τη μακέτα της νέας σου ιστοσελίδας. Πληρώνεις μόνο αν σε ενθουσιάσει.
+Γεια σας! 🙌 Ευχαριστούμε για το μήνυμα. Στείλτε μας τη σελίδα σας στο Instagram ή στο Facebook, τον τιμοκατάλογό σας, το ωράριο λειτουργίας και το λογότυπό σας αν έχετε, και σε δύο μέρες σας φτιάχνουμε δωρεάν τη μακέτα της ιστοσελίδας σας. Δεν πληρώνετε τίποτα μέχρι να σας ενθουσιάσει.
 ```
 
 ---
@@ -30,14 +40,14 @@ Hi! 🙌 Thanks for your message. Tell us in a few lines about your business (wh
 **English**
 
 ```
-See your new website before you pay anything. 👀
+See your new website before you pay a cent. 🚀
 
-Here's how it works:
-1️⃣ Tell us about your business.
-2️⃣ We design a free preview of your new website.
-3️⃣ You see it, then you decide. Love it? We build it. Not for you? You owe nothing.
+How the free preview works:
+1️⃣ Send us your Instagram, your price list, opening hours and your logo if you have one.
+2️⃣ We build your free preview in two days.
+3️⃣ You see it on your phone. Love it? Live within a week. Not for you? You owe nothing.
 
-Send us "PREVIEW" in a message to start.
+DM us "PREVIEW" to start.
 
 🌐 webbiespirit.com (link in bio)
 
@@ -47,36 +57,78 @@ Send us "PREVIEW" in a message to start.
 **Ελληνικά**
 
 ```
-Δες τη νέα σου ιστοσελίδα πριν πληρώσεις οτιδήποτε. 👀
+Δείτε τη νέα σας ιστοσελίδα πριν δώσετε ούτε ένα ευρώ. 🚀
 
-Πώς λειτουργεί:
-1️⃣ Μας λες για την επιχείρησή σου.
-2️⃣ Σχεδιάζουμε δωρεάν μια μακέτα της νέας σου ιστοσελίδας.
-3️⃣ Τη βλέπεις και μετά αποφασίζεις. Σου αρέσει; Τη φτιάχνουμε. Δεν είναι για σένα; Δεν χρωστάς τίποτα.
+Πώς λειτουργεί η δωρεάν μακέτα:
+1️⃣ Μας στέλνετε το Instagram σας, τον τιμοκατάλογο, το ωράριο και το λογότυπό σας αν έχετε.
+2️⃣ Φτιάχνουμε τη δωρεάν μακέτα σας σε δύο μέρες.
+3️⃣ Τη βλέπετε στο κινητό σας. Σας αρέσει; Online μέσα σε μία εβδομάδα. Δεν σας κάνει; Δεν χρωστάτε τίποτα.
 
-Στείλε μας «PREVIEW» σε μήνυμα για να ξεκινήσουμε.
+Στείλτε μας «PREVIEW» σε μήνυμα για να ξεκινήσουμε.
 
 🌐 webbiespirit.com (σύνδεσμος στο προφίλ)
 
 #κατασκευήιστοσελίδων #ιστοσελίδες #λάρνακα #κύπρος #μικρέςεπιχειρήσεις #webdesign #larnaca #cyprus
 ```
 
-Alt text: "How webbiespirit works in three steps: tell us about your business, we design a free preview of your new website, you see it and then decide."
+Alt text: "How the webbiespirit free preview works, as a launch countdown: send us your Instagram, we build your free preview in two days, you see it on your phone. Love it and it goes live within a week; if not, you owe nothing."
 
-## 2. Packages
+## 2. The 11pm test (carousel, 6 slides)
 
 **English**
 
 ```
-Simple packages, no surprises. 💙
+It's 11pm. Your next customer is in bed, looking for a barber, a table or a tattoo. Can they book you right now? 🌙
 
-Start · 350 €: 2 rounds of changes
-Pro · 499 € (was 699 €): 3 rounds of changes + 30 days of small changes. Our most picked.
-Ultra · 947 €: unlimited changes for 60 days, online shop and customer accounts.
+The 11pm test, 4 checks:
+✅ Made for the phone
+✅ Booking in 30 seconds
+✅ Greek and English
+✅ Found on Google
 
-Whichever you choose, you see your free preview first and only pay if you love it.
+Missing one? We'll design your free preview, and you pay nothing until you love it. DM us "PREVIEW".
 
-All the details, including monthly care: webbiespirit.com/packages (link in bio)
+🌐 webbiespirit.com
+
+#webdesign #onlinebooking #larnaca #cyprus #smallbusiness #barberlarnaca #λάρνακα #κύπρος
+```
+
+**Ελληνικά**
+
+```
+Είναι 11 το βράδυ. Ο επόμενος πελάτης σας είναι στο κρεβάτι και ψάχνει κουρείο, τραπέζι ή στούντιο τατουάζ. Μπορεί να κλείσει μαζί σας αυτή τη στιγμή; 🌙
+
+Το τεστ των 11 το βράδυ, 4 έλεγχοι:
+✅ Φτιαγμένη για το κινητό
+✅ Κράτηση σε 30 δευτερόλεπτα
+✅ Ελληνικά και Αγγλικά
+✅ Σας βρίσκουν στο Google
+
+Σας λείπει κάποιο; Σχεδιάζουμε δωρεάν τη μακέτα σας και δεν πληρώνετε τίποτα μέχρι να σας ενθουσιάσει. Στείλτε μας «PREVIEW».
+
+🌐 webbiespirit.com
+
+#κατασκευήιστοσελίδων #κρατήσεις #λάρνακα #κύπρος #μικρέςεπιχειρήσεις #κουρείολάρνακα
+```
+
+Alt text: "A quiz: does your website pass the 11pm test? Four checks: made for the phone, booking in 30 seconds, Greek and English, found on Google. Missing one? We'll design your free preview."
+
+## 3. Packages (1 slide)
+
+**English**
+
+```
+Pick your orbit. 🪐
+
+Start · €350: one page, request form, map, QR code.
+Pro · €499 (was €699), most picked: online booking, a shop for your products and Google done properly.
+Ultra · €947: everything in Pro plus a chatbot, live visitors, customer accounts and premium branding.
+
+The care plan from €30/month covers hosting, domain and small edits. Pro and Ultra come with the first months of care free.
+
+Whichever you pick, you see your free preview first and only pay if you love it. DM us "PREVIEW".
+
+🌐 webbiespirit.com/packages
 
 #webdesign #websitedesign #larnaca #cyprus #smallbusiness #λάρνακα #κύπρος
 ```
@@ -84,81 +136,103 @@ All the details, including monthly care: webbiespirit.com/packages (link in bio)
 **Ελληνικά**
 
 ```
-Απλά πακέτα, χωρίς εκπλήξεις. 💙
+Διαλέξτε τροχιά. 🪐
 
-Start · 350 €: 2 γύροι αλλαγών
-Pro · 499 € (από 699 €): 3 γύροι αλλαγών + 30 μέρες μικρές αλλαγές. Η πιο δημοφιλής επιλογή.
-Ultra · 947 €: απεριόριστες αλλαγές για 60 μέρες, e-shop και λογαριασμοί πελατών.
+Start · 350 €: μία σελίδα, φόρμα αιτήματος, χάρτης, QR code.
+Pro · 499 € (από 699 €), η πιο δημοφιλής επιλογή: online κρατήσεις, κατάστημα για τα προϊόντα σας και σωστή παρουσία στο Google.
+Ultra · 947 €: όλα όσα έχει το Pro, μαζί με chatbot, live επισκέπτες, λογαριασμούς πελατών και premium branding.
 
-Όποιο κι αν διαλέξεις, βλέπεις πρώτα τη δωρεάν μακέτα σου και πληρώνεις μόνο αν σε ενθουσιάσει.
+Η συντήρηση από 30 €/μήνα καλύπτει hosting, domain και μικρές αλλαγές. Στο Pro και στο Ultra οι πρώτοι μήνες συντήρησης είναι δωρεάν.
 
-Όλες οι λεπτομέρειες, μαζί με τη μηνιαία συντήρηση: webbiespirit.com/el/packages (σύνδεσμος στο προφίλ)
+Όποιο κι αν διαλέξετε, βλέπετε πρώτα τη δωρεάν μακέτα σας και πληρώνετε μόνο αν σας ενθουσιάσει. Στείλτε μας «PREVIEW».
+
+🌐 webbiespirit.com/el/packages
 
 #κατασκευήιστοσελίδων #ιστοσελίδες #λάρνακα #κύπρος #μικρέςεπιχειρήσεις
 ```
 
-Alt text: "webbiespirit packages: Start 350 euros, Pro 499 euros (was 699), Ultra 947 euros. Preview first, pay only if you love it."
+Alt text: "webbiespirit packages as three planets on one orbit: Start 350 euros, Pro 499 euros (was 699, most picked), Ultra 947 euros. Care plan from 30 euros a month. Free preview first, pay only if you love it."
 
-## 3. Found on Google
+## 4. Three questions (carousel, 4 slides)
 
 **English**
 
 ```
-Instagram is where people see you. Google is where they find you. 🔎
+3 questions shop owners ask us, answered. 💬
 
-When someone nearby searches for what you do, websites are what show up. If you're not there, they find someone else.
+1. Do I own my website?
+Yes. The domain is registered in your name and the site is yours.
 
-Curious what yours could look like? We'll design a free preview, and you only pay if you love it. Send us "PREVIEW".
+2. What do I need to send you?
+Your Instagram or Facebook page, your price list, opening hours and your logo if you have one. That's enough for the free preview.
+
+3. Can I see it before I pay?
+Always. We build the preview first, you look at it on your own phone, and you pay only if you want it live.
+
+Got another question? Ask in the comments, or DM us "PREVIEW" to get your free preview.
 
 🌐 webbiespirit.com
 
-#webdesign #localbusiness #larnaca #cyprus #smallbusiness #λάρνακα #κύπρος
+#webdesign #smallbusiness #larnaca #cyprus #cyprusbusiness #λάρνακα #κύπρος
 ```
 
 **Ελληνικά**
 
 ```
-Στο Instagram σε βλέπουν. Στο Google σε βρίσκουν. 🔎
+3 ερωτήσεις που μας κάνουν οι ιδιοκτήτες μαγαζιών, με τις απαντήσεις τους. 💬
 
-Όταν κάποιος κοντά σου ψάχνει αυτό που κάνεις, αυτό που εμφανίζεται είναι ιστοσελίδες. Αν δεν είσαι εκεί, βρίσκει κάποιον άλλο.
+1. Η ιστοσελίδα θα είναι δική μου;
+Ναι. Το domain κατοχυρώνεται στο όνομά σας και η ιστοσελίδα είναι δική σας.
 
-Θέλεις να δεις πώς θα ήταν η δική σου; Σου σχεδιάζουμε δωρεάν μια μακέτα και πληρώνεις μόνο αν σε ενθουσιάσει. Στείλε μας «PREVIEW».
+2. Τι πρέπει να σας στείλω;
+Τη σελίδα σας στο Instagram ή στο Facebook, τον τιμοκατάλογό σας, το ωράριο λειτουργίας και το λογότυπό σας αν έχετε. Αυτά αρκούν για τη δωρεάν μακέτα.
+
+3. Μπορώ να τη δω πριν πληρώσω;
+Πάντα. Φτιάχνουμε πρώτα τη μακέτα, τη βλέπετε στο δικό σας κινητό και πληρώνετε μόνο αν θέλετε να βγει στον αέρα.
+
+Έχετε άλλη ερώτηση; Γράψτε τη στα σχόλια ή στείλτε μας «PREVIEW» για τη δωρεάν μακέτα σας.
 
 🌐 webbiespirit.com
 
-#κατασκευήιστοσελίδων #τοπικέςεπιχειρήσεις #λάρνακα #κύπρος #μικρέςεπιχειρήσεις
+#κατασκευήιστοσελίδων #μικρέςεπιχειρήσεις #λάρνακα #κύπρος #ιστοσελίδες
 ```
 
-Alt text: "Instagram is where people see you. Google is where they find you."
+Alt text: "A group chat with three questions shop owners ask webbiespirit: Do I own my website? Yes, the domain is in your name. What do I send? Your Instagram, price list, opening hours and logo. Can I see it before I pay? Always."
 
-## 4. Made for Larnaca
+## 5. Meet the founders (carousel, 2 slides)
 
 **English**
 
 ```
-We design websites for Larnaca businesses. 🌊
+Meet the two people behind webbiespirit. 👋
 
-Tattoo studios. Barbers and beauty salons. Restaurants and cafés. And more.
+Apollonas Bisaku, co-founder: design and build.
+Giorgos Paliogiannis, co-founder: clients and growth.
 
-Based in Larnaca, working with businesses anywhere. Your free preview is one message away: send us "PREVIEW".
+Based in Larnaca, working with businesses all over Cyprus. Every site is built custom, around your customers. No templates. When you message us, you talk to the people who build your site.
 
-🌐 webbiespirit.com
+Say hi in the comments, or DM us "PREVIEW" for your free preview.
 
-#larnaca #larnacabusiness #cyprus #webdesign #smallbusiness #λάρνακα #κύπρος
+🌐 webbiespirit.com/about
+
+#webdesign #larnaca #cyprus #smallbusiness #founders #λάρνακα #κύπρος
 ```
 
 **Ελληνικά**
 
 ```
-Σχεδιάζουμε ιστοσελίδες για επιχειρήσεις της Λάρνακας. 🌊
+Γνωρίστε τους δύο ανθρώπους πίσω από το webbiespirit. 👋
 
-Στούντιο τατουάζ. Κουρεία και σαλόνια ομορφιάς. Εστιατόρια και καφέ. Και πολλά ακόμα.
+Απόλλωνας Μπισάκου, συνιδρυτής: σχεδιασμός και κατασκευή.
+Γιώργος Παλιογιάννης, συνιδρυτής: πελάτες και ανάπτυξη.
 
-Με έδρα τη Λάρνακα, δουλεύουμε με επιχειρήσεις όπου κι αν βρίσκονται. Η δωρεάν μακέτα σου απέχει ένα μήνυμα: στείλε μας «PREVIEW».
+Με έδρα τη Λάρνακα, δουλεύουμε με επιχειρήσεις σε όλη την Κύπρο. Κάθε ιστοσελίδα φτιάχνεται από την αρχή, γύρω από τους πελάτες σας, χωρίς έτοιμα templates. Όταν μας στέλνετε μήνυμα, μιλάτε απευθείας με τους ανθρώπους που φτιάχνουν την ιστοσελίδα σας.
 
-🌐 webbiespirit.com
+Πείτε μας ένα γεια στα σχόλια ή στείλτε μας «PREVIEW» για τη δωρεάν μακέτα σας.
 
-#λάρνακα #κύπρος #κατασκευήιστοσελίδων #μικρέςεπιχειρήσεις #larnaca #cyprus
+🌐 webbiespirit.com/el/about
+
+#κατασκευήιστοσελίδων #λάρνακα #κύπρος #μικρέςεπιχειρήσεις #webdesign
 ```
 
-Alt text: "webbiespirit designs websites for tattoo studios, barbers and beauty salons, restaurants and cafés in Larnaca."
+Alt text: "The two webbiespirit founders, Apollonas Bisaku (design and build) and Giorgos Paliogiannis (clients and growth), drawn as a sun and a planet sharing one gold orbit, and a glowing map of Cyprus with Larnaca lit up."

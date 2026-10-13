@@ -3,18 +3,9 @@
 Run:  cd social/posts && python3 p4_faq.py
 Out:  out/en/4-questions-<n>.png and out/el/4-questions-<n>.png
 """
-import glob
-import os
 from pathlib import Path
 
-# The full Chromium in new-headless mode paints only part of the 1350px viewport (the carousel dots and
-# @handle come out blank). The headless shell honours --window-size exactly; kit reads CHROME at import time.
-if 'CHROME' not in os.environ:
-    _shell = sorted(glob.glob('/opt/pw-browsers/chromium_headless_shell-*/chrome-linux/headless_shell'))
-    if _shell:
-        os.environ['CHROME'] = _shell[-1]
-
-from kit import (Slide, render, brand_mark, sparkle, E,  # noqa: E402
+from kit import (Slide, render, brand_mark, sparkle, E,
                  GOLD, GOLD_2, GOLD_DEEP, VIOLET, ROSE, TEAL, SKYBLUE, INK, NIGHT)
 
 HERE = Path(__file__).resolve().parent

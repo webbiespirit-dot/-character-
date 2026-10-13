@@ -4,16 +4,9 @@ each carrying its package's price: small teal Start, glowing gold Pro (most pick
 Run:  cd social/posts && python3 p3_packages.py
 Out:  out/en/3-packages-1.png and out/el/3-packages-1.png
 """
-import os
 from pathlib import Path
 
-# The full Chromium in new-headless mode paints only a 1080x1263 viewport inside the 1350 screenshot.
-# The headless shell honours --window-size exactly, so prefer it when present. kit reads CHROME at import.
-_SHELL = '/opt/pw-browsers/chromium_headless_shell-1194/chrome-linux/headless_shell'
-if 'CHROME' not in os.environ and os.path.exists(_SHELL):
-    os.environ['CHROME'] = _SHELL
-
-from kit import (Slide, render, sparkle, E,  # noqa: E402
+from kit import (Slide, render, sparkle, E,
                  GOLD, GOLD_2, VIOLET, ROSE, TEAL, SKYBLUE, CREAM)
 
 HERE = Path(__file__).resolve().parent

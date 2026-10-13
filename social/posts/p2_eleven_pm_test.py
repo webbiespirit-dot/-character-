@@ -5,18 +5,9 @@
 
 Writes out/en/2-the-11pm-test-<n>.png and out/el/2-the-11pm-test-<n>.png.
 """
-import glob
-import os
 from pathlib import Path
 
-# kit.render with the full Chrome binary screenshots a 1080x1263 viewport (the bottom 87px, with the
-# carousel dots and @webbiespirit, come out blank). The headless shell renders the true 1080x1350 viewport.
-if 'CHROME' not in os.environ:
-    _shell = sorted(glob.glob('/opt/pw-browsers/chromium_headless_shell-*/chrome-linux/headless_shell'))
-    if _shell:
-        os.environ['CHROME'] = _shell[-1]
-
-from kit import E, GOLD, GOLD_2, INK, ROSE, SKYBLUE, TEAL, VIOLET, Slide, render, sparkle  # noqa: E402
+from kit import E, GOLD, GOLD_2, INK, ROSE, SKYBLUE, TEAL, VIOLET, Slide, render, sparkle
 
 HERE = Path(__file__).resolve().parent
 NAME = '2-the-11pm-test'
@@ -44,7 +35,7 @@ COPY = {
         'steps': ['Service', 'Time', 'Done!'], 'sec': 'seconds',
         'query': 'barber Larnaca',
         'cta_q': 'Missing one?', 'cta_h': '<span class="hl">We’ll design your free preview.</span>',
-        'cta_btn': 'DM us “PREVIEW”', 'cta_btn_fs': 46,
+        'cta_btn': 'DM us PREVIEW', 'cta_btn_fs': 46,
         'cta_line': 'You pay nothing until you love it.',
     },
     'el': {

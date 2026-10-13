@@ -7,16 +7,9 @@ Run:  cd social/posts && python3 p5_founders.py
 Out:  out/en/5-meet-the-founders-<n>.png and out/el/5-meet-the-founders-<n>.png
 """
 import math
-import os
 from pathlib import Path
 
-# The full Chromium in new-headless mode paints only part of the 1350px viewport (the carousel dots and
-# @handle come out blank). The headless shell honours --window-size exactly; kit reads CHROME at import time.
-_SHELL = '/opt/pw-browsers/chromium_headless_shell-1194/chrome-linux/headless_shell'
-if 'CHROME' not in os.environ and os.path.exists(_SHELL):
-    os.environ['CHROME'] = _SHELL
-
-from kit import (Slide, render, sun_avatar, planet_avatar, sparkle, E,  # noqa: E402
+from kit import (Slide, render, sun_avatar, planet_avatar, sparkle, E,
                  GOLD, GOLD_2, VIOLET, ROSE, TEAL, SKYBLUE, CREAM)
 
 HERE = Path(__file__).resolve().parent
@@ -34,7 +27,7 @@ COPY = {
             ('Giorgos', 'Paliogiannis', 'Clients and growth'),
         ],
         'amp': '&amp;',
-        'eyebrow': 'From the Larnaca seafront',
+        'eyebrow': 'Based in Larnaca',
         's2_h': 'Working with businesses <span class="g glow nw">all over Cyprus.</span>',
         's2_size': 84,
         'towns': {'Nicosia': 'Nicosia', 'Limassol': 'Limassol', 'Paphos': 'Paphos', 'Ayia Napa': 'Ayia Napa', 'Larnaca': 'Larnaca'},
@@ -52,7 +45,7 @@ COPY = {
             ('Γιώργος', 'Παλιογιάννης', 'Πελάτες και ανάπτυξη'),
         ],
         'amp': '&amp;',
-        'eyebrow': 'Από την παραλία της Λάρνακας',
+        'eyebrow': 'Με έδρα τη Λάρνακα',
         's2_h': 'Δουλεύουμε με επιχειρήσεις σε <span class="g glow nw">όλη την Κύπρο.</span>',
         's2_size': 76,
         'towns': {'Nicosia': 'Λευκωσία', 'Limassol': 'Λεμεσός', 'Paphos': 'Πάφος', 'Ayia Napa': 'Αγία Νάπα', 'Larnaca': 'Λάρνακα'},

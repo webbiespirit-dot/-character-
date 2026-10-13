@@ -3,17 +3,9 @@
 Run:  cd social/posts && python3 p1_how_it_works.py
 Out:  out/en/1-how-it-works-<n>.png and out/el/1-how-it-works-<n>.png
 """
-import os
 from pathlib import Path
 
-# The full Chromium in new-headless mode paints only a 1080x1263 viewport inside the 1350 screenshot
-# (the bottom 87px, with the carousel dots and @handle, come out blank). The headless shell honours
-# --window-size exactly, so prefer it when present. kit reads CHROME at import time.
-_SHELL = '/opt/pw-browsers/chromium_headless_shell-1194/chrome-linux/headless_shell'
-if 'CHROME' not in os.environ and os.path.exists(_SHELL):
-    os.environ['CHROME'] = _SHELL
-
-from kit import (Slide, render, logo, sparkle, E,  # noqa: E402
+from kit import (Slide, render, logo, sparkle, E,
                  GOLD, GOLD_2, VIOLET, ROSE, TEAL, SKYBLUE, CREAM, NIGHT)
 
 HERE = Path(__file__).resolve().parent

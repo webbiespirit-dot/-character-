@@ -34,7 +34,7 @@ FIRST_EMAIL = HERE / 'email' / 'first-email.html'
 SITE = 'https://webbiespirit.com/'
 EMAIL = 'webbiespirit@gmail.com'
 FIELDS = ['id', 'business', 'name', 'channel', 'contact', 'city', 'category', 'lang', 'hook', 'hook_el',
-          'instagram', 'gmail_thread', 'status', 'touches', 'last_touch', 'next_touch', 'added', 'notes']
+          'instagram', 'phone', 'gmail_thread', 'status', 'touches', 'last_touch', 'next_touch', 'added', 'notes']
 CHANNELS = ('email', 'instagram', 'call', 'walkin')
 STATUSES = ('new', 'contacted', 'replied', 'preview', 'sent', 'won', 'lost', 'optout', 'cold')
 # Days to wait after touch 1, 2, 3 ... before the next one. When the list runs out, the lead goes cold.
@@ -333,7 +333,8 @@ def cmd_add(args):
         'id': str(next_id), 'business': args.business, 'name': args.name or '', 'channel': args.channel,
         'contact': args.contact, 'city': args.city or '', 'category': args.category or '',
         'lang': args.lang, 'hook': args.hook or '', 'hook_el': args.hook_el or '',
-        'instagram': args.instagram or '', 'status': 'new', 'touches': '0',
+        'instagram': args.instagram or '',
+        'phone': args.phone or (args.contact if args.channel == 'call' else ''), 'status': 'new', 'touches': '0',
         'last_touch': '', 'next_touch': '', 'added': today_date(args).isoformat(), 'notes': args.notes or '',
     })
     save(rows)
@@ -387,6 +388,8 @@ def cmd_set(args):
         r['next_touch'] = ''
     if args.thread:
         r['gmail_thread'] = args.thread
+    if args.phone:
+        r['phone'] = args.phone
     if args.note:
         r['notes'] = (r['notes'] + ' | ' if r['notes'] else '') + f'{day}: {args.note}'
     save(rows)
@@ -396,6 +399,31 @@ def cmd_set(args):
 def cmd_msg(args):
     r = find(load(), args.id)
     print(render(r))
+
+
+def cmd_calls(args):
+    """Everyone with a phone number we can still call: people we already wrote to first, then cold calls."""
+    day = today_date(args)
+    rows = [r for r in load() if r['phone'] and r['status'] not in ('won', 'lost', 'optout')]
+    warm = [r for r in rows if r['channel'] != 'call' and r['status'] in ('contacted', 'cold')]
+    cold = [r for r in rows if r['channel'] == 'call' and r['status'] == 'new']
+    other = [r for r in rows if r not in warm and r not in cold]
+    lang = {'el': 'Greek', 'en': 'English'}
+    for title, group, opener in (
+            ('ALREADY EMAILED OR DM-ED: "Did you see our message about a free website preview?"', warm, 'warm'),
+            ('COLD CALLS: use the cold call script in growth/templates.md', cold, 'cold'),
+            ('IN PROGRESS: check notes before calling', other, '')):
+        if not group:
+            continue
+        print(f'\n{title} ({len(group)})')
+        for r in group:
+            last = f', last touch {r["last_touch"]}' if r['last_touch'] else ''
+            print(f'  [{r["id"]:>3}] {r["phone"]:<15} {r["business"]:<34} {r["category"]:<10} {lang.get(r["lang"], "English")}{last}')
+    print('\nAfter each call:')
+    print('  Interested:            python3 growth/ws.py set ID replied --note "what they said"')
+    print('  A clear no:            python3 growth/ws.py set ID optout   (never contact again)')
+    print('  Cold call, they spoke: python3 growth/ws.py done ID   (logs it and gives you the recap message)')
+    print(f'  Calling hours: 10:00 to 12:00 for shops, 15:00 to 17:00 for restaurants. Today is {day:%A %d %B}.\n')
 
 
 def cmd_list(args):
@@ -479,6 +507,7 @@ def main():
     a.add_argument('--hook', help='what you noticed, in English, e.g. "on Instagram, through your new menu"')
     a.add_argument('--hook-el', help='the same in Greek, for Greek messages and the bilingual first email')
     a.add_argument('--instagram', help='their @handle, if they have one')
+    a.add_argument('--phone', help='business phone number (call leads use --contact for it)')
     a.add_argument('--notes')
 
     d = sub.add_parser('done', help='log a sent message / call / visit')
@@ -491,6 +520,7 @@ def main():
     s.add_argument('--next', help='next date to act, YYYY-MM-DD')
     s.add_argument('--note')
     s.add_argument('--thread', help='Gmail thread id of the first email, so follow-ups reply in it')
+    s.add_argument('--phone', help='business phone number, e.g. +357 24123456')
 
     m = sub.add_parser('msg', help='print the next message for a lead')
     m.add_argument('id')
@@ -498,12 +528,13 @@ def main():
     l = sub.add_parser('list', help='list leads')
     l.add_argument('--status', choices=STATUSES)
 
+    sub.add_parser('calls', help='everyone you can call, warm leads first')
     sub.add_parser('stats', help='funnel and reply rates')
     sub.add_parser('emails', help="today's emails as JSON, for Gmail drafts")
 
     args = p.parse_args()
     {'today': cmd_today, 'add': cmd_add, 'done': cmd_done, 'set': cmd_set,
-     'msg': cmd_msg, 'list': cmd_list, 'stats': cmd_stats, 'emails': cmd_emails}[args.cmd](args)
+     'msg': cmd_msg, 'list': cmd_list, 'calls': cmd_calls, 'stats': cmd_stats, 'emails': cmd_emails}[args.cmd](args)
 
 
 if __name__ == '__main__':
