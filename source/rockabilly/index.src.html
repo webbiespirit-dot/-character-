@@ -1,0 +1,1267 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<meta name="description" content="Rockabilly Barber Shop in Larnaca. Classic, old school, hot shave. Kimonos 3, 6015 Larnaca. Book online or call 24 102169.">
+<meta name="theme-color" content="#12100e">
+<title>Rockabilly Barber Shop · Larnaca</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;600;700&family=Roboto+Slab:wght@600;700;800;900&family=Yellowtail&display=swap">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BarberShop",
+  "name": "Rockabilly Barber Shop",
+  "alternateName": "Rockabilly",
+  "slogan": "Keep the culture alive!",
+  "url": "https://webbiespirit.com/preview/rockabilly/",
+  "telephone": "+35724102169",
+  "email": "rockabilly.2019cy@gmail.com",
+  "foundingDate": "2019",
+  "priceRange": "€5–€150",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Kimonos 3",
+    "postalCode": "6015",
+    "addressLocality": "Larnaca",
+    "addressCountry": "CY"
+  },
+  "hasMap": "https://www.google.com/maps/search/?api=1&query=Rockabilly+Barber+Shop+Kimonos+3+Larnaca",
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "09:30", "closes": "19:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "16:00" }
+  ],
+  "sameAs": ["https://www.facebook.com/barbershoprockabilly/", "https://www.instagram.com/barbershop_rockabilly/"]
+}
+</script>
+<style>
+/* Layout concept: a 1950s barber's print run. Dark shop-wall sections alternate with cream card stock; the price list is a two-colour (red + black) diner menu with a tear-off ticket stub. */
+:root {
+  color-scheme: dark;
+  --ink: #12100e;
+  --ink-2: #1b1815;
+  --ink-3: #2a241f;
+  --paper: #ece0c4;
+  --paper-hi: #f6eddb;
+  --paper-lo: #ddcfae;
+  --card: #f4ead3;
+  --text-dark: #1a1613;
+  --muted-dark: #5a5046;
+  --cream-muted: #bcae94;
+  --cherry: #b81d2c;
+  --cherry-deep: #8c1320;
+  --cherry-lit: #e4474f;
+  --gold: #bf9a4c;
+  --gold-dim: #8e7238;
+  --sage: #7b7f57;
+  --sage-ink: #565c3c;
+  --sage-lit: #b4bd83;
+  --sage-soft: #c9c9a2;
+  --mahogany: #4a2a1f;
+  --mahogany-2: #5e3527;
+  --ring: #e9c46a;
+
+  --f-script: "Yellowtail", "Brush Script MT", "Segoe Script", cursive;
+  --f-slab: "Roboto Slab", "Rockwell", "Roboto Slab Fallback", Georgia, "Times New Roman", serif;
+  --f-body: "Commissioner", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --gutter: 16px;
+  --dock-h: 0px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; -webkit-tap-highlight-color: transparent; scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--ink);
+  color: var(--paper);
+  font: 400 16px/1.55 var(--f-body);
+  overflow-x: clip;
+  padding-bottom: var(--dock-h);
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; }
+h1, h2, h3, h4, p, ul, ol, figure { margin: 0; }
+ul { padding: 0; list-style: none; }
+button { font: inherit; color: inherit; }
+:focus-visible { outline: 3px solid var(--ring); outline-offset: 3px; border-radius: 2px; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.wrap { width: min(100% - var(--gutter) * 2, 1160px); margin-inline: auto; }
+.sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
+.ico { width: 1.15em; height: 1.15em; flex: none; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+/* ---------- textures ---------- */
+.tex-dark {
+  background-color: var(--ink);
+  background-image:
+    radial-gradient(rgba(236, 224, 196, .045) 1px, transparent 1.3px),
+    radial-gradient(rgba(236, 224, 196, .03) 1px, transparent 1.3px);
+  background-size: 6px 6px, 9px 9px;
+  background-position: 0 0, 3px 4px;
+}
+.tex-paper {
+  background-color: var(--paper);
+  background-image:
+    radial-gradient(ellipse at 12% 8%, rgba(255, 251, 238, .7), transparent 45%),
+    radial-gradient(ellipse at 92% 96%, rgba(140, 100, 45, .2), transparent 55%),
+    radial-gradient(rgba(74, 42, 31, .11) .7px, transparent 1.1px),
+    radial-gradient(rgba(74, 42, 31, .07) .7px, transparent 1.1px);
+  background-size: auto, auto, 5px 5px, 8px 8px;
+  background-position: 0 0, 0 0, 0 0, 2px 3px;
+  color: var(--text-dark);
+}
+/* true CSS halftone: dot size follows a tone gradient, thresholded with contrast() */
+.ht {
+  position: absolute; inset: 0; pointer-events: none;
+  background: var(--ht-ink, var(--cherry));
+  mix-blend-mode: multiply;
+  opacity: var(--ht-op, .32);
+}
+.ht::before {
+  content: ""; position: absolute; inset: 0;
+  background:
+    radial-gradient(closest-side, #000 25%, #fff 100%) 0 0 / var(--ht-size, 7px) var(--ht-size, 7px),
+    linear-gradient(var(--ht-dir, 220deg), #000 0%, #808080 var(--ht-reach, 55%), #fff 100%);
+  background-blend-mode: screen;
+  filter: contrast(40);
+  mix-blend-mode: screen;
+}
+.ht--dark { mix-blend-mode: screen; }
+.ht--dark::before { filter: contrast(40) invert(1); mix-blend-mode: multiply; }
+
+/* barber-pole divider */
+.pole-strip {
+  position: relative; height: 18px; overflow: hidden;
+  border-block: 3px solid var(--ink);
+  background: var(--paper);
+}
+.pole-strip::before {
+  content: ""; position: absolute; inset: 0 -60px 0 0;
+  background: repeating-linear-gradient(-45deg, var(--cherry) 0 13px, var(--paper-hi) 13px 26px);
+  animation: stripe 2.6s linear infinite;
+}
+@keyframes stripe { to { transform: translateX(-36.77px); } }
+.checker {
+  height: 22px;
+  background: conic-gradient(var(--paper) 25%, var(--ink) 0 50%, var(--paper) 0 75%, var(--ink) 0) 0 0 / 22px 22px;
+}
+
+/* ---------- shared type ---------- */
+.h-sec {
+  font: 900 clamp(36px, 10.5vw, 72px)/.92 var(--f-slab);
+  text-transform: uppercase;
+  letter-spacing: -.01em;
+  text-wrap: balance;
+}
+.on-dark .h-sec { color: var(--paper-hi); text-shadow: 3px 3px 0 var(--cherry); }
+.on-paper .h-sec { color: var(--text-dark); text-shadow: 2px 2px 0 rgba(184, 29, 44, .9); }
+.kicker {
+  display: flex; align-items: center; gap: 10px;
+  font: 700 12px/1.2 var(--f-body); letter-spacing: .2em; text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.kicker::before { content: ""; width: 28px; height: 3px; background: var(--cherry); flex: none; }
+.on-dark .kicker { color: var(--gold); }
+.on-paper .kicker { color: var(--sage-ink); }
+
+/* buttons */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: .6em;
+  min-height: 52px; padding: 12px 20px;
+  font: 800 16px/1.15 var(--f-slab); letter-spacing: .02em;
+  text-decoration: none; text-align: center;
+  border: 2px solid transparent; border-radius: 3px;
+  cursor: pointer;
+  transition: transform .12s ease, box-shadow .12s ease, background-color .15s ease, color .15s ease;
+  min-width: 0;
+}
+.btn--red {
+  background: var(--cherry); color: var(--paper-hi); border-color: var(--cherry);
+  box-shadow: inset 0 0 0 3px var(--cherry), inset 0 0 0 4px rgba(246, 237, 219, .55), 4px 4px 0 var(--btn-shadow, #000);
+}
+.btn--ghost { color: var(--paper-hi); border-color: rgba(246, 237, 219, .75); background: rgba(18, 16, 14, .35); }
+.btn--ink { background: var(--ink); color: var(--paper-hi); border-color: var(--ink); box-shadow: 4px 4px 0 var(--cherry); }
+.btn--line { color: var(--text-dark); border-color: var(--text-dark); background: transparent; }
+@media (hover: hover) {
+  .btn--red:hover { background: var(--cherry-deep); box-shadow: inset 0 0 0 3px var(--cherry-deep), inset 0 0 0 4px rgba(246, 237, 219, .55), 4px 4px 0 var(--btn-shadow, #000); }
+  .btn--ghost:hover { background: var(--paper-hi); color: var(--ink); }
+  .btn--ink:hover { background: var(--ink-3); }
+  .btn--line:hover { background: var(--text-dark); color: var(--paper-hi); }
+}
+.btn:active { transform: translate(2px, 2px); }
+.btn--red:active { box-shadow: inset 0 0 0 3px var(--cherry), inset 0 0 0 4px rgba(246, 237, 219, .55), 1px 1px 0 var(--btn-shadow, #000); }
+
+/* ---------- ribbon ---------- */
+.ribbon {
+  background: #0a0908; color: var(--cream-muted);
+  border-bottom: 1px solid rgba(191, 154, 76, .35);
+  font: 500 12.5px/1.35 var(--f-body);
+}
+.ribbon .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 46px; padding-block: 2px; }
+.ribbon p { min-width: 0; letter-spacing: .01em; }
+.ribbon p b { color: var(--paper); font-weight: 600; }
+.lang { display: flex; flex: none; border: 1px solid rgba(191, 154, 76, .55); border-radius: 3px; overflow: hidden; }
+.lang button {
+  min-width: 44px; min-height: 44px; padding: 0 8px; border: 0; background: transparent; cursor: pointer;
+  font: 800 13px/1 var(--f-slab); letter-spacing: .08em; color: var(--cream-muted);
+}
+.lang button + button { border-left: 1px solid rgba(191, 154, 76, .55); }
+.lang button[aria-pressed="true"] { background: var(--gold); color: var(--ink); }
+.lang button:active { background: var(--gold-dim); }
+
+/* ---------- hero ---------- */
+.hero { position: relative; padding: 14px 0 52px; overflow: clip; }
+.hero .ht { --ht-ink: var(--cherry); --ht-op: .34; --ht-dir: 205deg; --ht-reach: 40%; --ht-size: 8px; }
+.hero-grid { position: relative; display: grid; gap: 16px; grid-template-areas: "type" "plate" "foot"; }
+.hero-type { grid-area: type; min-width: 0; }
+.poster { display: block; font-weight: 400; }
+.fit-line { display: block; width: 100%; white-space: nowrap; }
+.fit { display: inline-block; white-space: nowrap; }
+.wordmark {
+  font: 400 86px/1 var(--f-script);
+  color: var(--paper-hi);
+  padding: 0 .14em 0 .02em;
+  text-shadow: 3px 3px 0 var(--cherry), 5px 5px 0 rgba(0, 0, 0, .55);
+  transform: rotate(-5deg); transform-origin: 30% 80%;
+  margin: -8px 0 0;
+  animation: misreg .9s cubic-bezier(.2, .8, .2, 1) both;
+}
+@keyframes misreg {
+  from { opacity: 0; text-shadow: 14px 9px 0 var(--cherry), 5px 5px 0 rgba(0, 0, 0, 0); transform: rotate(-5deg) translateY(10px); }
+  to { opacity: 1; }
+}
+.block {
+  font: 900 46px/.9 var(--f-slab);
+  text-transform: uppercase; letter-spacing: -.005em;
+  color: var(--paper);
+  text-shadow: 3px 3px 0 var(--cherry);
+  padding-right: 4px;
+  animation: rise .7s .12s cubic-bezier(.2, .8, .2, 1) both;
+}
+.band {
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  margin-top: 10px; padding: 8px 12px;
+  background: var(--cherry); color: var(--paper-hi);
+  font: 800 13.5px/1.2 var(--f-slab); letter-spacing: .2em; text-transform: uppercase;
+  box-shadow: inset 0 2px 0 rgba(246,237,219,.45), inset 0 -2px 0 rgba(246,237,219,.45);
+  animation: rise .7s .22s cubic-bezier(.2, .8, .2, 1) both;
+}
+.band .dot { width: 6px; height: 6px; background: var(--paper-hi); transform: rotate(45deg); flex: none; }
+.band span { min-width: 0; }
+@keyframes rise { from { opacity: 0; transform: translateY(14px); } }
+
+.status {
+  display: inline-flex; align-items: center; gap: 10px;
+  margin-top: 12px; padding: 8px 14px 8px 12px;
+  border: 1px solid rgba(246, 237, 219, .3); border-radius: 3px;
+  background: rgba(10, 9, 8, .6);
+  font: 600 14px/1.3 var(--f-body); color: var(--paper-hi);
+  min-height: 44px; max-width: 100%;
+  animation: rise .7s .3s cubic-bezier(.2, .8, .2, 1) both;
+}
+.status span:last-child { min-width: 0; }
+.lamp { width: 10px; height: 10px; border-radius: 50%; flex: none; background: #5a4f45; }
+.status[data-state="open"] .lamp { background: var(--sage-lit); box-shadow: 0 0 0 3px rgba(180, 189, 131, .2), 0 0 12px 2px rgba(180, 189, 131, .75); animation: glow 2.4s ease-in-out infinite; }
+.status[data-state="soon"] .lamp { background: var(--gold); box-shadow: 0 0 10px rgba(191, 154, 76, .6); }
+.status[data-state="closed"] .lamp { background: var(--cherry-lit); opacity: .75; }
+@keyframes glow { 50% { box-shadow: 0 0 0 5px rgba(180, 189, 131, .08), 0 0 18px 3px rgba(180, 189, 131, .45); } }
+
+.plate-wrap { grid-area: plate; position: relative; min-width: 0; padding: 4px 4px 42px; }
+.plate-wrap::before {
+  content: ""; position: absolute; left: 24px; right: -6px; top: 44px; bottom: 12px;
+  background: var(--sage);
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,.15);
+}
+.plate {
+  position: relative; background: var(--paper-hi); padding: 9px;
+  transform: rotate(-1.4deg);
+  box-shadow: 0 24px 40px -12px rgba(0, 0, 0, .75), 0 2px 0 rgba(0,0,0,.3);
+  animation: plate-in .8s .2s cubic-bezier(.2, .8, .2, 1) both;
+}
+@keyframes plate-in { from { opacity: 0; transform: rotate(3deg) translateY(26px); } }
+.plate img { width: 100%; aspect-ratio: 4 / 4.5; object-fit: cover; object-position: 50% 30%; filter: contrast(1.04) saturate(.94); }
+.plate figcaption { display: none; }
+.stamp {
+  position: absolute; z-index: 2; top: -30px; right: -12px; width: 104px; height: 104px;
+  color: var(--cherry); transform: rotate(12deg);
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,.45));
+  animation: thunk .55s .75s cubic-bezier(.3, 1.4, .5, 1) both;
+}
+@keyframes thunk { from { opacity: 0; transform: scale(1.9) rotate(40deg); } to { opacity: 1; transform: scale(1) rotate(12deg); } }
+.stamp text { font: 800 16.5px var(--f-slab); letter-spacing: 1px; }
+.banner {
+  position: absolute; z-index: 2; left: -8px; right: -8px; bottom: 0;
+  transform: rotate(-2.5deg);
+  animation: unfurl .6s .55s cubic-bezier(.2, .8, .2, 1) both;
+}
+.banner span {
+  display: block; text-align: center;
+  padding: 6px 30px 10px;
+  background: var(--cherry);
+  font: 400 clamp(30px, 8.6vw, 42px)/1.05 var(--f-script);
+  color: var(--paper-hi);
+  text-shadow: 2px 2px 0 rgba(0,0,0,.35);
+  clip-path: polygon(0 0, 100% 0, calc(100% - 18px) 50%, 100% 100%, 0 100%, 18px 50%);
+  background-image: linear-gradient(rgba(246,237,219,.5), rgba(246,237,219,.5)), linear-gradient(rgba(246,237,219,.5), rgba(246,237,219,.5));
+  background-size: calc(100% - 40px) 1.5px, calc(100% - 40px) 1.5px;
+  background-position: 50% 5px, 50% calc(100% - 5px);
+  background-repeat: no-repeat;
+}
+@keyframes unfurl { from { opacity: 0; transform: rotate(-2.5deg) scaleX(.2); } }
+.pole { display: none; }
+
+.hero-foot { grid-area: foot; min-width: 0; }
+.trio { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 16px; font: 800 14px/1.4 var(--f-slab); letter-spacing: .13em; text-transform: uppercase; color: var(--gold); }
+.trio li { display: flex; align-items: center; gap: 10px; }
+.trio li::before { content: ""; width: 7px; height: 7px; background: var(--cherry-lit); transform: rotate(45deg); flex: none; }
+.cta { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 22px; }
+.cta .btn { flex: 1 1 210px; }
+
+/* ---------- services: the menu card ---------- */
+.services { padding: 56px 0 64px; position: relative; }
+.menu {
+  max-width: 760px; margin-inline: auto;
+  filter: drop-shadow(0 26px 26px rgba(0, 0, 0, .6)) drop-shadow(0 2px 1px rgba(0, 0, 0, .5));
+}
+.card-stock {
+  background-color: var(--card);
+  background-image:
+    radial-gradient(ellipse at 50% 0%, rgba(255, 252, 242, .8), transparent 60%),
+    radial-gradient(ellipse at 100% 100%, rgba(150, 110, 50, .16), transparent 55%),
+    radial-gradient(rgba(74, 42, 31, .09) .7px, transparent 1.1px),
+    radial-gradient(rgba(74, 42, 31, .06) .7px, transparent 1.1px);
+  background-size: auto, auto, 5px 5px, 8px 8px;
+  background-position: 0 0, 0 0, 0 0, 2px 3px;
+  color: var(--text-dark);
+}
+.menu-card { position: relative; padding: 22px 18px 26px; isolation: isolate; }
+.menu-card .ht { --ht-op: .26; --ht-dir: 215deg; --ht-reach: 38%; --ht-size: 7px; z-index: -1; }
+.menu-card::after {
+  content: ""; position: absolute; inset: 8px 8px 0; pointer-events: none;
+  border: 2px solid var(--text-dark); border-bottom: 0;
+  box-shadow: inset 0 0 0 3px var(--card), inset 0 0 0 4px var(--cherry);
+}
+.menu-meta {
+  display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2px 12px;
+  padding: 2px 6px 9px; margin-bottom: 18px;
+  font: 700 11px/1.3 var(--f-body); letter-spacing: .16em; text-transform: uppercase;
+  border-bottom: 2px solid var(--text-dark);
+  box-shadow: 0 3px 0 var(--card), 0 4px 0 var(--cherry);
+}
+.menu-head { text-align: center; padding-inline: 4px; }
+.menu-script { font: 400 40px/1 var(--f-script); color: var(--cherry); margin-bottom: 2px; }
+.menu-title {
+  font: 900 clamp(34px, 10.4vw, 62px)/.92 var(--f-slab);
+  text-transform: uppercase; letter-spacing: -.01em; text-wrap: balance;
+  color: var(--text-dark);
+  text-shadow: 2px 2px 0 rgba(184, 29, 44, .85);
+}
+.orn { display: flex; align-items: center; gap: 12px; margin: 14px auto 6px; max-width: 360px; color: var(--cherry); }
+.orn::before, .orn::after { content: ""; flex: 1; height: 0; border-top: 2px solid var(--text-dark); box-shadow: 0 3px 0 -1px var(--text-dark); }
+.orn .ico { width: 26px; height: 26px; stroke-width: 1.6; }
+
+.group { margin-top: 26px; padding-inline: 4px; }
+.group-title {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 7px 14px 7px 10px;
+  background: var(--text-dark); color: var(--paper-hi);
+  font: 900 17px/1.15 var(--f-slab); text-transform: uppercase; letter-spacing: .12em;
+  clip-path: polygon(0 0, 100% 0, calc(100% - 8px) 50%, 100% 100%, 0 100%);
+  padding-right: 22px;
+  max-width: 100%;
+}
+.group-title .ico { color: var(--cherry-lit); width: 22px; height: 22px; }
+.items { margin-top: 10px; }
+.item {
+  display: grid;
+  grid-template-columns: minmax(0, auto) minmax(22px, 1fr) auto;
+  grid-template-areas: "name lead price" "dur dur dur";
+  column-gap: 8px; align-items: end;
+  padding: 11px 0 9px;
+  border-bottom: 1px dashed rgba(26, 22, 19, .16);
+}
+.item:last-child { border-bottom: 0; }
+.item .name { grid-area: name; min-width: 0; font: 800 16.5px/1.2 var(--f-slab); text-transform: uppercase; letter-spacing: .03em; }
+.item .lead {
+  grid-area: lead; height: 4px; margin-bottom: .42em;
+  background: radial-gradient(circle, var(--text-dark) 1.15px, transparent 1.6px) 0 50% / 7px 4px repeat-x;
+  opacity: .7;
+}
+.item .price { grid-area: price; font: 900 27px/1 var(--f-slab); color: var(--cherry); white-space: nowrap; }
+.cur { font-size: .56em; vertical-align: .58em; margin-right: 1px; }
+.item .dur { grid-area: dur; display: flex; align-items: center; gap: 6px; margin-top: 4px; font: 600 13px/1.2 var(--f-body); color: var(--sage-ink); letter-spacing: .02em; }
+.item .dur .ico { width: 13px; height: 13px; stroke-width: 2; }
+.item small { white-space: nowrap; font: 600 12.5px var(--f-body); text-transform: none; letter-spacing: 0; color: var(--muted-dark); }
+
+.book-row { display: flex; justify-content: flex-end; margin-top: 14px; }
+.book-link {
+  display: inline-flex; align-items: center; gap: 8px; min-height: 46px; padding: 8px 14px;
+  font: 800 14px/1.1 var(--f-slab); letter-spacing: .1em; text-transform: uppercase; text-decoration: none;
+  color: var(--cherry); border: 2px solid var(--cherry); border-radius: 2px;
+  transition: background-color .15s ease, color .15s ease;
+}
+.book-link:hover { background: var(--cherry); color: var(--paper-hi); }
+.book-link:active { background: var(--cherry-deep); color: var(--paper-hi); }
+
+details.group { margin-top: 30px; }
+details.group summary {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px;
+  min-height: 52px; cursor: pointer; list-style: none;
+  padding: 6px 54px 6px 0; position: relative;
+  border-top: 2px solid var(--text-dark);
+  padding-top: 16px;
+}
+details.group summary::-webkit-details-marker { display: none; }
+.sum-hint { font: 700 12.5px/1.2 var(--f-body); letter-spacing: .14em; text-transform: uppercase; color: var(--sage-ink); }
+.plus {
+  position: absolute; right: 0; top: calc(50% + 5px); transform: translateY(-50%);
+  width: 44px; height: 44px; border-radius: 50%;
+  border: 2px solid var(--cherry); background: var(--card);
+  transition: transform .25s ease, background-color .15s ease;
+}
+.plus::before, .plus::after { content: ""; position: absolute; left: 50%; top: 50%; width: 16px; height: 2.5px; background: var(--cherry); transform: translate(-50%, -50%); }
+.plus::after { transform: translate(-50%, -50%) rotate(90deg); }
+details[open] .plus { transform: translateY(-50%) rotate(135deg); background: var(--cherry); }
+details[open] .plus::before, details[open] .plus::after { background: var(--paper-hi); }
+summary:active .plus { background: var(--paper-lo); }
+.wax-cols { display: grid; gap: 8px 32px; margin-top: 8px; }
+.wax-cols h4 {
+  display: flex; align-items: center; gap: 10px; margin-top: 12px;
+  font: 900 14px/1.2 var(--f-slab); letter-spacing: .18em; text-transform: uppercase; color: var(--cherry);
+}
+.wax-cols h4::after { content: ""; flex: 1; border-top: 1.5px solid var(--cherry); opacity: .6; }
+.wax-cols .item { grid-template-areas: "name lead price"; }
+.wax-cols .item .name { font-size: 15.5px; }
+.wax-cols .item .price { font-size: 24px; }
+
+/* the perforation and ticket stub */
+.perf {
+  height: 26px; background: var(--card);
+  --n: 13px;
+  -webkit-mask:
+    radial-gradient(circle var(--n) at 0 50%, #0000 97%, #000) 0 0 / 100% 100% no-repeat,
+    radial-gradient(circle var(--n) at 100% 50%, #0000 97%, #000) 0 0 / 100% 100% no-repeat,
+    radial-gradient(circle 2.6px, #0000 90%, #000) 4px 50% / 11px 100% repeat-x;
+  -webkit-mask-composite: source-in, source-in;
+  mask:
+    radial-gradient(circle var(--n) at 0 50%, #0000 97%, #000) 0 0 / 100% 100% no-repeat,
+    radial-gradient(circle var(--n) at 100% 50%, #0000 97%, #000) 0 0 / 100% 100% no-repeat,
+    radial-gradient(circle 2.6px, #0000 90%, #000) 4px 50% / 11px 100% repeat-x;
+  mask-composite: intersect;
+  position: relative;
+}
+.perf::before, .perf::after { content: ""; position: absolute; left: 8px; right: 8px; border-left: 2px solid var(--text-dark); border-right: 2px solid var(--text-dark); }
+.perf::before { top: 0; height: 2px; border: 0; }
+.perf::after { top: 0; bottom: 0; }
+.stub {
+  position: relative; display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 14px;
+  padding: 16px 22px 20px;
+}
+.stub::after {
+  content: ""; position: absolute; inset: 0 8px 8px; pointer-events: none;
+  border: 2px solid var(--text-dark); border-top: 0;
+}
+.stub-label { font: 700 11px/1.2 var(--f-body); letter-spacing: .18em; text-transform: uppercase; color: var(--sage-ink); }
+.stub-hours { margin-top: 4px; font: 800 15px/1.35 var(--f-slab); display: flex; flex-wrap: wrap; gap: 0 18px; }
+.stub-hours span { white-space: nowrap; }
+.serial {
+  font: 900 13px/1 var(--f-slab); letter-spacing: .14em; color: var(--cherry);
+  writing-mode: vertical-rl; transform: rotate(180deg);
+  border-left: 1.5px solid var(--cherry); padding-left: 8px;
+}
+
+/* ---------- hot shave ---------- */
+.shave { position: relative; padding: 72px 0 80px; overflow: clip; }
+.shave-grid { display: grid; gap: 34px; align-items: center; }
+.shave-art { position: relative; min-width: 0; max-width: 520px; width: 100%; margin-inline: auto; aspect-ratio: 16 / 11; }
+.shave-art .disc {
+  position: absolute; left: 14%; top: 0; height: 100%; aspect-ratio: 1; border-radius: 50%;
+  background: var(--sage); overflow: hidden;
+}
+.shave-art .disc .ht { --ht-ink: var(--ink); --ht-op: .35; --ht-dir: 160deg; --ht-reach: 60%; --ht-size: 6px; }
+.razor { position: absolute; left: 0; top: 13%; width: 100%; height: auto; display: block; }
+.sticker {
+  position: absolute; right: 3%; bottom: 0; width: 29%; max-width: 128px; transform: rotate(10deg);
+  filter: drop-shadow(0 6px 8px rgba(0,0,0,.5));
+}
+.sticker text { font: 900 30px var(--f-slab); }
+.shave-copy { min-width: 0; }
+.shave-lines { margin-top: 26px; display: grid; gap: 10px; }
+.shave-lines li {
+  display: flex; align-items: center; gap: 14px;
+  font: 800 clamp(22px, 6.4vw, 34px)/1.15 var(--f-slab); color: var(--paper-hi);
+  padding-bottom: 10px; border-bottom: 1px solid rgba(246,237,219,.14);
+}
+.shave-lines li:last-child { border-bottom: 0; }
+.shave-lines .ico { width: 34px; height: 34px; color: var(--cherry-lit); stroke-width: 1.5; }
+.shave-price { margin-top: 18px; font: 600 18px/1.4 var(--f-body); color: var(--gold); }
+.shave-copy .btn { margin-top: 24px; }
+
+/* ---------- take it home ---------- */
+.shop { position: relative; padding: 68px 0 76px; }
+.shop-grid { display: grid; gap: 30px; }
+.shop-intro p.note { margin-top: 14px; max-width: 30ch; color: var(--muted-dark); font-weight: 500; }
+.shop-intro .btn { margin-top: 22px; --btn-shadow: var(--text-dark); }
+.tickets { display: grid; gap: 14px; }
+.ticket-wrap { filter: drop-shadow(0 3px 0 rgba(74, 42, 31, .25)) drop-shadow(0 8px 10px rgba(74, 42, 31, .18)); }
+.ticket {
+  --stub: 92px; --n: 10px;
+  display: grid; grid-template-columns: 60px minmax(0, 1fr) var(--stub); align-items: stretch;
+  min-height: 84px;
+  background: var(--paper-hi);
+  -webkit-mask:
+    radial-gradient(circle var(--n) at calc(100% - var(--stub)) 0, #0000 97%, #000) 0 0 / 100% 100% no-repeat,
+    radial-gradient(circle var(--n) at calc(100% - var(--stub)) 100%, #0000 97%, #000) 0 0 / 100% 100% no-repeat;
+  -webkit-mask-composite: source-in;
+  mask:
+    radial-gradient(circle var(--n) at calc(100% - var(--stub)) 0, #0000 97%, #000) 0 0 / 100% 100% no-repeat,
+    radial-gradient(circle var(--n) at calc(100% - var(--stub)) 100%, #0000 97%, #000) 0 0 / 100% 100% no-repeat;
+  mask-composite: intersect;
+}
+.t-art { display: grid; place-items: center; padding-left: 10px; color: var(--text-dark); }
+.t-art svg { width: 46px; height: 46px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+.t-art .fill { fill: var(--sage-soft); }
+.t-art .fill-red { fill: var(--cherry); stroke: none; }
+.t-name { align-self: center; padding: 12px 12px 12px 10px; min-width: 0; }
+.t-name b { display: block; font: 800 16px/1.2 var(--f-slab); text-transform: uppercase; letter-spacing: .03em; }
+.t-name span { display: block; margin-top: 3px; font: 600 11px/1.2 var(--f-body); letter-spacing: .18em; text-transform: uppercase; color: var(--sage-ink); }
+.t-price {
+  display: grid; place-items: center;
+  background: var(--cherry); color: var(--paper-hi);
+  font: 900 30px/1 var(--f-slab);
+  border-left: 3px dotted var(--paper-hi);
+  box-shadow: inset 0 0 0 3px var(--cherry), inset 0 0 0 4px rgba(246,237,219,.5);
+}
+
+/* ---------- gallery ---------- */
+.gallery { padding: 70px 0 80px; position: relative; }
+.gal-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; margin-bottom: 34px; }
+.gal-head .tools { display: flex; gap: 10px; color: var(--gold); flex: none; }
+.gal-head .tools .ico { width: 34px; height: 34px; stroke-width: 1.4; }
+.snaps { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px 16px; }
+.snaps li:first-child { grid-column: 1 / -1; }
+.snap-wrap { filter: drop-shadow(0 16px 18px rgba(0, 0, 0, .55)); }
+.snaps li:nth-child(3n+1) .snap-wrap { transform: rotate(-.8deg); }
+.snaps li:nth-child(3n+2) .snap-wrap { transform: rotate(1.6deg); }
+.snaps li:nth-child(3n) .snap-wrap { transform: rotate(-1.8deg); }
+.snap {
+  --r: 5px;
+  background: var(--paper-hi); color: var(--text-dark);
+  padding: 12px 12px 10px;
+  -webkit-mask:
+    radial-gradient(var(--r) at var(--r) var(--r), #000 97%, #0000) round calc(-1 * var(--r)) calc(-1 * var(--r)) / calc(2 * var(--r)) calc(2 * var(--r)),
+    linear-gradient(#000 0 0) 50% / calc(100% - 2 * var(--r)) calc(100% - 2 * var(--r)) no-repeat;
+  mask:
+    radial-gradient(var(--r) at var(--r) var(--r), #000 97%, #0000) round calc(-1 * var(--r)) calc(-1 * var(--r)) / calc(2 * var(--r)) calc(2 * var(--r)),
+    linear-gradient(#000 0 0) 50% / calc(100% - 2 * var(--r)) calc(100% - 2 * var(--r)) no-repeat;
+}
+.snap button { display: block; width: 100%; padding: 0; border: 0; background: var(--ink); cursor: zoom-in; }
+.snap img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; filter: contrast(1.03) saturate(.92); transition: filter .2s ease; }
+.snaps li:first-child .snap img { aspect-ratio: 5 / 4.6; }
+.snap button:active img { filter: brightness(.85); }
+.snap figcaption { margin-top: 9px; font: 600 13px/1.35 var(--f-body); color: var(--muted-dark); min-height: 2.7em; }
+
+.lightbox { padding: 0; border: 0; background: transparent; max-width: min(92vw, 640px); max-height: 92vh; overflow: visible; }
+.lightbox::backdrop { background: rgba(10, 9, 8, .9); }
+.lightbox figure { background: var(--paper-hi); padding: 12px 12px 14px; }
+.lightbox img { width: 100%; max-height: 74vh; object-fit: contain; background: var(--ink); }
+.lightbox figcaption { margin-top: 10px; color: var(--text-dark); font: 600 14px/1.35 var(--f-body); padding-right: 64px; }
+.lb-close {
+  position: absolute; right: 10px; bottom: 6px; min-width: 48px; min-height: 48px;
+  border: 2px solid var(--text-dark); background: var(--paper-hi); color: var(--text-dark); cursor: pointer;
+  font: 800 13px var(--f-slab); letter-spacing: .08em; text-transform: uppercase; padding: 0 10px;
+}
+
+/* ---------- visit ---------- */
+.visit { padding: 68px 0 84px; position: relative; }
+.visit-grid { display: grid; gap: 40px; }
+.where { min-width: 0; }
+.sign {
+  position: relative; display: inline-grid; grid-template-columns: auto auto; align-items: stretch;
+  margin-top: 26px; max-width: 100%;
+  transform: rotate(-1deg);
+  filter: drop-shadow(0 10px 12px rgba(26, 22, 19, .35));
+}
+.sign-plate {
+  position: relative; padding: 14px 26px 12px; background: var(--ink); color: var(--paper-hi);
+  border-radius: 9px 0 0 9px; text-align: center; min-width: 0;
+  box-shadow: inset 0 0 0 4px var(--ink), inset 0 0 0 6px var(--paper-hi);
+}
+.sign-plate b { display: block; font: 900 clamp(30px, 9vw, 44px)/1 var(--f-slab); letter-spacing: .06em; }
+.sign-plate i { display: block; margin-top: 4px; font: 800 clamp(14px, 4vw, 18px)/1 var(--f-slab); font-style: normal; letter-spacing: .32em; color: var(--cream-muted); }
+.sign-no {
+  display: grid; place-items: center; padding: 0 18px; background: var(--cherry); color: var(--paper-hi);
+  font: 900 clamp(40px, 12vw, 58px)/1 var(--f-slab); border-radius: 0 9px 9px 0;
+  box-shadow: inset 0 0 0 4px var(--cherry), inset 0 0 0 6px var(--paper-hi);
+}
+.screw { position: absolute; top: 50%; width: 8px; height: 8px; margin-top: -4px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #e9d9a8, var(--gold-dim)); }
+.screw.l { left: 11px; } .screw.r { right: 9px; }
+address { font-style: normal; margin-top: 26px; }
+address b { display: block; font: 800 21px/1.25 var(--f-slab); }
+address span { display: block; margin-top: 4px; font-weight: 500; color: var(--muted-dark); }
+.visit-actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 26px; }
+.visit-actions .btn { --btn-shadow: var(--text-dark); font-size: 15px; padding-inline: 10px; }
+.visit-actions .btn:first-child { grid-column: 1 / -1; }
+.gal-more { display: flex; justify-content: center; margin-top: 38px; }
+.gal-more .btn { max-width: 100%; white-space: normal; text-align: center; }
+.foot .social { display: flex; flex-wrap: wrap; gap: 4px 18px; margin-top: 6px; }
+.foot .social a { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font: 600 14px/1.2 var(--f-body); text-underline-offset: 3px; }
+.foot .social .ico { width: 18px; height: 18px; }
+
+.board {
+  position: relative; padding: 12px; background: var(--mahogany); border-radius: 4px; min-width: 0;
+  background-image:
+    repeating-linear-gradient(92deg, rgba(0,0,0,.0) 0 7px, rgba(0,0,0,.13) 7px 9px, rgba(255,255,255,.03) 9px 14px),
+    linear-gradient(135deg, var(--mahogany-2), var(--mahogany) 60%);
+  box-shadow: 0 18px 30px -10px rgba(26, 22, 19, .55), inset 0 0 0 1px rgba(255,255,255,.08);
+}
+.board-in {
+  background-color: #151311;
+  background-image: repeating-linear-gradient(180deg, rgba(255,255,255,.035) 0 2px, transparent 2px 9px);
+  color: var(--paper-hi); padding: 20px 18px 16px; border-radius: 2px;
+  box-shadow: inset 0 2px 8px rgba(0,0,0,.7);
+}
+.board h3 { display: flex; align-items: center; justify-content: space-between; gap: 12px; font: 900 22px/1.1 var(--f-slab); text-transform: uppercase; letter-spacing: .12em; padding-bottom: 12px; border-bottom: 2px solid rgba(246,237,219,.7); }
+.board h3 .ico { color: var(--gold); width: 26px; height: 26px; }
+.hours { width: 100%; border-collapse: collapse; margin-top: 8px; font: 700 15.5px/1.2 var(--f-slab); letter-spacing: .04em; }
+.hours th, .hours td { padding: 11px 6px; text-align: left; font-weight: 700; }
+.hours th { width: 46%; text-transform: uppercase; letter-spacing: .1em; font-size: 14px; }
+.hours td { text-align: right; white-space: nowrap; }
+.hours tr + tr th, .hours tr + tr td { border-top: 1px dashed rgba(246,237,219,.18); }
+.hours tr.closed td, .hours tr.closed th { color: #8d8272; }
+.hours tr.is-today th, .hours tr.is-today td { background: var(--cherry); color: var(--paper-hi); border-top-color: transparent; }
+.hours tr.is-today + tr th, .hours tr.is-today + tr td { border-top-color: transparent; }
+.hours th > span:first-child { margin-right: 8px; }
+.today-tag { display: none; padding: 3px 6px 2px; background: var(--paper-hi); color: var(--cherry); font: 800 10.5px/1 var(--f-body); letter-spacing: .14em; vertical-align: 2px; }
+.is-today .today-tag { display: inline-block; }
+
+/* ---------- footer ---------- */
+.foot { padding: 44px 0 40px; color: var(--cream-muted); }
+.foot-grid { display: grid; gap: 22px; align-items: end; }
+.foot .mark { font: 400 60px/1 var(--f-script); color: var(--paper-hi); text-shadow: 3px 3px 0 var(--cherry); transform: rotate(-4deg); transform-origin: left bottom; display: inline-block; padding-right: .1em; }
+.foot .slogan { margin-top: 6px; font: 400 24px/1.2 var(--f-script); color: var(--gold); }
+.foot .facts { font: 500 14px/1.6 var(--f-body); }
+.foot .facts a { display: inline-flex; align-items: center; min-height: 44px; text-decoration-color: rgba(191,154,76,.6); text-underline-offset: 3px; }
+.credit { margin-top: 30px; padding-top: 16px; border-top: 1px solid rgba(246,237,219,.14); font: 500 13px/1.4 var(--f-body); }
+.credit a { display: inline-flex; align-items: center; min-height: 44px; color: var(--paper); text-underline-offset: 3px; }
+
+/* ---------- sticky dock (phones) ---------- */
+.dock { display: none; }
+@media (max-width: 760px) {
+  :root { --dock-h: calc(66px + env(safe-area-inset-bottom, 0px)); }
+  .dock {
+    position: fixed; z-index: 50; left: 0; right: 0; bottom: 0;
+    display: grid; grid-template-columns: 1.15fr 1fr 1fr;
+    padding-bottom: calc(0px + env(safe-area-inset-bottom, 0px));
+    background: #0a0908;
+    box-shadow: 0 -10px 24px rgba(0,0,0,.45);
+  }
+  .dock::before { content: ""; position: absolute; left: 0; right: 0; top: -5px; height: 5px; background: repeating-linear-gradient(-45deg, var(--cherry) 0 7px, var(--paper-hi) 7px 14px); }
+  .dock a {
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;
+    min-height: 62px; padding: 6px 4px; min-width: 0;
+    font: 700 12.5px/1.15 var(--f-body); letter-spacing: .02em; text-decoration: none; text-align: center;
+    color: var(--paper-hi);
+  }
+  .dock a + a { border-left: 1px solid rgba(246,237,219,.12); }
+  .dock .ico { width: 22px; height: 22px; }
+  .dock a.dock-book { background: var(--cherry); }
+  .dock a:active { background: var(--ink-3); }
+  .dock a.dock-book:active { background: var(--cherry-deep); }
+}
+
+/* ---------- larger screens ---------- */
+@media (min-width: 640px) {
+  .menu-card { padding: 30px 40px 34px; }
+  .stub { padding: 18px 44px 24px; }
+  .item .name { font-size: 18.5px; }
+  .item .price { font-size: 30px; }
+  .wax-cols { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .tickets { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .tickets li:last-child { grid-column: 1 / -1; max-width: calc(50% - 7px); }
+}
+@media (min-width: 960px) {
+  :root { --gutter: 40px; }
+  .hero { padding: 54px 0 96px; }
+  .hero-grid {
+    grid-template-columns: minmax(0, 1.12fr) minmax(0, .88fr);
+    grid-template-areas: "type plate" "foot plate";
+    grid-template-rows: auto auto;
+    column-gap: 60px; row-gap: 26px;
+  }
+  .hero-type { align-self: end; }
+  .plate-wrap { display: flex; align-items: flex-start; gap: 26px; padding: 30px 0 46px 0; align-self: center; }
+  .plate-wrap::before { left: 40px; right: 34px; top: 70px; bottom: 0; }
+  .plate { flex: 1 1 auto; max-width: 400px; }
+  .plate img { aspect-ratio: 520 / 700; object-position: 50% 20%; }
+  .stamp { width: 132px; height: 132px; top: -40px; right: -36px; }
+  .banner { left: -30px; right: -18px; bottom: 0; }
+  .pole {
+    display: block; position: relative; flex: none; width: 34px; height: 360px; margin-top: 70px;
+  }
+  .pole .cap { position: absolute; left: -5px; right: -5px; height: 22px; background: linear-gradient(90deg, #6b5a35, #e8d7a1 35%, #bf9a4c 60%, #5d4b26); }
+  .pole .cap.t { top: 0; border-radius: 22px 22px 3px 3px; }
+  .pole .cap.b { bottom: 0; border-radius: 3px 3px 10px 10px; }
+  .pole .tube { position: absolute; left: 0; right: 0; top: 22px; bottom: 22px; overflow: hidden; background: var(--paper-hi); }
+  .pole .tube::before {
+    content: ""; position: absolute; left: 0; right: 0; top: -60px; bottom: 0;
+    background: repeating-linear-gradient(-35deg, var(--cherry) 0 12px, var(--paper-hi) 12px 24px);
+    animation: climb 2.2s linear infinite;
+  }
+  .pole .tube::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(0,0,0,.45), rgba(255,255,255,.35) 32%, rgba(255,255,255,0) 50%, rgba(0,0,0,.4)); }
+  @keyframes climb { to { transform: translateY(41.84px); } }
+  .hero-foot { align-self: start; }
+  .trio { font-size: 16px; }
+  .cta .btn { flex: 0 1 auto; padding-inline: 28px; }
+
+  .services { padding: 96px 0 104px; }
+  .menu { transform: rotate(-.6deg); }
+  .menu-card { padding: 36px 56px 40px; }
+  .stub { padding: 20px 60px 26px; }
+
+  .shave { padding: 110px 0; }
+  .shave-grid { grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 70px; }
+  .shop { padding: 100px 0 110px; }
+  .shop-grid { grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: 60px; align-items: start; }
+  .shop-intro { position: sticky; top: 40px; }
+  .tickets { grid-template-columns: minmax(0, 1fr); max-width: 620px; }
+  .tickets li:last-child { grid-column: auto; max-width: none; }
+  .ticket { --stub: 120px; min-height: 88px; }
+  .gallery { padding: 100px 0 110px; }
+  .snaps { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px 34px; align-items: start; }
+  .snaps li:first-child { grid-column: auto; }
+  .snaps li:first-child .snap img { aspect-ratio: 4 / 5; }
+  .snaps li:nth-child(3n+2) { margin-top: 56px; }
+  .visit { padding: 100px 0 110px; }
+  .visit-grid { grid-template-columns: minmax(0, 1fr) minmax(0, .9fr); gap: 70px; align-items: start; }
+  .visit-actions { max-width: 460px; }
+  .board { margin-top: 20px; }
+  .foot-grid { grid-template-columns: minmax(0, 1fr) auto; }
+  .foot .mark { font-size: 78px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+</style>
+</head>
+<body>
+
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <defs>
+    <filter id="rough" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="1.1" numOctaves="2" seed="7" result="n"/>
+      <feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -3 2.1" result="m"/>
+      <feComposite in="SourceGraphic" in2="m" operator="in"/>
+    </filter>
+    <symbol id="i-scissors" viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M8.4 7.8 20 17.5M8.4 16.2 20 6.5M12.6 12h.01"/></symbol>
+    <symbol id="i-comb" viewBox="0 0 24 24"><path d="M3.5 6.5h17a1 1 0 0 1 1 1V11h-19V7.5a1 1 0 0 1 1-1Z"/><path d="M4.5 11v7M7 11v7M9.5 11v7M12 11v7M14.5 11v7M17 11v5.5M19.5 11v5.5"/></symbol>
+    <symbol id="i-razor" viewBox="0 0 24 24"><path d="M9.2 8.6 21 6.4v3.4c0 .5-.3.8-.8.9L10.8 12"/><path d="M10 9.2 3.3 17.4a1.3 1.3 0 0 0 2 1.6l5.9-7.3"/><circle cx="10.3" cy="10" r=".9"/></symbol>
+    <symbol id="i-steam" viewBox="0 0 24 24"><path d="M7 20c-2-2 2-4 0-6s2-4 0-6M12 20c-2-2 2-4 0-6s2-4 0-6M17 20c-2-2 2-4 0-6s2-4 0-6"/><path d="M4 21.5h16"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-insta" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6"/></symbol>
+    <symbol id="i-ext" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 3.5h3.2l1.6 4.2-2.1 1.4a11 11 0 0 0 5.2 5.2l1.4-2.1 4.2 1.6V17a2 2 0 0 1-2 2A15.5 15.5 0 0 1 3 5.5a2 2 0 0 1 2-2Z"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-6.5-6-6.5-11a6.5 6.5 0 0 1 13 0c0 5-6.5 11-6.5 11Z"/><circle cx="12" cy="10" r="2.3"/></symbol>
+    <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="1.5"/><path d="M3.5 9.5h17M8 3v4M16 3v4M8 14h3"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="1.5"/><path d="m3.5 7 8.5 6.5L20.5 7"/></symbol>
+    <symbol id="i-bag" viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6L5 8Z"/><path d="M9 10V6.5a3 3 0 0 1 6 0V10"/></symbol>
+    <symbol id="p-tube" viewBox="0 0 64 64"><path class="fill" d="M9 21h31l10 7v8l-10 7H9z"/><path d="M9 21v22M13 21v22"/><path d="M5 21h8M5 43h8"/><rect x="50" y="27" width="9" height="10" rx="1.5"/><path d="M20 28h14M20 32h17M20 36h11"/></symbol>
+    <symbol id="p-ball" viewBox="0 0 64 64"><path d="M16 33a16 12 0 0 1 32 0"/><path class="fill" d="M8 33h48c-1 11-11 19-24 19S9 44 8 33Z"/><path d="M14 40h36"/><circle cx="25" cy="24" r="2"/><circle cx="33" cy="21" r="1.5"/><circle cx="40" cy="26" r="2.4"/><path d="M24 52v4h16v-4"/></symbol>
+    <symbol id="p-after" viewBox="0 0 64 64"><path class="fill" d="M21 8h22l-3 37H24z"/><path d="M21 12h22"/><rect x="24" y="45" width="16" height="11" rx="2"/><path d="M28 21h8M27 26h10M28 31h8"/></symbol>
+    <symbol id="p-brush" viewBox="0 0 64 64"><path class="fill" d="M23 36c-7-8-5-24 9-28 14 4 16 20 9 28z"/><path d="M27 34c-2-6-1-14 3-20M37 34c2-6 1-14-3-20M32 34V16"/><path d="M22 36h20l-2 4H24z"/><path d="M25 40h14l-2 16H27z"/></symbol>
+    <symbol id="p-jar" viewBox="0 0 64 64"><rect x="11" y="16" width="42" height="11" rx="2"/><path d="M14 27h36v21a4 4 0 0 1-4 4H18a4 4 0 0 1-4-4z"/><rect class="fill" x="18" y="32" width="28" height="12"/><path d="M15 21.5h34"/></symbol>
+  </defs>
+</svg>
+
+<!-- 1. ribbon -->
+<div class="ribbon" role="region" aria-label="Concept preview" data-i18n-attr="aria-label=ribbonLabel">
+  <div class="wrap">
+    <p data-i18n="ribbon">Concept preview by webbiespirit · not the official site</p>
+    <div class="lang" role="group" aria-label="Language" data-i18n-attr="aria-label=langLabel">
+      <button type="button" data-lang="en" aria-pressed="true" lang="en">EN</button>
+      <button type="button" data-lang="el" aria-pressed="false" lang="el">ΕΛ</button>
+    </div>
+  </div>
+</div>
+
+<main>
+<!-- 2. hero -->
+<header class="hero tex-dark on-dark">
+  <div class="ht ht--dark" aria-hidden="true"></div>
+  <div class="wrap hero-grid">
+    <div class="hero-type">
+      <h1 class="poster">
+        <span class="fit-line"><span class="fit wordmark" data-fit data-max="176" lang="en">Rockabilly</span></span>
+        <span class="fit-line"><span class="fit block" data-fit data-max="92" data-i18n="heroShop">Barber Shop</span></span>
+        <span class="band"><span data-i18n="heroTown">Larnaca</span><i class="dot" aria-hidden="true"></i><span data-i18n="heroSince">Since 2019</span></span>
+      </h1>
+      <p class="status" id="status" data-state="" aria-live="polite"><span class="lamp" aria-hidden="true"></span><span class="status-text" data-i18n="stubHours">Tue–Fri 09:30–19:00 · Sat 09:00–16:00</span></p>
+    </div>
+
+    <div class="plate-wrap">
+      <figure class="plate">
+        <img src="photos/barber-comb.webp" width="520" height="765" fetchpriority="high"
+             alt="Slick side part, finished with a comb" data-i18n-attr="alt=capComb">
+        <svg class="stamp" viewBox="0 0 200 200" aria-hidden="true">
+          <defs><path id="ring" d="M100,100 m-67,0 a67,67 0 1,1 134,0 a67,67 0 1,1 -134,0"/></defs>
+          <circle cx="100" cy="100" r="97" fill="#f6eddb"/>
+          <g filter="url(#rough)">
+            <circle cx="100" cy="100" r="91" fill="none" stroke="currentColor" stroke-width="4"/>
+            <circle cx="100" cy="100" r="84" fill="none" stroke="currentColor" stroke-width="1.4"/>
+            <circle cx="100" cy="100" r="52" fill="none" stroke="currentColor" stroke-width="1.6"/>
+            <text fill="currentColor"><textPath href="#ring" startOffset="0" textLength="418" lengthAdjust="spacing" data-i18n="stamp">EST. 2019 • LARNACA • EST. 2019 • LARNACA •</textPath></text>
+            <g transform="translate(70 70) scale(2.5)" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M8.4 7.8 20 17.5M8.4 16.2 20 6.5"/>
+            </g>
+          </g>
+        </svg>
+        <figcaption data-i18n="capComb">Slick side part, finished with a comb</figcaption>
+      </figure>
+      <p class="banner" lang="en"><span>Keep the culture alive!</span></p>
+      <div class="pole" aria-hidden="true"><span class="cap t"></span><span class="tube"></span><span class="cap b"></span></div>
+    </div>
+
+    <div class="hero-foot">
+      <ul class="trio">
+        <li data-i18n="styleClassic">Classic</li>
+        <li data-i18n="styleOld">Old school</li>
+        <li data-i18n="styleShave">Hot shave</li>
+      </ul>
+      <div class="cta">
+        <a class="btn btn--red" href="https://rockabilly.setmore.com/" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-cal"/></svg><span data-i18n="book">Book online</span></a>
+        <a class="btn btn--ghost" href="tel:+35724102169"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg><span data-i18n="call">Call 24 102169</span></a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="pole-strip" aria-hidden="true"></div>
+
+<!-- 3. services -->
+<section class="services tex-dark" id="services" aria-labelledby="svc-title">
+  <div class="wrap">
+    <div class="menu">
+      <article class="menu-card card-stock">
+        <div class="ht" aria-hidden="true"></div>
+        <p class="menu-meta"><span data-i18n="cardAddr">Kimonos 3 · Larnaca</span><span data-i18n="cardTel">Tel. 24 102169</span></p>
+        <header class="menu-head">
+          <p class="menu-script" lang="en">Rockabilly</p>
+          <h2 class="menu-title" id="svc-title" data-i18n="servicesTitle">Services &amp; prices</h2>
+          <div class="orn" aria-hidden="true"><svg class="ico"><use href="#i-scissors"/></svg></div>
+        </header>
+
+        <section class="group" aria-labelledby="g-barber">
+          <h3 class="group-title" id="g-barber"><svg class="ico" aria-hidden="true"><use href="#i-razor"/></svg><span data-i18n="barbering">Barbering</span></h3>
+          <ul class="items">
+            <li class="item"><span class="name" data-i18n="svcHaircut">Haircut</span><span class="lead" aria-hidden="true"></span><span class="price"><span class="cur">€</span>15</span><span class="dur"><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg><span data-i18n="d45">45 min</span></span></li>
+            <li class="item"><span class="name" data-i18n="svcHairBeard">Haircut &amp; beard</span><span class="lead" aria-hidden="true"></span><span class="price"><span class="cur">€</span>18</span><span class="dur"><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg><span data-i18n="d60">1 hr</span></span></li>
+            <li class="item"><span class="name" data-i18n="svcHairShave">Haircut &amp; hot shave</span><span class="lead" aria-hidden="true"></span><span class="price"><span class="cur">€</span>20</span><span class="dur"><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg><span data-i18n="d70">1 hr 10 min</span></span></li>
+            <li class="item"><span class="name"><span data-i18n="svcKids">Kids haircut</span> <small data-i18n="svcKidsNote">(under 12)</small></span><span class="lead" aria-hidden="true"></span><span class="price"><span class="cur">€</span>12</span><span class="dur"><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg><span data-i18n="d45">45 min</span></span></li>
+            <li class="item"><span class="name" data-i18n="svcShave">Hot shave</span><span class="lead" aria-hidden="true"></span><span class="price"><span class="cur">€</span>8</span><span class="dur"><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg><span data-i18n="d25">25 min</span></span></li>
+            <li class="item"><span class="name" data-i18n="svcBeard">Beard</span><span class="lead" aria-hidden="true"></span><span class="price"><span class="cur">€</span>5</span><span class="dur"><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg><span data-i18n="d15">15 min</span></span></li>
+          </ul>
+          <div class="book-row"><a class="book-link" href="https://rockabilly.setmore.com/" target="_blank" rel="noopener"><span data-i18n="book">Book online</span><svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+        </section>
+
+        <details class="group">
+          <summary>
+            <span class="group-title"><svg class="ico" aria-hidden="true"><use href="#i-comb"/></svg><span data-i18n="waxing">Waxing</span></span>
+            <span class="sum-hint" data-i18n="waxHint">Men · Women</span>
+            <span class="plus" aria-hidden="true"></span>
+          </summary>
+          <div class="wax-cols">
+            <div>
+              <h4 data-i18n="men">Men</h4>
+              <ul class="items">
+                <li class="item"><span class="name" data-i18n="wUnder">Underarms</span><span class="lead" aria-hidden="true"></span><span class="price"><span class="cur">€</span>20</span></li>
+                <li class="item"><span class="name" data-i18n="wHalfBack">Half back</span><span class="lead" aria-hidden="true"></span><span class="price"><span class="cur">€</span>35</span></li>
+                <li class="item"><span class="name" data-i18n="wHalfLegs">Half legs</span><span class="lead" aria-hidden="true"></span><span class="price"><span class="cur">€</span>40</span></li>
+                <li class="item"><span class="name" data-i18n="wBack">Back</span><span class="lead" aria-hidden="true"></span><span class="price"><span class="cur">€</span>65</span></li>
+                <li class="item"><span class="name" data-i18n="wFullLegs">Full legs</span><span class="lead" aria-hidden="true"></span><span class="price"><span class="cur">€</span>70</span></li>
+                <li class="item"><span class="name" data-i18n="wFullBody">Full body</span><span class="lead" aria-hidden="true"></span><span class="price"><span class="cur">€</span>150</span></li>
+              </ul>
+            </div>
+            <div>
+              <h4 data-i18n="women">Women</h4>
+              <ul class="items">
+                <li class="item"><span class="name" data-i18n="wUnder">Underarms</span><span class="lead" aria-hidden="true"></span><span class="price"><span class="cur">€</span>20</span></li>
+                <li class="item"><span class="name"><span data-i18n="wFace">Full face</span> <small data-i18n="wFaceNote">(chin, lip, neck)</small></span><span class="lead" aria-hidden="true"></span><span class="price"><span class="cur">€</span>30</span></li>
+                <li class="item"><span class="name" data-i18n="wFullLegs">Full legs</span><span class="lead" aria-hidden="true"></span><span class="price"><span class="cur">€</span>60</span></li>
+                <li class="item"><span class="name" data-i18n="wFullBody">Full body</span><span class="lead" aria-hidden="true"></span><span class="price"><span class="cur">€</span>120</span></li>
+              </ul>
+            </div>
+          </div>
+          <div class="book-row"><a class="book-link" href="https://rockabilly.setmore.com/" target="_blank" rel="noopener"><span data-i18n="book">Book online</span><svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+        </details>
+      </article>
+      <div class="perf" aria-hidden="true"></div>
+      <div class="stub card-stock">
+        <div>
+          <p class="stub-label" data-i18n="hoursTitle">Opening hours</p>
+          <p class="stub-hours"><span data-i18n="stubA">Tue–Fri 09:30–19:00</span><span data-i18n="stubB">Sat 09:00–16:00</span></p>
+        </div>
+        <span class="serial" aria-hidden="true">Nº 2019</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. hot shave -->
+<section class="shave tex-dark on-dark" id="hot-shave" aria-labelledby="shave-title">
+  <div class="wrap shave-grid">
+    <div class="shave-art" aria-hidden="true">
+      <div class="disc"><div class="ht ht--dark"></div></div>
+      <svg class="razor" viewBox="0 0 320 170" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <g stroke="#f6eddb" stroke-width="2.4" opacity=".9">
+          <path d="M196 54c-9-7 9-12 0-20s7-12 1-19"/>
+          <path d="M226 50c-9-7 9-12 0-20s7-12 1-19"/>
+          <path d="M256 48c-9-7 9-12 0-20s7-12 1-19"/>
+        </g>
+        <path d="M113 89 21 155a8.5 8.5 0 0 1-10-14l92-66a8.5 8.5 0 0 1 10 14Z" fill="#4a2a1f" stroke="#f6eddb" stroke-width="3"/>
+        <path d="M103 86 25 142" stroke="#bf9a4c" stroke-width="1.6"/>
+        <path d="M100 72 140 68Q220 61 292 60C303 60 309 66 308 75L306 88C305 95 300 98 292 98Q222 99 158 103C148 103 142 98 140 90L104 92C94 92 92 74 100 72Z" fill="#2a241f" stroke="#f6eddb" stroke-width="3"/>
+        <path d="M118 69.5v-5M124 69v-5M130 68.5v-5" stroke="#f6eddb" stroke-width="2"/>
+        <path d="M148 75Q222 67 292 66" stroke="#f6eddb" stroke-width="1.3" opacity=".5"/>
+        <path d="M160 95Q228 92 298 90" stroke="#e4474f" stroke-width="3"/>
+        <circle cx="108" cy="82" r="5" fill="#f6eddb"/>
+        <circle cx="16" cy="148" r="3" fill="#f6eddb"/>
+      </svg>
+      <svg class="sticker" viewBox="0 0 100 100">
+        <polygon points="50.0,0.0 56.3,6.0 64.1,2.0 68.5,9.5 77.0,7.9 79.1,16.4 87.8,17.3 87.4,25.9 95.5,29.2 92.7,37.5 99.5,42.9 94.5,50.0 99.5,57.1 92.7,62.5 95.5,70.8 87.4,74.1 87.8,82.7 79.1,83.6 77.0,92.1 68.5,90.5 64.1,98.0 56.3,94.0 50.0,100.0 43.7,94.0 35.9,98.0 31.5,90.5 23.0,92.1 20.9,83.6 12.2,82.7 12.6,74.1 4.5,70.8 7.3,62.5 0.5,57.1 5.5,50.0 0.5,42.9 7.3,37.5 4.5,29.2 12.6,25.9 12.2,17.3 20.9,16.4 23.0,7.9 31.5,9.5 35.9,2.0 43.7,6.0" fill="#b81d2c"/>
+        <circle cx="50" cy="50" r="36" fill="none" stroke="#f6eddb" stroke-width="1.5" stroke-dasharray="2 3"/>
+        <text x="50" y="61" text-anchor="middle" fill="#f6eddb">€8</text>
+      </svg>
+    </div>
+    <div class="shave-copy">
+      <h2 class="h-sec" id="shave-title" data-i18n="shaveTitle">The hot shave</h2>
+      <ul class="shave-lines">
+        <li><svg class="ico" aria-hidden="true"><use href="#i-steam"/></svg><span data-i18n="shave1">Hot towel.</span></li>
+        <li><svg class="ico" aria-hidden="true"><use href="#i-razor"/></svg><span data-i18n="shave2">Straight razor.</span></li>
+        <li><svg class="ico" aria-hidden="true"><use href="#i-comb"/></svg><span data-i18n="shave3">Old-school finish.</span></li>
+      </ul>
+      <p class="shave-price" data-i18n="shavePrice">€8, or €20 with a haircut.</p>
+      <a class="btn btn--red" href="https://rockabilly.setmore.com/" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-cal"/></svg><span data-i18n="book">Book online</span></a>
+    </div>
+  </div>
+</section>
+
+<div class="checker" aria-hidden="true"></div>
+
+<!-- 5. take it home -->
+<section class="shop tex-paper on-paper" id="shop" aria-labelledby="shop-title">
+  <div class="wrap shop-grid">
+    <div class="shop-intro">
+      <p class="kicker" data-i18n="shopKicker">Proraso, on Wolt</p>
+      <h2 class="h-sec" id="shop-title" data-i18n="shopTitle">Take it home</h2>
+      <a class="btn btn--red" href="https://wolt.com/en/cyp/larnaca/venue/rockabilly-barber-shop" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-bag"/></svg><span data-i18n="wolt">Order on Wolt</span></a>
+    </div>
+    <ul class="tickets">
+      <li class="ticket-wrap"><div class="ticket"><span class="t-art" aria-hidden="true"><svg><use href="#p-tube"/></svg></span><span class="t-name"><b data-i18n="pCream">Shave cream</b><span>Proraso</span></span><span class="t-price"><span><span class="cur">€</span>10</span></span></div></li>
+      <li class="ticket-wrap"><div class="ticket"><span class="t-art" aria-hidden="true"><svg><use href="#p-ball"/></svg></span><span class="t-name"><b data-i18n="pBall">Shave ball</b><span>Proraso</span></span><span class="t-price"><span><span class="cur">€</span>10</span></span></div></li>
+      <li class="ticket-wrap"><div class="ticket"><span class="t-art" aria-hidden="true"><svg><use href="#p-after"/></svg></span><span class="t-name"><b data-i18n="pAfter">After-shave cream</b><span>Proraso</span></span><span class="t-price"><span><span class="cur">€</span>16</span></span></div></li>
+      <li class="ticket-wrap"><div class="ticket"><span class="t-art" aria-hidden="true"><svg><use href="#p-brush"/></svg></span><span class="t-name"><b data-i18n="pBrush">Shave brush</b><span>Proraso</span></span><span class="t-price"><span><span class="cur">€</span>18</span></span></div></li>
+      <li class="ticket-wrap"><div class="ticket"><span class="t-art" aria-hidden="true"><svg><use href="#p-jar"/></svg></span><span class="t-name"><b data-i18n="pPre">Pre-shave</b><span>Proraso</span></span><span class="t-price"><span><span class="cur">€</span>24</span></span></div></li>
+    </ul>
+  </div>
+</section>
+
+<div class="pole-strip" aria-hidden="true"></div>
+
+<!-- 6. gallery -->
+<section class="gallery tex-dark on-dark" id="gallery" aria-labelledby="gal-title">
+  <div class="wrap">
+    <div class="gal-head">
+      <div>
+        <p class="kicker" data-i18n="galleryKicker">Kimonos 3, Larnaca</p>
+        <h2 class="h-sec" id="gal-title" data-i18n="galleryTitle">In the shop</h2>
+      </div>
+      <div class="tools" aria-hidden="true"><svg class="ico"><use href="#i-comb"/></svg><svg class="ico"><use href="#i-scissors"/></svg></div>
+    </div>
+    <ul class="snaps">
+      <li><div class="snap-wrap"><figure class="snap">
+        <button type="button" data-lightbox aria-label="Enlarge photo" data-i18n-attr="aria-label=enlarge"><img src="photos/mirror.webp" width="522" height="677" loading="lazy" alt="In the mirror at Kimonos 3" data-i18n-attr="alt=capMirror" style="object-position:50% 50%"></button>
+        <figcaption data-i18n="capMirror">In the mirror at Kimonos 3</figcaption>
+      </figure></div></li>
+      <li><div class="snap-wrap"><figure class="snap">
+        <button type="button" data-lightbox aria-label="Enlarge photo" data-i18n-attr="aria-label=enlarge"><img src="photos/beard-trim.webp" width="587" height="737" loading="lazy" alt="Beard trim" data-i18n-attr="alt=capBeard" style="object-position:60% 50%"></button>
+        <figcaption data-i18n="capBeard">Beard trim</figcaption>
+      </figure></div></li>
+      <li><div class="snap-wrap"><figure class="snap">
+        <button type="button" data-lightbox aria-label="Enlarge photo" data-i18n-attr="aria-label=enlarge"><img src="photos/barber-comb.webp" width="520" height="765" loading="lazy" alt="Slick side part, finished with a comb" data-i18n-attr="alt=capComb"></button>
+        <figcaption data-i18n="capComb">Slick side part, finished with a comb</figcaption>
+      </figure></div></li>
+    </ul>
+    <p class="gal-more"><a class="btn btn--ghost" href="https://www.instagram.com/barbershop_rockabilly/" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-insta"/></svg><span data-i18n="instaMore">More on Instagram · @barbershop_rockabilly</span></a></p>
+  </div>
+</section>
+
+<!-- 7. visit -->
+<section class="visit tex-paper on-paper" id="visit" aria-labelledby="visit-title">
+  <div class="wrap visit-grid">
+    <div class="where">
+      <p class="kicker" data-i18n="visitKicker">Larnaca town centre</p>
+      <h2 class="h-sec" id="visit-title" data-i18n="visitTitle">Visit</h2>
+      <div class="sign" aria-hidden="true">
+        <span class="sign-plate"><span class="screw l"></span><b>ΚΙΜΩΝΟΣ</b><i>KIMONOS</i><span class="screw r"></span></span>
+        <span class="sign-no">3</span>
+      </div>
+      <address>
+        <b data-i18n="addr1">Kimonos 3, 6015 Larnaca</b>
+        <span data-i18n="addr2">Near Michalakis Paridis Square</span>
+      </address>
+      <div class="visit-actions">
+        <a class="btn btn--red" href="https://www.google.com/maps/search/?api=1&amp;query=Rockabilly+Barber+Shop+Kimonos+3+Larnaca" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg><span data-i18n="directions">Directions</span></a>
+        <a class="btn btn--ink" href="tel:+35724102169"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg><span data-i18n="callShort">Call</span></a>
+        <a class="btn btn--line" href="mailto:rockabilly.2019cy@gmail.com"><svg class="ico" aria-hidden="true"><use href="#i-mail"/></svg><span data-i18n="email">Email</span></a>
+        <a class="btn btn--line" href="https://www.instagram.com/barbershop_rockabilly/" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-insta"/></svg><span>Instagram</span></a>
+        <a class="btn btn--line" href="https://www.facebook.com/barbershoprockabilly/" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-ext"/></svg><span data-i18n="facebook">Facebook</span></a>
+      </div>
+    </div>
+    <div class="board">
+      <div class="board-in">
+        <h3><span data-i18n="hoursTitle">Opening hours</span><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg></h3>
+        <table class="hours">
+          <caption class="sr-only" data-i18n="hoursTitle">Opening hours</caption>
+          <tbody>
+            <tr class="closed" data-day="1"><th scope="row"><span data-i18n="day1">Monday</span><span class="today-tag" data-i18n="today">Today</span></th><td data-i18n="closed">Closed</td></tr>
+            <tr data-day="2"><th scope="row"><span data-i18n="day2">Tuesday</span><span class="today-tag" data-i18n="today">Today</span></th><td>09:30–19:00</td></tr>
+            <tr data-day="3"><th scope="row"><span data-i18n="day3">Wednesday</span><span class="today-tag" data-i18n="today">Today</span></th><td>09:30–19:00</td></tr>
+            <tr data-day="4"><th scope="row"><span data-i18n="day4">Thursday</span><span class="today-tag" data-i18n="today">Today</span></th><td>09:30–19:00</td></tr>
+            <tr data-day="5"><th scope="row"><span data-i18n="day5">Friday</span><span class="today-tag" data-i18n="today">Today</span></th><td>09:30–19:00</td></tr>
+            <tr data-day="6"><th scope="row"><span data-i18n="day6">Saturday</span><span class="today-tag" data-i18n="today">Today</span></th><td>09:00–16:00</td></tr>
+            <tr class="closed" data-day="0"><th scope="row"><span data-i18n="day0">Sunday</span><span class="today-tag" data-i18n="today">Today</span></th><td data-i18n="closed">Closed</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- 8. footer -->
+<footer class="foot tex-dark">
+  <div class="checker" aria-hidden="true" style="margin-top:-44px;margin-bottom:40px"></div>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <p class="mark" lang="en">Rockabilly</p>
+        <p class="slogan" lang="en">Keep the culture alive!</p>
+      </div>
+      <p class="facts">
+        <span data-i18n="addr1">Kimonos 3, 6015 Larnaca</span><br>
+        <a href="tel:+35724102169">24 102169</a> · <a href="mailto:rockabilly.2019cy@gmail.com">rockabilly.2019cy@gmail.com</a>
+      </p>
+      <p class="social"><a href="https://www.instagram.com/barbershop_rockabilly/" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-insta"/></svg>@barbershop_rockabilly</a><a href="https://www.facebook.com/barbershoprockabilly/" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-ext"/></svg>Facebook</a></p>
+    </div>
+    <p class="credit"><a href="https://webbiespirit.com" target="_blank" rel="noopener" data-i18n="footer">Website concept by webbiespirit.com</a></p>
+  </div>
+</footer>
+
+<!-- 9. sticky phone bar -->
+<nav class="dock" aria-label="Quick actions" data-i18n-attr="aria-label=dockLabel">
+  <a class="dock-book" href="https://rockabilly.setmore.com/" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-cal"/></svg><span data-i18n="book">Book online</span></a>
+  <a href="tel:+35724102169"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg><span data-i18n="callShort">Call</span></a>
+  <a href="https://www.google.com/maps/search/?api=1&amp;query=Rockabilly+Barber+Shop+Kimonos+3+Larnaca" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg><span data-i18n="directions">Directions</span></a>
+</nav>
+
+<dialog class="lightbox" id="lightbox">
+  <figure><img src="" alt="" id="lb-img" width="520" height="765"><figcaption id="lb-cap"></figcaption></figure>
+  <button type="button" class="lb-close" id="lb-close" data-i18n="close">Close</button>
+</dialog>
+
+<script>
+(function () {
+  "use strict";
+  var T = {
+    en: {
+      title: "Rockabilly Barber Shop · Larnaca",
+      desc: "Rockabilly Barber Shop in Larnaca. Classic, old school, hot shave. Kimonos 3, 6015 Larnaca. Book online or call 24 102169.",
+      ribbon: "Concept preview by webbiespirit · not the official site",
+      ribbonLabel: "Concept preview", langLabel: "Language",
+      heroShop: "Barber Shop", heroTown: "Larnaca", heroSince: "Since 2019",
+      styleClassic: "Classic", styleOld: "Old school", styleShave: "Hot shave",
+      book: "Book online", call: "Call 24 102169", callShort: "Call", directions: "Directions", email: "Email", facebook: "Facebook", instaMore: "More on Instagram · @barbershop_rockabilly",
+      stamp: "EST. 2019 • LARNACA • EST. 2019 • LARNACA •",
+      servicesTitle: "Services & prices", cardAddr: "Kimonos 3 · Larnaca", cardTel: "Tel. 24 102169",
+      barbering: "Barbering",
+      svcHaircut: "Haircut", svcHairBeard: "Haircut & beard", svcHairShave: "Haircut & hot shave",
+      svcKids: "Kids haircut", svcKidsNote: "(under 12)", svcShave: "Hot shave", svcBeard: "Beard",
+      d45: "45 min", d60: "1 hr", d70: "1 hr 10 min", d25: "25 min", d15: "15 min",
+      waxing: "Waxing", waxHint: "Men · Women", men: "Men", women: "Women",
+      wUnder: "Underarms", wHalfBack: "Half back", wHalfLegs: "Half legs", wBack: "Back", wFullLegs: "Full legs", wFullBody: "Full body",
+      wFace: "Full face", wFaceNote: "(chin, lip, neck)",
+      hoursTitle: "Opening hours", stubHours: "Tue–Fri 09:30–19:00 · Sat 09:00–16:00", stubA: "Tue–Fri 09:30–19:00", stubB: "Sat 09:00–16:00",
+      shaveTitle: "The hot shave", shave1: "Hot towel.", shave2: "Straight razor.", shave3: "Old-school finish.",
+      shavePrice: "€8, or €20 with a haircut.",
+      shopTitle: "Take it home", shopKicker: "Proraso, on Wolt", wolt: "Order on Wolt",
+      pCream: "Shave cream", pBall: "Shave ball", pAfter: "After-shave cream", pBrush: "Shave brush", pPre: "Pre-shave",
+      galleryTitle: "In the shop", galleryKicker: "Kimonos 3, Larnaca",
+      capComb: "Slick side part, finished with a comb", capBeard: "Beard trim", capMirror: "In the mirror at Kimonos 3",
+      enlarge: "Enlarge photo", close: "Close",
+      visitTitle: "Visit", visitKicker: "Larnaca town centre",
+      addr1: "Kimonos 3, 6015 Larnaca", addr2: "Near Michalakis Paridis Square",
+      closed: "Closed", today: "Today",
+      day0: "Sunday", day1: "Monday", day2: "Tuesday", day3: "Wednesday", day4: "Thursday", day5: "Friday", day6: "Saturday",
+      footer: "Website concept by webbiespirit.com", dockLabel: "Quick actions",
+      tomorrow: "tomorrow",
+      openNow: function (c) { return "Open now · until " + c; },
+      openToday: function (o, c) { return "Open today " + o + "–" + c; },
+      closedNow: function (d, o) { return "Closed now · opens " + d + " " + o; }
+    },
+    el: {
+      title: "Rockabilly Barber Shop · Λάρνακα",
+      desc: "Rockabilly Barber Shop στη Λάρνακα. Κλασικό, old school, ζεστό ξύρισμα. Κίμωνος 3, 6015 Λάρνακα. Κλείσε ραντεβού ή κάλεσε 24 102169.",
+      ribbon: "Δείγμα σχεδίου από το webbiespirit · όχι η επίσημη σελίδα",
+      ribbonLabel: "Δείγμα σχεδίου", langLabel: "Γλώσσα",
+      heroShop: "Κουρείο", heroTown: "Λάρνακα", heroSince: "Από το 2019",
+      styleClassic: "Κλασικό", styleOld: "Old school", styleShave: "Ζεστό ξύρισμα",
+      book: "Κλείσε ραντεβού", call: "Κάλεσε 24 102169", callShort: "Κάλεσε", directions: "Οδηγίες", email: "Email", facebook: "Facebook", instaMore: "Περισσότερα στο Instagram · @barbershop_rockabilly",
+      stamp: "ΑΠΟ ΤΟ 2019 • ΛΑΡΝΑΚΑ • ΑΠΟ ΤΟ 2019 • ΛΑΡΝΑΚΑ •",
+      servicesTitle: "Υπηρεσίες & τιμές", cardAddr: "Κίμωνος 3 · Λάρνακα", cardTel: "Τηλ. 24 102169",
+      barbering: "Κουρείο",
+      svcHaircut: "Κούρεμα", svcHairBeard: "Κούρεμα & γένια", svcHairShave: "Κούρεμα & ζεστό ξύρισμα",
+      svcKids: "Παιδικό κούρεμα", svcKidsNote: "(έως 12 ετών)", svcShave: "Ζεστό ξύρισμα", svcBeard: "Γένια",
+      d45: "45 λεπτά", d60: "1 ώρα", d70: "1 ώρα 10 λεπτά", d25: "25 λεπτά", d15: "15 λεπτά",
+      waxing: "Αποτρίχωση με κερί", waxHint: "Άνδρες · Γυναίκες", men: "Άνδρες", women: "Γυναίκες",
+      wUnder: "Μασχάλες", wHalfBack: "Μισή πλάτη", wHalfLegs: "Μισά πόδια", wBack: "Πλάτη", wFullLegs: "Ολόκληρα πόδια", wFullBody: "Ολόκληρο σώμα",
+      wFace: "Ολόκληρο πρόσωπο", wFaceNote: "(πηγούνι, πάνω χείλος, λαιμός)",
+      hoursTitle: "Ωράριο", stubHours: "Τρί–Παρ 09:30–19:00 · Σάβ 09:00–16:00", stubA: "Τρί–Παρ 09:30–19:00", stubB: "Σάβ 09:00–16:00",
+      shaveTitle: "Το ζεστό ξύρισμα", shave1: "Ζεστή πετσέτα.", shave2: "Ξυράφι.", shave3: "Φινίρισμα παλιάς σχολής.",
+      shavePrice: "€8, ή €20 μαζί με κούρεμα.",
+      shopTitle: "Πάρ' το σπίτι", shopKicker: "Proraso, στο Wolt", wolt: "Παράγγειλε στο Wolt",
+      pCream: "Κρέμα ξυρίσματος", pBall: "Shave ball (σαπούνι ξυρίσματος)", pAfter: "Κρέμα after shave", pBrush: "Πινέλο ξυρίσματος", pPre: "Pre-shave",
+      galleryTitle: "Στο μαγαζί", galleryKicker: "Κίμωνος 3, Λάρνακα",
+      capComb: "Γυαλιστερή χωρίστρα στο πλάι, φινίρισμα με χτένα", capBeard: "Περιποίηση γενειάδας", capMirror: "Στον καθρέφτη, στην Κίμωνος 3",
+      enlarge: "Μεγέθυνση φωτογραφίας", close: "Κλείσιμο",
+      visitTitle: "Πού θα μας βρεις", visitKicker: "Κέντρο Λάρνακας",
+      addr1: "Κίμωνος 3, 6015 Λάρνακα", addr2: "Κοντά στην πλατεία Μιχαλάκη Παρίδη",
+      closed: "Κλειστά", today: "Σήμερα",
+      day0: "Κυριακή", day1: "Δευτέρα", day2: "Τρίτη", day3: "Τετάρτη", day4: "Πέμπτη", day5: "Παρασκευή", day6: "Σάββατο",
+      footer: "Σχέδιο ιστοσελίδας από το webbiespirit.com", dockLabel: "Γρήγορες ενέργειες",
+      tomorrow: "αύριο",
+      openNow: function (c) { return "Ανοιχτά τώρα · έως " + c; },
+      openToday: function (o, c) { return "Ανοιχτά σήμερα " + o + "–" + c; },
+      closedNow: function (d, o) { return "Κλειστά τώρα · ανοίγει " + d + " " + o; }
+    }
+  };
+
+  // Opening hours by JS weekday (0 = Sunday)
+  var HOURS = { 0: null, 1: null, 2: ["09:30", "19:00"], 3: ["09:30", "19:00"], 4: ["09:30", "19:00"], 5: ["09:30", "19:00"], 6: ["09:00", "16:00"] };
+  var WD = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  var lang = "en";
+
+  function store(k, v) {
+    try { if (v === undefined) return window.localStorage.getItem(k); window.localStorage.setItem(k, v); } catch (e) { return null; }
+    return null;
+  }
+  function toMin(s) { return parseInt(s.slice(0, 2), 10) * 60 + parseInt(s.slice(3), 10); }
+  function cyprusNow() {
+    var parts = new Intl.DateTimeFormat("en-GB", { timeZone: "Asia/Nicosia", weekday: "short", hour: "2-digit", minute: "2-digit", hourCycle: "h23" }).formatToParts(new Date());
+    var o = {};
+    parts.forEach(function (p) { o[p.type] = p.value; });
+    return { day: WD.indexOf(o.weekday), mins: (parseInt(o.hour, 10) % 24) * 60 + parseInt(o.minute, 10) };
+  }
+
+  function updateStatus() {
+    var t = T[lang], now = cyprusNow(), h = HOURS[now.day], state, text;
+    if (h && now.mins < toMin(h[0])) { state = "soon"; text = t.openToday(h[0], h[1]); }
+    else if (h && now.mins < toMin(h[1])) { state = "open"; text = t.openNow(h[1]); }
+    else {
+      state = "closed";
+      for (var i = 1; i <= 7; i++) {
+        var d = (now.day + i) % 7;
+        if (HOURS[d]) { text = t.closedNow(i === 1 ? t.tomorrow : t["day" + d], HOURS[d][0]); break; }
+      }
+    }
+    var el = document.getElementById("status");
+    el.setAttribute("data-state", state);
+    el.querySelector(".status-text").textContent = text;
+    document.querySelectorAll(".hours tr").forEach(function (tr) {
+      var isToday = parseInt(tr.getAttribute("data-day"), 10) === now.day;
+      tr.classList.toggle("is-today", isToday);
+      if (isToday) tr.setAttribute("aria-current", "date"); else tr.removeAttribute("aria-current");
+    });
+  }
+
+  function fitAll() {
+    document.querySelectorAll("[data-fit]").forEach(function (el) {
+      var box = el.parentElement, max = parseFloat(el.getAttribute("data-max")) || 200;
+      el.style.fontSize = "100px";
+      var w = el.offsetWidth, avail = box.clientWidth;
+      if (!w || !avail) return;
+      el.style.fontSize = Math.min(max, Math.floor(100 * avail / w * 10) / 10) + "px";
+    });
+  }
+
+  function applyLang(l) {
+    lang = T[l] ? l : "en";
+    var t = T[lang];
+    document.documentElement.lang = lang;
+    document.title = t.title;
+    var md = document.querySelector('meta[name="description"]');
+    if (md) md.setAttribute("content", t.desc);
+    document.querySelectorAll("[data-i18n]").forEach(function (el) {
+      var v = t[el.getAttribute("data-i18n")];
+      if (typeof v === "string") el.textContent = v;
+    });
+    document.querySelectorAll("[data-i18n-attr]").forEach(function (el) {
+      el.getAttribute("data-i18n-attr").split(";").forEach(function (pair) {
+        var kv = pair.split("=");
+        if (kv.length === 2 && typeof t[kv[1].trim()] === "string") el.setAttribute(kv[0].trim(), t[kv[1].trim()]);
+      });
+    });
+    document.querySelectorAll(".lang button").forEach(function (b) {
+      b.setAttribute("aria-pressed", String(b.getAttribute("data-lang") === lang));
+    });
+    updateStatus();
+    fitAll();
+  }
+
+  var saved = store("rockabilly-lang");
+  var initial = saved && T[saved] ? saved : ((navigator.language || "").toLowerCase().indexOf("el") === 0 ? "el" : "en");
+  applyLang(initial);
+  document.querySelectorAll(".lang button").forEach(function (b) {
+    b.addEventListener("click", function () {
+      var l = b.getAttribute("data-lang");
+      store("rockabilly-lang", l);
+      applyLang(l);
+    });
+  });
+
+  setInterval(updateStatus, 60000);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitAll);
+  window.addEventListener("load", function () {
+    fitAll();
+    // hero loads first; once the page is up, warm the lazy gallery photos so they are ready on scroll
+    document.querySelectorAll('img[loading="lazy"]').forEach(function (img) { img.loading = "eager"; });
+  });
+  var raf = 0;
+  window.addEventListener("resize", function () { cancelAnimationFrame(raf); raf = requestAnimationFrame(fitAll); });
+
+  // lightbox
+  var dlg = document.getElementById("lightbox");
+  var lbImg = document.getElementById("lb-img"), lbCap = document.getElementById("lb-cap");
+  document.querySelectorAll("[data-lightbox]").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var img = btn.querySelector("img"), cap = btn.parentElement.querySelector("figcaption");
+      if (!dlg || typeof dlg.showModal !== "function") { window.open(img.currentSrc || img.src, "_blank", "noopener"); return; }
+      lbImg.src = img.currentSrc || img.src;
+      lbImg.alt = img.alt;
+      lbImg.width = img.naturalWidth || img.width; lbImg.height = img.naturalHeight || img.height;
+      lbCap.textContent = cap ? cap.textContent : "";
+      dlg.showModal();
+    });
+  });
+  if (dlg) {
+    document.getElementById("lb-close").addEventListener("click", function () { dlg.close(); });
+    dlg.addEventListener("click", function (e) { if (e.target === dlg) dlg.close(); });
+  }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+# Preview page for Rockabilly Barber Shop.
+# The site-wide CSP in public_html/.htaccess only allows the site's own script files.
+# This page is one self-contained file (inline CSS/JS, Google Fonts, photos as data: URIs),
+# so this folder replaces the CSP with one that fits it. Upload this file next to index.html.
+<IfModule mod_headers.c>
+  Header always unset Content-Security-Policy
+  Header unset Content-Security-Policy
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'"
+  Header always set X-Robots-Tag "noindex, nofollow"
+</IfModule>
