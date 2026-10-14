@@ -1,0 +1,723 @@
+<!doctype html>
+<html lang="el">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nick Punisher Tattoo Team</title>
+<meta name="description" content="Nick Punisher Tattoo Team — tattoo studio, Ermou 16, Larnaca, Cyprus.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0d0b0b">
+<meta property="og:title" content="Nick Punisher Tattoo Team">
+<meta property="og:description" content="Tattoo &amp; piercing studio · Ermou 16, Larnaca">
+<meta property="og:image" content="https://webbiespirit.com/demo/nick-punisher/img/aggelos-spartan.jpg">
+<meta property="og:url" content="https://webbiespirit.com/demo/nick-punisher/">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/png" href="img/logo.png">
+<link rel="apple-touch-icon" href="img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pirata+One&family=Archivo:wght@400;500;700&family=Archivo+Narrow:wght@500;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+body{margin:0}img{max-width:100%}
+/* Layout: one long dark "flash sheet" — blackletter headings, bone-paper type, oxblood ink used only where blood would be. */
+:root{
+  --ink:#0d0b0b;          /* page */
+  --ink-2:#171313;        /* raised panels */
+  --line:#2e2626;         /* hairlines */
+  --bone:#ebe3d4;         /* main text */
+  --bone-dim:#a69d90;     /* secondary text */
+  --blood:#9e1f1f;        /* accent: ink drop / CTA */
+  --blood-hi:#c8342c;     /* accent hover */
+  --steel:#7f8890;        /* machine metal */
+  --f-display:"Pirata One","UnifrakturMaguntia","Old English Text MT",Georgia,serif;
+  --f-body:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-label:"Archivo Narrow","Arial Narrow",system-ui,sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{overflow-x:clip}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--bone);font-family:var(--f-body);font-size:16px;line-height:1.6;overflow-x:hidden}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--f-display);font-weight:400;line-height:1;margin:0;text-wrap:balance;letter-spacing:.01em}
+h2{font-size:clamp(2.4rem,6vw,4rem)}
+.eyebrow{font-family:var(--f-label);text-transform:uppercase;letter-spacing:.18em;font-size:.78rem;color:var(--bone-dim);font-weight:700}
+.lede{color:var(--bone-dim);max-width:58ch;margin:0}
+section{padding-block:clamp(64px,10vw,120px)}
+section+section{border-top:1px solid var(--line)}
+:focus-visible{outline:2px solid var(--blood-hi);outline-offset:3px}
+.btn{display:inline-flex;align-items:center;gap:.5em;font-family:var(--f-label);font-weight:700;text-transform:uppercase;letter-spacing:.12em;font-size:.85rem;padding:14px 22px;border:1px solid var(--bone);background:transparent;color:var(--bone);text-decoration:none;cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.btn:hover{background:var(--bone);color:var(--ink)}
+.btn.blood{background:var(--blood);border-color:var(--blood)}
+.btn.blood:hover{background:var(--blood-hi);border-color:var(--blood-hi);color:var(--bone)}
+
+/* nav */
+nav.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--ink) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px}
+.mark{font-family:var(--f-display);font-size:1.6rem;text-decoration:none;line-height:1}
+.mark b{color:var(--blood-hi);font-weight:400}
+.navlinks{display:flex;gap:22px;align-items:center}
+.navlinks a{font-family:var(--f-label);text-transform:uppercase;letter-spacing:.14em;font-size:.78rem;text-decoration:none;color:var(--bone-dim)}
+.navlinks a:hover{color:var(--bone)}
+.lang{display:flex;border:1px solid var(--line)}
+.lang button{background:none;border:0;color:var(--bone-dim);font-family:var(--f-mono);font-size:.75rem;padding:6px 10px;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--bone);color:var(--ink)}
+@media(max-width:760px){.navlinks a{display:none}}
+
+/* hero */
+.hero{padding-block:clamp(40px,7vw,90px) clamp(56px,8vw,100px);border-top:0}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(24px,5vw,64px);align-items:center}
+.hero h1{font-size:clamp(3.6rem,11vw,8.4rem);line-height:.86}
+.hero h1 span{display:block}
+.hero h1 .red{color:var(--blood-hi)}
+.hero .sub{margin:22px 0 30px;font-size:1.1rem;color:var(--bone-dim);max-width:44ch}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px}
+.addr{margin-top:28px;font-family:var(--f-mono);font-size:.82rem;color:var(--bone-dim);display:flex;gap:18px;flex-wrap:wrap}
+.addr span::before{content:"";display:inline-block;width:6px;height:6px;background:var(--blood);margin-right:8px;vertical-align:middle}
+.flash{width:100%;max-width:420px;justify-self:center;aspect-ratio:3/4}
+.flash{position:relative}
+.flash svg{width:100%;height:100%;display:block}
+.stamp{position:absolute;right:0;bottom:6%;width:clamp(96px,30%,150px);height:auto;border-radius:50%;box-shadow:0 0 0 3px var(--ink),0 0 0 4px var(--bone-dim),0 14px 40px rgba(0,0,0,.6);transform:rotate(-12deg);z-index:2}
+.js .stamp{animation:stampin .5s 2.4s cubic-bezier(.3,1.6,.5,1) both}
+@keyframes stampin{from{opacity:0;transform:rotate(-30deg) scale(1.8)}to{opacity:1;transform:rotate(-12deg) scale(1)}}
+.mark{display:inline-flex;align-items:center;gap:10px}
+.logo-sm{width:36px;height:36px;border-radius:50%;box-shadow:0 0 0 1px var(--line)}
+.foot-logo{width:64px;height:64px;border-radius:50%}
+@media(prefers-reduced-motion:reduce){.js .stamp{animation:none}}
+.flash .draw{stroke-dasharray:1;stroke-dashoffset:0}
+.js .flash .draw{animation:ink 2.6s cubic-bezier(.6,.05,.3,1) both}
+.js .flash .d2{animation-delay:.5s}.js .flash .d3{animation-delay:1s}.js .flash .d4{animation-delay:1.4s}
+.flash .fill{animation:fade 1s 2.2s both}
+@keyframes ink{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@media(max-width:820px){.hero .wrap{grid-template-columns:1fr}.flash{max-width:300px;order:-1}}
+
+/* machine */
+.machine-head{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:end;margin-bottom:40px}
+@media(max-width:760px){.machine-head{grid-template-columns:1fr}}
+.machine-box{overflow-x:auto}
+.machine{min-width:640px;width:100%;height:auto;display:block}
+.machine .part{transition:transform .1s linear}
+.machine text{font-family:var(--f-mono);font-size:13px;fill:var(--bone)}
+.machine .lbl-sub{fill:var(--bone-dim);font-size:11px}
+.machine .lead{stroke:var(--bone-dim);stroke-width:1;fill:none}
+.scrollhint{font-family:var(--f-mono);font-size:.75rem;color:var(--bone-dim);margin-top:12px}
+
+/* blood type */
+.blood-moment{text-align:left;padding-block:clamp(72px,12vw,150px);background:radial-gradient(ellipse at 20% 50%,color-mix(in srgb,var(--blood) 22%,transparent),transparent 60%),var(--ink)}
+.blood-moment h2{font-size:clamp(3.4rem,13vw,10rem);line-height:.85}
+.blood-moment h2 em{font-style:normal;color:var(--blood-hi)}
+.blood-moment p{font-family:var(--f-mono);color:var(--bone-dim);margin-top:24px;font-size:.9rem}
+
+/* team */
+.team-top{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;margin-bottom:32px}
+.arrows{display:flex;gap:8px}
+.arrows button{width:44px;height:44px;border:1px solid var(--line);background:var(--ink-2);color:var(--bone);cursor:pointer;font-size:1.1rem}
+.arrows button:hover{border-color:var(--bone)}
+.track{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(260px,1fr);gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:4px}
+.track::-webkit-scrollbar{display:none}
+.artist{scroll-snap-align:start;background:var(--ink-2);border:1px solid var(--line);padding:24px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.artist .mono{font-family:var(--f-display);font-size:5.5rem;line-height:.8;color:var(--bone)}
+.artist .mono b{color:var(--blood-hi);font-weight:400}
+.artist .role{font-family:var(--f-label);text-transform:uppercase;letter-spacing:.16em;font-size:.72rem;color:var(--blood-hi);font-weight:700}
+.artist h3{font-size:2rem}
+.artist p{margin:0;color:var(--bone-dim);font-size:.95rem}
+.artist a.ig{margin-top:auto;font-family:var(--f-mono);font-size:.82rem;text-decoration:none;border-top:1px solid var(--line);padding-top:12px;color:var(--bone)}
+.artist a.ig:hover{color:var(--blood-hi)}
+
+/* picker */
+.picker{display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(20px,4vw,48px);margin-top:40px}
+@media(max-width:860px){.picker{grid-template-columns:1fr}}
+fieldset{border:0;padding:0;margin:0 0 26px}
+legend{font-family:var(--f-label);text-transform:uppercase;letter-spacing:.16em;font-size:.75rem;font-weight:700;color:var(--bone-dim);margin-bottom:10px;padding:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips label{position:relative}
+.chips input{position:absolute;opacity:0;inset:0;cursor:pointer}
+.chips span{display:block;padding:10px 14px;border:1px solid var(--line);font-size:.92rem;cursor:pointer;transition:border-color .15s,background .15s}
+.chips input:checked+span{background:var(--bone);color:var(--ink);border-color:var(--bone)}
+.chips input:focus-visible+span{outline:2px solid var(--blood-hi);outline-offset:2px}
+.chips span small{display:block;font-family:var(--f-mono);font-size:.7rem;opacity:.7}
+.ticket{background:var(--bone);color:var(--ink);padding:28px;align-self:start;position:relative}
+.ticket::before{content:"";position:absolute;left:0;right:0;top:-8px;height:8px;background:radial-gradient(circle at 8px 8px,transparent 5px,var(--bone) 5.5px) 0 0/16px 16px repeat-x}
+.ticket .eyebrow{color:#5e554a}
+.ticket .price{font-family:var(--f-display);font-size:4.4rem;line-height:1;margin:6px 0;font-variant-numeric:tabular-nums}
+.ticket dl{display:grid;grid-template-columns:auto 1fr;gap:6px 16px;margin:18px 0;font-size:.9rem}
+.ticket dt{font-family:var(--f-label);text-transform:uppercase;letter-spacing:.12em;font-size:.72rem;color:#5e554a;align-self:center}
+.ticket dd{margin:0;font-family:var(--f-mono);font-size:.85rem;text-align:right}
+.ticket .note{font-size:.78rem;color:#5e554a;margin:0 0 18px}
+.ticket .btn{border-color:var(--ink);color:var(--ink);width:100%;justify-content:center}
+.ticket .btn:hover{background:var(--ink);color:var(--bone)}
+
+/* process */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:40px;border-top:1px solid var(--line)}
+@media(max-width:860px){.steps{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.steps{grid-template-columns:1fr}}
+.step{padding:26px 22px 26px 0;border-bottom:1px solid var(--line);min-width:0}
+.step .n{font-family:var(--f-mono);font-size:.78rem;color:var(--blood-hi)}
+.step h3{font-size:2rem;margin:10px 0 8px}
+.step p{margin:0;color:var(--bone-dim);font-size:.95rem}
+
+/* booking */
+.book{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(24px,5vw,64px)}
+@media(max-width:860px){.book{grid-template-columns:1fr}}
+form{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+form .full{grid-column:1/-1}
+@media(max-width:520px){form{grid-template-columns:1fr}}
+.field{display:flex;flex-direction:column;gap:6px;min-width:0}
+.field label{font-family:var(--f-label);text-transform:uppercase;letter-spacing:.14em;font-size:.72rem;font-weight:700;color:var(--bone-dim)}
+input[type=text],input[type=tel],select,textarea{background:var(--ink-2);border:1px solid var(--line);color:var(--bone);font:inherit;padding:12px 14px;border-radius:0;width:100%}
+input:focus,select:focus,textarea:focus{border-color:var(--bone);outline:none}
+textarea{min-height:110px;resize:vertical}
+.sent{grid-column:1/-1;border:1px solid var(--blood);padding:16px;font-size:.92rem}
+.age{font-size:.82rem;color:var(--bone-dim);margin-top:18px}
+
+/* location */
+.loc{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,64px);align-items:start}
+@media(max-width:760px){.loc{grid-template-columns:1fr}}
+.loc .street{font-family:var(--f-display);font-size:clamp(3rem,8vw,5.5rem);line-height:.9}
+.hours{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+.hours td{padding:12px 0;border-bottom:1px solid var(--line);font-size:.95rem}
+.hours td:last-child{text-align:right;font-family:var(--f-mono);font-size:.85rem}
+.hours tr.closed td:last-child{color:var(--bone-dim)}
+.ph{font-size:.78rem;color:var(--bone-dim);margin-top:10px}
+
+/* grain */
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:50;opacity:.07;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* ticker */
+.ticker{border-block:1px solid var(--line);overflow:hidden;background:var(--blood);color:var(--bone)}
+.ticker .row{display:flex;width:max-content;animation:tick 32s linear infinite}
+.ticker span{font-family:var(--f-display);font-size:clamp(1.6rem,4vw,2.4rem);padding:10px 22px;white-space:nowrap}
+.ticker span::after{content:"✦";margin-left:44px;font-family:var(--f-body);font-size:.6em;vertical-align:middle}
+@keyframes tick{to{transform:translateX(-50%)}}
+
+/* flash wall */
+.flash-head{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;margin-bottom:36px}
+.wall{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:860px){.wall{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:420px){.wall{gap:10px}}
+.piece{background:var(--ink-2);border:1px solid var(--line);padding:16px;display:flex;flex-direction:column;gap:10px;min-width:0;transition:border-color .25s,transform .25s}
+.piece:hover{border-color:var(--bone);transform:translateY(-3px) rotate(-.4deg)}
+.piece svg{width:100%;height:auto;aspect-ratio:1;display:block}
+.piece svg .o{stroke:var(--bone);stroke-width:3.5;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.piece svg .r{fill:var(--blood);transition:fill .3s}
+.piece svg .k{fill:var(--ink)}
+.piece:hover svg .r{fill:var(--blood-hi)}
+.piece .meta{display:flex;justify-content:space-between;align-items:baseline;gap:8px;border-top:1px dashed var(--line);padding-top:10px}
+.piece h3{font-size:1.5rem}
+.piece .tag{font-family:var(--f-mono);font-size:.75rem;color:var(--bone-dim);white-space:nowrap;font-variant-numeric:tabular-nums}
+.wall-note{font-size:.8rem;color:var(--bone-dim);margin-top:16px}
+@media(prefers-reduced-motion:reduce){.ticker .row{animation:none}.piece:hover{transform:none}}
+
+/* gallery */
+.gal-head{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;margin-bottom:28px}
+.filters{display:flex;gap:6px;flex-wrap:wrap}
+.filters button{background:none;border:1px solid var(--line);color:var(--bone-dim);font-family:var(--f-label);text-transform:uppercase;letter-spacing:.12em;font-size:.75rem;font-weight:700;padding:9px 14px;cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--bone);color:var(--ink);border-color:var(--bone)}
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;grid-auto-flow:dense}
+@media(max-width:900px){.gallery{grid-template-columns:repeat(2,1fr)}.gallery .shot:last-child{grid-column:span 2;aspect-ratio:16/10}.gallery .shot:last-child img{object-position:50% 30%}}
+.shot{position:relative;margin:0;overflow:hidden;background:var(--ink-2);cursor:zoom-in;aspect-ratio:4/5;border:0;padding:0;display:block;width:100%;color:var(--bone);text-align:left}
+.shot img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(.35) contrast(1.05);transition:transform .6s cubic-bezier(.2,.7,.2,1),filter .4s}
+.shot:hover img,.shot:focus-visible img{transform:scale(1.05);filter:none}
+.shot .cap{position:absolute;left:0;right:0;bottom:0;padding:28px 12px 10px;background:linear-gradient(transparent,rgba(13,11,11,.9));display:flex;justify-content:space-between;gap:8px;align-items:end}
+.shot .cap b{font-family:var(--f-display);font-weight:400;font-size:1.35rem;line-height:1}
+.shot .cap span{font-family:var(--f-mono);font-size:.68rem;color:var(--bone-dim);white-space:nowrap}
+.shot.big{grid-row:span 2;aspect-ratio:auto}
+@media(max-width:900px){.shot.big{grid-row:auto;aspect-ratio:4/5}}
+.lightbox{position:fixed;inset:0;z-index:60;background:rgba(8,6,6,.94);display:flex;align-items:center;justify-content:center;padding:max(16px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(16px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+.lightbox figure{margin:0;display:flex;flex-direction:column;gap:10px;align-items:center;max-height:100%}
+.lightbox img{max-width:min(92vw,900px);max-height:80vh;object-fit:contain}
+.lightbox figcaption{font-family:var(--f-mono);font-size:.8rem;color:var(--bone-dim)}
+.lightbox button{position:absolute;top:calc(14px + env(safe-area-inset-top,0px));right:calc(14px + env(safe-area-inset-right,0px));width:44px;height:44px;background:var(--bone);color:var(--ink);border:0;font-size:1.2rem;cursor:pointer}
+.artist .photo{margin:-24px -24px 0;aspect-ratio:4/3;overflow:hidden;position:relative}
+.artist .photo img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(.3)}
+.artist .photo .mono{position:absolute;left:16px;bottom:8px;font-size:3.6rem;text-shadow:0 2px 12px rgba(0,0,0,.7)}
+.book-photo{margin:26px 0 0;aspect-ratio:4/5;max-width:340px;overflow:hidden;position:relative}
+.book-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.book-photo figcaption{position:absolute;left:10px;bottom:10px;font-family:var(--f-mono);font-size:.7rem;background:var(--ink);padding:4px 8px}
+@media(max-width:860px){.book-photo{max-width:none;aspect-ratio:16/10}}
+
+/* faq */
+.faq{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(24px,5vw,64px)}
+@media(max-width:860px){.faq{grid-template-columns:1fr}}
+.qa{border-top:1px solid var(--line);min-width:0}
+.qa details{border-bottom:1px solid var(--line)}
+.qa summary{list-style:none;cursor:pointer;padding:20px 40px 20px 0;font-family:var(--f-label);font-weight:700;font-size:1.15rem;position:relative}
+.qa summary::-webkit-details-marker{display:none}
+.qa summary::after{content:"+";position:absolute;right:4px;top:50%;transform:translateY(-50%);font-family:var(--f-mono);font-size:1.4rem;color:var(--blood-hi);transition:transform .25s}
+.qa details[open] summary::after{transform:translateY(-50%) rotate(45deg)}
+.qa details p{margin:0 0 20px;color:var(--bone-dim);max-width:60ch}
+
+/* phone fixes */
+.parts-list{display:none}
+@media(max-width:700px){
+  .machine{min-width:0}
+  .machine text,.machine .lead{display:none}
+  .parts-list{display:grid;list-style:none;padding:0;margin:20px 0 0;border-top:1px solid var(--line)}
+  .parts-list li{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);font-size:.92rem}
+  .parts-list span{font-family:var(--f-mono);font-size:.78rem;color:var(--bone-dim);text-align:right}
+  .stamp{top:2%;bottom:auto;right:2%}
+  .shot .cap{flex-wrap:wrap;gap:2px 8px}
+  .shot .cap b{font-size:1.15rem}
+  .book-photo{width:100%}
+}
+
+footer{border-top:1px solid var(--line);padding-block:40px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:var(--f-mono);font-size:.78rem;color:var(--bone-dim)}
+footer a{text-decoration:none}
+footer a:hover{color:var(--bone)}
+
+@media(prefers-reduced-motion:reduce){.js .flash .draw,.flash .fill{animation:none}html{scroll-behavior:auto}.machine .part{transition:none}}
+</style>
+</head>
+<body>
+
+<nav class="top" aria-label="Main">
+  <div class="wrap">
+    <a href="#top" class="mark"><img class="logo-sm" src="img/logo.png" alt="" width="36" height="36">Nick <b>Punisher</b></a>
+    <div class="navlinks">
+      <a href="#team" data-el="Ομάδα" data-en="Team">Ομάδα</a>
+      <a href="#design" data-el="Σχέδιο" data-en="Design">Σχέδιο</a>
+      <a href="#book" data-el="Ραντεβού" data-en="Book">Ραντεβού</a>
+      <a href="#find" data-el="Πού είμαστε" data-en="Find us">Πού είμαστε</a>
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" id="lang-el" aria-pressed="true">ΕΛ</button>
+        <button type="button" id="lang-en" aria-pressed="false">EN</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main id="top">
+<!-- 1 HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow" data-el="Tattoo studio · Λάρνακα, Κύπρος" data-en="Tattoo studio · Larnaca, Cyprus">Tattoo studio · Λάρνακα, Κύπρος</p>
+      <h1><span>Nick</span><span class="red">Punisher</span><span>Tattoo Team</span></h1>
+      <p class="sub" data-el="Τατουάζ και piercing στην Ερμού. Φέρε την ιδέα σου, εμείς τη σχεδιάζουμε και τη βάζουμε στο δέρμα σου σωστά." data-en="Tattoo and piercing on Ermou street. Bring the idea, we draw it and put it on your skin the right way.">Τατουάζ και piercing στην Ερμού. Φέρε την ιδέα σου, εμείς τη σχεδιάζουμε και τη βάζουμε στο δέρμα σου σωστά.</p>
+      <div class="ctas">
+        <a class="btn blood" href="#book" data-el="Κλείσε ραντεβού" data-en="Book a session">Κλείσε ραντεβού</a>
+        <a class="btn" href="#design" data-el="Υπολόγισε το τατουάζ σου" data-en="Price your tattoo">Υπολόγισε το τατουάζ σου</a>
+      </div>
+      <div class="addr"><span data-el="Ερμού 16, Λάρνακα" data-en="Ermou 16, Larnaca">Ερμού 16, Λάρνακα</span><span>@nick_punisherteam</span></div>
+    </div>
+    <div class="flash" aria-hidden="true">
+      <img class="stamp" src="img/logo.png" alt="" width="150" height="150">
+      <!-- original flash: dagger through a heart with a banner -->
+      <svg viewBox="0 0 300 400" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <g class="fill">
+          <path d="M150 300 C 95 255, 58 222, 58 178 C 58 148, 82 128, 108 128 C 128 128, 142 140, 150 156 C 158 140, 172 128, 192 128 C 218 128, 242 148, 242 178 C 242 222, 205 255, 150 300 Z" fill="#9e1f1f"/>
+          <path d="M80 170 C 82 150, 96 142, 110 142" stroke="#ebe3d4" stroke-width="4" opacity=".55"/>
+        </g>
+        <path class="draw d1" pathLength="1" d="M150 300 C 95 255, 58 222, 58 178 C 58 148, 82 128, 108 128 C 128 128, 142 140, 150 156 C 158 140, 172 128, 192 128 C 218 128, 242 148, 242 178 C 242 222, 205 255, 150 300 Z" stroke="#ebe3d4" stroke-width="5"/>
+        <path class="draw d2" pathLength="1" d="M150 22 L 162 60 L 162 250 L 150 290 L 138 250 L 138 60 Z" stroke="#ebe3d4" stroke-width="4" fill="#0d0b0b"/>
+        <path class="draw d2" pathLength="1" d="M150 62 L150 250" stroke="#7f8890" stroke-width="2"/>
+        <path class="draw d3" pathLength="1" d="M106 64 L194 64 L188 76 L112 76 Z" stroke="#ebe3d4" stroke-width="4" fill="#0d0b0b"/>
+        <path class="draw d3" pathLength="1" d="M142 22 L158 22 L158 -6" stroke="none"/>
+        <circle class="draw d3" pathLength="1" cx="150" cy="16" r="9" stroke="#ebe3d4" stroke-width="4" fill="#0d0b0b"/>
+        <path class="draw d4" pathLength="1" d="M28 318 L58 306 L242 306 L272 318 L252 336 L272 354 L232 354 L232 342 L68 342 L68 354 L28 354 L48 336 Z" stroke="#ebe3d4" stroke-width="4" fill="#0d0b0b"/>
+        <text class="fill" x="150" y="331" text-anchor="middle" fill="#ebe3d4" stroke="none" font-family="Pirata One, Georgia, serif" font-size="25">Blood Type Ink</text>
+        <g class="fill" fill="#9e1f1f" stroke="none"><path d="M150 292 q -6 14 0 20 q 6 -6 0 -20z"/><circle cx="150" cy="378" r="5"/></g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 2 MACHINE -->
+<section id="machine">
+  <div class="wrap">
+    <div class="machine-head">
+      <div>
+        <p class="eyebrow" data-el="Το εργαλείο" data-en="The tool">Το εργαλείο</p>
+        <h2 data-el="Ανοίγουμε τη μηχανή" data-en="Inside the machine">Ανοίγουμε τη μηχανή</h2>
+      </div>
+      <p class="lede" data-el="Κάθε κομμάτι μετρά. Κάθε βελόνα είναι αποστειρωμένη, μιας χρήσης, και ανοίγει μπροστά σου." data-en="Every part matters. Every needle cartridge is sterile, single-use and opened in front of you.">Κάθε κομμάτι μετρά. Κάθε βελόνα είναι αποστειρωμένη, μιας χρήσης, και ανοίγει μπροστά σου.</p>
+    </div>
+    <div class="machine-box">
+      <svg class="machine" id="machineSvg" viewBox="0 0 900 300" role="img" aria-label="Exploded rotary tattoo machine with labelled parts">
+        <line x1="40" y1="150" x2="860" y2="150" stroke="#2e2626" stroke-dasharray="4 6"/>
+        <!-- cartridge -->
+        <g class="part" data-dx="-1">
+          <path d="M70 150 L120 146 L120 154 Z" fill="#7f8890"/>
+          <rect x="120" y="136" width="110" height="28" rx="4" fill="#ebe3d4"/>
+          <rect x="196" y="136" width="10" height="28" fill="#9e1f1f"/>
+          <path class="lead" d="M150 136 L150 80"/>
+          <text x="150" y="62" text-anchor="middle" data-el="Φυσίγγιο βελόνας" data-en="Needle cartridge">Φυσίγγιο βελόνας</text>
+          <text x="150" y="76" text-anchor="middle" class="lbl-sub">3RL · 7RS · 9M1</text>
+        </g>
+        <!-- grip -->
+        <g class="part" data-dx="-.45">
+          <rect x="240" y="128" width="150" height="44" rx="10" fill="#2a2323" stroke="#7f8890"/>
+          <g stroke="#7f8890" stroke-width="2"><line x1="262" y1="132" x2="262" y2="168"/><line x1="282" y1="132" x2="282" y2="168"/><line x1="302" y1="132" x2="302" y2="168"/><line x1="322" y1="132" x2="322" y2="168"/><line x1="342" y1="132" x2="342" y2="168"/><line x1="362" y1="132" x2="362" y2="168"/></g>
+          <path class="lead" d="M315 172 L315 225"/>
+          <text x="315" y="244" text-anchor="middle" data-el="Λαβή" data-en="Grip">Λαβή</text>
+          <text x="315" y="258" text-anchor="middle" class="lbl-sub" data-el="ελαστική, μιας χρήσης κάλυψη" data-en="rubber, single-use cover">ελαστική, μιας χρήσης κάλυψη</text>
+        </g>
+        <!-- body + motor -->
+        <g class="part" data-dx="0">
+          <rect x="400" y="118" width="200" height="64" rx="14" fill="#7f8890"/>
+          <rect x="430" y="132" width="90" height="36" rx="6" fill="#171313"/>
+          <circle cx="475" cy="150" r="12" fill="none" stroke="#9e1f1f" stroke-width="3"/>
+          <path class="lead" d="M500 118 L500 80"/>
+          <text x="500" y="62" text-anchor="middle" data-el="Μοτέρ (rotary)" data-en="Rotary motor">Μοτέρ (rotary)</text>
+          <text x="500" y="76" text-anchor="middle" class="lbl-sub" data-el="σταθερή, αθόρυβη κίνηση" data-en="smooth, quiet stroke">σταθερή, αθόρυβη κίνηση</text>
+        </g>
+        <!-- rear cap -->
+        <g class="part" data-dx=".5">
+          <rect x="612" y="124" width="60" height="52" rx="10" fill="#2a2323" stroke="#7f8890"/>
+          <circle cx="642" cy="150" r="6" fill="#9e1f1f"/>
+          <path class="lead" d="M642 176 L642 225"/>
+          <text x="642" y="244" text-anchor="middle" data-el="Ρύθμιση διαδρομής" data-en="Stroke dial">Ρύθμιση διαδρομής</text>
+          <text x="642" y="258" text-anchor="middle" class="lbl-sub">3.5 – 4.5 mm</text>
+        </g>
+        <!-- cable -->
+        <g class="part" data-dx="1">
+          <rect x="684" y="142" width="24" height="16" fill="#7f8890"/>
+          <path d="M708 150 C 760 150, 760 110, 800 110 C 840 110, 840 150, 870 150" stroke="#ebe3d4" stroke-width="5" fill="none"/>
+          <path class="lead" d="M800 110 L800 80"/>
+          <text x="800" y="62" text-anchor="middle" data-el="Καλώδιο RCA" data-en="RCA cord">Καλώδιο RCA</text>
+          <text x="800" y="76" text-anchor="middle" class="lbl-sub">8 – 10 V</text>
+        </g>
+      </svg>
+    </div>
+    <ol class="parts-list">
+      <li><b data-el="Φυσίγγιο βελόνας" data-en="Needle cartridge">Φυσίγγιο βελόνας</b><span>3RL · 7RS · 9M1</span></li>
+      <li><b data-el="Λαβή" data-en="Grip">Λαβή</b><span data-el="μιας χρήσης κάλυψη" data-en="single-use cover">μιας χρήσης κάλυψη</span></li>
+      <li><b data-el="Μοτέρ (rotary)" data-en="Rotary motor">Μοτέρ (rotary)</b><span data-el="αθόρυβη κίνηση" data-en="quiet stroke">αθόρυβη κίνηση</span></li>
+      <li><b data-el="Ρύθμιση διαδρομής" data-en="Stroke dial">Ρύθμιση διαδρομής</b><span>3.5 – 4.5 mm</span></li>
+      <li><b data-el="Καλώδιο RCA" data-en="RCA cord">Καλώδιο RCA</b><span>8 – 10 V</span></li>
+    </ol>
+    <p class="scrollhint" data-el="↓ Κάνε scroll για να ανοίξει η μηχανή" data-en="↓ Scroll to take the machine apart">↓ Κάνε scroll για να ανοίξει η μηχανή</p>
+  </div>
+</section>
+
+<!-- 3 BLOOD TYPE -->
+<section class="blood-moment">
+  <div class="wrap">
+    <h2 data-el-html="Ομάδα αίματος:<br><em>Μελάνι.</em>" data-en-html="Blood type:<br><em>Ink.</em>">Ομάδα αίματος:<br><em>Μελάνι.</em></h2>
+    <p>Blood Type Ink · Nick Punisher Team CY</p>
+  </div>
+</section>
+
+<div class="ticker" aria-hidden="true"><div class="row">
+  <span>Black &amp; Grey</span><span>Realism</span><span>Traditional</span><span>Fine Line</span><span>Cover-ups</span><span>Piercing</span><span>Ermou 16</span>
+  <span>Black &amp; Grey</span><span>Realism</span><span>Traditional</span><span>Fine Line</span><span>Cover-ups</span><span>Piercing</span><span>Ermou 16</span>
+</div></div>
+
+<!-- GALLERY -->
+<section id="work">
+  <div class="wrap">
+    <div class="gal-head">
+      <div>
+        <p class="eyebrow" data-el="Η δουλειά μας" data-en="Our work">Η δουλειά μας</p>
+        <h2 data-el="Φρέσκα από την καρέκλα" data-en="Fresh off the chair">Φρέσκα από την καρέκλα</h2>
+      </div>
+      <div class="filters" role="group" aria-label="Filter by artist">
+        <button type="button" data-f="all" aria-pressed="true" data-el="Όλα" data-en="All">Όλα</button>
+        <button type="button" data-f="aggelos" aria-pressed="false">Aggelos</button>
+        <button type="button" data-f="johnny" aria-pressed="false">Johnny</button>
+        <button type="button" data-f="nick" aria-pressed="false">Nick</button>
+      </div>
+    </div>
+    <div class="gallery" id="gallery">
+      <button type="button" class="shot big" data-a="aggelos"><img src="img/aggelos-spartan.jpg" alt="Colour realism Spartan warrior tattoo on a calf" loading="lazy"><span class="cap"><b data-el="Σπαρτιάτης" data-en="Spartan">Σπαρτιάτης</b><span>Aggelos</span></span></button>
+      <button type="button" class="shot" data-a="johnny"><img src="img/johnny-lioness.jpg" alt="Lioness with two cubs and a rose, back tattoo" loading="lazy"><span class="cap"><b data-el="Λέαινα & μικρά" data-en="Lioness & cubs">Λέαινα &amp; μικρά</b><span>Johnny</span></span></button>
+      <button type="button" class="shot" data-a="johnny"><img src="img/johnny-leopard.jpg" alt="Fine line leopard with lilies on a thigh" loading="lazy"><span class="cap"><b data-el="Λεοπάρδαλη" data-en="Leopard">Λεοπάρδαλη</b><span>Johnny</span></span></button>
+      <button type="button" class="shot big" data-a="aggelos"><img src="img/aggelos-archangel.jpg" alt="Black and grey Archangel Michael tattoo on a calf" loading="lazy"><span class="cap"><b data-el="Αρχάγγελος" data-en="Archangel">Αρχάγγελος</b><span>Aggelos</span></span></button>
+      <button type="button" class="shot" data-a="johnny"><img src="img/johnny-butterfly.jpg" alt="Traditional blackwork butterfly on a shoulder" loading="lazy"><span class="cap"><b data-el="Πεταλούδα" data-en="Butterfly">Πεταλούδα</b><span>Johnny</span></span></button>
+      <button type="button" class="shot" data-a="johnny"><img src="img/johnny-hearts.jpg" alt="Spiked hearts on a chain with a bow, arm tattoo" loading="lazy"><span class="cap"><b data-el="Καρδιές με αγκάθια" data-en="Spiked hearts">Καρδιές με αγκάθια</b><span>Johnny</span></span></button>
+      <button type="button" class="shot big" data-a="aggelos"><img src="img/aggelos-anubis.jpg" alt="Black and grey Anubis, clock and all-seeing eye leg piece" loading="lazy"><span class="cap"><b>Anubis</b><span>Aggelos</span></span></button>
+      <button type="button" class="shot" data-a="nick"><img src="img/nick-at-work.jpg" alt="Nick placing a stencil on a client's ribs" loading="lazy"><span class="cap"><b data-el="Στο στένσιλ" data-en="Stencil check">Στο στένσιλ</b><span>Nick</span></span></button>
+      <button type="button" class="shot" data-a="nick"><img src="img/nick-portrait.jpg" alt="Nick Punisher tattooing, sepia portrait" loading="lazy"><span class="cap"><b>The Boss</b><span>Nick</span></span></button>
+    </div>
+    <p class="wall-note" data-el="Φωτογραφίες από το Instagram του στούντιο." data-en="Photos from the studio's Instagram.">Φωτογραφίες από το Instagram του στούντιο.</p>
+  </div>
+</section>
+<div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Photo">
+  <button type="button" id="lbClose" aria-label="Close">✕</button>
+  <figure><img id="lbImg" alt=""><figcaption id="lbCap"></figcaption></figure>
+</div>
+
+<!-- 4 TEAM -->
+<section id="team">
+  <div class="wrap">
+    <div class="team-top">
+      <div>
+        <p class="eyebrow" data-el="Η ομάδα" data-en="The team">Η ομάδα</p>
+        <h2 data-el="Τρεις καλλιτέχνες, ένα επίπεδο" data-en="Three artists, one standard">Τρεις καλλιτέχνες, ένα επίπεδο</h2>
+      </div>
+      <div class="arrows">
+        <button type="button" id="prev" aria-label="Previous artist">←</button>
+        <button type="button" id="next" aria-label="Next artist">→</button>
+      </div>
+    </div>
+    <div class="track" id="track">
+      <article class="artist">
+        <div class="photo"><img src="img/nick-portrait.jpg" alt="Nick Punisher at work" loading="lazy"><div class="mono">N<b>.</b></div></div>
+        <span class="role">The Boss</span>
+        <h3>Nick Punisher</h3>
+        <p data-el="Ο ιδρυτής του στούντιο. Κάθε σχέδιο που φεύγει από την Ερμού περνάει από τα χέρια του." data-en="Founder of the studio. Every design that leaves Ermou passes through his hands.">Ο ιδρυτής του στούντιο. Κάθε σχέδιο που φεύγει από την Ερμού περνάει από τα χέρια του.</p>
+        <a class="ig" href="https://www.instagram.com/nick.punisher/" target="_blank" rel="noopener">@nick.punisher ↗</a>
+      </article>
+      <article class="artist">
+        <div class="photo"><img src="img/aggelos-spartan.jpg" alt="Spartan tattoo by Aggelos" loading="lazy" style="object-position:50% 55%"><div class="mono">A<b>.</b></div></div>
+        <span class="role" data-el="Καλλιτέχνης" data-en="Artist">Καλλιτέχνης</span>
+        <h3>Aggelos Philippou</h3>
+        <p data-el="Realism σε black & grey και χρώμα, μεγάλα κομμάτια και μανίκια. Έχει δουλέψει στο Cyprus International Tattoo Convention." data-en="Realism in black & grey and colour, large pieces and sleeves. Has tattooed at the Cyprus International Tattoo Convention.">Realism σε black &amp; grey και χρώμα, μεγάλα κομμάτια και μανίκια. Έχει δουλέψει στο Cyprus International Tattoo Convention.</p>
+        <a class="ig" href="https://www.instagram.com/tattoos_by_aggelos/" target="_blank" rel="noopener">@tattoos_by_aggelos ↗</a>
+      </article>
+      <article class="artist">
+        <div class="photo"><img src="img/johnny-lioness.jpg" alt="Lioness tattoo by Johnny" loading="lazy" style="object-position:50% 40%"><div class="mono">J<b>.</b></div></div>
+        <span class="role" data-el="Καλλιτέχνης" data-en="Artist">Καλλιτέχνης</span>
+        <h3>Johnny Nicolaou</h3>
+        <p data-el="Ζώα, λουλούδια, fine line και blackwork. Φτιάχνει και freehand σχέδια πάνω στο δέρμα." data-en="Animals, florals, fine line and blackwork. Also draws freehand straight on the skin.">Ζώα, λουλούδια, fine line και blackwork. Φτιάχνει και freehand σχέδια πάνω στο δέρμα.</p>
+        <a class="ig" href="https://www.instagram.com/johnnynicolaou_/" target="_blank" rel="noopener">@johnnynicolaou_ ↗</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 5 PICKER -->
+<section id="design">
+  <div class="wrap">
+    <p class="eyebrow" data-el="Φτιάξε το δικό σου" data-en="Build your own">Φτιάξε το δικό σου</p>
+    <h2 data-el="Πόσο κοστίζει το τατουάζ μου;" data-en="What will my tattoo cost?">Πόσο κοστίζει το τατουάζ μου;</h2>
+    <div class="picker">
+      <div id="pickerForm">
+        <fieldset>
+          <legend data-el="Μέγεθος" data-en="Size">Μέγεθος</legend>
+          <div class="chips">
+            <label><input type="radio" name="size" value="xs" id="sz-xs"><span data-el-html="Μικρό<small>έως 5 cm</small>" data-en-html="Small<small>up to 5 cm</small>">Μικρό<small>έως 5 cm</small></span></label>
+            <label><input type="radio" name="size" value="md" id="sz-md" checked><span data-el-html="Μεσαίο<small>παλάμη</small>" data-en-html="Medium<small>palm size</small>">Μεσαίο<small>παλάμη</small></span></label>
+            <label><input type="radio" name="size" value="lg" id="sz-lg"><span data-el-html="Μεγάλο<small>πήχης / γάμπα</small>" data-en-html="Large<small>forearm / calf</small>">Μεγάλο<small>πήχης / γάμπα</small></span></label>
+            <label><input type="radio" name="size" value="xl" id="sz-xl"><span data-el-html="Μανίκι<small>ολόκληρο χέρι</small>" data-en-html="Sleeve<small>full arm</small>">Μανίκι<small>ολόκληρο χέρι</small></span></label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend data-el="Στυλ" data-en="Style">Στυλ</legend>
+          <div class="chips">
+            <label><input type="radio" name="style" value="line" id="st-line"><span>Fine line</span></label>
+            <label><input type="radio" name="style" value="trad" id="st-trad"><span>Traditional</span></label>
+            <label><input type="radio" name="style" value="bg" id="st-bg" checked><span>Black &amp; grey</span></label>
+            <label><input type="radio" name="style" value="real" id="st-real"><span>Realism</span></label>
+            <label><input type="radio" name="style" value="color" id="st-color"><span data-el="Χρώμα" data-en="Colour">Χρώμα</span></label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend data-el="Σημείο" data-en="Placement">Σημείο</legend>
+          <div class="chips">
+            <label><input type="radio" name="place" value="arm" id="pl-arm" checked><span data-el="Χέρι" data-en="Arm">Χέρι</span></label>
+            <label><input type="radio" name="place" value="leg" id="pl-leg"><span data-el="Πόδι" data-en="Leg">Πόδι</span></label>
+            <label><input type="radio" name="place" value="back" id="pl-back"><span data-el="Πλάτη / στήθος" data-en="Back / chest">Πλάτη / στήθος</span></label>
+            <label><input type="radio" name="place" value="ribs" id="pl-ribs"><span data-el="Πλευρά" data-en="Ribs">Πλευρά</span></label>
+          </div>
+        </fieldset>
+      </div>
+      <aside class="ticket" aria-live="polite">
+        <p class="eyebrow" data-el="Ενδεικτική τιμή" data-en="Estimated price">Ενδεικτική τιμή</p>
+        <div class="price" id="price">€180</div>
+        <dl>
+          <dt data-el="Συνεδρίες" data-en="Sessions">Συνεδρίες</dt><dd id="sessions">1</dd>
+          <dt data-el="Χρόνος" data-en="Time">Χρόνος</dt><dd id="hours">~2 h</dd>
+          <dt data-el="Βελόνες" data-en="Needles">Βελόνες</dt><dd id="needles">5RL · 9M1</dd>
+        </dl>
+        <p class="note" data-el="Ενδεικτικές τιμές για το demo. Η τελική τιμή κλείνει στη συζήτηση με τον καλλιτέχνη." data-en="Demo estimates only. The final price is set with your artist at the consultation.">Ενδεικτικές τιμές για το demo. Η τελική τιμή κλείνει στη συζήτηση με τον καλλιτέχνη.</p>
+        <a class="btn" href="#book" id="useEstimate" data-el="Κλείσε με αυτή την ιδέα" data-en="Book with this idea">Κλείσε με αυτή την ιδέα</a>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- 6 PROCESS -->
+<section>
+  <div class="wrap">
+    <p class="eyebrow" data-el="Η διαδικασία" data-en="The process">Η διαδικασία</p>
+    <h2 data-el="Από την ιδέα στο δέρμα" data-en="From idea to skin">Από την ιδέα στο δέρμα</h2>
+    <div class="steps">
+      <div class="step"><span class="n">01</span><h3 data-el="Συζήτηση" data-en="Consult">Συζήτηση</h3><p data-el="Μας λες την ιδέα, το σημείο και το μέγεθος. Φέρε φωτογραφίες αναφοράς." data-en="Tell us the idea, placement and size. Bring reference photos.">Μας λες την ιδέα, το σημείο και το μέγεθος. Φέρε φωτογραφίες αναφοράς.</p></div>
+      <div class="step"><span class="n">02</span><h3 data-el="Σχέδιο" data-en="Design">Σχέδιο</h3><p data-el="Ο καλλιτέχνης ετοιμάζει το σχέδιο και το προσαρμόζει στο σώμα σου πριν ξεκινήσουμε." data-en="Your artist draws the design and fits the stencil to your body before we start.">Ο καλλιτέχνης ετοιμάζει το σχέδιο και το προσαρμόζει στο σώμα σου πριν ξεκινήσουμε.</p></div>
+      <div class="step"><span class="n">03</span><h3 data-el="Συνεδρία" data-en="Session">Συνεδρία</h3><p data-el="Καθαρός χώρος, βελόνες μιας χρήσης, χωρίς βιασύνη. Φάε κάτι πριν έρθεις." data-en="Clean room, single-use needles, no rush. Eat something before you come.">Καθαρός χώρος, βελόνες μιας χρήσης, χωρίς βιασύνη. Φάε κάτι πριν έρθεις.</p></div>
+      <div class="step"><span class="n">04</span><h3 data-el="Επούλωση" data-en="Aftercare">Επούλωση</h3><p data-el="Φεύγεις με οδηγίες φροντίδας. Ένα μικρό touch-up μέσα στον πρώτο μήνα είναι πάνω μας." data-en="You leave with aftercare instructions. A small touch-up in the first month is on us.">Φεύγεις με οδηγίες φροντίδας. Ένα μικρό touch-up μέσα στον πρώτο μήνα είναι πάνω μας.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 7 BOOKING -->
+<section id="book">
+  <div class="wrap book">
+    <div>
+      <p class="eyebrow" data-el="Ραντεβού" data-en="Booking">Ραντεβού</p>
+      <h2 data-el="Κράτησε τη θέση σου" data-en="Hold your spot">Κράτησε τη θέση σου</h2>
+      <p class="lede" style="margin-top:18px" data-el="Στείλε μας την ιδέα σου και ο καλλιτέχνης σε παίρνει τηλέφωνο για να κλείσετε μέρα και ώρα." data-en="Send us your idea and the artist will call you to set a day and time.">Στείλε μας την ιδέα σου και ο καλλιτέχνης σε παίρνει τηλέφωνο για να κλείσετε μέρα και ώρα.</p>
+      <p class="age" data-el="Δεχόμαστε μόνο άτομα 18 ετών και άνω. Φέρε ταυτότητα." data-en="Clients must be 18 or older. Bring your ID.">Δεχόμαστε μόνο άτομα 18 ετών και άνω. Φέρε ταυτότητα.</p>
+      <figure class="book-photo"><img src="img/nick-at-work.jpg" alt="Nick checking a stencil before a session" loading="lazy"><figcaption>Ermou 16 · Larnaca</figcaption></figure>
+    </div>
+    <form id="bookForm" novalidate>
+      <div class="field"><label for="f-name" data-el="Όνομα" data-en="Name">Όνομα</label><input type="text" id="f-name" required autocomplete="name"></div>
+      <div class="field"><label for="f-phone" data-el="Τηλέφωνο" data-en="Phone">Τηλέφωνο</label><input type="tel" id="f-phone" required autocomplete="tel" inputmode="tel"></div>
+      <div class="field"><label for="f-artist" data-el="Καλλιτέχνης" data-en="Artist">Καλλιτέχνης</label>
+        <select id="f-artist">
+          <option data-el="Οποιοσδήποτε" data-en="Any artist">Οποιοσδήποτε</option>
+          <option>Nick Punisher</option><option>Aggelos Philippou</option><option>Johnny Nicolaou</option>
+        </select></div>
+      <div class="field"><label for="f-size" data-el="Μέγεθος & στυλ" data-en="Size & style">Μέγεθος &amp; στυλ</label><input type="text" id="f-size"></div>
+      <div class="field full"><label for="f-idea" data-el="Η ιδέα σου" data-en="Your idea">Η ιδέα σου</label><textarea id="f-idea" data-el-ph="π.χ. τριαντάφυλλο με στιλέτο στον πήχη, black & grey" data-en-ph="e.g. rose and dagger on the forearm, black & grey" placeholder="π.χ. τριαντάφυλλο με στιλέτο στον πήχη, black & grey"></textarea></div>
+      <div class="full"><button class="btn blood" type="submit" data-el="Στείλε αίτημα" data-en="Send request">Στείλε αίτημα</button></div>
+      <div class="sent" id="sent" hidden></div>
+    </form>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="wrap faq">
+    <div>
+      <p class="eyebrow" data-el="Ερωτήσεις" data-en="Questions">Ερωτήσεις</p>
+      <h2 data-el="Πριν κάτσεις στην καρέκλα" data-en="Before you sit in the chair">Πριν κάτσεις στην καρέκλα</h2>
+    </div>
+    <div class="qa">
+      <details><summary data-el="Πονάει;" data-en="Does it hurt?">Πονάει;</summary><p data-el="Λίγο, ανάλογα το σημείο. Πλευρά, πόδια και κόκαλα πονάνε περισσότερο, ο πήχης και ο ώμος λιγότερο. Κάνουμε διάλειμμα όποτε το χρειαστείς." data-en="A bit, depending on the spot. Ribs, feet and bony areas hurt more, forearm and shoulder less. We take a break whenever you need one.">Λίγο, ανάλογα το σημείο. Πλευρά, πόδια και κόκαλα πονάνε περισσότερο, ο πήχης και ο ώμος λιγότερο. Κάνουμε διάλειμμα όποτε το χρειαστείς.</p></details>
+      <details><summary data-el="Χρειάζεται προκαταβολή;" data-en="Do I need to pay a deposit?">Χρειάζεται προκαταβολή;</summary><p data-el="Για μεγάλα κομμάτια κρατάμε μια μικρή προκαταβολή που αφαιρείται από την τελική τιμή. Τα μικρά τατουάζ κλείνονται χωρίς προκαταβολή." data-en="For large pieces we take a small deposit that comes off the final price. Small tattoos can be booked without one.">Για μεγάλα κομμάτια κρατάμε μια μικρή προκαταβολή που αφαιρείται από την τελική τιμή. Τα μικρά τατουάζ κλείνονται χωρίς προκαταβολή.</p></details>
+      <details><summary data-el="Κάνετε cover-up σε παλιό τατουάζ;" data-en="Can you cover an old tattoo?">Κάνετε cover-up σε παλιό τατουάζ;</summary><p data-el="Ναι. Φέρε φωτογραφία του παλιού τατουάζ και ο καλλιτέχνης σου λέει τι μπορεί να γίνει από πάνω." data-en="Yes. Bring a photo of the old tattoo and the artist will tell you what can go over it.">Ναι. Φέρε φωτογραφία του παλιού τατουάζ και ο καλλιτέχνης σου λέει τι μπορεί να γίνει από πάνω.</p></details>
+      <details><summary data-el="Πώς το φροντίζω μετά;" data-en="How do I look after it?">Πώς το φροντίζω μετά;</summary><p data-el="Πλένεις απαλά με νερό και ήπιο σαπούνι, βάζεις λεπτή κρέμα, χωρίς θάλασσα, πισίνα και ήλιο για δύο εβδομάδες. Φεύγεις με γραπτές οδηγίες." data-en="Wash gently with water and mild soap, apply a thin layer of cream, and avoid the sea, pools and sun for two weeks. You leave with written instructions.">Πλένεις απαλά με νερό και ήπιο σαπούνι, βάζεις λεπτή κρέμα, χωρίς θάλασσα, πισίνα και ήλιο για δύο εβδομάδες. Φεύγεις με γραπτές οδηγίες.</p></details>
+      <details><summary data-el="Κάνετε και piercing;" data-en="Do you do piercing?">Κάνετε και piercing;</summary><p data-el="Ναι, στο ίδιο στούντιο, με αποστειρωμένο εξοπλισμό. Ρώτα μας για τα κοσμήματα που έχουμε." data-en="Yes, in the same studio, with sterile equipment. Ask us about the jewellery we stock.">Ναι, στο ίδιο στούντιο, με αποστειρωμένο εξοπλισμό. Ρώτα μας για τα κοσμήματα που έχουμε.</p></details>
+      <details><summary data-el="Από ποια ηλικία;" data-en="What's the minimum age?">Από ποια ηλικία;</summary><p data-el="Μόνο από 18 και πάνω, με ταυτότητα." data-en="18 and over only, with ID.">Μόνο από 18 και πάνω, με ταυτότητα.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- 8 LOCATION -->
+<section id="find">
+  <div class="wrap loc">
+    <div>
+      <p class="eyebrow" data-el="Πού είμαστε" data-en="Find us">Πού είμαστε</p>
+      <div class="street" data-el-html="Ερμού 16<br>Λάρνακα" data-en-html="Ermou 16<br>Larnaca">Ερμού 16<br>Λάρνακα</div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:26px">
+        <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Nick+Punisher+Tattoo+Team+Ermou+16+Larnaca" target="_blank" rel="noopener" data-el="Οδηγίες ↗" data-en="Directions ↗">Οδηγίες ↗</a>
+        <a class="btn" href="https://www.instagram.com/nick_punisherteam/" target="_blank" rel="noopener">Instagram ↗</a>
+      </div>
+    </div>
+    <div>
+      <table class="hours">
+        <tbody>
+          <tr><td data-el="Δευτέρα – Παρασκευή" data-en="Monday – Friday">Δευτέρα – Παρασκευή</td><td>11:00 – 20:00</td></tr>
+          <tr><td data-el="Σάββατο" data-en="Saturday">Σάββατο</td><td>11:00 – 18:00</td></tr>
+          <tr class="closed"><td data-el="Κυριακή" data-en="Sunday">Κυριακή</td><td data-el="Κλειστά" data-en="Closed">Κλειστά</td></tr>
+        </tbody>
+      </table>
+      <p class="ph" data-el="Ωράριο demo — θα επιβεβαιωθεί με το στούντιο." data-en="Demo hours — to be confirmed with the studio.">Ωράριο demo — θα επιβεβαιωθεί με το στούντιο.</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span style="display:flex;align-items:center;gap:14px"><img class="foot-logo" src="img/logo.png" alt="Nick Punisher Tattoo Team logo" width="64" height="64">© 2026 Nick Punisher Tattoo Team · Ermou 16, Larnaca 6023</span>
+    <span>Demo site by Webbiespirit</span>
+  </div>
+</footer>
+
+<script>
+document.documentElement.classList.add('js');
+(function(){
+  /* language */
+  let lang='el';
+  function setLang(l){
+    lang=l;
+    document.documentElement.lang=l;
+    document.querySelectorAll('[data-el]').forEach(e=>{e.textContent=e.dataset[l]});
+    document.querySelectorAll('[data-el-html]').forEach(e=>{e.innerHTML=e.dataset[l+'Html']});
+    document.querySelectorAll('[data-el-ph]').forEach(e=>{e.placeholder=e.dataset[l+'Ph']});
+    document.getElementById('lang-el').setAttribute('aria-pressed',l==='el');
+    document.getElementById('lang-en').setAttribute('aria-pressed',l==='en');
+    try{localStorage.setItem('np-lang',l)}catch(e){}
+    calc();
+  }
+  document.getElementById('lang-el').onclick=()=>setLang('el');
+  document.getElementById('lang-en').onclick=()=>setLang('en');
+
+  /* exploded machine */
+  const parts=[...document.querySelectorAll('#machineSvg .part')];
+  const sec=document.getElementById('machine');
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function explode(){
+    const r=sec.getBoundingClientRect(),vh=innerHeight;
+    let p=(vh-r.top)/(vh+r.height*.4); p=Math.max(0,Math.min(1,p));
+    const amt=reduce?.6:p;
+    parts.forEach(g=>{g.style.transform=`translateX(${parseFloat(g.dataset.dx)*amt*42}px)`});
+  }
+  addEventListener('scroll',explode,{passive:true});addEventListener('resize',explode);explode();
+
+  /* team carousel */
+  const track=document.getElementById('track');
+  const step=()=>track.querySelector('.artist').offsetWidth+16;
+  document.getElementById('prev').onclick=()=>track.scrollBy({left:-step(),behavior:'smooth'});
+  document.getElementById('next').onclick=()=>track.scrollBy({left:step(),behavior:'smooth'});
+
+  /* picker */
+  const size={xs:{p:60,s:1,h:1,n:'3RL'},md:{p:150,s:1,h:2,n:'5RL · 9M1'},lg:{p:320,s:2,h:5,n:'7RL · 13M1'},xl:{p:1100,s:5,h:22,n:'9RL · 15M1 · 23RM'}};
+  const style={line:.85,trad:1,bg:1.2,real:1.5,color:1.35};
+  const place={arm:1,leg:1,back:1.1,ribs:1.25};
+  const names={line:'Fine line',trad:'Traditional',bg:'Black & grey',real:'Realism',color:{el:'Χρώμα',en:'Colour'}};
+  let current='';
+  function val(n){return document.querySelector(`input[name=${n}]:checked`).value}
+  function calc(){
+    const s=size[val('size')],k=style[val('style')]*place[val('place')];
+    const price=Math.round(s.p*k/10)*10;
+    const sess=Math.max(1,Math.round(s.s*k));
+    const hrs=Math.round(s.h*k);
+    document.getElementById('price').textContent=(lang==='el'?'από ':'from ')+'€'+price.toLocaleString('en');
+    document.getElementById('sessions').textContent=sess===1?'1':(sess+'–'+(sess+1));
+    document.getElementById('hours').textContent='~'+hrs+' h';
+    document.getElementById('needles').textContent=s.n;
+    const st=names[val('style')];
+    const sizeLbl=document.querySelector('input[name=size]:checked+span').childNodes[0].textContent;
+    current=sizeLbl+', '+(typeof st==='string'?st:st[lang]);
+  }
+  document.getElementById('pickerForm').addEventListener('change',calc);
+  document.getElementById('useEstimate').addEventListener('click',()=>{document.getElementById('f-size').value=current});
+
+  /* booking demo */
+  document.getElementById('bookForm').addEventListener('submit',e=>{
+    e.preventDefault();
+    const name=document.getElementById('f-name'),phone=document.getElementById('f-phone'),out=document.getElementById('sent');
+    if(!name.value.trim()||!phone.value.trim()){
+      out.textContent=lang==='el'?'Συμπλήρωσε όνομα και τηλέφωνο για να στείλεις το αίτημα.':'Add your name and phone number to send the request.';
+      out.hidden=false;(name.value.trim()?phone:name).focus();return;
+    }
+    out.textContent=lang==='el'
+      ?`Ευχαριστούμε ${name.value.trim()}! Σε αυτή την demo έκδοση δεν στάλθηκε τίποτα. Στο κανονικό site το αίτημα πάει κατευθείαν στο στούντιο.`
+      :`Thanks ${name.value.trim()}! This is a demo, so nothing was sent. On the live site the request goes straight to the studio.`;
+    out.hidden=false;
+  });
+
+  /* gallery filter + lightbox */
+  const fbtns=[...document.querySelectorAll('.filters button')],shots=[...document.querySelectorAll('#gallery .shot')];
+  fbtns.forEach(b=>b.addEventListener('click',()=>{
+    fbtns.forEach(x=>x.setAttribute('aria-pressed',x===b));
+    shots.forEach(s=>{s.hidden=!(b.dataset.f==='all'||s.dataset.a===b.dataset.f)});
+  }));
+  const lb=document.getElementById('lightbox'),lbImg=document.getElementById('lbImg'),lbCap=document.getElementById('lbCap');
+  let lastShot=null;
+  shots.forEach(s=>s.addEventListener('click',()=>{
+    const im=s.querySelector('img');lbImg.src=im.src;lbImg.alt=im.alt;
+    lbCap.textContent=s.querySelector('.cap b').textContent+' · '+s.querySelector('.cap span').textContent;
+    lastShot=s;lb.hidden=false;document.getElementById('lbClose').focus();
+  }));
+  function closeLb(){lb.hidden=true;lastShot&&lastShot.focus()}
+  document.getElementById('lbClose').onclick=closeLb;
+  lb.addEventListener('click',e=>{if(e.target===lb)closeLb()});
+  addEventListener('keydown',e=>{if(e.key==='Escape'&&!lb.hidden)closeLb()});
+
+  let saved='el';try{saved=localStorage.getItem('np-lang')||'el'}catch(e){}
+  setLang(saved);
+})();
+</script>
+
+</body>
+</html>
