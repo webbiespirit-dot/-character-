@@ -169,7 +169,7 @@ copyBtn.addEventListener("click",function(){
   if("ResizeObserver"in window)new ResizeObserver(resize).observe(wrap);else window.addEventListener("resize",resize);
 
   /* physics: rotation follows the finger on springs, momentum on release */
-  var rotY=new Spring(-.5,70,.9),rotX=new Spring(0,90,.62),drop=new Spring(reduce?0:1.4,90,.72);
+  var rotY=new Spring(-.5,70,.9),rotX=new Spring(0,90,.62),drop=new Spring(reduce?0:.5,90,.72);
   drop.t=0;
   var idleW=0,momentum=0,dragging=false,startX=0,startY=0,baseY=0,baseX=0,intent=null,pid=null,tr=new Tracker(),touched=false;
   canvas.addEventListener("pointerdown",function(e){
