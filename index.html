@@ -1,0 +1,757 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#232d33">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 20'%3E%3Cpath fill='%23edb12a' d='M2 2 L15 8 Q18 6.4 21 8 L34 2 Q36 10 34 18 L21 12 Q18 13.6 15 12 L2 18 Q0 10 2 2Z'/%3E%3C/svg%3E">
+<meta property="og:title" content="Bowtie Barbershop, Larnaca">
+<meta property="og:description" content="Walk-in barbershop at Ermou 173, central Larnaca. Demo site by Webbiespirit.">
+<meta property="og:image" content="https://webbiespirit.com/demo/bowtie/photos/p05.jpg">
+<meta property="og:type" content="website">
+<title>Bowtie Barbershop</title>
+<meta name="description" content="Bowtie, a walk-in barbershop at Ermou 173 in central Larnaca, Cyprus.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Lilita+One&display=swap">
+<style>
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+
+/* Layout: the page is Bowtie's own back wall. Lit letter panels up top, the glass door to walk through,
+   the price board and window hours on the white brick, the star-tile floor under the photo ring. */
+:root{
+  --wall:#33414a;          /* slate-blue paint behind the letters */
+  --wall-deep:#232d33;
+  --night:#161c20;
+  --panel:#15191c;         /* black letter panels */
+  --mustard:#edb12a;       /* the felt letters */
+  --mustard-deep:#9c6f0e;
+  --cognac:#8c5a3b;        /* sofa and chair leather */
+  --brick:#e7e2da;         /* white brick wall, used as text on dark */
+  --brick-mortar:#cbc3b7;
+  --ink:#1a1f23;
+  --mist:#b8c3c9;          /* secondary text, slate-tinted */
+  --led:#a47dff;           /* the purple LED strips: rim light and focus only */
+  --pole-red:#d2333b;
+  --pole-blue:#2f5fbe;
+  --glass:rgba(20,26,30,.86);
+  --f-display:"Lilita One","Arial Rounded MT Bold","Trebuchet MS",system-ui,sans-serif;
+  --f-text:"Libre Caslon Text",Georgia,"Times New Roman",serif;
+  --ease-out:cubic-bezier(0.23,1,0.32,1);
+  --ease-in-out:cubic-bezier(0.77,0,0.175,1);
+  --ease-drawer:cubic-bezier(0.32,0.72,0,1);
+  --hdr:60px;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%;scrollbar-color:var(--mustard-deep) var(--wall-deep)}
+body{margin:0;background:var(--wall);color:var(--brick);font:400 1.0625rem/1.62 var(--f-text);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
+::selection{background:var(--mustard);color:var(--ink)}
+:focus-visible{outline:2px solid var(--led);outline-offset:3px;border-radius:6px}
+a{color:inherit;text-underline-offset:.22em;text-decoration-thickness:1px}
+img{max-width:100%;display:block}
+h1,h2,h3{font-family:var(--f-display);font-weight:400;line-height:1.02;letter-spacing:.005em;margin:0;text-wrap:balance}
+h2{font-size:clamp(2rem,1.35rem + 3vw,3.25rem)}
+p{margin:0}
+.wrap{max-width:1180px;margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.icon{width:1.15em;height:1.15em;flex:none;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+
+/* ---------- header ---------- */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:rgba(35,45,51,.78);-webkit-backdrop-filter:blur(14px) saturate(140%);backdrop-filter:blur(14px) saturate(140%);transition:box-shadow .2s ease}
+.top.scrolled{box-shadow:0 10px 22px -14px rgba(0,0,0,.75)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:10px}
+.mark{font-family:var(--f-display);font-size:1.45rem;color:var(--mustard);text-decoration:none;line-height:1}
+.status{display:inline-flex;align-items:center;gap:9px;min-width:0;max-width:72%;overflow:hidden;min-height:38px;padding:6px 12px 6px 8px;border-radius:999px;background:rgba(10,14,16,.42);border:1px solid rgba(231,226,218,.14);font-size:.875rem;line-height:1.2;text-decoration:none;color:var(--brick);font-variant-numeric:tabular-nums;white-space:nowrap}
+.pole{width:11px;height:24px;border-radius:5px;flex:none;position:relative;overflow:hidden;background:repeating-linear-gradient(-48deg,var(--pole-red) 0 4px,#f4f1ec 4px 8px,var(--pole-blue) 8px 12px,#f4f1ec 12px 16px);background-size:100% 45.4px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.25),0 0 0 2px #0f1316}
+.is-open .pole{animation:pole 1.6s linear infinite}
+.is-closed .pole{filter:grayscale(1) brightness(.65)}
+@keyframes pole{to{background-position:0 45.4px}}
+#statusText{overflow:hidden;text-overflow:ellipsis}
+@media (max-width:370px){.status{font-size:.8125rem;padding-right:10px}}
+
+/* ---------- hero: the letter wall ---------- */
+.hero{position:relative;padding-block:22px 40px;background:
+  radial-gradient(120% 60% at 50% 0%,rgba(255,216,150,.10),transparent 60%),var(--wall)}
+.wall{position:relative;max-width:980px;margin-inline:auto}
+.rail{height:7px;margin:0 2% 0;border-radius:4px;background:linear-gradient(#0f1214,#24292d);box-shadow:0 2px 3px rgba(0,0,0,.4)}
+.letters{display:grid;grid-template-columns:repeat(6,1fr);gap:clamp(6px,1.6vw,16px);margin-top:clamp(18px,3.4vw,34px);font-size:inherit}
+.panel{position:relative;aspect-ratio:.64;max-width:100%;border-radius:3px;background:linear-gradient(170deg,#1d2226,var(--panel) 55%,#101315);box-shadow:0 14px 22px -10px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.06);display:grid;place-items:center;overflow:visible}
+.panel::before{content:"";position:absolute;left:50%;top:calc(-1 * clamp(18px,3.4vw,34px) + 4px);width:clamp(10px,2.2vw,22px);height:clamp(13px,2.6vw,26px);transform:translateX(-50%);border-radius:3px 3px 6px 6px;background:linear-gradient(90deg,#0d1012,#2a3035 50%,#0d1012);box-shadow:0 3px 0 -1px #f8e3b8}
+.cone{position:absolute;inset:0;border-radius:3px;pointer-events:none;background:radial-gradient(70% 55% at 50% -6%,rgba(255,222,165,.55),rgba(255,214,150,.16) 45%,transparent 75%);mix-blend-mode:screen}
+.ch{font-family:var(--f-display);color:var(--mustard);font-size:clamp(2.3rem,13.8vw,8.6rem);line-height:1;transform:translateY(4%);text-shadow:0 .03em 0 var(--mustard-deep),0 .06em 0 #6c4d0a,0 .14em .22em rgba(0,0,0,.55)}
+.ch-o{position:relative}
+.ch-o svg{position:absolute;left:50%;top:50%;width:.36em;height:.2em;transform:translate(-50%,-40%);fill:var(--mustard)}
+.plaque{display:inline-block;margin-top:clamp(14px,2.6vw,26px);margin-left:4%;padding:.32em .6em .22em;border-radius:3px;background:linear-gradient(170deg,#1d2226,var(--panel));box-shadow:0 12px 18px -10px rgba(0,0,0,.6);font-family:var(--f-display);color:var(--mustard);font-size:clamp(1.15rem,5.6vw,2.6rem);line-height:1;text-shadow:0 .04em 0 var(--mustard-deep),0 .1em .2em rgba(0,0,0,.5);transform:rotate(-1.2deg)}
+/* the one orchestrated load: track lights switch on panel by panel */
+@media (prefers-reduced-motion:no-preference){
+  .cone{animation:lampOn .32s var(--ease-out) both;animation-delay:calc(.18s + var(--i) * .11s)}
+  .ch,.plaque{animation:letterOn .45s var(--ease-out) both;animation-delay:calc(.2s + var(--i) * .11s)}
+  .plaque{animation-delay:.92s}
+}
+@keyframes lampOn{from{opacity:0}to{opacity:1}}
+@keyframes letterOn{from{filter:brightness(.42) saturate(.55)}to{filter:none}}
+
+.hero-body{display:grid;gap:8px;margin-top:10px}
+.tie-wrap{position:relative;height:clamp(220px,58vw,420px)}
+.tie-wrap::before{content:"";position:absolute;left:50%;bottom:6%;width:min(64%,420px);height:16%;transform:translateX(-50%);border-radius:50%;background:radial-gradient(closest-side,rgba(0,0,0,.42),transparent);pointer-events:none}
+#tie{position:absolute;inset:0;width:100%;height:100%;touch-action:pan-y;cursor:grab;display:block}
+#tie.dragging{cursor:grabbing}
+.tie-fallback{position:absolute;inset:8% 10%;display:grid;place-items:center}
+.tie-fallback svg{width:min(100%,420px);height:auto;filter:drop-shadow(0 12px 14px rgba(0,0,0,.45))}
+.tie-hint{position:absolute;left:50%;bottom:0;transform:translateX(-50%);display:flex;align-items:center;gap:7px;font-size:.8125rem;color:var(--mist);transition:opacity .3s ease;pointer-events:none;white-space:nowrap}
+.tie-hint.gone{opacity:0}
+.hero-copy{display:grid;gap:18px;align-content:center}
+.lede{font-size:clamp(1.125rem,1rem + .6vw,1.375rem);line-height:1.45;max-width:30ch}
+.rating{display:flex;align-items:center;gap:10px;color:var(--mist);font-size:.9375rem;font-variant-numeric:tabular-nums}
+.stars{display:inline-flex;gap:2px;color:var(--mustard)}
+.stars svg{width:15px;height:15px;fill:currentColor}
+.ctas{display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:52px;padding:12px 18px;white-space:nowrap;border-radius:10px;font-family:var(--f-display);font-size:1.125rem;letter-spacing:.01em;text-decoration:none;line-height:1;cursor:pointer;border:0;transition:transform .14s var(--ease-out),background-color .2s ease,filter .2s ease;-webkit-tap-highlight-color:transparent;flex:1 1 150px}
+.btn:active{transform:scale(.97)}
+.btn-primary{flex-grow:1.35;background:var(--mustard);color:var(--ink);box-shadow:0 10px 18px -12px rgba(0,0,0,.7)}
+.btn-ghost{background:transparent;color:var(--brick);box-shadow:inset 0 0 0 1.5px rgba(231,226,218,.38)}
+@media (hover:hover) and (pointer:fine){
+  .btn-primary:hover{filter:brightness(1.07)}
+  .btn-ghost:hover{background:rgba(231,226,218,.07)}
+}
+
+/* ---------- walk in through the door ---------- */
+.walkin{position:relative;background:var(--night)}
+.walk-track{height:270vh}
+.walk-stage{position:sticky;top:calc(var(--hdr) + env(safe-area-inset-top,0px));height:calc(100vh - var(--hdr) - env(safe-area-inset-top,0px));height:calc(100svh - var(--hdr) - env(safe-area-inset-top,0px));max-width:760px;margin-inline:auto;overflow:hidden}
+.walk-frame{position:absolute;inset:0;overflow:hidden;will-change:clip-path}
+.walk-frame img,.door{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.inside{transform-origin:50% 55%;will-change:transform}
+.shade{position:absolute;inset:0;background:#05080a;opacity:.5;pointer-events:none}
+.door{background:url("photos/p53.jpg") 50% 50%/cover no-repeat;will-change:transform}
+.door-l{clip-path:inset(0 50% 0 0)}
+.door-r{clip-path:inset(0 0 0 50%)}
+.door::after{content:"";position:absolute;top:0;bottom:0;left:calc(50% - 1px);width:2px;background:linear-gradient(rgba(255,255,255,.05),rgba(255,255,255,.55) 40%,rgba(255,255,255,.08))}
+.scrim{position:absolute;left:0;right:0;bottom:0;height:52%;background:linear-gradient(transparent,rgba(8,11,13,.86));pointer-events:none}
+.walk-cap{position:absolute;left:0;right:0;bottom:0;padding:0 max(20px,env(safe-area-inset-left,0px)) clamp(28px,6vh,56px);display:grid;gap:10px;will-change:opacity,transform}
+.walk-cap h2{font-size:clamp(2.1rem,1.4rem + 3.4vw,3.6rem);color:var(--brick)}
+.walk-cap p{max-width:34ch;color:#dcd7cf;font-size:1.0625rem}
+.cap-b{opacity:0}
+.walk-static{display:none}
+
+/* ---------- white brick: price board and window hours ---------- */
+.brickwall{background-color:#e3ded6;background-size:180px 84px;color:var(--ink);padding-block:clamp(64px,10vw,120px)}
+.brick-grid{display:grid;gap:28px;align-items:start}
+.board,.window{position:relative;border-radius:8px;color:var(--brick);padding:clamp(26px,5vw,44px) clamp(22px,5vw,46px) clamp(26px,4vw,38px);box-shadow:0 26px 40px -24px rgba(26,31,35,.75),0 6px 12px -8px rgba(26,31,35,.5)}
+.board{background:
+  linear-gradient(118deg,rgba(255,255,255,.09),transparent 34%,transparent 62%,rgba(255,255,255,.05) 74%,transparent 82%),
+  linear-gradient(#1c2226,#12171a);border:6px solid #2a3035;outline:1px solid rgba(255,255,255,.16);outline-offset:-7px}
+.flourish{display:block;width:150px;height:30px;margin:0 auto 10px;fill:none;stroke:#d9d3c9;stroke-width:1.5;stroke-linecap:round}
+.board h2,.window h2{font-family:var(--f-text);font-weight:400;font-size:clamp(1.7rem,1.3rem + 1.6vw,2.3rem);text-align:center;letter-spacing:.01em}
+.board h2 span,.window h2 span{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.2em}
+.tag{position:absolute;bottom:-13px;right:18px;transform:rotate(-3deg);background:var(--mustard);color:var(--ink);font-family:var(--f-display);font-size:.95rem;padding:5px 12px 4px;border-radius:4px;box-shadow:0 6px 10px -6px rgba(0,0,0,.6);white-space:nowrap}
+.menu{list-style:none;margin:26px 0 0;padding:0;display:grid;gap:16px;font-size:clamp(1.125rem,1rem + .6vw,1.3rem)}
+.menu li{display:flex;align-items:baseline;gap:10px}
+.menu i{flex:1;border-bottom:1px dotted rgba(231,226,218,.35);transform:translateY(-.3em)}
+.menu b{font-weight:400;font-variant-numeric:tabular-nums lining-nums;color:#fff}
+.note{margin-top:26px;font-size:.875rem;line-height:1.5;color:var(--mist);text-align:center;max-width:42ch;margin-inline:auto}
+.window{background:linear-gradient(115deg,rgba(255,255,255,.08),transparent 40%),var(--glass);border:1px solid rgba(255,255,255,.18)}
+.welcome{display:block;text-align:center;font-size:.95rem;color:var(--mist);margin-bottom:6px}
+.now{text-align:center;color:var(--mist);font-size:.9375rem;margin-top:10px;font-variant-numeric:tabular-nums}
+.hours{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:4px;font-variant-numeric:tabular-nums lining-nums}
+.hours li{display:flex;justify-content:space-between;gap:12px;padding:9px 12px;border-radius:6px;font-size:1.0625rem}
+.hours li span:last-child{color:#f2efe9}
+.hours li.off span:last-child{color:var(--mist)}
+.hours li.today{background:rgba(237,177,42,.14);box-shadow:inset 0 0 0 1px rgba(237,177,42,.45)}
+.hours li.today span:first-child{color:var(--mustard)}
+.hours li.today span:first-child::after{content:"today";margin-left:.6em;font-size:.78em;color:var(--mist)}
+.nb{margin-top:20px;text-align:center;font-size:.9375rem;color:var(--mist)}
+
+/* ---------- inside the shop: photo ring on the star-tile floor ---------- */
+.floor{background:linear-gradient(var(--wall) 0 72%,var(--wall-deep));padding-block:clamp(64px,10vw,120px) 28px;overflow:hidden}
+.floor-head{display:grid;gap:12px;margin-bottom:clamp(18px,4vw,40px)}
+.floor-head p{color:var(--mist);max-width:48ch}
+.ring-stage{position:relative;height:clamp(360px,92vw,500px);perspective:1100px;perspective-origin:50% 38%;touch-action:pan-y;cursor:grab;outline-offset:-6px;user-select:none;-webkit-user-select:none}
+.ring-stage.dragging{cursor:grabbing}
+.ring{position:absolute;z-index:1;left:50%;top:6px;width:var(--cw);height:var(--chh);margin-left:calc(var(--cw) / -2);transform-style:preserve-3d;will-change:transform;--cw:clamp(196px,54vw,290px);--chh:calc(var(--cw) * 1.33)}
+.card{position:absolute;inset:0;margin:0;border-radius:6px;overflow:hidden;background:#11161a;box-shadow:0 22px 30px -18px rgba(0,0,0,.8);backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.card img{width:100%;height:100%;object-fit:cover;pointer-events:none;-webkit-user-drag:none}
+.tilefloor{position:absolute;left:-40%;right:-40%;bottom:-42%;height:74%;transform:rotateX(76deg);transform-origin:50% 0;background-color:#d9d4cc;background-size:132px 132px;opacity:.85;-webkit-mask-image:linear-gradient(to bottom,transparent,#000 22%,#000 55%,transparent 92%);mask-image:linear-gradient(to bottom,transparent,#000 22%,#000 55%,transparent 92%);pointer-events:none}
+.ring-controls{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:14px}
+.ring-btn{width:48px;height:48px;border-radius:50%;border:0;background:rgba(231,226,218,.1);color:var(--brick);display:grid;place-items:center;cursor:pointer;transition:transform .14s var(--ease-out),background-color .2s ease;flex:none}
+.ring-btn:active{transform:scale(.94)}
+@media (hover:hover) and (pointer:fine){.ring-btn:hover{background:rgba(231,226,218,.18)}}
+.ring-cap{min-height:3em;max-width:30ch;text-align:center;font-size:.9688rem;line-height:1.45;display:grid;place-items:center}
+.ring-src{text-align:center;color:var(--mist);font-size:.8125rem;margin-top:6px}
+
+/* ---------- the regulars ---------- */
+.regulars{background:var(--wall-deep);padding-block:clamp(64px,10vw,120px)}
+.reg-grid{display:grid;gap:34px}
+.reg-intro{display:grid;gap:16px;align-content:start}
+.reg-intro p{max-width:44ch;color:#dcd7cf}
+.quotes{list-style:none;margin:0;padding:0;display:grid;gap:30px}
+.quotes blockquote{margin:0;font-size:clamp(1.3rem,1.1rem + 1vw,1.75rem);line-height:1.32;text-wrap:pretty}
+.quotes figcaption{margin-top:10px;color:var(--mist);font-size:.9375rem}
+.quotes li{padding-top:24px;border-top:1px solid rgba(231,226,218,.14)}
+.also{color:#dcd7cf;max-width:44ch}
+
+/* ---------- find ---------- */
+.find{background:var(--wall);padding-block:clamp(64px,10vw,120px) clamp(48px,7vw,80px)}
+.find-grid{display:grid;gap:30px}
+address{font-style:normal;font-size:clamp(1.25rem,1.1rem + .7vw,1.55rem);line-height:1.4;margin-top:16px}
+.phone-row{display:flex;align-items:center;flex-wrap:wrap;gap:10px 14px;margin-top:22px}
+.phone{font-family:var(--f-display);font-size:clamp(1.6rem,1.3rem + 1.4vw,2.2rem);letter-spacing:.02em;font-variant-numeric:tabular-nums;user-select:all;-webkit-user-select:all}
+.copy{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:8px 14px;border-radius:999px;border:0;cursor:pointer;background:rgba(231,226,218,.1);color:var(--brick);font:600 .9375rem/1 var(--f-text);transition:transform .14s var(--ease-out),background-color .2s ease}
+.copy:active{transform:scale(.96)}
+.copy-label{transition:filter .2s ease,opacity .2s ease}
+.copy.swap .copy-label{filter:blur(2px);opacity:.6}
+@media (hover:hover) and (pointer:fine){.copy:hover{background:rgba(231,226,218,.17)}}
+.find .ctas{margin-top:26px;max-width:460px}
+.social{display:flex;gap:18px;margin-top:26px;flex-wrap:wrap}
+.social a{display:inline-flex;align-items:center;gap:8px;min-height:44px;text-decoration:none;color:var(--brick)}
+.social a span{text-decoration:underline;text-decoration-color:rgba(231,226,218,.35)}
+.motto{align-self:end}
+.motto p{font-family:var(--f-display);color:var(--mustard);font-size:clamp(2.4rem,1.6rem + 4.2vw,4.6rem);line-height:1;text-shadow:0 .04em 0 var(--mustard-deep)}
+.motto small{display:block;margin-top:14px;color:var(--mist);font-size:.875rem}
+footer{background:var(--night);color:var(--mist);font-size:.875rem;padding-block:26px calc(26px + var(--barpad,0px))}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px}
+footer strong{color:var(--brick);font-weight:700}
+
+/* ---------- phone action bar ---------- */
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:40;display:flex;gap:10px;padding:10px max(16px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));background:rgba(22,28,32,.86);-webkit-backdrop-filter:blur(16px) saturate(150%);backdrop-filter:blur(16px) saturate(150%);box-shadow:0 -10px 24px -16px rgba(0,0,0,.8);transform:translateY(110%);transition:transform .2s var(--ease-out)}
+.bar.show{transform:none;transition:transform .32s var(--ease-drawer)}
+.bar .btn{min-height:48px;font-size:1.0625rem}
+
+@media (min-width:860px){
+  .hero{padding-block:34px 70px}
+  .hero-body{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);align-items:center;gap:30px;margin-top:20px}
+  .hero-copy{order:-1}
+  .tie-wrap{height:400px}
+  .brick-grid{grid-template-columns:1.05fr .95fr;gap:44px}
+  .window{margin-top:60px}
+  .reg-grid{grid-template-columns:.85fr 1.15fr;gap:60px}
+  .find-grid{grid-template-columns:1fr 1fr;gap:60px}
+  .bar{display:none}
+  .floor-head{grid-template-columns:auto 1fr;align-items:end;gap:40px}
+}
+@media (prefers-reduced-transparency:reduce){
+  .top,.bar{background:var(--wall-deep);-webkit-backdrop-filter:none;backdrop-filter:none}
+}
+@media (prefers-reduced-motion:reduce){
+  .walk-track{height:auto}
+  .walk-stage{display:none}
+  .walk-static{display:grid;gap:0;max-width:760px;margin-inline:auto}
+  .walk-static figure{margin:0;position:relative}
+  .walk-static img{width:100%;max-height:80vh;object-fit:cover}
+  .walk-static figcaption{padding:22px max(16px,env(safe-area-inset-left,0px)) 34px;display:grid;gap:8px}
+  .walk-static h2{font-size:2.2rem}
+  .is-open .pole{animation:none}
+  .bar,.bar.show{transition:opacity .2s ease}
+}
+</style>
+</head>
+<body>
+
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="mark" href="#main">Bowtie</a>
+    <a class="status" id="status" href="#hours">
+      <span class="pole" aria-hidden="true"></span>
+      <span id="statusText" aria-live="polite">Opening hours</span>
+    </a>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" aria-label="Bowtie Barber Shop">
+    <div class="wrap">
+      <div class="wall">
+        <div class="rail" aria-hidden="true"></div>
+        <h1 class="letters" aria-label="Bowtie Barber Shop">
+          <span class="panel" aria-hidden="true" style="--i:0"><span class="cone" style="--i:0"></span><span class="ch" style="--i:0">B</span></span>
+          <span class="panel" aria-hidden="true" style="--i:1"><span class="cone" style="--i:1"></span><span class="ch ch-o" style="--i:1">O<svg viewBox="0 0 36 20" aria-hidden="true"><path d="M2 2 L15 8 Q18 6.4 21 8 L34 2 Q36 10 34 18 L21 12 Q18 13.6 15 12 L2 18 Q0 10 2 2Z"/></svg></span></span>
+          <span class="panel" aria-hidden="true" style="--i:2"><span class="cone" style="--i:2"></span><span class="ch" style="--i:2">W</span></span>
+          <span class="panel" aria-hidden="true" style="--i:3"><span class="cone" style="--i:3"></span><span class="ch" style="--i:3">T</span></span>
+          <span class="panel" aria-hidden="true" style="--i:4"><span class="cone" style="--i:4"></span><span class="ch" style="--i:4">I</span></span>
+          <span class="panel" aria-hidden="true" style="--i:5"><span class="cone" style="--i:5"></span><span class="ch" style="--i:5">E</span></span>
+        </h1>
+        <div class="plaque" aria-hidden="true">Barber Shop</div>
+      </div>
+
+      <div class="hero-body">
+        <div class="tie-wrap" id="tieWrap">
+          <canvas id="tie" role="img" aria-label="A 3D bow tie with a black and white star print. Drag sideways to spin it."></canvas>
+          <div class="tie-fallback" id="tieFallback" hidden>
+            <svg viewBox="0 0 320 170" role="img" aria-label="A bow tie with a black and white star print">
+              <defs>
+                <pattern id="stars" width="34" height="34" patternUnits="userSpaceOnUse">
+                  <rect width="34" height="34" fill="#ece8e1"/>
+                  <path d="M17 4 L19.5 14.5 L30 17 L19.5 19.5 L17 30 L14.5 19.5 L4 17 L14.5 14.5Z" fill="#1b1d1f"/>
+                </pattern>
+              </defs>
+              <path d="M140 70 C110 40 60 14 18 10 C6 50 6 120 18 160 C60 156 110 130 140 100Z" fill="url(#stars)" stroke="#14181b" stroke-width="3"/>
+              <path d="M180 70 C210 40 260 14 302 10 C314 50 314 120 302 160 C260 156 210 130 180 100Z" fill="url(#stars)" stroke="#14181b" stroke-width="3"/>
+              <rect x="136" y="58" width="48" height="54" rx="14" fill="#edb12a" stroke="#14181b" stroke-width="3"/>
+            </svg>
+          </div>
+          <p class="tie-hint" id="tieHint"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m18 8 4 4-4 4"/><path d="m6 8-4 4 4 4"/><path d="M2 12h20"/></svg>Drag to spin</p>
+        </div>
+
+        <div class="hero-copy">
+          <p class="lede">A walk-in barbershop at Ermou 173, right in the centre of Larnaca. No appointment needed.</p>
+          <p class="rating"><span class="stars" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.5L12 17.3 6.1 20.5l1.3-6.5L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.5L12 17.3 6.1 20.5l1.3-6.5L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.5L12 17.3 6.1 20.5l1.3-6.5L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.5L12 17.3 6.1 20.5l1.3-6.5L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.5L12 17.3 6.1 20.5l1.3-6.5L2.5 9.4l6.6-.8z"/></svg>
+          </span>5.0 from 279 Google reviews</p>
+          <div class="ctas" id="heroCtas">
+            <a class="btn btn-primary" href="tel:+35797782071"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>Call 97 782071</a>
+            <a class="btn btn-ghost" href="https://maps.google.com/?cid=2458568113137292810" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Directions</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="walkin" aria-label="Walk in through the door">
+    <div class="walk-track" id="walkTrack">
+      <div class="walk-stage" id="walkStage">
+        <div class="walk-frame" id="walkFrame">
+          <img class="inside" id="inside" src="photos/p04.jpg" width="828" height="1100" alt="Inside Bowtie: mustard letters on dark panels, a rack of bow ties, a barber pole and a motorbike parked by the leather sofa." decoding="async">
+          <div class="shade" id="shade"></div>
+          <div class="door door-l" id="doorL" role="img" aria-label="Bowtie's glass front at night, warm pendant lights and portraits of animals in glasses inside."></div>
+          <div class="door door-r" id="doorR"></div>
+          <div class="scrim"></div>
+        </div>
+        <div class="walk-cap cap-a" id="capA">
+          <h2>Ermou 173</h2>
+          <p>Look for the barber pole and the warm lights behind the glass.</p>
+        </div>
+        <div class="walk-cap cap-b" id="capB">
+          <h2>Come on in</h2>
+          <p>No appointment needed. Take a seat on the leather sofa until it’s your turn.</p>
+        </div>
+      </div>
+      <div class="walk-static">
+        <figure>
+          <img src="photos/p53.jpg" width="825" height="1100" alt="Bowtie's glass front at night, warm pendant lights and portraits of animals in glasses inside." loading="lazy">
+          <figcaption><h2>Ermou 173</h2><p>Look for the barber pole and the warm lights behind the glass.</p></figcaption>
+        </figure>
+        <figure>
+          <img src="photos/p04.jpg" width="828" height="1100" alt="Inside Bowtie: mustard letters on dark panels, a rack of bow ties, a barber pole and a motorbike." loading="lazy">
+          <figcaption><h2>Come on in</h2><p>No appointment needed. Take a seat on the leather sofa until it’s your turn.</p></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="brickwall" id="brick" aria-label="Prices and opening hours">
+    <div class="wrap brick-grid">
+      <article class="board" aria-labelledby="priceTitle">
+        <span class="tag">Example prices</span>
+        <svg class="flourish" viewBox="0 0 150 30" aria-hidden="true"><path d="M75 26 C75 14 70 6 64 6 C58 6 57 14 63 15 M75 26 C75 14 80 6 86 6 C92 6 93 14 87 15 M64 19 C48 26 30 20 6 22 M86 19 C102 26 120 20 144 22 M75 4 V20"/></svg>
+        <h2 id="priceTitle"><span>Price list</span></h2>
+        <ul class="menu">
+          <li><span>Haircut</span><i aria-hidden="true"></i><b>€15</b></li>
+          <li><span>Haircut and beard</span><i aria-hidden="true"></i><b>€20</b></li>
+          <li><span>Beard</span><i aria-hidden="true"></i><b>€10</b></li>
+          <li><span>Hot towel shave</span><i aria-hidden="true"></i><b>€15</b></li>
+          <li><span>Face mask</span><i aria-hidden="true"></i><b>€5</b></li>
+        </ul>
+        <p class="note">Example prices for this demo, copied from a photo of the board in the shop. Ask in the shop for today’s prices.</p>
+      </article>
+
+      <article class="window" id="hours" aria-labelledby="hoursTitle">
+        <svg class="flourish" viewBox="0 0 150 30" aria-hidden="true"><path d="M75 26 C75 14 70 6 64 6 C58 6 57 14 63 15 M75 26 C75 14 80 6 86 6 C92 6 93 14 87 15 M64 19 C48 26 30 20 6 22 M86 19 C102 26 120 20 144 22 M75 4 V20"/></svg>
+        <h2 id="hoursTitle"><span>Opening hours</span></h2>
+        <p class="now" id="nowLine">Times are Larnaca time.</p>
+        <ul class="hours" id="hoursList">
+          <li data-d="1"><span>Monday</span><span>09:00 to 18:00</span></li>
+          <li data-d="2"><span>Tuesday</span><span>09:00 to 18:00</span></li>
+          <li data-d="3"><span>Wednesday</span><span>09:00 to 18:00</span></li>
+          <li data-d="4" class="off"><span>Thursday</span><span>Closed</span></li>
+          <li data-d="5"><span>Friday</span><span>09:00 to 18:00</span></li>
+          <li data-d="6"><span>Saturday</span><span>09:00 to 17:30</span></li>
+          <li data-d="0" class="off"><span>Sunday</span><span>Closed</span></li>
+        </ul>
+        <p class="nb">Walk in any time we’re open. No booking.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="floor" aria-labelledby="ringTitle">
+    <div class="wrap floor-head">
+      <h2 id="ringTitle">Inside the shop</h2>
+      <p>Drag the ring to look around: the letter wall, the chrome chairs, the star-tile floor and a few recent cuts.</p>
+    </div>
+    <div class="ring-stage" id="ringStage" tabindex="0" role="group" aria-roledescription="carousel" aria-label="Photos of Bowtie. Use the left and right arrow keys to turn.">
+      <div class="tilefloor" id="tileFloor" aria-hidden="true"></div>
+      <div class="ring" id="ring">
+        <figure class="card"><img src="photos/p05.jpg" width="825" height="1100" alt="The Bowtie Barbers sign over the door at night." loading="lazy" decoding="async" draggable="false"></figure>
+        <figure class="card"><img src="photos/p04.jpg" width="828" height="1100" alt="The letter wall, the bow tie rack and the motorbike parked inside." loading="lazy" decoding="async" draggable="false"></figure>
+        <figure class="card"><img src="photos/p02.jpg" width="825" height="1100" alt="A vintage chrome and leather barber chair on the star-tile floor." loading="lazy" decoding="async" draggable="false"></figure>
+        <figure class="card"><img src="photos/p10.jpg" width="828" height="1100" alt="A fade with a textured top, under the yellow letters." loading="lazy" decoding="async" draggable="false"></figure>
+        <figure class="card"><img src="photos/p46.jpg" width="825" height="1100" alt="Curls on top with a fade and a line design." loading="lazy" decoding="async" draggable="false"></figure>
+        <figure class="card"><img src="photos/p53.jpg" width="825" height="1100" alt="The glass front at night." loading="lazy" decoding="async" draggable="false"></figure>
+      </div>
+    </div>
+    <div class="wrap">
+      <div class="ring-controls">
+        <button class="ring-btn" id="ringPrev" type="button" aria-label="Previous photo"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
+        <p class="ring-cap" id="ringCap" aria-live="polite">The Bowtie Barbers sign over the door at night.</p>
+        <button class="ring-btn" id="ringNext" type="button" aria-label="Next photo"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
+      </div>
+      <p class="ring-src">Photos from Bowtie’s Google Maps listing.</p>
+    </div>
+  </section>
+
+  <section class="regulars" aria-labelledby="regTitle">
+    <div class="wrap reg-grid">
+      <div class="reg-intro">
+        <h2 id="regTitle">Pany’s regulars</h2>
+        <p>Bowtie is Pany’s shop. Across the Google reviews the same things keep coming up: a friendly barber, sharp fades and clean lines, good music and real conversation while you wait. Kids are welcome in the chair too.</p>
+        <p class="also">Local footballers, and even a well-known Greek singer, have dropped in for a trim.</p>
+      </div>
+      <ul class="quotes">
+        <li><figure><blockquote>“Gave me exactly the taper fade I wanted. Highly recommend Pany.”</blockquote><figcaption>Mario A., Google review</figcaption></figure></li>
+        <li><figure><blockquote>“It’s timeless, and that’s exactly what makes it special.”</blockquote><figcaption>Mark M., Google review</figcaption></figure></li>
+        <li><figure><blockquote>“Hands down this is the best hair cut I’ve gotten.”</blockquote><figcaption>A. P., a well-travelled customer, Google review</figcaption></figure></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="find" id="find" aria-labelledby="findTitle">
+    <div class="wrap find-grid">
+      <div>
+        <h2 id="findTitle">Find Bowtie</h2>
+        <address>Ermou 173<br>Larnaca 6022, Cyprus</address>
+        <div class="phone-row">
+          <span class="phone" id="phone">+357 97 782071</span>
+          <button class="copy" id="copyBtn" type="button"><svg class="icon" id="copyIcon" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span class="copy-label" id="copyLabel">Copy number</span></button>
+        </div>
+        <div class="ctas">
+          <a class="btn btn-primary" href="tel:+35797782071"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>Call</a>
+          <a class="btn btn-ghost" href="https://maps.google.com/?cid=2458568113137292810" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Directions</a>
+        </div>
+        <div class="social">
+          <a href="https://www.instagram.com/bowtie_barbers/" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5"/><circle cx="12" cy="12" r="4.2"/><path d="M17.5 6.5h.01"/></svg><span>Instagram</span></a>
+          <a href="https://www.facebook.com/profile.php?id=100075461903873" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg><span>Facebook</span></a>
+        </div>
+      </div>
+      <div class="motto">
+        <p>Do what makes you happy.</p>
+        <small>From Bowtie’s Instagram</small>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <strong>Demo site by Webbiespirit</strong>
+    <span>Photos from Bowtie’s public Google Maps listing.</span>
+  </div>
+</footer>
+
+<div class="bar" id="bar" aria-hidden="true">
+  <a class="btn btn-primary" href="tel:+35797782071" tabindex="-1"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>Call</a>
+  <a class="btn btn-ghost" href="https://maps.google.com/?cid=2458568113137292810" target="_blank" rel="noopener" tabindex="-1"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Directions</a>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+(function(){
+"use strict";
+var reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+function clamp(v,a,b){return v<a?a:v>b?b:v}
+
+/* ---------- spring (semi-implicit Euler, fixed substeps) ---------- */
+function Spring(x,k,zeta){this.x=x;this.v=0;this.t=x;this.set(k,zeta)}
+Spring.prototype.set=function(k,zeta){this.k=k;this.c=2*zeta*Math.sqrt(k)};
+Spring.prototype.step=function(dt){var n=Math.max(1,Math.ceil(dt/0.008)),h=dt/n;for(var i=0;i<n;i++){var a=this.k*(this.t-this.x)-this.c*this.v;this.v+=a*h;this.x+=this.v*h}};
+Spring.prototype.rest=function(){return Math.abs(this.t-this.x)<0.0005&&Math.abs(this.v)<0.0005};
+function rubber(over,dim){var c=0.55;return (over*dim*c)/(dim+c*Math.abs(over))}
+/* velocity tracker over the last ~100ms of pointer samples */
+function Tracker(){this.s=[]}
+Tracker.prototype.add=function(x,y){var t=performance.now();this.s.push([t,x,y]);while(this.s.length>2&&t-this.s[0][0]>100)this.s.shift()};
+Tracker.prototype.vel=function(){var s=this.s;if(s.length<2)return[0,0];var a=s[0],b=s[s.length-1],dt=(b[0]-a[0])/1000;if(dt<=0)return[0,0];if(performance.now()-b[0]>80)return[0,0];return[(b[1]-a[1])/dt,(b[2]-a[2])/dt]};
+
+/* ---------- star-tile pattern, drawn once, used by the bow tie and the floor ---------- */
+function tileCanvas(){
+  var c=document.createElement("canvas");c.width=c.height=256;var g=c.getContext("2d"),s=128;
+  g.fillStyle="#ece8e1";g.fillRect(0,0,256,256);
+  for(var ty=0;ty<2;ty++)for(var tx=0;tx<2;tx++){
+    var ox=tx*s,oy=ty*s,cx=ox+s/2,cy=oy+s/2;
+    g.strokeStyle="#8f928f";g.lineWidth=3;g.beginPath();g.moveTo(cx,oy+5);g.lineTo(ox+s-5,cy);g.lineTo(cx,oy+s-5);g.lineTo(ox+5,cy);g.closePath();g.stroke();
+    g.fillStyle="#1b1d1f";g.beginPath();
+    for(var i=0;i<8;i++){var a=i*Math.PI/4-Math.PI/2,r=i%2===0?s*0.40:s*0.10;g.lineTo(cx+Math.cos(a)*r,cy+Math.sin(a)*r)}
+    g.closePath();g.fill();
+    g.fillStyle="#ece8e1";g.beginPath();g.arc(cx,cy,s*0.045,0,Math.PI*2);g.fill();
+  }
+  g.fillStyle="#1b1d1f";
+  for(var y=0;y<=256;y+=s)for(var x=0;x<=256;x+=s){g.beginPath();g.moveTo(x,y-15);g.lineTo(x+15,y);g.lineTo(x,y+15);g.lineTo(x-15,y);g.closePath();g.fill()}
+  return c;
+}
+var tiles=tileCanvas();
+try{var tf=document.getElementById("tileFloor");tf.style.backgroundImage="url("+tiles.toDataURL("image/png")+")"}catch(e){}
+
+/* ---------- white brick texture for the price wall ---------- */
+(function(){
+  try{
+    var c=document.createElement("canvas");c.width=360;c.height=168;var g=c.getContext("2d");
+    g.fillStyle="#cbc3b7";g.fillRect(0,0,360,168);
+    var seed=7;function rnd(){seed=(seed*16807)%2147483647;return seed/2147483647}
+    for(var row=0;row<4;row++){
+      var off=row%2?-90:0;
+      for(var x=off;x<360;x+=180){
+        var l=226+Math.floor(rnd()*12),hue=Math.floor(rnd()*6);
+        g.fillStyle="rgb("+(l)+","+(l-4-hue)+","+(l-10-hue)+")";
+        g.fillRect(x+3,row*42+3,174,36);
+        g.fillStyle="rgba(255,255,255,.18)";g.fillRect(x+3,row*42+3,174,4);
+      }
+    }
+    var el=document.getElementById("brick");el.style.backgroundImage="url("+c.toDataURL("image/png")+")";
+  }catch(e){}
+})();
+
+/* ---------- live open / closed status in Cyprus time ---------- */
+var HOURS=[null,[540,1080],[540,1080],[540,1080],null,[540,1080],[540,1050]];
+var DAYS=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+function hm(m){var h=Math.floor(m/60),mm=m%60;return(h<10?"0":"")+h+":"+(mm<10?"0":"")+mm}
+function cyprusNow(){
+  try{
+    var f=new Intl.DateTimeFormat("en-GB",{timeZone:"Asia/Nicosia",weekday:"short",hour:"2-digit",minute:"2-digit",hourCycle:"h23"});
+    var p={};f.formatToParts(new Date()).forEach(function(x){p[x.type]=x.value});
+    var d=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"].indexOf(p.weekday);
+    return{day:d,min:(+p.hour%24)*60+(+p.minute)};
+  }catch(e){var n=new Date();return{day:n.getDay(),min:n.getHours()*60+n.getMinutes()}}
+}
+function updateStatus(){
+  var n=cyprusNow(),h=HOURS[n.day],open=false,text;
+  if(h&&n.min>=h[0]&&n.min<h[1]){open=true;var left=h[1]-n.min;text=left<=45?"Open, closes in "+left+" min":"Open until "+hm(h[1])}
+  else if(h&&n.min<h[0]){text="Closed, opens "+hm(h[0])}
+  else{for(var k=1;k<=7;k++){var d=(n.day+k)%7;if(HOURS[d]){text="Closed till "+(k===1?"tomorrow":DAYS[d].slice(0,3))+" "+hm(HOURS[d][0]);break}}}
+  var st=document.getElementById("status");
+  st.classList.toggle("is-open",open);st.classList.toggle("is-closed",!open);
+  var stx=document.getElementById("statusText");if(stx.textContent!==text)stx.textContent=text;
+  document.getElementById("nowLine").textContent="It’s "+hm(n.min)+" on "+DAYS[n.day]+" in Larnaca. "+(open?"We’re open.":"We’re closed right now.");
+  var lis=document.querySelectorAll("#hoursList li");
+  for(var i=0;i<lis.length;i++)lis[i].classList.toggle("today",+lis[i].getAttribute("data-d")===n.day);
+}
+updateStatus();setInterval(updateStatus,30000);
+
+/* ---------- header edge + phone action bar ---------- */
+var top=document.getElementById("top"),bar=document.getElementById("bar");
+function measureHeader(){document.documentElement.style.setProperty("--hdr",top.offsetHeight+"px")}
+measureHeader();window.addEventListener("resize",measureHeader);
+var heroCtas=document.getElementById("heroCtas"),findSec=document.getElementById("find");
+var ctaVisible=true,findVisible=false,doorVisible=false;
+function syncBar(){var show=!ctaVisible&&!findVisible&&!doorVisible;bar.classList.toggle("show",show);bar.setAttribute("aria-hidden",show?"false":"true");bar.querySelectorAll("a").forEach(function(a){a.tabIndex=show?0:-1});document.documentElement.style.setProperty("--barpad",show?"72px":"0px")}
+if("IntersectionObserver"in window){
+  new IntersectionObserver(function(e){ctaVisible=e[0].isIntersecting;syncBar()}).observe(heroCtas);
+  new IntersectionObserver(function(e){findVisible=e[0].isIntersecting;syncBar()},{rootMargin:"0px 0px -30% 0px"}).observe(findSec);
+  if(!reduce)new IntersectionObserver(function(e){doorVisible=e[0].isIntersecting;syncBar()},{rootMargin:"-20% 0px -20% 0px"}).observe(document.getElementById("walkTrack"));
+}
+window.addEventListener("scroll",function(){top.classList.toggle("scrolled",window.scrollY>8)},{passive:true});
+
+/* ---------- copy the phone number ---------- */
+var copyBtn=document.getElementById("copyBtn"),copyLabel=document.getElementById("copyLabel"),copyIcon=document.getElementById("copyIcon");
+var COPY_ICON=copyIcon.innerHTML,CHECK_ICON='<path d="M20 6 9 17l-5-5"/>',copyTimer;
+function setCopy(label,icon){copyBtn.classList.add("swap");setTimeout(function(){copyLabel.textContent=label;copyIcon.innerHTML=icon;copyBtn.classList.remove("swap")},110)}
+function selectPhone(){var r=document.createRange();r.selectNodeContents(document.getElementById("phone"));var s=getSelection();s.removeAllRanges();s.addRange(r)}
+copyBtn.addEventListener("click",function(){
+  clearTimeout(copyTimer);
+  var done=function(){setCopy("Copied",CHECK_ICON);copyTimer=setTimeout(function(){setCopy("Copy number",COPY_ICON)},2200)};
+  var fail=function(){selectPhone();setCopy("Number selected, copy it",COPY_ICON);copyTimer=setTimeout(function(){setCopy("Copy number",COPY_ICON)},3200)};
+  try{if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText("+357 97 782071").then(done,fail)}else fail()}catch(e){fail()}
+});
+
+/* ---------- the bow tie (three.js r128) ---------- */
+(function(){
+  var wrap=document.getElementById("tieWrap"),canvas=document.getElementById("tie"),hint=document.getElementById("tieHint");
+  function fallback(){canvas.hidden=true;document.getElementById("tieFallback").hidden=false;hint.hidden=true}
+  if(typeof THREE==="undefined"){fallback();return}
+  var renderer;
+  try{renderer=new THREE.WebGLRenderer({canvas:canvas,antialias:true,alpha:true});}catch(e){fallback();return}
+  if(!renderer||!renderer.getContext()){fallback();return}
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,2));
+  renderer.outputEncoding=THREE.sRGBEncoding;
+  renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.05;
+  var scene=new THREE.Scene(),camera=new THREE.PerspectiveCamera(28,1,0.1,60);
+
+  var tex=new THREE.CanvasTexture(tiles);tex.wrapS=tex.wrapT=THREE.RepeatWrapping;tex.encoding=THREE.sRGBEncoding;tex.anisotropy=Math.min(8,renderer.capabilities.getMaxAnisotropy());
+  var wingMat=new THREE.MeshStandardMaterial({map:tex,roughness:.64,metalness:.02,side:THREE.DoubleSide});
+  var knotMat=new THREE.MeshStandardMaterial({color:new THREE.Color(0xedb12a).convertSRGBToLinear(),roughness:.55,metalness:.04});
+
+  function wing(dir){
+    var U=60,V=56,L=1.22,H=.72,T=.16,pos=[],uv=[],idx=[];
+    for(var i=0;i<=U;i++){
+      var u=i/U;
+      var ph=(.2+.8*Math.pow(u,.55));                       /* pinched at the knot, flared at the tip */
+      if(u>.88)ph*=Math.sqrt(1-Math.pow((u-.88)/.12,2)*.14);
+      var pt=(.5+.5*Math.sin(Math.PI*Math.min(1,u*1.15)))*Math.sqrt(Math.max(0,1-Math.pow(u,7)));
+      for(var j=0;j<=V;j++){
+        var v=j/V*Math.PI*2,cy=Math.cos(v),sz=Math.sin(v);
+        var y=H*ph*cy;
+        var z=T*pt*sz*(1+.45*u*Math.sin(cy*Math.PI*3.2));   /* pleats running out from the knot */
+        var x=L*u*(1-.12*u*(1-Math.abs(cy)));
+        z-=.2*u*u;                                          /* wings sweep back */
+        pos.push(dir*x,y,z);uv.push(u*1.6,j/V*2.6);
+      }
+    }
+    for(i=0;i<U;i++)for(j=0;j<V;j++){var a=i*(V+1)+j,b=a+V+1,c=a+1,d=b+1;if(dir>0)idx.push(a,c,b,b,c,d);else idx.push(a,b,c,b,d,c)}
+    var geo=new THREE.BufferGeometry();
+    geo.setAttribute("position",new THREE.Float32BufferAttribute(pos,3));
+    geo.setAttribute("uv",new THREE.Float32BufferAttribute(uv,2));
+    geo.setIndex(idx);geo.computeVertexNormals();return geo;
+  }
+  var tie=new THREE.Group();
+  tie.add(new THREE.Mesh(wing(1),wingMat));tie.add(new THREE.Mesh(wing(-1),wingMat));
+  var kg=new THREE.SphereGeometry(1,48,32),kp=kg.attributes.position;
+  for(var i=0;i<kp.count;i++){var x=kp.getX(i),y=kp.getY(i),z=kp.getZ(i),f=1+.07*Math.sin(y*9)*(1-Math.abs(y));kp.setXYZ(i,x*.22*f,y*.3,z*.2*f+.03)}
+  kg.computeVertexNormals();
+  tie.add(new THREE.Mesh(kg,knotMat));
+  tie.rotation.z=-.04;
+  scene.add(tie);
+
+  scene.add(new THREE.HemisphereLight(0xc9d6e0,0x2a2016,.55));
+  var key=new THREE.SpotLight(0xffe2b4,2.2,30,Math.PI/5,.6,1.2);key.position.set(.6,5,4.5);scene.add(key);key.target=tie;
+  var rim=new THREE.PointLight(0xa47dff,1.6,12,1.6);rim.position.set(-3.2,.6,-2.2);scene.add(rim);
+  var fill=new THREE.DirectionalLight(0x9fb4c4,.35);fill.position.set(3,-1,3);scene.add(fill);
+
+  function resize(){
+    var w=wrap.clientWidth,h=wrap.clientHeight;if(!w||!h)return;
+    renderer.setSize(w,h,false);camera.aspect=w/h;
+    var vfov=camera.fov*Math.PI/180,hfov=2*Math.atan(Math.tan(vfov/2)*camera.aspect);
+    var needW=3.25,needH=1.95;
+    var dist=Math.max((needW/2)/Math.tan(hfov/2),(needH/2)/Math.tan(vfov/2));
+    camera.position.set(0,.18,dist);camera.lookAt(0,.02,0);camera.updateProjectionMatrix();
+  }
+  resize();
+  if("ResizeObserver"in window)new ResizeObserver(resize).observe(wrap);else window.addEventListener("resize",resize);
+
+  /* physics: rotation follows the finger on springs, momentum on release */
+  var rotY=new Spring(-.5,70,.9),rotX=new Spring(0,90,.62),drop=new Spring(reduce?0:1.4,90,.72);
+  drop.t=0;
+  var idleW=0,momentum=0,dragging=false,startX=0,startY=0,baseY=0,baseX=0,intent=null,pid=null,tr=new Tracker(),touched=false;
+  canvas.addEventListener("pointerdown",function(e){
+    if(dragging||e.button>0)return;
+    pid=e.pointerId;intent=null;startX=e.clientX;startY=e.clientY;baseY=rotY.t;baseX=rotX.t;momentum=0;tr.s=[];tr.add(e.clientX,e.clientY);dragging=true;
+  });
+  canvas.addEventListener("pointermove",function(e){
+    if(!dragging||e.pointerId!==pid)return;
+    var dx=e.clientX-startX,dy=e.clientY-startY;
+    if(!intent){if(Math.abs(dx)>8&&Math.abs(dx)>Math.abs(dy)){intent="spin";try{canvas.setPointerCapture(pid)}catch(_){ }canvas.classList.add("dragging");if(!touched){touched=true;hint.classList.add("gone")}}else if(Math.abs(dy)>10){dragging=false;return}else return}
+    tr.add(e.clientX,e.clientY);
+    rotY.t=baseY+dx*.011;
+    rotX.t=rubber(baseX+dy*.006,.5);
+  });
+  function end(e){
+    if(!dragging||(e&&e.pointerId!==pid))return;dragging=false;canvas.classList.remove("dragging");
+    if(intent!=="spin")return;
+    var v=tr.vel();var w=v[0]*.011;
+    if(!reduce){momentum=clamp(w,-22,22);rotY.v+=momentum*.5}
+    rotX.t=0;
+  }
+  canvas.addEventListener("pointerup",end);canvas.addEventListener("pointercancel",end);canvas.addEventListener("lostpointercapture",end);
+
+  var last=performance.now(),visible=true,running=false;
+  function frame(now){
+    var dt=Math.min(.05,(now-last)/1000);last=now;
+    if(!dragging){
+      if(Math.abs(momentum)>.05){rotY.t+=momentum*dt;momentum*=Math.exp(-2.1*dt)}else momentum=0;
+      var targetIdle=reduce?0:(Math.abs(momentum)<.6?.42:0);
+      idleW+=(targetIdle-idleW)*Math.min(1,dt*1.5);
+      rotY.t+=idleW*dt;
+    }else idleW=0;
+    rotY.step(dt);rotX.step(dt);drop.step(dt);
+    tie.rotation.y=rotY.x;tie.rotation.x=rotX.x+.08;tie.position.y=drop.x;
+    renderer.render(scene,camera);
+    if(visible&&!document.hidden)requestAnimationFrame(frame);else running=false;
+  }
+  function start(){if(!running){running=true;last=performance.now();requestAnimationFrame(frame)}}
+  if("IntersectionObserver"in window)new IntersectionObserver(function(e){visible=e[0].isIntersecting;if(visible)start()}).observe(wrap);
+  document.addEventListener("visibilitychange",function(){if(!document.hidden&&visible)start()});
+  start();
+  canvas.addEventListener("webglcontextlost",function(e){e.preventDefault();fallback()});
+})();
+
+/* ---------- walk in through the door (scroll-driven) ---------- */
+(function(){
+  if(reduce)return;
+  var track=document.getElementById("walkTrack"),stage=document.getElementById("walkStage"),frame=document.getElementById("walkFrame");
+  var L=document.getElementById("doorL"),R=document.getElementById("doorR"),inside=document.getElementById("inside"),shade=document.getElementById("shade");
+  var A=document.getElementById("capA"),B=document.getElementById("capB");
+  function eio(t){return t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2}
+  var ticking=false;
+  function update(){
+    ticking=false;
+    var r=track.getBoundingClientRect(),sh=stage.offsetHeight,sw=stage.offsetWidth;
+    var p=clamp(-r.top/Math.max(1,r.height-sh),0,1);
+    var g=eio(clamp(p/.42,0,1));
+    var fw=Math.min(sw-48,sh*.62),fh=Math.min(sh-110,fw*1.36);
+    var ix=(sw-fw)/2*(1-g),iy=Math.max(20,(sh-fh)*.42)*(1-g),ib=Math.max(20,(sh-fh)-(sh-fh)*.42)*(1-g),rad=18*(1-g);
+    frame.style.clipPath="inset("+iy.toFixed(1)+"px "+ix.toFixed(1)+"px "+ib.toFixed(1)+"px "+ix.toFixed(1)+"px round "+rad.toFixed(1)+"px)";
+    var o=eio(clamp((p-.38)/.44,0,1));
+    var walk=1+.07*g+.05*o;
+    L.style.transform="translateX("+(-104*o).toFixed(2)+"%) scale("+walk.toFixed(4)+")";
+    R.style.transform="translateX("+(104*o).toFixed(2)+"%) scale("+walk.toFixed(4)+")";
+    inside.style.transform="scale("+(1.16-.16*o).toFixed(4)+")";
+    shade.style.opacity=(.55*(1-o)).toFixed(3);
+    var a=1-clamp((p-.26)/.12,0,1),b=clamp((p-.66)/.12,0,1);
+    A.style.opacity=a.toFixed(3);A.style.transform="translateY("+(-14*(1-a)).toFixed(1)+"px)";
+    B.style.opacity=b.toFixed(3);B.style.transform="translateY("+(14*(1-b)).toFixed(1)+"px)";
+  }
+  function req(){if(!ticking){ticking=true;requestAnimationFrame(update)}}
+  window.addEventListener("scroll",req,{passive:true});window.addEventListener("resize",req);
+  update();
+})();
+
+/* ---------- photo ring: drag with momentum, snaps to a photo ---------- */
+(function(){
+  var stage=document.getElementById("ringStage"),ring=document.getElementById("ring"),cards=[].slice.call(ring.children),cap=document.getElementById("ringCap");
+  var N=cards.length,STEP=360/N,R=300,theta=new Spring(0,140,.86),dragging=false,intent=null,pid=null,sx=0,sy=0,base=0,tr=new Tracker(),current=-1,running=false;
+  function layout(){
+    var w=ring.offsetWidth;R=Math.round((w/2)/Math.tan(Math.PI/N)+w*.12);
+    cards.forEach(function(c,i){c.style.transform="rotateY("+(i*STEP)+"deg) translateZ("+R+"px)"});
+    paint();
+  }
+  function paint(){
+    ring.style.transform="translateZ("+(-R)+"px) rotateY("+theta.x.toFixed(3)+"deg)";
+    for(var i=0;i<N;i++){var a=(i*STEP+theta.x)*Math.PI/180,f=Math.cos(a);cards[i].style.opacity=(f>-.1?(.45+.55*Math.max(0,f)):0).toFixed(3)}
+    var idx=((-Math.round(theta.t/STEP))%N+N)%N;
+    if(idx!==current){current=idx;cap.textContent=cards[idx].querySelector("img").alt;cards.forEach(function(c,i){c.setAttribute("aria-hidden",i===idx?"false":"true")})}
+  }
+  var last=0;
+  function tick(now){
+    var dt=Math.min(.05,(now-last)/1000);last=now;
+    if(reduce&&!dragging){theta.x=theta.t;theta.v=0}else theta.step(dt);
+    paint();
+    if(dragging||!theta.rest())requestAnimationFrame(tick);else{theta.x=theta.t;paint();running=false}
+  }
+  function kick(){if(!running){running=true;last=performance.now();requestAnimationFrame(tick)}}
+  function go(d){theta.set(140,.86);theta.t=Math.round(theta.t/STEP)*STEP+d*STEP;kick()}
+  document.getElementById("ringPrev").addEventListener("click",function(){go(1)});
+  document.getElementById("ringNext").addEventListener("click",function(){go(-1)});
+  stage.addEventListener("keydown",function(e){if(e.key==="ArrowLeft"){go(1);e.preventDefault()}else if(e.key==="ArrowRight"){go(-1);e.preventDefault()}});
+  stage.addEventListener("pointerdown",function(e){if(dragging||e.button>0)return;dragging=true;intent=null;pid=e.pointerId;sx=e.clientX;sy=e.clientY;base=theta.x;tr.s=[];tr.add(e.clientX,e.clientY)});
+  function resnap(){theta.set(110,.82);theta.t=Math.round(theta.t/STEP)*STEP;kick()}
+  stage.addEventListener("pointermove",function(e){
+    if(!dragging||e.pointerId!==pid)return;
+    var dx=e.clientX-sx,dy=e.clientY-sy;
+    if(!intent){if(Math.abs(dx)>8&&Math.abs(dx)>Math.abs(dy)){intent="turn";try{stage.setPointerCapture(pid)}catch(_){ }stage.classList.add("dragging");base=theta.x;sx=e.clientX;theta.set(260,1);kick()}else if(Math.abs(dy)>10){dragging=false;resnap();return}else return}
+    tr.add(e.clientX,e.clientY);
+    theta.t=base+(e.clientX-sx)/R*180/Math.PI;
+  });
+  function end(e){
+    if(!dragging||(e&&e.pointerId!==pid))return;dragging=false;stage.classList.remove("dragging");
+    if(intent!=="turn"){resnap();return}
+    var w=tr.vel()[0]/R*180/Math.PI;                     /* deg per second */
+    var projected=theta.x+(w/1000)*.995/(1-.995);         /* Apple's momentum projection, deceleration .995 */
+    theta.set(110,.82);theta.t=Math.round(projected/STEP)*STEP;theta.v=w;kick();
+  }
+  stage.addEventListener("pointerup",end);stage.addEventListener("pointercancel",end);stage.addEventListener("lostpointercapture",end);
+  layout();
+  if("ResizeObserver"in window)new ResizeObserver(layout).observe(ring);else window.addEventListener("resize",layout);
+})();
+})();
+</script>
+
+</body>
+</html>
