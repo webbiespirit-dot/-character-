@@ -9,7 +9,7 @@ A 28 s, 9:16 Reel (1080x1920, 30 fps) that shows seven demo websites built by th
 | `webbiespirit-reel.mp4` | The Reel. H.264 + AAC, 28.0 s, about 21 MB. |
 | `cover.png` | Cover frame (the hook card). |
 | `caption.txt` | Three caption options and 15 hashtags. |
-| `audio/track.wav` | The music, generated in `tools/make_track.py`; `audio/beats.json` is the detected beat grid. |
+| `audio/track.wav` | The music: "Kraft Twerk" from Mixkit's free stock music library (Mixkit licence: free for commercial use, no attribution), fitted to 120 BPM with the drop on the first cut by `tools/fit_track.py`; `audio/track_fit.json` records the fit. `tools/make_track.py` is the earlier in-house track. |
 | `raw/<demo>/` | Captures per demo: `hero.mp4`, `cta.mp4`, `scroll.mp4`, `before.png`, `meta.json` (clips are not committed). |
 | `src/` | The Remotion composition (`Reel.tsx`, `data/storyboard.ts`, components and treatments). |
 | `tools/` | Capture, music, manifest, render and QA scripts. |
@@ -28,7 +28,7 @@ Business names are swapped out before each capture (`tools/sites.mjs`), in the p
 cd reel
 npm install
 node tools/capture.mjs tools/sites.mjs          # captures, about 5 min per demo
-python3 tools/make_track.py && python3 tools/detect_beats.py
+python3 tools/fit_track.py <music file>                  # or tools/make_track.py for the in-house track
 COVER_FRAME=40 tools/render.sh                  # mp4, cover, five verification frames in out/verify
 tools/qa-frames.sh                              # frames and strips in out/qa for a visual pass
 ```
@@ -41,6 +41,6 @@ Hook 0 to 2 s (kinetic text, the numeral in gold), fourteen shots of 1.5 to 3 s 
 
 ## Follow-ups
 
-- The track is synthesised in-house so it is royalty-free; a licensed track can be swapped in by replacing `audio/track.wav` and re-running `tools/detect_beats.py` (the storyboard is written in beats, so timing holds at 120 BPM).
+- To swap the music, run `python3 tools/fit_track.py <file>`: it locks any track to 120 BPM and places its drop at the 2 s cut, so the beat-synced edit holds. Mixkit tracks are free for commercial use; check the licence of anything else before posting.
 - The caption "built in 1 day" is the studio's own claim; change it in `src/data/storyboard.ts` if the wording should differ.
 - A Greek version needs only `data/storyboard.ts` (hook, captions, ending) and `caption.txt`.
