@@ -24,14 +24,14 @@ export const HOOK: HookWord[] = [
 
 // Body: beats 4..50. Cuts on beats. Two deliberate rhythm breaks: the stutter run at 26-30 and the hold at 30-32 (the music drops out there).
 export const SHOTS: Shot[] = [
-  { id: 's01', start: 4, end: 8, demo: 'hoa', treatment: 'mockup', footage: 'hero', startFrom: 0, transitionIn: 'cut', label: true, opts: { tiltFrom: -16, tiltTo: 6 } },
+  { id: 's01', start: 4, end: 8, demo: 'hoa', treatment: 'mockup', footage: 'scroll', startFrom: 62, transitionIn: 'cut', label: true, opts: { tiltFrom: -16, tiltTo: 6 } },
   { id: 's02', start: 8, end: 12, demo: 'briki', treatment: 'bleed', footage: 'scroll', startFrom: 30, transitionIn: 'whip', whipDir: 1, label: true },
   { id: 's03', start: 12, end: 16, demo: 'bowtie', treatment: 'bleed', footage: 'scroll', startFrom: 62, transitionIn: 'glitch', label: true, opts: { driftTo: -60, zoomFrom: 1.02, zoomTo: 1.0 } },
-  { id: 's04', start: 16, end: 20, demo: 'adams', treatment: 'punch', footage: 'cta', startFrom: 0, transitionIn: 'cut', label: true },
+  { id: 's04', start: 16, end: 20, demo: 'adams', treatment: 'mockup', footage: 'cta', startFrom: 8, transitionIn: 'cut', label: true, opts: { tiltFrom: 10, tiltTo: -8, push: 0.08 } },
   { id: 's05', start: 20, end: 23, demo: 'moxie-hair', treatment: 'mockup', footage: 'hero', startFrom: 10, transitionIn: 'whip', whipDir: -1, label: true, opts: { tiltFrom: 12, tiltTo: -6 } },
   { id: 's06', start: 23, end: 26, demo: 'kafenio11', treatment: 'bleed', footage: 'scroll', startFrom: 42, transitionIn: 'cut', label: true },
   { id: 's07', start: 26, end: 28, demo: 'k2fit', treatment: 'bleed', footage: 'hero', startFrom: 20, transitionIn: 'glitch', label: true, opts: { zoomFrom: 1.08, zoomTo: 1.0, driftTo: -40 } },
-  { id: 's08', start: 28, end: 30, demo: 'hoa', treatment: 'bleed', footage: 'scroll', startFrom: 80, transitionIn: 'cut', label: false, opts: { zoomFrom: 1.06, zoomTo: 1.0 } },
+  { id: 's08', start: 28, end: 30, demo: 'hoa', treatment: 'punch', footage: 'cta', startFrom: 12, transitionIn: 'cut', label: false, opts: { punch: 1.6 } },
   { id: 's09', start: 30, end: 32, demo: 'moxie-hair', treatment: 'hold', footage: 'hero', startFrom: 60, transitionIn: 'dissolve', label: false },
   { id: 's10', start: 32, end: 36, demo: 'bowtie', treatment: 'punch', footage: 'cta', startFrom: 0, transitionIn: 'glitch', label: true },
   { id: 's11', start: 36, end: 40, demo: 'briki', treatment: 'mockup', footage: 'scroll', startFrom: 90, transitionIn: 'whip', whipDir: 1, label: true, opts: { tiltFrom: 10, tiltTo: -12, push: 0.04 } },
