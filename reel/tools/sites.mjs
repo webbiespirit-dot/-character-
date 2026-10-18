@@ -58,7 +58,7 @@ const replaceText = (page, map) => page.evaluate((map) => {
 
 export const EXTRAS = [
   {
-    id: 'moxie-hair', scrollFrames: 170, label: 'Hair salon', url: 'https://webbiespirit.com/demo/moxie-hair/', cta: 'a.btn-primary:has-text("Book")', settleMs: 3000,
+    id: 'moxie-hair', scrollFrames: 170, label: 'Hair salon', url: 'https://webbiespirit.com/demo/moxie-hair/', cta: 'button.btn-primary:has-text("Book a cut")', settleMs: 3000,
     prepare: (page) => replaceText(page, [['MOXIE', 'SALON'], ['Moxie', 'Salon'], ['M O X I E', 'S A L O N']]),
   },
   {

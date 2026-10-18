@@ -153,7 +153,7 @@ async function captureInner(cfg, { browser, context, page, cdp, log }) {
 
   // ---- 2. CTA tap: pointer eases in, presses, releases
   if (cfg.cta) {
-    const el = page.locator(cfg.cta).first();
+    const el = page.locator(cfg.cta).filter({ visible: true }).first();
     await el.waitFor({ state: 'visible', timeout: 10000 });
     const box = await el.boundingBox();
     const target = { x: box.x + box.width * 0.52, y: box.y + box.height * 0.5 };
