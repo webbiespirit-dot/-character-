@@ -14,6 +14,21 @@
   },
   "pageHeight": 3194
  },
+ "bowtie": {
+  "hero": "raw/bowtie/hero.mp4",
+  "cta": "raw/bowtie/cta.mp4",
+  "scroll": "raw/bowtie/scroll.mp4",
+  "before": "raw/bowtie/before.png",
+  "heroFrames": 90,
+  "scrollFrames": 240,
+  "ctaFrames": 60,
+  "pressFrame": 26,
+  "target": {
+   "x": 325.021875,
+   "y": 1944.046875
+  },
+  "pageHeight": 6558
+ },
  "hoa": {
   "hero": "raw/hoa/hero.mp4",
   "cta": "raw/hoa/cta.mp4",
@@ -28,5 +43,50 @@
    "y": 2082.75
   },
   "pageHeight": 9077
+ },
+ "k2fit": {
+  "hero": "raw/k2fit/hero.mp4",
+  "cta": "raw/k2fit/cta.mp4",
+  "scroll": "raw/k2fit/scroll.mp4",
+  "before": "raw/k2fit/before.png",
+  "heroFrames": 90,
+  "scrollFrames": 170,
+  "ctaFrames": 60,
+  "pressFrame": 26,
+  "target": {
+   "x": 460.798125,
+   "y": 1619.8125
+  },
+  "pageHeight": 7486
+ },
+ "kafenio11": {
+  "hero": "raw/kafenio11/hero.mp4",
+  "cta": "raw/kafenio11/cta.mp4",
+  "scroll": "raw/kafenio11/scroll.mp4",
+  "before": "raw/kafenio11/before.png",
+  "heroFrames": 90,
+  "scrollFrames": 170,
+  "ctaFrames": 60,
+  "pressFrame": 26,
+  "target": {
+   "x": 606.48,
+   "y": 2033.390625
+  },
+  "pageHeight": 7860
+ },
+ "moxie-hair": {
+  "hero": "raw/moxie-hair/hero.mp4",
+  "cta": "raw/moxie-hair/cta.mp4",
+  "scroll": "raw/moxie-hair/scroll.mp4",
+  "before": "raw/moxie-hair/before.png",
+  "heroFrames": 90,
+  "scrollFrames": 170,
+  "ctaFrames": 60,
+  "pressFrame": 26,
+  "target": {
+   "x": 364.13812500000006,
+   "y": 2190
+  },
+  "pageHeight": 6797
  }
 }
