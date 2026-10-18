@@ -30,7 +30,7 @@ const Treat: React.FC<{ shot: Shot; dur: number }> = ({ shot, dur }) => {
   switch (shot.treatment) {
     case 'mockup': return (
       <Sky intensity={0.9} drift={1} stars={70}>
-        <PhoneMockup src={src} startFrom={shot.startFrom} playbackRate={shot.playbackRate} duration={dur} width={580} y={70} tiltFrom={n('tiltFrom', -14)} tiltTo={n('tiltTo', 8)} push={n('push', 0.06)} />
+        <PhoneMockup anchor={shot.footage === 'cta' ? 'bottom' : 'top'} src={src} startFrom={shot.startFrom} playbackRate={shot.playbackRate} duration={dur} width={580} y={70} tiltFrom={n('tiltFrom', -14)} tiltTo={n('tiltTo', 8)} push={n('push', 0.06)} />
       </Sky>);
     case 'bleed': return <FullBleed src={src} startFrom={shot.startFrom} playbackRate={shot.playbackRate} duration={dur} driftTo={n('driftTo', -120)} zoomFrom={n('zoomFrom', 1)} zoomTo={n('zoomTo', 1.04)} />;
     case 'split': return <SplitBeforeAfter before={c.before} after={src} startFrom={shot.startFrom} wipeAt={n('wipeAt', 30)} duration={dur} />;

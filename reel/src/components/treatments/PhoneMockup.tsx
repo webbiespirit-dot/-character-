@@ -6,15 +6,15 @@ import { C, prog, lerp, easeSine } from '../../lib/theme';
 /** A dark device floating in the night sky, tilted in 3D, with a gold rim light and a slow push-in. */
 export const PhoneMockup: React.FC<{
   src: string; startFrom?: number; playbackRate?: number; width?: number; duration: number;
-  tiltFrom?: number; tiltTo?: number; push?: number; y?: number; enter?: boolean;
-}> = ({ src, startFrom = 0, playbackRate = 1, width = 620, duration, tiltFrom = -14, tiltTo = 8, push = 0.06, y = 0, enter = true }) => {
+  tiltFrom?: number; tiltTo?: number; push?: number; y?: number; enter?: boolean; anchor?: 'top' | 'bottom';
+}> = ({ src, startFrom = 0, playbackRate = 1, width = 620, duration, tiltFrom = -14, tiltTo = 8, push = 0.06, y = 0, enter = true, anchor = 'top' }) => {
   const f = useCurrentFrame();
   const h = (width * CLIP_H) / CLIP_W;
   const t = prog(f, 0, duration, easeSine);
   const ry = lerp(tiltFrom, tiltTo, t);
   const rx = lerp(3, -2, t);
   const s = (1 + push * t) * (enter ? interpolate(prog(f, 0, 10), [0, 1], [0.94, 1]) : 1);
-  const op = enter ? prog(f, 0, 6) : 1;
+  const op = enter ? interpolate(prog(f, 0, 6), [0, 1], [0.55, 1]) : 1; // never a bare frame on the cut
   const radius = width * 0.105;
   const sa = Math.round(width * 0.14); // status-bar inset: the page starts below the island, as on a real phone
   return (
@@ -30,7 +30,7 @@ export const PhoneMockup: React.FC<{
         {/* screen */}
         <div style={{ position: 'absolute', inset: 0, borderRadius: radius, overflow: 'hidden', background: '#000' }}>
           <div style={{ position: 'absolute', left: 0, right: 0, top: sa, bottom: 0, overflow: 'hidden' }}>
-            <Clip src={src} startFrom={startFrom} playbackRate={playbackRate} style={{ objectPosition: '50% 0%' }} />
+            <Clip src={src} startFrom={startFrom} playbackRate={playbackRate} style={{ objectPosition: anchor === 'bottom' ? '50% 100%' : '50% 0%' }} />
           </div>
           <div style={{ position: 'absolute', top: 14, left: '50%', width: width * 0.22, height: width * 0.058, marginLeft: -width * 0.11, borderRadius: 999, background: '#000' }} />
           <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(118deg, rgba(255,255,255,.10) 0%, rgba(255,255,255,.03) 22%, transparent 40%)', pointerEvents: 'none' }} />

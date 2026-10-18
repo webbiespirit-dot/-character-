@@ -21,7 +21,7 @@ export const Ending: React.FC<{ markAt: number; nameAt: number; lineAt: number; 
         <AbsoluteFill style={{ alignItems: 'center' }}>
           <div style={{ position: 'absolute', top: 560, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 0 }}>
             <div style={{ opacity: markIn, transform: `scale(${interpolate(markIn, [0, 1], [0.9, 1])})` }}><OrbitMark size={230} draw={draw} /></div>
-            <div style={{ marginTop: 38, opacity: nameP, transform: rise(nameP), fontFamily: F.display, fontWeight: 800, fontSize: 100, letterSpacing: '-0.035em', color: C.ivory, lineHeight: 1 }}>webbiespirit</div>
+            <div style={{ marginTop: 12, opacity: nameP, transform: rise(nameP), fontFamily: F.display, fontWeight: 800, fontSize: 100, letterSpacing: '-0.035em', color: C.ivory, lineHeight: 1 }}>webbiespirit</div>
             <div style={{ marginTop: 26, opacity: lineP, transform: rise(lineP), fontFamily: F.text, fontWeight: 500, fontSize: 44, color: C.muted, lineHeight: 1.2, textAlign: 'center' }}>{line}</div>
             <div style={{ marginTop: 64, opacity: ctaP, transform: `${rise(ctaP)} scale(${press})`, transformOrigin: '50% 50%' }}>
               <div style={{ position: 'relative', overflow: 'hidden', display: 'inline-flex', alignItems: 'center', gap: 18, padding: '30px 54px', borderRadius: 999, background: C.gold, color: C.goldInk, fontFamily: F.text, fontWeight: 700, fontSize: 46, boxShadow: '0 1px 0 rgba(255,255,255,0.4) inset, 0 24px 60px -24px rgba(166,125,38,0.8)' }}>
