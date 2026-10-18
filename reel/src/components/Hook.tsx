@@ -35,7 +35,7 @@ export const Hook: React.FC<{ words: HookWord[] }> = ({ words }) => {
     <Sky intensity={1} drift={1.4} stars={110}>
       <AbsoluteFill style={{ transform: `translate(${sx}px, ${sy}px)` }}>
         <div style={{ position: 'absolute', left: 64, right: 40, top: 430, display: 'flex', flexDirection: 'column', gap: 6 }}>
-          {line(first, 136, 800)}
+          {line(first, 128, 800)}
           {numeral && (
             <div style={{ position: 'relative', height: 560, marginTop: -8 }}>
               <div style={{ position: 'absolute', left: -14, top: 0, fontFamily: F.display, fontSize: 680, fontWeight: 800, lineHeight: 0.8, letterSpacing: '-0.06em',
@@ -45,7 +45,7 @@ export const Hook: React.FC<{ words: HookWord[] }> = ({ words }) => {
               </div>
             </div>
           )}
-          {line(after, 136, 800)}
+          {line(after, 128, 800)}
           <div style={{ marginTop: 22 }}>{line(small, 60, 500, F.text, C.muted, 1.15)}</div>
         </div>
       </AbsoluteFill>

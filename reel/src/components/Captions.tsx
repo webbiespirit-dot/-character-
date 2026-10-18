@@ -5,7 +5,7 @@ import { C, F, beat, prog } from '../lib/theme';
 export type CapWord = { word: string; beat: number; group: number; bottom?: number };
 
 /** Word-by-word captions in a night glass chip; the newest word lands in gold, then settles to ivory. */
-export const Captions: React.FC<{ words: CapWord[]; bottom?: number; size?: number }> = ({ words, bottom = 1480, size = 70 }) => {
+export const Captions: React.FC<{ words: CapWord[]; bottom?: number; size?: number }> = ({ words, bottom = 1480, size = 66 }) => {
   const f = useCurrentFrame();
   const landed = words.filter((w) => beat(w.beat) <= f);
   if (!landed.length) return null;
