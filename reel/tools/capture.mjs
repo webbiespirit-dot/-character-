@@ -121,6 +121,7 @@ async function captureInner(cfg, { browser, context, page, cdp, log }) {
     });
     await p2.goto(cfg.url, { waitUntil: 'domcontentloaded', timeout: 90000 }).catch(() => {});
     await p2.waitForTimeout(1500);
+    if (cfg.prepare) await cfg.prepare(p2).catch(() => {});
     await p2.evaluate(() => {
       for (const el of document.querySelectorAll('style, link[rel=stylesheet]')) el.remove();
       for (const el of document.querySelectorAll('[style]')) el.removeAttribute('style');

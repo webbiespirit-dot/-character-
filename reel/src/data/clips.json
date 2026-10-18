@@ -1,4 +1,19 @@
 {
+ "adams": {
+  "hero": "raw/adams/hero.mp4",
+  "cta": "raw/adams/cta.mp4",
+  "scroll": "raw/adams/scroll.mp4",
+  "before": "raw/adams/before.png",
+  "heroFrames": 90,
+  "scrollFrames": 170,
+  "ctaFrames": 60,
+  "pressFrame": 26,
+  "target": {
+   "x": 302.04375000000005,
+   "y": 2529.1875
+  },
+  "pageHeight": 7544
+ },
  "agency-test": {
   "hero": "raw/agency-test/hero.mp4",
   "cta": "raw/agency-test/cta.mp4",
@@ -28,6 +43,21 @@
    "y": 1944.046875
   },
   "pageHeight": 6558
+ },
+ "briki": {
+  "hero": "raw/briki/hero.mp4",
+  "cta": "raw/briki/cta.mp4",
+  "scroll": "raw/briki/scroll.mp4",
+  "before": "raw/briki/before.png",
+  "heroFrames": 90,
+  "scrollFrames": 170,
+  "ctaFrames": 60,
+  "pressFrame": 26,
+  "target": {
+   "x": 295.291875,
+   "y": 2400
+  },
+  "pageHeight": 10850
  },
  "hoa": {
   "hero": "raw/hoa/hero.mp4",

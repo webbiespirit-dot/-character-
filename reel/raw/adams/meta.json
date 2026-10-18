@@ -1,0 +1,35 @@
+{
+ "id": "adams",
+ "url": "https://webbiespirit.com/demo/adams/",
+ "viewport": {
+  "width": 390,
+  "height": 844
+ },
+ "dsf": 3,
+ "fps": 30,
+ "clips": {
+  "hero": {
+   "frames": 90
+  },
+  "cta": {
+   "frames": 60,
+   "pressFrame": 26,
+   "target": {
+    "x": 302.04375000000005,
+    "y": 2529.1875
+   },
+   "box": {
+    "x": 60,
+    "y": 2454.1875,
+    "w": 465.46875,
+    "h": 150
+   }
+  },
+  "scroll": {
+   "frames": 170,
+   "maxY": 6700,
+   "msPerFrame": 747
+  }
+ },
+ "pageHeight": 7544
+}
