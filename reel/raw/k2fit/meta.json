@@ -1,0 +1,35 @@
+{
+ "id": "k2fit",
+ "url": "https://webbiespirit.com/demo/k2fit/",
+ "viewport": {
+  "width": 390,
+  "height": 844
+ },
+ "dsf": 3,
+ "fps": 30,
+ "clips": {
+  "hero": {
+   "frames": 90
+  },
+  "cta": {
+   "frames": 60,
+   "pressFrame": 26,
+   "target": {
+    "x": 460.798125,
+    "y": 1619.8125
+   },
+   "box": {
+    "x": 60,
+    "y": 1544.8125,
+    "w": 770.765625,
+    "h": 150
+   }
+  },
+  "scroll": {
+   "frames": 170,
+   "maxY": 6642,
+   "msPerFrame": 203
+  }
+ },
+ "pageHeight": 7486
+}

@@ -12,7 +12,7 @@ Sections of the music (fixed, do not move):
 - Beat 50 (frame 750, 25.0 s): OUTRO HIT: big impact, a pad sustains, no more kicks. A soft 3-note chime at 26.5 s (frame 795). Fade to silence by 28.5 s.
 
 ## Fixed structure from the client
-- Hook, frames 0-59 (0-2 s): bold kinetic text "I built N websites with AI this week" (N = number of demos shown). Must stop the scroll in the first second.
+- Hook, frames 0-59 (0-2 s): bold kinetic text "I built N websites this week" (N = number of demos shown). Must stop the scroll in the first second.
 - Body, frames 60-749 (2-25 s, 46 beats): fast cuts, 1.5-3 s per shot, cuts ON beats. A different treatment each demo: phone mockup (3D tilt), full-bleed scroll-through, split-screen before/after (before = the same page with its CSS stripped, i.e. raw unstyled HTML; after = the finished site), zoom-punch on the CTA tap, quick glitch or whip-pan transitions. Vary the pacing; break the rhythm once or twice on purpose (the music break at 15-16 s is one natural place).
 - Each demo gets a label: business type + "built in 1 day" (e.g. "Nail studio, built in 1 day"). NEVER a business name.
 - Captions: big, high-contrast, word-by-word animated. Text must stay inside the safe area: y between 250 px and 1520 px (top 250 px and bottom 400 px are clear).
@@ -34,4 +34,4 @@ Colors: deep Prussian #0B2559, cobalt field #163F94, mid #2F63C7, pale #8FB0E6, 
 The reel must feel luxury and scroll-stopping, NOT like a polished corporate promo. Avoid: generic dark gradient blobs, stock "whoosh" transitions used everywhere, centered everything, emoji, em-dashes in on-screen text.
 
 ## Truth constraints for on-screen text
-Allowed claims: free concept preview ("you see it before you pay" / "free preview first"), built with AI, "built in 1 day" labels (client's wording), websites for small businesses, DM 'WEBSITE'. No testimonials, no client names, no results, no prices.
+Allowed claims: free concept preview ("you see it before you pay" / "free preview first"), "built in 1 day" labels (client's wording), websites for small businesses, DM 'WEBSITE'. No testimonials, no client names, no results, no prices.

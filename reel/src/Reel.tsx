@@ -68,7 +68,7 @@ export const Reel: React.FC = () => {
   SHOTS.forEach((s) => {
     if (s.transitionIn === 'whip') sfx.push({ src: 'whoosh.wav', at: beat(s.start) - 4, vol: 0.5 });
     if (s.transitionIn === 'glitch') sfx.push({ src: 'glitch.wav', at: beat(s.start), vol: 0.35 });
-    if (s.treatment === 'punch') sfx.push({ src: 'tap.wav', at: beat(s.start) + resolve(s.demo).pressFrame - (s.startFrom ?? 0), vol: 0.7 });
+    if (s.footage === 'cta') sfx.push({ src: 'tap.wav', at: beat(s.start) + resolve(s.demo).pressFrame - (s.startFrom ?? 0), vol: 0.7 });
   });
   sfx.push({ src: 'tap.wav', at: ENDING.pressAt, vol: 0.6 });
   return (
