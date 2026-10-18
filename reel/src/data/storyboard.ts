@@ -58,4 +58,4 @@ export const CAPTIONS: CapWord[] = [
   { word: '', beat: 50, group: 15 },
 ];
 
-export const ENDING = { markAt: 750, nameAt: 757, lineAt: 771, ctaAt: 780, pressAt: 795, line: 'Websites for small businesses', cta: "DM us 'WEBSITE'", handle: '@webbiespirit' };
+export const ENDING = { markAt: 750, nameAt: 757, lineAt: 771, ctaAt: 780, pressAt: 795, line: 'Websites for small businesses', cta: 'DM us ‘WEBSITE’', handle: '@webbiespirit' };
