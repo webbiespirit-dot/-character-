@@ -24,16 +24,20 @@ export const SITES = [
   },
   {
     id: 'bowtie', label: 'Barbershop', url: 'https://webbiespirit.com/demo/bowtie/', cta: '#heroCtas .btn-primary', settleMs: 3000,
-    prepare: async (page) => page.evaluate(() => {
+    prepare: async (page) => { await page.evaluate(() => {
       const letters = 'BARBER'.split('');
       document.querySelectorAll('.letters .ch').forEach((el, i) => { el.querySelector('svg')?.remove(); el.textContent = letters[i] ?? el.textContent; el.classList.remove('ch-o'); });
       const set = (sel, t) => document.querySelectorAll(sel).forEach((el) => { el.textContent = t; });
       set('.mark', 'Barber'); set('.plaque', 'Larnaca'); set('#regTitle', 'The regulars'); set('#findTitle', 'Find the shop');
       set('.motto small', "From the shop's Instagram"); set('footer strong', 'Demo site by Webbiespirit');
+      set('.ring-src', 'Photos from the shop’s Google Maps listing.');
+      document.querySelectorAll('.ring-cap').forEach((el) => { el.textContent = el.textContent.replace(/The Bowtie Barbers/g, 'The barbershop').replace(/Bowtie’s|Bowtie's/g, 'the shop’s').replace(/Bowtie/g, 'Barber'); });
       const intro = document.querySelector('.reg-intro p'); if (intro) intro.textContent = 'Across the Google reviews the same things keep coming up: a friendly barber, sharp fades and clean lines, good music and real conversation while you wait.';
       document.querySelectorAll('.quotes blockquote').forEach((b) => { b.textContent = b.textContent.replace(' Highly recommend Pany.', ' Highly recommend.'); });
       document.querySelectorAll('.hero-copy .btn-primary, .bar .btn-primary').forEach((b) => { const n = [...b.childNodes].find((n) => n.nodeType === 3); if (n) n.textContent = 'Call to book'; });
-    }),
+    });
+      await replaceText(page, [['The Bowtie Barbers', 'The barbershop'], ['Bowtie’s', 'the shop’s'], ["Bowtie's", "the shop's"], ['Bowtie Barbers', 'the barbershop'], ['Bowtie', 'Barber']]);
+    },
   },
   {
     id: 'adams', label: 'Old-town barber', url: 'https://webbiespirit.com/demo/adams/', cta: '.hero .ctas .btn.solid', settleMs: 3000, canvasDpr: 1, rafThrottleMs: 120, scrollFrames: 170,
@@ -58,27 +62,34 @@ const replaceText = (page, map) => page.evaluate((map) => {
 
 
 // Replace a word that a site splits into one span per letter (for staggered reveals). Same length only.
+// Tolerates extra non-letter children such as a trailing full stop ("M O X I E .").
 const replaceLetters = (page, from, to) => page.evaluate(([from, to]) => {
   const cands = [...document.querySelectorAll('h1, h2, .word, .display, [class*=title], [class*=word], [class*=brand], [class*=logo], span, div')];
   for (const el of cands) {
     const kids = [...el.children];
-    if (kids.length !== from.length) continue;
-    const txt = kids.map((k) => k.textContent.trim()).join('');
-    if (txt !== from) continue;
-    kids.forEach((k, i) => { const n = [...k.childNodes].find((n) => n.nodeType === 3 && n.textContent.trim()); if (n) n.textContent = n.textContent.replace(from[i], to[i]); else k.textContent = to[i]; });
+    if (kids.length < from.length || kids.length > from.length + 2) continue;
+    const letters = kids.filter((k) => /\p{L}/u.test(k.textContent));
+    if (letters.length !== from.length) continue;
+    if (letters.map((k) => k.textContent.trim()).join('') !== from) continue;
+    letters.forEach((k, i) => { const n = [...k.childNodes].find((n) => n.nodeType === 3 && n.textContent.trim()); if (n) n.textContent = n.textContent.replace(from[i], to[i]); else k.textContent = to[i]; });
   }
 }, [from, to]);
 
 export const EXTRAS = [
   {
     id: 'moxie-hair', scrollFrames: 170, label: 'Hair salon', url: 'https://webbiespirit.com/demo/moxie-hair/', cta: 'button.btn-primary:has-text("Book a cut")', settleMs: 3000,
-    prepare: async (page) => { await replaceText(page, [['MOXIE', 'SALON'], ['Moxie', 'Salon'], ['M O X I E', 'S A L O N']]); await replaceLetters(page, 'MOXIE', 'SALON'); },
+    prepare: async (page) => { await replaceText(page, [['MOXIE', 'SALON'], ['Moxie', 'Salon'], ['moxie', 'salon'], ['M O X I E', 'S A L O N']]); await replaceLetters(page, 'MOXIE', 'SALON'); },
   },
   {
     id: 'kafenio11', scrollFrames: 170, label: 'Café-bar', url: 'https://webbiespirit.com/demo/kafenio11/', cta: 'a.btn-call', settleMs: 3000,
     prepare: async (page) => { await replaceText(page, [['Kafenio 11', 'Kafenio'], ['ΚΑΦΕΝΕΙΟ 11', 'ΚΑΦΕΝΕΙΟ'], ['Καφενείο 11', 'Καφενείο'], ['kafenio11', 'kafenio'], ['Kafeneio11', 'Kafeneio']]);
       // the number sits in its own element next to the word in the header mark
-      await page.evaluate(() => { for (const el of document.querySelectorAll('body *')) { if (el.children.length === 0 && el.textContent.trim() === '11') el.textContent = ''; } });
+      // the number sits in its own element or text node next to the word (header mark, vinyl label "ΚΑΦΕΝΕΙΟ<br>11")
+      await page.evaluate(() => {
+        for (const el of document.querySelectorAll('body *')) { if (el.children.length === 0 && el.textContent.trim() === '11') el.textContent = ''; }
+        const w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT); const nodes = []; while (w.nextNode()) nodes.push(w.currentNode);
+        for (const n of nodes) if (n.textContent.trim() === '11') n.textContent = '';
+      });
     },
   },
   {
