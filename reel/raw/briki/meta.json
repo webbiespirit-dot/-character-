@@ -1,0 +1,35 @@
+{
+ "id": "briki",
+ "url": "https://briki.webbiespirit.com/",
+ "viewport": {
+  "width": 390,
+  "height": 844
+ },
+ "dsf": 3,
+ "fps": 30,
+ "clips": {
+  "hero": {
+   "frames": 90
+  },
+  "cta": {
+   "frames": 60,
+   "pressFrame": 26,
+   "target": {
+    "x": 295.291875,
+    "y": 2400
+   },
+   "box": {
+    "x": 60,
+    "y": 2328,
+    "w": 452.484375,
+    "h": 144
+   }
+  },
+  "scroll": {
+   "frames": 170,
+   "maxY": 9000,
+   "msPerFrame": 978
+  }
+ },
+ "pageHeight": 10850
+}
