@@ -1,0 +1,32 @@
+{
+ "agency-test": {
+  "hero": "raw/agency-test/hero.mp4",
+  "cta": "raw/agency-test/cta.mp4",
+  "scroll": "raw/agency-test/scroll.mp4",
+  "before": "raw/agency-test/before.png",
+  "heroFrames": 30,
+  "scrollFrames": 45,
+  "ctaFrames": 60,
+  "pressFrame": 26,
+  "target": {
+   "x": 604.2637500000001,
+   "y": 2403.375
+  },
+  "pageHeight": 3194
+ },
+ "hoa": {
+  "hero": "raw/hoa/hero.mp4",
+  "cta": "raw/hoa/cta.mp4",
+  "scroll": "raw/hoa/scroll.mp4",
+  "before": "raw/hoa/before.png",
+  "heroFrames": 90,
+  "scrollFrames": 240,
+  "ctaFrames": 60,
+  "pressFrame": 26,
+  "target": {
+   "x": 325.20000000000005,
+   "y": 2082.75
+  },
+  "pageHeight": 9077
+ }
+}

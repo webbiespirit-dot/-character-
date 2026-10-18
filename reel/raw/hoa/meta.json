@@ -1,0 +1,35 @@
+{
+ "id": "hoa",
+ "url": "https://webbiespirit.com/demo/hoa/",
+ "viewport": {
+  "width": 390,
+  "height": 844
+ },
+ "dsf": 3,
+ "fps": 30,
+ "clips": {
+  "hero": {
+   "frames": 90
+  },
+  "cta": {
+   "frames": 60,
+   "pressFrame": 26,
+   "target": {
+    "x": 325.20000000000005,
+    "y": 2082.75
+   },
+   "box": {
+    "x": 60,
+    "y": 2004.75,
+    "w": 510,
+    "h": 156
+   }
+  },
+  "scroll": {
+   "frames": 240,
+   "maxY": 8233,
+   "msPerFrame": 230
+  }
+ },
+ "pageHeight": 9077
+}

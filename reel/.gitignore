@@ -1,0 +1,10 @@
+node_modules/
+out/
+raw/*/hero/
+raw/*/cta/
+raw/*/scroll/
+raw/*/*.mp4
+raw/agency-test/
+raw/capture.log
+public/raw
+public/track.wav
