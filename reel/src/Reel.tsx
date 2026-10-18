@@ -96,7 +96,7 @@ export const Reel: React.FC = () => {
         );
       })}
 
-      <Sequence from={0} durationInFrames={beat(50)} layout="none"><Captions words={CAPTIONS.filter((w) => w.word)} /></Sequence>
+      <Sequence from={0} durationInFrames={beat(50)} layout="none"><Captions words={CAPTIONS} /></Sequence>
       <Sequence from={beat(50)} layout="none">
         <Ending markAt={ENDING.markAt - beat(50)} nameAt={ENDING.nameAt - beat(50)} lineAt={ENDING.lineAt - beat(50)} ctaAt={ENDING.ctaAt - beat(50)} pressAt={ENDING.pressAt - beat(50)} line={ENDING.line} cta={ENDING.cta} handle={ENDING.handle} />
       </Sequence>

@@ -11,8 +11,10 @@ export const Captions: React.FC<{ words: CapWord[]; bottom?: number; size?: numb
   if (!landed.length) return null;
   const group = landed[landed.length - 1].group;
   const phrase = words.filter((w) => w.group === group);
+  // An empty word marks a silent group: the chip clears until the next group lands.
+  if (!phrase.some((w) => w.word)) return null;
   const start = beat(phrase[0].beat);
-  const next = words.find((w) => w.group === group + 1);
+  const next = words.find((w) => w.group > group);
   const end = next ? beat(next.beat) : null;
   const life = Math.min(prog(f, start, start + 5), end === null ? 1 : 1 - prog(f, end - 4, end));
   const boxP = prog(f, start, start + 6);
