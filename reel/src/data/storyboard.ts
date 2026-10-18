@@ -18,7 +18,7 @@ export const DEMOS: Record<string, { type: string }> = {
 };
 
 export const HOOK: HookWord[] = [
-  { text: 'I built', beat: 0, kind: 'word' }, { text: '7', beat: 1, kind: 'numeral' }, { text: 'websites', beat: 1.5, kind: 'word' },
+  { text: 'We built', beat: 0, kind: 'word' }, { text: '7', beat: 1, kind: 'numeral' }, { text: 'websites', beat: 1.5, kind: 'word' },
   { text: 'this week', beat: 2.4, kind: 'small' }, { text: 'for small businesses', beat: 3, kind: 'small' },
 ];
 
