@@ -29,7 +29,7 @@ export const SHOTS: Shot[] = [
   { id: 's03', start: 12, end: 16, demo: 'bowtie', treatment: 'bleed', footage: 'scroll', startFrom: 62, transitionIn: 'glitch', label: true, opts: { driftTo: -60, zoomFrom: 1.02, zoomTo: 1.0 } },
   { id: 's04', start: 16, end: 20, demo: 'adams', treatment: 'punch', footage: 'cta', startFrom: 0, transitionIn: 'cut', label: true },
   { id: 's05', start: 20, end: 23, demo: 'moxie-hair', treatment: 'mockup', footage: 'hero', startFrom: 10, transitionIn: 'whip', whipDir: -1, label: true, opts: { tiltFrom: 12, tiltTo: -6 } },
-  { id: 's06', start: 23, end: 26, demo: 'kafenio11', treatment: 'bleed', footage: 'scroll', startFrom: 20, transitionIn: 'cut', label: true },
+  { id: 's06', start: 23, end: 26, demo: 'kafenio11', treatment: 'bleed', footage: 'scroll', startFrom: 42, transitionIn: 'cut', label: true },
   { id: 's07', start: 26, end: 28, demo: 'k2fit', treatment: 'mockup', footage: 'hero', startFrom: 20, transitionIn: 'glitch', label: true, opts: { tiltFrom: -6, tiltTo: 10, push: 0.1 } },
   { id: 's08', start: 28, end: 30, demo: 'hoa', treatment: 'bleed', footage: 'scroll', startFrom: 80, transitionIn: 'cut', label: false, opts: { zoomFrom: 1.06, zoomTo: 1.0 } },
   { id: 's09', start: 30, end: 32, demo: 'moxie-hair', treatment: 'hold', footage: 'hero', startFrom: 60, transitionIn: 'dissolve', label: false },

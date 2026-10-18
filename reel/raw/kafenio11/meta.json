@@ -1,0 +1,35 @@
+{
+ "id": "kafenio11",
+ "url": "https://webbiespirit.com/demo/kafenio11/",
+ "viewport": {
+  "width": 390,
+  "height": 844
+ },
+ "dsf": 3,
+ "fps": 30,
+ "clips": {
+  "hero": {
+   "frames": 90
+  },
+  "cta": {
+   "frames": 60,
+   "pressFrame": 26,
+   "target": {
+    "x": 606.48,
+    "y": 2033.390625
+   },
+   "box": {
+    "x": 48,
+    "y": 1952.390625,
+    "w": 1074,
+    "h": 162
+   }
+  },
+  "scroll": {
+   "frames": 170,
+   "maxY": 7016,
+   "msPerFrame": 401
+  }
+ },
+ "pageHeight": 7860
+}
