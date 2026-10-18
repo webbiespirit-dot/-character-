@@ -193,7 +193,11 @@ async function captureInner(cfg, { browser, context, page, cdp, log }) {
     const maxY = Math.max(0, Math.min(pageH - VIEW.height, cfg.scrollMax ?? 1e9));
     const n = cfg.scrollFrames ?? 240;   // 8 s
     const d = path.join(dir, 'scroll');
-    await page.evaluate(() => window.scrollTo(0, 0));
+    // fresh load: a CTA tap may have opened a sheet or dialog
+    await page.goto(cfg.url, { waitUntil: 'networkidle', timeout: 90000 });
+    await page.waitForTimeout(cfg.settleMs ?? 2500);
+    if (cfg.prepare) await cfg.prepare(page);
+    await page.evaluate(async () => { if (document.fonts) await document.fonts.ready; window.scrollTo(0, 0); });
     await page.waitForTimeout(600);
     await cdp.send('Animation.setPlaybackRate', { playbackRate: 0.2 });
     const ms = await frameLoop(page, d, n, async (i, t) => {

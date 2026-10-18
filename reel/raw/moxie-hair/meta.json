@@ -1,0 +1,35 @@
+{
+ "id": "moxie-hair",
+ "url": "https://webbiespirit.com/demo/moxie-hair/",
+ "viewport": {
+  "width": 390,
+  "height": 844
+ },
+ "dsf": 3,
+ "fps": 30,
+ "clips": {
+  "hero": {
+   "frames": 90
+  },
+  "cta": {
+   "frames": 60,
+   "pressFrame": 26,
+   "target": {
+    "x": 364.13812500000006,
+    "y": 2190
+   },
+   "box": {
+    "x": 58.5,
+    "y": 2112,
+    "w": 587.765625,
+    "h": 156
+   }
+  },
+  "scroll": {
+   "frames": 170,
+   "maxY": 5953,
+   "msPerFrame": 545
+  }
+ },
+ "pageHeight": 6797
+}

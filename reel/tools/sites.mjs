@@ -56,10 +56,23 @@ const replaceText = (page, map) => page.evaluate((map) => {
   for (const n of nodes) { let t = n.textContent; for (const [a, b] of map) t = t.split(a).join(b); if (t !== n.textContent) n.textContent = t; }
 }, map);
 
+
+// Replace a word that a site splits into one span per letter (for staggered reveals). Same length only.
+const replaceLetters = (page, from, to) => page.evaluate(([from, to]) => {
+  const cands = [...document.querySelectorAll('h1, h2, .word, .display, [class*=title], [class*=word], [class*=brand], [class*=logo], span, div')];
+  for (const el of cands) {
+    const kids = [...el.children];
+    if (kids.length !== from.length) continue;
+    const txt = kids.map((k) => k.textContent.trim()).join('');
+    if (txt !== from) continue;
+    kids.forEach((k, i) => { const n = [...k.childNodes].find((n) => n.nodeType === 3 && n.textContent.trim()); if (n) n.textContent = n.textContent.replace(from[i], to[i]); else k.textContent = to[i]; });
+  }
+}, [from, to]);
+
 export const EXTRAS = [
   {
     id: 'moxie-hair', scrollFrames: 170, label: 'Hair salon', url: 'https://webbiespirit.com/demo/moxie-hair/', cta: 'button.btn-primary:has-text("Book a cut")', settleMs: 3000,
-    prepare: (page) => replaceText(page, [['MOXIE', 'SALON'], ['Moxie', 'Salon'], ['M O X I E', 'S A L O N']]),
+    prepare: async (page) => { await replaceText(page, [['MOXIE', 'SALON'], ['Moxie', 'Salon'], ['M O X I E', 'S A L O N']]); await replaceLetters(page, 'MOXIE', 'SALON'); },
   },
   {
     id: 'kafenio11', scrollFrames: 170, label: 'Café-bar', url: 'https://webbiespirit.com/demo/kafenio11/', cta: 'a.btn-call', settleMs: 3000,
