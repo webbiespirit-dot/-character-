@@ -90,6 +90,20 @@ export async function captureSite(cfg) {
     }, cfg.rafThrottleMs);
   }
   const page = await context.newPage();
+  // Optional in-transit rewrite of site scripts (names painted onto canvases cannot be swapped in the DOM).
+  // cfg.rewrite: [{ url: '**/app.js*', map: [['Old name', 'New name'], ...] }]
+  for (const rw of cfg.rewrite ?? []) {
+    await page.route(rw.url, async (route) => {
+      // fetched with curl: it follows the environment's proxy settings, which Playwright's own fetch does not
+      const url = route.request().url();
+      let body;
+      try { body = execFileSync('curl', ['-sS', '--fail', '-L', url], { encoding: 'utf8', maxBuffer: 64 << 20 }); } catch (e) { return route.continue(); }
+      for (const [a, b] of rw.map) body = body.split(a).join(b);
+      const ext = new URL(url).pathname.split('.').pop();
+      const contentType = ext === 'js' || ext === 'mjs' ? 'application/javascript; charset=utf-8' : ext === 'css' ? 'text/css; charset=utf-8' : ext === 'json' ? 'application/json; charset=utf-8' : 'text/plain; charset=utf-8';
+      await route.fulfill({ status: 200, contentType, body });
+    });
+  }
   page.setDefaultTimeout(120000);
   const cdp = await context.newCDPSession(page);
   await cdp.send('Animation.enable');

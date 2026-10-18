@@ -82,6 +82,7 @@ export const EXTRAS = [
   },
   {
     id: 'kafenio11', scrollFrames: 170, label: 'Café-bar', url: 'https://webbiespirit.com/demo/kafenio11/', cta: 'a.btn-call', settleMs: 3000,
+    rewrite: [{ url: '**/app.js*', map: [['ΚΑΦΕΝΕΙΟ 11', 'ΚΑΦΕΝΕΙΟ'], ['KAFENIO 11', 'KAFENIO'], ['Kafenio 11', 'Kafenio'], ['Καφενείο 11', 'Καφενείο']] }],
     prepare: async (page) => { await replaceText(page, [['Kafenio 11', 'Kafenio'], ['ΚΑΦΕΝΕΙΟ 11', 'ΚΑΦΕΝΕΙΟ'], ['Καφενείο 11', 'Καφενείο'], ['kafenio11', 'kafenio'], ['Kafeneio11', 'Kafeneio']]);
       // the number sits in its own element next to the word in the header mark
       // the number sits in its own element or text node next to the word (header mark, vinyl label "ΚΑΦΕΝΕΙΟ<br>11")
