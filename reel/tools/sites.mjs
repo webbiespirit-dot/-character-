@@ -76,7 +76,10 @@ export const EXTRAS = [
   },
   {
     id: 'kafenio11', scrollFrames: 170, label: 'Café-bar', url: 'https://webbiespirit.com/demo/kafenio11/', cta: 'a.btn-call', settleMs: 3000,
-    prepare: (page) => replaceText(page, [['Kafenio 11', 'Kafenio'], ['ΚΑΦΕΝΕΙΟ 11', 'ΚΑΦΕΝΕΙΟ'], ['Καφενείο 11', 'Καφενείο'], ['kafenio11', 'kafenio']]),
+    prepare: async (page) => { await replaceText(page, [['Kafenio 11', 'Kafenio'], ['ΚΑΦΕΝΕΙΟ 11', 'ΚΑΦΕΝΕΙΟ'], ['Καφενείο 11', 'Καφενείο'], ['kafenio11', 'kafenio'], ['Kafeneio11', 'Kafeneio']]);
+      // the number sits in its own element next to the word in the header mark
+      await page.evaluate(() => { for (const el of document.querySelectorAll('body *')) { if (el.children.length === 0 && el.textContent.trim() === '11') el.textContent = ''; } });
+    },
   },
   {
     id: 'k2fit', scrollFrames: 170, label: 'Fitness studio', url: 'https://webbiespirit.com/demo/k2fit/', cta: 'a.btn:has-text("Κλείσε δωρεάν")', settleMs: 3000,
