@@ -36,7 +36,7 @@ export const SITES = [
     }),
   },
   {
-    id: 'adams', label: 'Old-town barber', url: 'https://webbiespirit.com/demo/adams/', cta: '.hero .ctas .btn.solid', settleMs: 3000,
+    id: 'adams', label: 'Old-town barber', url: 'https://webbiespirit.com/demo/adams/', cta: '.hero .ctas .btn.solid', settleMs: 3000, canvasDpr: 1, rafThrottleMs: 120, scrollFrames: 170,
     prepare: async (page) => page.evaluate(() => {
       const set = (sel, t) => document.querySelectorAll(sel).forEach((el) => { el.textContent = t; });
       set('nav .word', 'Κουρείο');

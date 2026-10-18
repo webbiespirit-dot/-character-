@@ -79,6 +79,16 @@ export async function captureSite(cfg) {
   // Cap what scripts see (CSS and screenshots stay at 3x), so three.js canvases render at a lighter ratio.
   const canvasDpr = cfg.canvasDpr ?? 1.5;
   await context.addInitScript((dpr) => { try { Object.defineProperty(window, 'devicePixelRatio', { get: () => dpr, configurable: true }); } catch (e) {} }, canvasDpr);
+  // Some WebGL pages render back-to-back on requestAnimationFrame and starve the main thread under software GL.
+  // Throttle rAF so the page still animates (time-based) but leaves room for screenshots.
+  if (cfg.rafThrottleMs) {
+    await context.addInitScript((ms) => {
+      const raf = window.requestAnimationFrame.bind(window);
+      let last = 0;
+      window.requestAnimationFrame = (cb) => { const now = performance.now(); const wait = Math.max(0, ms - (now - last)); return setTimeout(() => { last = performance.now(); raf(cb); }, wait); };
+      window.cancelAnimationFrame = (id) => clearTimeout(id);
+    }, cfg.rafThrottleMs);
+  }
   const page = await context.newPage();
   page.setDefaultTimeout(120000);
   const cdp = await context.newCDPSession(page);
