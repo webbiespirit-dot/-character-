@@ -48,9 +48,9 @@ export const CAPTIONS: CapWord[] = [
   { word: 'Hair.', beat: 20.5, group: 5 },
   { word: 'Coffee.', beat: 23.5, group: 6 },
   { word: 'Fitness.', beat: 26.5, group: 7 },
-  { word: 'Nails.', beat: 28.5, group: 8 },
+  { word: 'Nails.', beat: 28.5, group: 8, bottom: 1180 },                 // punch shot: chip sits above the tapped button
   { word: '', beat: 30, group: 9 },                      // silence during the hold
-  { word: 'Each one', beat: 32.5, group: 10 }, { word: 'in a day.', beat: 33.5, group: 10 },
+  { word: 'Each one', beat: 32.5, group: 10, bottom: 1180 }, { word: 'in a day.', beat: 33.5, group: 10 },
   { word: 'No templates.', beat: 36.5, group: 11 },
   { word: 'Same page.', beat: 40.5, group: 12 }, { word: 'New design.', beat: 42, group: 12 },
   { word: 'Free preview', beat: 44.5, group: 13 }, { word: 'first.', beat: 45.5, group: 13 },
