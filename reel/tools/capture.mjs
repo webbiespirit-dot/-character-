@@ -75,7 +75,12 @@ function pointerPath(from, to, n, seed = 1) {
 export async function captureSite(cfg) {
   const browser = await chromium.launch({ headless: true, args: ['--disable-gpu-vsync', '--use-gl=angle', '--use-angle=swiftshader', '--ignore-gpu-blocklist', '--enable-unsafe-swiftshader'] });
   const context = await browser.newContext({ viewport: VIEW, deviceScaleFactor: DSF, isMobile: true, hasTouch: true, userAgent: 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1', colorScheme: 'light', reducedMotion: 'no-preference', locale: 'en-GB', timezoneId: 'Asia/Nicosia' });
+  // WebGL pages render their canvases at devicePixelRatio; under software GL at 3x that can take seconds per frame.
+  // Cap what scripts see (CSS and screenshots stay at 3x), so three.js canvases render at a lighter ratio.
+  const canvasDpr = cfg.canvasDpr ?? 1.5;
+  await context.addInitScript((dpr) => { try { Object.defineProperty(window, 'devicePixelRatio', { get: () => dpr, configurable: true }); } catch (e) {} }, canvasDpr);
   const page = await context.newPage();
+  page.setDefaultTimeout(120000);
   const cdp = await context.newCDPSession(page);
   await cdp.send('Animation.enable');
   const log = (m) => console.log(`[${cfg.id}] ${m}`);
