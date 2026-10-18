@@ -16,6 +16,7 @@ export const PhoneMockup: React.FC<{
   const s = (1 + push * t) * (enter ? interpolate(prog(f, 0, 10), [0, 1], [0.94, 1]) : 1);
   const op = enter ? prog(f, 0, 6) : 1;
   const radius = width * 0.105;
+  const sa = Math.round(width * 0.14); // status-bar inset: the page starts below the island, as on a real phone
   return (
     <AbsoluteFill style={{ justifyContent: 'center', alignItems: 'center', perspective: 2400 }}>
       <div style={{ width, height: h, transform: `translateY(${y}px) rotateY(${ry}deg) rotateX(${rx}deg) scale(${s})`, transformStyle: 'preserve-3d', opacity: op, position: 'relative' }}>
@@ -28,7 +29,9 @@ export const PhoneMockup: React.FC<{
         <div style={{ position: 'absolute', right: -20, top: h * 0.26, width: 4, height: 140, borderRadius: 2, background: '#1a1928' }} />
         {/* screen */}
         <div style={{ position: 'absolute', inset: 0, borderRadius: radius, overflow: 'hidden', background: '#000' }}>
-          <Clip src={src} startFrom={startFrom} playbackRate={playbackRate} />
+          <div style={{ position: 'absolute', left: 0, right: 0, top: sa, bottom: 0, overflow: 'hidden' }}>
+            <Clip src={src} startFrom={startFrom} playbackRate={playbackRate} style={{ objectPosition: '50% 0%' }} />
+          </div>
           <div style={{ position: 'absolute', top: 14, left: '50%', width: width * 0.22, height: width * 0.058, marginLeft: -width * 0.11, borderRadius: 999, background: '#000' }} />
           <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(118deg, rgba(255,255,255,.10) 0%, rgba(255,255,255,.03) 22%, transparent 40%)', pointerEvents: 'none' }} />
         </div>
