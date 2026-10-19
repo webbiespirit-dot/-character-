@@ -2,7 +2,7 @@
 
 The studio's mark for Instagram: a spun-gold sun with the W written through it as one signature stroke. Only gold and white.
 
-The pen starts on the white paper at the lower left as a bundle of gold threads, a light trail. Where it crosses the rim of the sun it flips to a solid white stroke and writes the W with real pressure: hairline joins, two heavy downstrokes, the middle peak lower than the outer two, as a hand writes it. On the way out it flips back to gold and the swash arcs over the top of the sun before it fades. The sun is engraved with fine concentric rings and a brushed light sweep, so from a distance it is solid gold and up close it is spun metal. Inside the sun the same threads run white-hot as faint silk lines in the white stroke.
+The pen starts on the white paper at the lower left as a bundle of gold threads, a light trail. Where it crosses the rim of the sun it flips to a solid white stroke and writes the W with real pressure: thin joins, two heavy downstrokes with the swell on their trailing edge as a nib leaves it, the middle peak lower than the outer two, as a hand writes it. On the way out it flips back to gold and the swash arcs over the top of the sun and lifts off, fading to nothing. The thin strokes never drop below 15 units of the 1000-unit square, so the W keeps its joins at 110 px. The sun is engraved with fine concentric rings and a brushed light sweep, so from a distance it is solid gold and up close it is spun metal. Inside the sun the same threads run white-hot as faint silk lines in the white stroke.
 
 Nothing in it is drawn by hand or by an image model. `scripts/make-logo.py` computes the stroke (a Bézier centerline, a pressure profile along its length, and the trace of a round nib as a union of discs), lays the threads and the rings, and writes the SVG and the animated page. `scripts/render-logo.mjs` renders the rasters with Chromium and ffmpeg. Both are deterministic.
 
@@ -13,7 +13,7 @@ Nothing in it is drawn by hand or by an image model. `scripts/make-logo.py` comp
 | `logo/w-signature.svg` | The master mark, 1000 × 1000 units on a white square. Everything important sits inside the circle Instagram crops to, with an 8% margin. | Keep as the source. Any size can be rendered from it. |
 | `logo/profile-1080.png` | The mark at 1080 × 1080. | **The profile picture.** Instagram shows it as a circle, about 110 px wide on a phone, and the file is composed for that crop. |
 | `logo/preview-sizes.png` | The mark as the circles a phone shows: 320, 150, 110, 64, 40 and 28 px. | A check, not for posting. |
-| `logo/reveal.html` | The mark writing itself: the sun appears, the pen enters from the lower left, writes the W, leaves over the top, then a light sweeps the gold. | The source of the videos. Open it in a browser to watch it. |
+| `logo/reveal.html` | The mark writing itself: the sun appears, the pen enters from the lower left, writes the W one stroke at a time, braking into each turn, leaves over the top, then a light catches the gold. | The source of the videos. Open it in a browser to watch it. |
 | `logo/reveal-1080x1920.mp4` | The reveal, 9:16, 6 s, 30 fps, no sound. | A Reel or a story. |
 | `logo/reveal-1080x1080.mp4` | The same, square. | A feed post. |
 
@@ -29,7 +29,7 @@ Upload `reveal-1080x1920.mp4` as a Reel or a story, or `reveal-1080x1080.mp4` to
 
 ## The gold
 
-The disc is a brushed sweep from champagne (#F7E6B4) through yellow gold (#DDB048) to bronze (#B98424) and back to pale gold, under concentric engraving rings in #FFF6D8 and #7A5212 at 5–16% opacity, with a darker rim. The threads run a ramp of #FCF1CC, #F0D27E, #D8A63A, #C08B2C and #8F5E14, and the spine that holds them together at small sizes is #9C6B1B. The W is #FFFFFF. There is no other colour.
+The disc is a brushed sweep from pale gold (#EDD08A) through yellow gold (#DDB048) to bronze (#B98424) and back, under concentric engraving rings in #FFF6D8 and #7A5212 at 5–16% opacity that fade out at the centre, with a darker rim. The threads run a ramp of #FCF1CC, #F0D27E, #D8A63A, #C08B2C and #9A6A1A, nothing darker than bronze #80520F, and the spine that holds them together at small sizes is #9C6B1B. The W is #FFFFFF with a faint engraved edge (#C9973A at half opacity) so it keeps its outline where the light falls. There is no other colour.
 
 ## Regenerating
 
