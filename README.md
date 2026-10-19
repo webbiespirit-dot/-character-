@@ -28,6 +28,8 @@ python3 -m http.server 8080
 | `scripts/make-textures.py` | Regenerates the emulsion edge mask, emulsion mottle, paper grain and touch icon (deterministic). |
 | `scripts/fetch-media.sh` | Downloads all media into `assets/media/` and points the page at the local copies. |
 | `growth/` | Finding clients: the plan (`PLAN.md`), outreach templates in EN/EL and `ws.py`, which prints each day's plan with the messages filled in. For the studio's own use; never upload it. |
+| `social/` | Instagram: the two Reels (`instagram-reels.md`) and the studio's logo, the gold-and-white W signature (`logo.md`, files in `logo/`). |
+| `scripts/make-logo.py`, `scripts/render-logo.mjs` | Compute the W signature mark and render the Instagram kit from it (profile picture, size preview, reveal videos). |
 
 ## Hosting the media yourself
 
@@ -60,3 +62,4 @@ She is a fictional character made for this page. She presents the studio. She ne
 | Olive photogram | GPT Image 2.5, job `48a1d821-31c6-4ef5-9641-c338d1f5092d` |
 | Olive loop | Seedance 2.5, the photogram as both first and last frame (seamless loop), job `845f1ad7-56c1-48aa-bc13-15294f372906` |
 | Emulsion edge and mottle, paper grain, icons | `scripts/make-textures.py` and hand-written SVG |
+| The W signature (Instagram logo) | `scripts/make-logo.py` computes the stroke, threads and rings; `scripts/render-logo.mjs` renders the PNGs and MP4s with Chromium and ffmpeg. No image model. |

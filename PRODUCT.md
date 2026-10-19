@@ -36,7 +36,7 @@ The studio is based in Cyprus and also works remotely with businesses anywhere. 
 
 - Name: webbiespirit, set in lowercase.
 - The presenter wears cobalt blue, and the brand world is built from that cobalt.
-- No existing logo, palette or typeface was supplied.
+- No logo, palette or typeface was supplied at the start. On 2026-10-19 the owner asked for a new logo for Instagram: gold and white only, built on a W signature, and unlike anything seen before. It is the W signature in a spun-gold sun, in `social/logo/` (see `social/logo.md`). The campaign page still carries its small sun-disc mark.
 
 ## Evidence on Hand
 

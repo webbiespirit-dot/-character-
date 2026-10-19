@@ -1,2 +1,5 @@
 # Lead list: business contacts and outreach status. Never commit it (this repo is public).
 growth/leads.csv
+
+# Local Playwright install for scripts/render-logo.mjs
+node_modules/
