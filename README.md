@@ -29,7 +29,7 @@ python3 -m http.server 8080
 | `scripts/fetch-media.sh` | Downloads all media into `assets/media/` and points the page at the local copies. |
 | `growth/` | Finding clients: the plan (`PLAN.md`), outreach templates in EN/EL and `ws.py`, which prints each day's plan with the messages filled in. For the studio's own use; never upload it. |
 | `social/` | Instagram: the two Reels (`instagram-reels.md`) and the studio's logo, the gold-and-white W signature (`logo.md`, files in `logo/`). |
-| `scripts/make-logo.py`, `scripts/render-logo.mjs` | Compute the W signature mark and render the Instagram kit from it (profile picture, size preview, reveal videos). |
+| `scripts/make-logo.py`, `scripts/render-logo.mjs` | Compute the W signature mark (framed, and full-bleed with `--full`) and render the Instagram kit from it (profile picture, size preview, reveal videos). |
 
 ## Hosting the media yourself
 

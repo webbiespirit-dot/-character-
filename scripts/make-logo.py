@@ -5,10 +5,14 @@ Outside the disc the pen is a bundle of gold light-trail threads on white paper;
 crosses the rim it flips to a solid white knockout, and it flips back to gold on the way
 out. Everything is computed here (deterministic, fixed seeds) and written as SVG:
 
-    python3 scripts/make-logo.py [outdir]      (default: social/logo)
+    python3 scripts/make-logo.py [outdir]             the mark on white, and the reveal
+    python3 scripts/make-logo.py [outdir] --full      the full-bleed profile picture
+                                                      (outdir defaults to social/logo)
 
-    w-signature.svg   the master mark, 1000x1000 units, white background
-    reveal.html       the mark writing itself: the page scripts/render-logo.mjs turns into video
+    w-signature.svg        the master mark, 1000x1000 units, white background
+    reveal.html            the mark writing itself: the page scripts/render-logo.mjs turns into video
+    w-signature-full.svg   the profile picture: the sun fills the whole square, so it fills
+                           Instagram's circle edge to edge, with the signature in white
 
 Rasters (profile PNG, size ladder, Reel MP4) come from scripts/render-logo.mjs, which needs
 Chromium through Playwright and ffmpeg.
@@ -19,16 +23,20 @@ from pathlib import Path
 
 import numpy as np
 
-OUT = Path(sys.argv[1]) if len(sys.argv) > 1 else Path(__file__).resolve().parent.parent / "social" / "logo"
+FULL = "--full" in sys.argv
+ARGS = [a for a in sys.argv[1:] if not a.startswith("--")]
+OUT = Path(ARGS[0]) if ARGS else Path(__file__).resolve().parent.parent / "social" / "logo"
 OUT.mkdir(parents=True, exist_ok=True)
 
 R0 = 316.0                                # the sun disc, before the mark is fitted to the crop
 SAFE = 456.0                              # Instagram's circle crop (radius 500), minus a margin
+SAFE_FULL = 460.0                         # the full-bleed picture's ink, inside the same circle
+PEN_FULL = 1.32                           # and its pen, heavier because the W is bigger
 
 # ---------- the signature centerline -------------------------------------------------
 # One stroke, left to right: (x, y, tangent angle in degrees (screen coords), handle in, handle out).
 # Tangents are shared at every knot, so the joins are G1 and the pen never jerks.
-KNOTS = [
+KNOTS_CROP = [
     (140, 700, -60, 0, 60),      # pen touches down outside the disc, lower left
     (238, 548, -66, 76, 96),     # climbs through the rim
     (330, 300, 0, 22, 22),       # apex 1, inside the sun
@@ -40,6 +48,21 @@ KNOTS = [
     (660, 146, 180, 92, 92),     # the swash crowns the sun
     (440, 178, 190, 96, 0),      # and lifts off past the axis
 ]
+# the full-bleed mark has no white paper outside the sun, so the whole signature lives inside the
+# circle and the W is drawn about 1.35x bigger; same ten knots, same roles
+KNOTS_FULL = [
+    (118, 668, -58, 0, 70),      # the pen touches down at the lower left
+    (196, 478, -68, 84, 104),    # climbs
+    (262, 218, 0, 24, 24),       # apex 1
+    (338, 806, 0, 34, 34),       # valley 1
+    (482, 374, 0, 22, 22),       # the middle peak
+    (624, 806, 0, 34, 34),       # valley 2
+    (742, 330, -66, 150, 100),   # the final upstroke
+    (808, 198, -134, 92, 78),    # turns over the right shoulder
+    (660, 140, 180, 92, 92),     # the swash crowns the sun
+    (468, 160, 190, 96, 0),      # and lifts off
+]
+KNOTS = KNOTS_FULL if FULL else KNOTS_CROP
 APEX1, VALLEY1, PEAK, VALLEY2, EXIT, CROWN = 2, 3, 4, 5, 6, 8
 # pen pressure, as half-width keys at (knot, fraction of the way to the next knot).
 # The rises never drop below 7.5 units (15 wide, 1.6 px at 110 px), so the W keeps its joins
@@ -114,36 +137,54 @@ CC = C - N * (bias * hw)[:, None]          # the pen's centre, biased
 
 # fit the whole mark to the crop: scale about the centre until the farthest ink sits at SAFE,
 # then shift so the ink's bounding box is centred (the sun moves with it, a little)
-CX = CY = 500.0
-R = R0
-ink = np.vstack([CC + N * hw[:, None], CC - N * hw[:, None]])
-k = min(1.12, (SAFE - 3) / np.max(np.hypot(ink[:, 0] - 500, ink[:, 1] - 500)))
-C = (C - 500) * k + 500
-CC = (CC - 500) * k + 500
-hw = hw * k
-R = R0 * k
-ink = np.vstack([CC + N * hw[:, None], CC - N * hw[:, None]])
-box_c = (ink.min(0) + ink.max(0)) / 2
-shift = np.clip(0.6 * (500 - box_c), -22, 22)
-for _ in range(8):
-    moved = ink + shift
-    reach = np.max(np.hypot(moved[:, 0] - 500, moved[:, 1] - 500))
-    if reach <= SAFE:
-        break
-    shift *= 0.8
-C += shift
-CC += shift
-CX, CY = 500 + shift[0], 500 + shift[1]
-ink = np.vstack([CC + N * hw[:, None], CC - N * hw[:, None]])
-reach = np.max(np.hypot(ink[:, 0] - 500, ink[:, 1] - 500))
+if FULL:
+    # the knots are already at their final size: only the pen is scaled, and the sun is the whole square
+    CX = CY = 500.0
+    R = None
+    taper = np.ones_like(s)                    # the flourish thins as it leaves the W, like a pen lifting
+    on = s >= knot_s[EXIT]
+    u = np.clip((s[on] - knot_s[EXIT]) / (knot_s[CROWN] - knot_s[EXIT]), 0, 1)
+    taper[on] = 1 - 0.5 * (3 * u ** 2 - 2 * u ** 3)
+    hw = hw * PEN_FULL * taper
+    CC = C - N * (bias * hw)[:, None]
+    SAFE = SAFE_FULL
+    ink = np.vstack([CC + N * hw[:, None], CC - N * hw[:, None]])
+    reach = np.max(np.hypot(ink[:, 0] - 500, ink[:, 1] - 500))
+else:
+    CX = CY = 500.0
+    R = R0
+    ink = np.vstack([CC + N * hw[:, None], CC - N * hw[:, None]])
+    k = min(1.12, (SAFE - 3) / np.max(np.hypot(ink[:, 0] - 500, ink[:, 1] - 500)))
+    C = (C - 500) * k + 500
+    CC = (CC - 500) * k + 500
+    hw = hw * k
+    R = R0 * k
+    ink = np.vstack([CC + N * hw[:, None], CC - N * hw[:, None]])
+    box_c = (ink.min(0) + ink.max(0)) / 2
+    shift = np.clip(0.6 * (500 - box_c), -22, 22)
+    for _ in range(8):
+        moved = ink + shift
+        reach = np.max(np.hypot(moved[:, 0] - 500, moved[:, 1] - 500))
+        if reach <= SAFE:
+            break
+        shift *= 0.8
+    C += shift
+    CC += shift
+    CX, CY = 500 + shift[0], 500 + shift[1]
+    ink = np.vstack([CC + N * hw[:, None], CC - N * hw[:, None]])
+    reach = np.max(np.hypot(ink[:, 0] - 500, ink[:, 1] - 500))
 
 # where the stroke crosses the rim (entering, then leaving)
-rad = np.hypot(C[:, 0] - CX, C[:, 1] - CY)
-inside = rad < R
-crossings = np.where(inside[:-1] != inside[1:])[0]
-s_in, s_out = s[crossings[0]], s[crossings[-1]]
-print(f"length {L:.0f}  scale {k:.3f}  sun r {R:.0f} at ({CX:.0f},{CY:.0f})  rim in at {s_in:.0f}  out at {s_out:.0f}  "
-      f"farthest ink {reach:.0f} (safe {SAFE:.0f})", file=sys.stderr)
+if FULL:
+    far = np.argmax(np.hypot(ink[:, 0] - 500, ink[:, 1] - 500)) % len(s)
+    print(f"length {L:.0f}  farthest ink {reach:.0f} at {C[far].round()} (safe {SAFE:.0f})", file=sys.stderr)
+else:
+    rad = np.hypot(C[:, 0] - CX, C[:, 1] - CY)
+    inside = rad < R
+    crossings = np.where(inside[:-1] != inside[1:])[0]
+    s_in, s_out = s[crossings[0]], s[crossings[-1]]
+    print(f"length {L:.0f}  scale {k:.3f}  sun r {R:.0f} at ({CX:.0f},{CY:.0f})  rim in at {s_in:.0f}  out at {s_out:.0f}  "
+          f"farthest ink {reach:.0f} (safe {SAFE:.0f})", file=sys.stderr)
 assert reach <= SAFE, "the mark leaves Instagram's circle crop"
 
 
@@ -227,6 +268,73 @@ def bundle(sel, n, dist_pow, scale, amp_rng, lam_rng, sw_fn, op_fn, gid, centre=
         out.append('<path d="%s" stroke="url(#%s%d)" stroke-width="%.2f" opacity="%.2f" stroke-linecap="%s"/>'
                    % (d, gid, i % NG, sw_fn(base[i]), op_fn(base[i]), cap))
     return "".join(out)
+
+
+if FULL:
+    # ---------- the full-bleed profile picture ---------------------------------------------
+    # Instagram shows the picture as a circle, so here the sun is the whole square: spun gold
+    # edge to edge, and the signature in white from first touch to last. With no white paper
+    # outside a sun there are no gold threads; the pen is white all the way, and the swash
+    # still lifts off and fades.
+    body = s < knot_s[CROWN]
+    tail = ~body
+    white_body, white_tail = discs(body, floor=0.6), discs(tail, floor=0.5)
+    edge_body, edge_tail = discs(body, floor=0.6, pad=2.5), discs(tail, floor=0.5, pad=2.5)
+    silk = bundle(body, 8, 1.3, 0.86, (0.03, 0.10), (900, 1700),
+                  lambda b: 0.8 + 0.6 * (1 - abs(b)) ** 1.5, lambda b: 0.3, "p")
+    x_crown, x_end = C[int(knot_s[CROWN]), 0], C[-1, 0]
+    rng2 = np.random.default_rng(3)
+    rings = []
+    rr = 20.0
+    while rr < 720:
+        op = rng2.uniform(0.05, 0.16) * min(1.0, (rr - 20) / 40.0)      # a clean pool at the centre
+        col = "#FFF6D8" if rng2.random() < 0.5 else "#7A5212"
+        sw = rng2.uniform(0.8, 1.5)
+        if op > 0.004:
+            rings.append('<circle cx="500" cy="500" r="%.1f" stroke="%s" stroke-opacity="%.3f" stroke-width="%.2f"/>' % (rr, col, op, sw))
+        rr += rng2.uniform(1.7, 2.6)
+
+    def wedge(a0, a1, radius=820):
+        a0, a1 = math.radians(a0), math.radians(a1)
+        return "M500,500 L%.1f,%.1f L%.1f,%.1f Z" % (500 + radius * math.cos(a0), 500 + radius * math.sin(a0),
+                                                    500 + radius * math.cos(a1), 500 + radius * math.sin(a1))
+
+    pale = "".join(grad("p%d" % k, PALE, k) for k in range(NG))
+    full_svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" width="1000" height="1000">
+<title>webbiespirit</title>
+<defs>
+  {pale}
+  <linearGradient id="spun" gradientUnits="userSpaceOnUse" x1="90" y1="90" x2="910" y2="910">
+    <stop offset="0" stop-color="#DDB048"/><stop offset="0.2" stop-color="#D6A63E"/><stop offset="0.42" stop-color="#CF9C34"/>
+    <stop offset="0.6" stop-color="#B98424"/><stop offset="0.8" stop-color="#CFA03A"/><stop offset="1" stop-color="#DDB653"/>
+  </linearGradient>
+  <radialGradient id="rim" gradientUnits="userSpaceOnUse" cx="500" cy="500" r="500">
+    <stop offset="0.8" stop-color="#8A5A12" stop-opacity="0"/><stop offset="1" stop-color="#8A5A12" stop-opacity="0.3"/>
+  </radialGradient>
+  <linearGradient id="lift" gradientUnits="userSpaceOnUse" x1="{x_crown:.0f}" y1="0" x2="{x_end:.0f}" y2="0">
+    <stop offset="0" stop-color="#fff"/><stop offset="0.45" stop-color="#fff"/><stop offset="1" stop-color="#000"/>
+  </linearGradient>
+  <mask id="liftOff" maskUnits="userSpaceOnUse" x="0" y="0" width="1000" height="1000"><rect width="1000" height="1000" fill="url(#lift)"/></mask>
+  <filter id="soft" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="30"/></filter>
+  <clipPath id="ink"><path d="{white_body}"/></clipPath>
+</defs>
+<rect width="1000" height="1000" fill="url(#spun)"/>
+<g fill="none">{''.join(rings)}</g>
+<path d="{wedge(-135 - 26, -135 + 26)}" fill="#FFF8E0" opacity="0.12" filter="url(#soft)"/>
+<path d="{wedge(45 - 22, 45 + 22)}" fill="#FFF3CC" opacity="0.2" filter="url(#soft)"/>
+<rect width="1000" height="1000" fill="url(#rim)"/>
+<g fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path d="{edge_body}" fill="#8A5A12" stroke="none" opacity="0.34"/>
+  <g mask="url(#liftOff)"><path d="{edge_tail}" fill="#8A5A12" stroke="none" opacity="0.34"/></g>
+  <path d="{white_body}" fill="#FFFFFF" stroke="none"/>
+  <g clip-path="url(#ink)">{silk}</g>
+  <g mask="url(#liftOff)"><path d="{white_tail}" fill="#FFFFFF" stroke="none"/></g>
+</g>
+</svg>
+'''
+    (OUT / "w-signature-full.svg").write_text(full_svg)
+    print("wrote", OUT / "w-signature-full.svg", f"({len(full_svg) // 1024} KB)", file=sys.stderr)
+    sys.exit(0)
 
 
 # the thread bundle lives outside the sun: lead-in and swash, with a little overlap under the disc.

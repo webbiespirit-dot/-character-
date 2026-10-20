@@ -1,11 +1,13 @@
-// Render the Instagram logo kit from the SVG and the reveal page that scripts/make-logo.py writes.
+// Render the Instagram logo kit from the SVGs and the reveal page that scripts/make-logo.py writes.
 //
+//   python3 scripts/make-logo.py && python3 scripts/make-logo.py --full
 //   node scripts/render-logo.mjs [outdir]        (default: social/logo)
 //
 // Needs Playwright with Chromium (npm i playwright && npx playwright install chromium) and ffmpeg.
 // Writes:
-//   profile-1080.png          the profile picture (upload this one)
-//   preview-sizes.png         the mark as the circles a phone shows: 320, 150, 110, 64, 40 and 28 px
+//   profile-1080.png          the profile picture (upload this one): the sun fills the whole circle
+//   profile-framed-1080.png   the same mark on a white square, for places that want a white ground
+//   preview-sizes.png         the profile picture as the circles a phone shows: 320, 150, 110, 64, 40 and 28 px
 //   reveal-1080x1920.mp4      the signature writing itself, 9:16 for a Reel or a story (6 s, 30 fps)
 //   reveal-1080x1080.mp4      the same, square, for the feed
 import { chromium } from 'playwright';
@@ -16,19 +18,19 @@ import { execFileSync } from 'node:child_process';
 
 const out = resolve(process.argv[2] || 'social/logo');
 mkdirSync(out, { recursive: true });
-const svg = readFileSync(join(out, 'w-signature.svg'), 'utf8');
+const framed = readFileSync(join(out, 'w-signature.svg'), 'utf8');
+const full = readFileSync(join(out, 'w-signature-full.svg'), 'utf8');
 const browser = await chromium.launch();
 
-async function shotSvg(size, file) {
+async function shotSvg(svg, size, file) {
   const page = await browser.newPage({ viewport: { width: size, height: size } });
   await page.setContent(`<!doctype html><meta charset="utf-8"><style>html,body{margin:0;background:#fff}svg{display:block;width:${size}px;height:${size}px}</style>${svg}`, { waitUntil: 'load' });
   await page.screenshot({ path: file });
   await page.close();
 }
 
-// the profile picture, plus the size ladder (circle-cropped, as Instagram shows it)
-await shotSvg(1080, join(out, 'profile-1080.png'));
-{
+// the size ladder: the picture cropped to circles, as Instagram shows it
+async function ladder(svg, file) {
   const sizes = [320, 150, 110, 64, 40, 28];
   const gap = 36, pad = 48;
   const width = pad * 2 + sizes.reduce((a, b) => a + b, 0) + gap * (sizes.length - 1);
@@ -43,9 +45,13 @@ await shotSvg(1080, join(out, 'profile-1080.png'));
   });
   const page = await browser.newPage({ viewport: { width, height } });
   await page.setContent(`<!doctype html><meta charset="utf-8"><body style="margin:0;background:#fff;position:relative;width:${width}px;height:${height}px">${cells.join('')}</body>`, { waitUntil: 'load' });
-  await page.screenshot({ path: join(out, 'preview-sizes.png') });
+  await page.screenshot({ path: file });
   await page.close();
 }
+
+await shotSvg(full, 1080, join(out, 'profile-1080.png'));
+await shotSvg(framed, 1080, join(out, 'profile-framed-1080.png'));
+await ladder(full, join(out, 'preview-sizes.png'));
 
 // the reveal: scrub the page's animations frame by frame, then let ffmpeg join them
 async function video(width, height, file, fps = 30, seconds = 6) {
@@ -67,4 +73,4 @@ async function video(width, height, file, fps = 30, seconds = 6) {
 await video(1080, 1920, join(out, 'reveal-1080x1920.mp4'));
 await video(1080, 1080, join(out, 'reveal-1080x1080.mp4'));
 await browser.close();
-console.log('wrote', join(out, 'profile-1080.png'), 'and', join(out, 'preview-sizes.png'));
+console.log('wrote', join(out, 'profile-1080.png'), join(out, 'profile-framed-1080.png'), 'and', join(out, 'preview-sizes.png'));
